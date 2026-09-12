@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Estilo en movimiento", "description": "Moda moderna del día a día para hombres, mujeres y niños. Enviamos a toda la UE, Reino Unido y Estados Unidos." },
+    "Nav": { "shop": "Tienda", "men": "Hombre", "women": "Mujer", "kids": "Niños", "journal": "Journal", "about": "Sobre nosotros", "contact": "Contacto", "search": "Buscar", "searchPlaceholder": "Buscar productos...", "account": "Cuenta", "wishlist": "Favoritos", "cart": "Carrito" },
+    "PromoBar": { "message1": "Rebajas de nueva temporada", "message2": "Hasta 30% de descuento" },
+    "Hero": { "eyebrow": "Nueva temporada", "title": "Estilo en movimiento", "subtitle": "Prendas de nueva temporada para la confianza diaria.", "cta": "Comprar ahora", "badgeTitle": "Camisetas populares", "badgeCta": "Comprar ahora" },
+    "MarqueeText": { "phrase1": "Diseñado para moverse", "phrase2": "Hecho para durar" },
+    "Sections": {
+      "newArrivals": { "title": "Ya llegaron las novedades", "viewMore": "Ver más" },
+      "seasonalDrop": { "title": "Colección de temporada", "cta": "Comprar ahora" },
+      "bestSellers": { "title": "Más vendidos", "filterAll": "Todos", "filterJacket": "Chaqueta", "filterHoodie": "Sudadera", "filterPants": "Pantalones", "filterTshirt": "Camiseta", "viewMore": "Ver más" },
+      "categories": { "title": "Compra por categoría", "menLabel": "Para hombre", "menTitle": "Diseñado para la confianza diaria", "womenLabel": "Para mujer", "womenTitle": "Diseñado para la vida moderna", "kidsLabel": "Para niños", "kidsTitle": "Comodidad para cada aventura", "cta": "Comprar ahora" },
+      "features": { "title": "Compra con confianza", "shippingTitle": "Envío mundial", "shippingDesc": "Enviamos de forma rápida y fiable a la UE, Reino Unido y Estados Unidos.", "sustainableTitle": "Materiales sostenibles", "sustainableDesc": "Cada prenda está hecha con materiales de origen responsable.", "returnsTitle": "Devolución gratuita en 30 días", "returnsDesc": "¿No estás satisfecho? Devuélvelo en 30 días para un reembolso completo.", "secureTitle": "Pagos seguros", "secureDesc": "Compra con seguridad con pago encriptado." },
+      "testimonials": { "title": "Estilo amado por miles", "subtitle": "Descubre por qué nuestros clientes siempre vuelven." },
+      "journal": { "title": "Desde el Journal", "subtitle": "Descubre inspiración de estilo y tendencias de temporada.", "readMore": "Leer más", "viewMore": "Ver más" },
+      "newsletter": { "title": "Únete a nuestro boletín", "subtitle": "Sé el primero en enterarte de novedades y ofertas.", "placeholder": "Introduce tu correo", "cta": "Suscribirse", "disclaimer": "Al suscribirte aceptas nuestra Política de Privacidad." }
+    },
+    "Product": { "new": "Nuevo", "addToWishlist": "Añadir a favoritos", "quickView": "Vista rápida" },
+    "Footer": { "tagline": "Moda moderna del día a día, hecha para moverse contigo.", "shopHeading": "Tienda", "shopMen": "Hombre", "shopWomen": "Mujer", "shopKids": "Niños", "shopNewArrivals": "Novedades", "helpHeading": "Ayuda", "helpContact": "Contáctanos", "helpShipping": "Información de envío", "helpReturns": "Devoluciones y reembolsos", "helpFaq": "Preguntas frecuentes", "companyHeading": "Empresa", "companyAbout": "Sobre nosotros", "companyJournal": "Journal", "companyCareers": "Empleo", "legalHeading": "Legal", "legalPrivacy": "Política de privacidad", "legalTerms": "Términos de servicio", "legalReturns": "Política de devoluciones", "legalCookies": "Política de cookies", "regionHeading": "Región e idioma", "newsletterHeading": "Mantente al día", "copyright": "© {year} WearTry. Todos los derechos reservados." },
+    "Market": { "region": "Región", "chooseCountry": "País / región", "chooseLanguage": "Idioma", "save": "Guardar", "shippingTo": "Envío a {country}" },
+    "Legal": { "cookieBanner": { "message": "Usamos cookies para mejorar tu experiencia.", "accept": "Aceptar todo", "decline": "Rechazar no esenciales", "manage": "Gestionar preferencias", "learnMore": "Saber más" } }
+}

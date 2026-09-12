@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Stiil liikumises", "description": "Moodne igapäevamood meestele, naistele ja lastele. Tarnime üle kogu ELi, Ühendkuningriigi ja USA." },
+    "Nav": { "shop": "Pood", "men": "Mehed", "women": "Naised", "kids": "Lapsed", "journal": "Ajakiri", "about": "Meist", "contact": "Kontakt", "search": "Otsi", "searchPlaceholder": "Otsi tooteid...", "account": "Konto", "wishlist": "Soovinimekiri", "cart": "Ostukorv" },
+    "PromoBar": { "message1": "Uue hooaja väljamüük", "message2": "Kuni 30% soodustust" },
+    "Hero": { "eyebrow": "Uus hooaeg", "title": "Stiil liikumises", "subtitle": "Uue hooaja tooted igapäevaseks enesekindluseks.", "cta": "Ostle kohe", "badgeTitle": "Populaarsed T-särgid", "badgeCta": "Ostle kohe" },
+    "MarqueeText": { "phrase1": "Loodud liikumiseks", "phrase2": "Valmistatud kestma" },
+    "Sections": {
+      "newArrivals": { "title": "Uus kollektsioon on saabunud", "viewMore": "Vaata rohkem" },
+      "seasonalDrop": { "title": "Hooaja uudised", "cta": "Ostle kohe" },
+      "bestSellers": { "title": "Enimmüüdud", "filterAll": "Kõik", "filterJacket": "Jakk", "filterHoodie": "Dressipluus", "filterPants": "Püksid", "filterTshirt": "T-särk", "viewMore": "Vaata rohkem" },
+      "categories": { "title": "Ostle kategooriate kaupa", "menLabel": "Meestele", "menTitle": "Loodud igapäevaseks enesekindluseks", "womenLabel": "Naistele", "womenTitle": "Disainitud moodsaks eluks", "kidsLabel": "Lastele", "kidsTitle": "Mugavus iga seikluse jaoks", "cta": "Ostle kohe" },
+      "features": { "title": "Ostle enesekindlalt", "shippingTitle": "Ülemaailmne tarne", "shippingDesc": "Tarnime kiiresti ja usaldusväärselt ELi, Ühendkuningriiki ja USA-sse.", "sustainableTitle": "Jätkusuutlikud materjalid", "sustainableDesc": "Iga toode on valmistatud vastutustundlikult hangitud materjalidest.", "returnsTitle": "30-päevane tasuta tagastamine", "returnsDesc": "Ei ole rahul? Tagasta 30 päeva jooksul täieliku tagasimakse saamiseks.", "secureTitle": "Turvalised maksed", "secureDesc": "Ostle turvaliselt krüpteeritud maksega." },
+      "testimonials": { "title": "Tuhandete lemmikstiil", "subtitle": "Vaata, miks kliendid tulevad ikka ja jälle tagasi." },
+      "journal": { "title": "Ajakirjast", "subtitle": "Avasta stiiliinspiratsiooni ja hooaja trende.", "readMore": "Loe rohkem", "viewMore": "Vaata rohkem" },
+      "newsletter": { "title": "Liitu uudiskirjaga", "subtitle": "Ole esimene, kes saab teada uutest toodetest ja pakkumistest.", "placeholder": "Sisesta e-mail", "cta": "Telli", "disclaimer": "Liitudes nõustud meie privaatsuspoliitikaga." }
+    },
+    "Product": { "new": "Uus", "addToWishlist": "Lisa soovinimekirja", "quickView": "Kiirvaade" },
+    "Footer": { "tagline": "Moodne igapäevamood, mis liigub koos sinuga.", "shopHeading": "Pood", "shopMen": "Mehed", "shopWomen": "Naised", "shopKids": "Lapsed", "shopNewArrivals": "Uudised", "helpHeading": "Abi", "helpContact": "Võta ühendust", "helpShipping": "Tarneinfo", "helpReturns": "Tagastamine ja tagasimaksed", "helpFaq": "KKK", "companyHeading": "Ettevõte", "companyAbout": "Meist", "companyJournal": "Ajakiri", "companyCareers": "Karjäär", "legalHeading": "Õiguslik", "legalPrivacy": "Privaatsuspoliitika", "legalTerms": "Kasutustingimused", "legalReturns": "Tagastamispoliitika", "legalCookies": "Küpsiste poliitika", "regionHeading": "Piirkond ja keel", "newsletterHeading": "Püsi kursis", "copyright": "© {year} WearTry. Kõik õigused kaitstud." },
+    "Market": { "region": "Piirkond", "chooseCountry": "Riik / piirkond", "chooseLanguage": "Keel", "save": "Salvesta", "shippingTo": "Tarne sihtkohta {country}" },
+    "Legal": { "cookieBanner": { "message": "Kasutame küpsiseid, et parandada teie kogemust.", "accept": "Nõustu kõigiga", "decline": "Keeldu mittevajalikest", "manage": "Halda eelistusi", "learnMore": "Loe lähemalt" } }
+}

@@ -1,0 +1,184 @@
+{
+  "Meta": {
+    "title": "WearTry — Hərəkətdə Stil",
+    "description": "Kişilər, qadınlar və uşaqlar üçün müasir gündəlik geyim. Avropa, Böyük Britaniya və ABŞ-a çatdırılan, gündəlik özünəinamı artıran yeni sezon kolleksiyası."
+  },
+  "Nav": {
+    "shop": "Mağaza",
+    "men": "Kişi",
+    "women": "Qadın",
+    "kids": "Uşaq",
+    "journal": "Jurnal",
+    "about": "Haqqımızda",
+    "contact": "Əlaqə",
+    "search": "Axtarış",
+    "searchPlaceholder": "Məhsul axtar...",
+    "account": "Hesab",
+    "wishlist": "Sevimlilər",
+    "cart": "Səbət"
+  },
+  "PromoBar": { "message1": "Yeni Sezon Endirimi", "message2": "30%-ə qədər Endirim" },
+  "Hero": {
+    "eyebrow": "Yeni Sezon",
+    "title": "Hərəkətdə Stil",
+    "subtitle": "Gündəlik özünəinamınız üçün yaradılmış yeni sezon kolleksiyası.",
+    "cta": "İndi Al",
+    "badgeTitle": "Populyar Futbolkalar",
+    "badgeCta": "İndi bax"
+  },
+  "MarqueeText": { "phrase1": "Hərəkət Üçün Yaradılıb", "phrase2": "Uzunömürlü Keyfiyyət" },
+  "Sections": {
+    "newArrivals": { "title": "Yeni Kolleksiya Burada", "viewMore": "Daha Çox" },
+    "seasonalDrop": { "title": "Mövsümi Yeniliklər", "cta": "İndi Al" },
+    "bestSellers": {
+      "title": "Ən Çox Satılanlar",
+      "filterAll": "Hamısı",
+      "filterJacket": "Gödəkçə",
+      "filterHoodie": "Hudi",
+      "filterPants": "Şalvar",
+      "filterTshirt": "Futbolka",
+      "viewMore": "Daha Çox"
+    },
+    "categories": {
+      "title": "Kateqoriyalara Görə Al",
+      "menLabel": "Kişilər Üçün",
+      "menTitle": "Gündəlik Özünəinam Üçün Yaradılıb",
+      "womenLabel": "Qadınlar Üçün",
+      "womenTitle": "Müasir Həyat Tərzi Üçün Dizayn",
+      "kidsLabel": "Uşaqlar Üçün",
+      "kidsTitle": "Hər Macəra Üçün Rahatlıq",
+      "cta": "İndi Al"
+    },
+    "features": {
+      "title": "Etibarla Alış-veriş Edin",
+      "shippingTitle": "Dünya Üzrə Çatdırılma",
+      "shippingDesc": "Avropa Birliyi, Böyük Britaniya və ABŞ-a sürətli və etibarlı çatdırılma. Sifarişinizi hər addımda izləyin.",
+      "sustainableTitle": "Davamlı Materiallar",
+      "sustainableDesc": "Hər məhsul məsuliyyətlə əldə edilmiş materiallardan hazırlanıb. Məqsədlə geyinin, təsiri azaldın.",
+      "returnsTitle": "30 Gün Pulsuz Qaytarma",
+      "returnsDesc": "Məmnun qalmadınız? 30 gün ərzində tam geri ödəniş üçün qaytarın. Heç bir sual verilmir, tam rahatlıq.",
+      "secureTitle": "Təhlükəsiz Ödəniş",
+      "secureDesc": "Şifrələnmiş ödəniş sistemi ilə təhlükəsiz alış-veriş edin. Bütün əsas ödəniş üsullarını dəstəkləyirik."
+    },
+    "testimonials": {
+      "title": "Minlərlə Müştərinin Sevimlisi",
+      "subtitle": "Avropa və digər ölkələrdəki müştərilərimizin zamansız stil, premium rahatlıq və gündəlik özünəinam üçün niyə bizə geri qayıtdığını görün."
+    },
+    "journal": {
+      "title": "Jurnaldan",
+      "subtitle": "Stil ilhamı, mövsümi trendlər və zamansız qarderob qurmaq üçün bələdçilər kəşf edin.",
+      "readMore": "Ətraflı Oxu",
+      "viewMore": "Daha Çox"
+    },
+    "newsletter": {
+      "title": "Bültenimizə Qoşulun",
+      "subtitle": "Yeni kolleksiyaları, xüsusi təklifləri və stil ilhamını ilk siz öyrənin.",
+      "placeholder": "E-poçt ünvanınızı daxil edin",
+      "cta": "Abunə Ol",
+      "disclaimer": "Abunə olmaqla Məxfilik Siyasətimizi qəbul edir və bizdən yeniliklər almağa razılıq verirsiniz."
+    }
+  },
+  "Product": { "new": "Yeni", "addToWishlist": "Sevimlilərə əlavə et", "quickView": "Sürətli baxış" },
+  "Footer": {
+    "tagline": "Sizinlə birlikdə hərəkət edən müasir gündəlik geyim.",
+    "shopHeading": "Mağaza",
+    "shopMen": "Kişi",
+    "shopWomen": "Qadın",
+    "shopKids": "Uşaq",
+    "shopNewArrivals": "Yeni Kolleksiya",
+    "helpHeading": "Kömək",
+    "helpContact": "Bizimlə Əlaqə",
+    "helpShipping": "Çatdırılma Məlumatı",
+    "helpReturns": "Qaytarma və Geri Ödəniş",
+    "helpFaq": "Tez-tez Verilən Suallar",
+    "companyHeading": "Şirkət",
+    "companyAbout": "Haqqımızda",
+    "companyJournal": "Jurnal",
+    "companyCareers": "Karyera",
+    "legalHeading": "Hüquqi",
+    "legalPrivacy": "Məxfilik Siyasəti",
+    "legalTerms": "İstifadə Şərtləri",
+    "legalReturns": "Qaytarma Siyasəti",
+    "legalCookies": "Kuki Siyasəti",
+    "regionHeading": "Region və Dil",
+    "newsletterHeading": "Xəbərdar olun",
+    "copyright": "© {year} WearTry. Bütün hüquqlar qorunur."
+  },
+  "Market": {
+    "region": "Region",
+    "chooseCountry": "Ölkə / Region",
+    "chooseLanguage": "Dil",
+    "save": "Yadda saxla",
+    "shippingTo": "{country} ünvanına çatdırılma"
+  },
+  "Legal": {
+    "lastUpdated": "Son yenilənmə: {date}",
+    "privacy": {
+      "title": "Məxfilik Siyasəti",
+      "intro": "Bu Məxfilik Siyasəti WearTry-ın (\"biz\", \"bizim\") saytımıza baş çəkdiyiniz və ya alış-veriş etdiyiniz zaman şəxsi məlumatlarınızı Avropa Birliyinin Ümumi Məlumatların Mühafizəsi Reqlamentinə (GDPR), Böyük Britaniya GDPR-a və müvafiq ABŞ ştat qanunlarına uyğun necə topladığını, istifadə etdiyini, paylaşdığını və qoruduğunu izah edir.",
+      "sections": [
+        { "heading": "1. Biz Kimik", "body": "WearTry Avropa Birliyi, Böyük Britaniya və ABŞ-dakı müştərilərə xidmət göstərən onlayn moda pərakəndə satıcısıdır. Məxfiliklə bağlı hər hansı sualınız üçün bizimlə privacy@weartry.com ünvanında əlaqə saxlaya bilərsiniz." },
+        { "heading": "2. Topladığımız Məlumatlar", "body": "Sizin birbaşa təqdim etdiyiniz məlumatları (ad, e-poçt, çatdırılma və hesab-faktura ünvanı, telefon nömrəsi, ödəniş provayderimiz tərəfindən işlənən ödəniş məlumatları), avtomatik toplanan məlumatları (IP ünvanı, brauzer növü, cihaz məlumatı, baxılan səhifələr, kukilər) və üçüncü tərəflərdən alınan məlumatları (ödəniş prosessorları, çatdırılma tərəfdaşları, marketinq platformaları) toplayırıq." },
+        { "heading": "3. Məlumatlarınızdan Necə İstifadə Edirik", "body": "Məlumatlarınızı sifarişləri emal etmək və çatdırmaq, müştəri dəstəyi göstərmək, alış-veriş təcrübənizi fərdiləşdirmək, razılıq verdiyiniz halda marketinq bildirişləri göndərmək, fırıldaqçılığın qarşısını almaq və qanuni öhdəlikləri yerinə yetirmək üçün istifadə edirik." },
+        { "heading": "4. Emal Üçün Hüquqi Əsas (AB/BB İstifadəçiləri)", "body": "Şəxsi məlumatları müqavilənin icrası (sifarişinizi yerinə yetirmək üçün), qanuni maraq (xidmətlərimizi təkmilləşdirmək və fırıldaqçılığın qarşısını almaq üçün), razılıq (marketinq bildirişləri və məcburi olmayan kukilər üçün) və qanuni öhdəlik (vergi və mühasibat qeydləri) əsasında emal edirik." },
+        { "heading": "5. Məlumatlarınızın Paylaşılması", "body": "Məlumatları müvafiq məlumat emalı sazişləri əsasında ödəniş prosessorları, çatdırılma və logistika tərəfdaşları, İT və hosting provayderləri və marketinq alətləri ilə paylaşırıq. Şəxsi məlumatlarınızı satmırıq." },
+        { "heading": "6. Beynəlxalq Məlumat Transferləri", "body": "Məlumatlar AB/BB/ABŞ hüdudlarından kənara ötürüldükdə, ekvivalent qoruma səviyyəsini təmin etmək üçün adekvatlıq qərarlarına və ya Standart Müqavilə Şərtlərinə əsaslanırıq." },
+        { "heading": "7. Məlumatların Saxlanması", "body": "Şəxsi məlumatları bu siyasətdə göstərilən məqsədləri, o cümlədən hüquqi, mühasibat və hesabat tələblərini yerinə yetirmək üçün lazım olan müddət ərzində saxlayırıq." },
+        { "heading": "8. Hüquqlarınız", "body": "Yerləşdiyiniz yerdən asılı olaraq, məlumatlarınıza giriş, onları düzəltmək, silmək və ya köçürmək, emala etiraz etmək və ya onu məhdudlaşdırmaq və istənilən vaxt razılığı geri götürmək hüququnuz ola bilər. AB və BB sakinləri yerli məlumatların mühafizəsi orqanına şikayət edə bilər." },
+        { "heading": "9. Kukilər", "body": "Kuki Siyasətimizdə təsvir olunduğu kimi kukilərdən və oxşar texnologiyalardan istifadə edirik. Tərcihlərinizi istənilən vaxt kuki tənzimləmələri vasitəsilə idarə edə bilərsiniz." },
+        { "heading": "10. Uşaqların Məxfiliyi", "body": "Uşaq kolleksiyamız yetkinlər tərəfindən satın alınması üçün nəzərdə tutulub. 16 yaşdan aşağı uşaqlardan bilərəkdən birbaşa şəxsi məlumat toplamırıq." },
+        { "heading": "11. Bu Siyasətdə Dəyişikliklər", "body": "Bu Məxfilik Siyasətini vaxtaşırı yeniləyə bilərik. Əhəmiyyətli dəyişikliklər saytımız və ya e-poçt vasitəsilə bildiriləcək." },
+        { "heading": "12. Bizimlə Əlaqə", "body": "Bu Məxfilik Siyasəti ilə bağlı hər hansı sualınız varsa və ya hüquqlarınızı həyata keçirmək istəyirsinizsə, privacy@weartry.com ünvanında bizimlə əlaqə saxlayın." }
+      ]
+    },
+    "terms": {
+      "title": "İstifadə Şərtləri",
+      "intro": "Bu İstifadə Şərtləri (\"Şərtlər\") WearTry saytına girişinizi və ondan istifadənizi, habelə sayt vasitəsilə edilən alışları tənzimləyir. Saytımızdan istifadə etməklə bu Şərtləri qəbul etmiş olursunuz.",
+      "sections": [
+        { "heading": "1. Sifarişlər və Qəbul", "body": "Bütün sifarişlər təsdiq və mövcudluqdan asılıdır. Fırıldaqçılıq şübhəsi və ya qiymət səhvləri daxil olmaqla, istənilən sifarişi rədd etmək və ya ləğv etmək hüququnu özümüzdə saxlayırıq." },
+        { "heading": "2. Qiymətlər və Ödəniş", "body": "Bütün qiymətlər seçdiyiniz regiona uyğun valyutada göstərilir və qanunla tələb olunduqda müvafiq ƏDV və ya satış vergisini əhatə edir. Ödəniş checkout zamanı təhlükəsiz şəkildə emal olunur." },
+        { "heading": "3. Çatdırılma", "body": "Avropa Birliyinin bütün üzv dövlətlərinə, Böyük Britaniyaya və ABŞ-a çatdırılma edirik. Çatdırılma müddəti və dəyəri təyinat yerinə görə dəyişir və checkout zamanı göstərilir." },
+        { "heading": "4. Qaytarma və Geri Ödəniş", "body": "Qaytarma, dəyişdirmə və geri ödənişlə bağlı tam məlumat üçün Qaytarma Siyasətimizə baxın." },
+        { "heading": "5. Əqli Mülkiyyət", "body": "Bu saytdakı bütün məzmun, o cümlədən mətn, qrafika, loqolar və şəkillər WearTry-a və ya onun lisenziya verənlərinə məxsusdur və icazəsiz istifadə edilə bilməz." },
+        { "heading": "6. Məsuliyyətin Məhdudlaşdırılması", "body": "Qanunla icazə verilən maksimum həddə qədər, WearTry saytdan istifadənizdən yaranan hər hansı dolayı, təsadüfi və ya nəticəvi zərərlərə görə məsuliyyət daşımır." },
+        { "heading": "7. İstehlakçı Hüquqları", "body": "Bu Şərtlərdəki heç bir müddəa AB, BB və ya ABŞ qanunvericiliyinə əsasən istehlakçı kimi qanuni hüquqlarınıza, o cümlədən müvafiq soyuma dövrü ərzində alışdan imtina hüququnuza təsir etmir." },
+        { "heading": "8. Tətbiq Olunan Qanunvericilik", "body": "Bu Şərtlər istehlakçıların qorunması məqsədilə yaşadığınız ölkədə tətbiq olunan qanunlarla tənzimlənir, məcburi yerli istehlakçı qanunlarına xələl gətirmədən." },
+        { "heading": "9. Bu Şərtlərdə Dəyişikliklər", "body": "Bu Şərtləri istənilən vaxt yeniləyə bilərik. Dəyişikliklərdən sonra saytdan davamlı istifadə yenilənmiş Şərtlərin qəbulu deməkdir." },
+        { "heading": "10. Bizimlə Əlaqə", "body": "Bu Şərtlərlə bağlı suallarınızı legal@weartry.com ünvanına göndərə bilərsiniz." }
+      ]
+    },
+    "returns": {
+      "title": "Qaytarma və Geri Ödəniş Siyasəti",
+      "intro": "Sifariş etdiyiniz məhsulu sevməyinizi istəyirik. Bir şey düz olmasa, əksər məhsulları çatdırılmadan 30 gün ərzində tam geri ödəniş və ya dəyişdirmə üçün qaytara bilərsiniz.",
+      "sections": [
+        { "heading": "1. Qaytarma Müddəti", "body": "Geyilməmiş, yuyulmamış və orijinal qablaşdırmada, etiketləri taxılı olmaq şərtilə, çatdırılma tarixindən 30 gün ərzində məhsulu geri ödəniş və ya dəyişdirmə üçün qaytara bilərsiniz." },
+        { "heading": "2. AB və BB İmtina Hüququ", "body": "30 günlük siyasətimizə əlavə olaraq, AB Vahid İstehlakçı Hüquqları Direktivinə və BB İstehlakçı Müqavilələri Qaydalarına uyğun olaraq, AB və BB müştəriləri sifarişlərini aldıqdan sonra 14 gün ərzində heç bir səbəb göstərmədən alışdan imtina etmək hüququna malikdirlər." },
+        { "heading": "3. Qaytarmaya Necə Başlamalı", "body": "Hesabınıza daxil olub qaytarmaq istədiyiniz sifarişi seçin, və ya sifariş nömrənizlə returns@weartry.com ünvanında dəstək komandamızla əlaqə saxlayın." },
+        { "heading": "4. Geri Ödənişlər", "body": "Qaytarılan məhsulu aldıqdan və yoxladıqdan sonra, geri ödəniş 5-10 iş günü ərzində orijinal ödəniş üsulunuza edilir." },
+        { "heading": "5. Dəyişdirmə", "body": "Fərqli ölçü və ya rəng lazımdırsa, qaytarmaya başlayarkən dəyişdirmə seçimini seçin, mövcudluqdan asılı olaraq." },
+        { "heading": "6. Qaytarıla Bilməyən Məhsullar", "body": "Gigiyena səbəbləri ilə, qüsurlu olmadığı halda alt paltarı, çimərlik geyimi və sırğalar qaytarıla bilməz." },
+        { "heading": "7. Qüsurlu və ya Zədələnmiş Məhsullar", "body": "Məhsul qüsurlu və ya zədələnmiş şəkildə gəlibsə, sizə əlavə xərc olmadan pulsuz qaytarma, əvəzləmə və ya geri ödəniş üçün 30 gün ərzində bizimlə əlaqə saxlayın." },
+        { "heading": "8. Qaytarma Çatdırılma Xərcləri", "body": "AB və BB daxilində qaytarmalar pulsuzdur. ABŞ sifarişləri üçün qaytarma çatdırılma xərcləri, məhsul qüsurlu olmadığı halda, tətbiq oluna bilər." }
+      ]
+    },
+    "cookies": {
+      "title": "Kuki Siyasəti",
+      "intro": "Bu Kuki Siyasəti WearTry-ın AB ePrivacy Direktivinə, GDPR-a və BB PECR-a uyğun olaraq saytımıza baş çəkdiyiniz zaman sizi tanımaq üçün kukilərdən və oxşar texnologiyalardan necə istifadə etdiyini izah edir.",
+      "sections": [
+        { "heading": "1. Kuki Nədir", "body": "Kukilər saytların düzgün işləməsinə kömək edən və analitika və fərdiləşdirmə təmin edən, cihazınızda yerləşdirilən kiçik məlumat fayllarıdır." },
+        { "heading": "2. İstifadə Etdiyimiz Kuki Növləri", "body": "Tamamilə zəruri kukilər (saytın işləməsi üçün tələb olunur, məs. səbət və checkout), performans və analitika kukiləri (ziyarətçilərin saytımızdan necə istifadə etdiyini anlamağa kömək edir), funksional kukilər (dil və region kimi tərcihlərinizi xatırlayır) və marketinq kukiləri (müvafiq reklamları çatdırmaq üçün istifadə olunur)." },
+        { "heading": "3. Sizin Razılığınız", "body": "Saytımıza ilk dəfə baş çəkdikdə, məcburi olmayan kukiləri qəbul etmək və ya idarə etmək təklif olunacaq. Tərcihlərinizi istənilən vaxt footer-dəki kuki tənzimləmələri linki vasitəsilə dəyişə bilərsiniz." },
+        { "heading": "4. Brauzerinizdə Kukilərin İdarə Edilməsi", "body": "Əksər brauzerlər tənzimləmələr vasitəsilə kukiləri rədd etməyə və ya silməyə imkan verir. Zəruri kukiləri bloklamağın saytımızın funksionallığına təsir edə biləcəyini nəzərə alın." },
+        { "heading": "5. Üçüncü Tərəf Kukiləri", "body": "Bəzi kukilər istifadə etdiyimiz analitika və ödəniş provayderləri kimi üçüncü tərəf xidmətləri tərəfindən yerləşdirilir, onların özlərinin məxfilik və kuki siyasətləri var." },
+        { "heading": "6. Bu Siyasətdə Dəyişikliklər", "body": "Texnologiya və ya qanunvericilikdəki dəyişiklikləri əks etdirmək üçün bu Kuki Siyasətini vaxtaşırı yeniləyə bilərik." }
+      ]
+    },
+    "cookieBanner": {
+      "message": "Kuki Siyasətimizə uyğun olaraq təcrübənizi yaxşılaşdırmaq, trafiki analiz etmək və məzmunu fərdiləşdirmək üçün kukilərdən istifadə edirik.",
+      "accept": "Hamısını Qəbul Et",
+      "decline": "Məcburi Olmayanları Rədd Et",
+      "manage": "Tərcihləri İdarə Et",
+      "learnMore": "Ətraflı öyrən"
+    }
+  }
+}

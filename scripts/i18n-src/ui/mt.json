@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Stil f'Moviment", "description": "Moda moderna ta' kuljum għall-irġiel, nisa u tfal. Nibagħtu madwar l-UE, ir-Renju Unit u l-Istati Uniti." },
+    "Nav": { "shop": "Ħanut", "men": "Rġiel", "women": "Nisa", "kids": "Tfal", "journal": "Ġurnal", "about": "Dwarna", "contact": "Kuntatt", "search": "Fittex", "searchPlaceholder": "Fittex prodotti...", "account": "Kont", "wishlist": "Lista tax-xewqat", "cart": "Karrettun" },
+    "PromoBar": { "message1": "Bejgħ tal-Istaġun il-Ġdid", "message2": "Sa 30% Skont" },
+    "Hero": { "eyebrow": "Staġun Ġdid", "title": "Stil f'Moviment", "subtitle": "Ħwejjeġ ġodda għal fiduċja ta' kuljum.", "cta": "Ixtri Issa", "badgeTitle": "T-shirts Popolari", "badgeCta": "Ixtri issa" },
+    "MarqueeText": { "phrase1": "Iddisinjat għall-Moviment", "phrase2": "Magħmul biex Idum" },
+    "Sections": {
+      "newArrivals": { "title": "Il-Ġdid Wasal", "viewMore": "Ara Aktar" },
+      "seasonalDrop": { "title": "Kollezzjoni Staġonali", "cta": "Ixtri Issa" },
+      "bestSellers": { "title": "L-Aktar Mibjugħa", "filterAll": "Kollha", "filterJacket": "Ġakketta", "filterHoodie": "Hoodie", "filterPants": "Qalziet", "filterTshirt": "T-shirt", "viewMore": "Ara Aktar" },
+      "categories": { "title": "Ixtri skont il-Kategorija", "menLabel": "Għall-Irġiel", "menTitle": "Iddisinjat għall-Fiduċja ta' Kuljum", "womenLabel": "Għan-Nisa", "womenTitle": "Iddisinjat għall-Ħajja Moderna", "kidsLabel": "Għat-Tfal", "kidsTitle": "Kumdità għal Kull Avventura", "cta": "Ixtri Issa" },
+      "features": { "title": "Ixtri b'Fiduċja", "shippingTitle": "Kunsinna Dinjija", "shippingDesc": "Nibagħtu malajr u b'mod affidabbli lejn l-UE, ir-Renju Unit u l-Istati Uniti.", "sustainableTitle": "Materjali Sostenibbli", "sustainableDesc": "Kull biċċa hija magħmula minn materjali sourced b'mod responsabbli.", "returnsTitle": "Ritorn Bla Ħlas ta' 30 Jum", "returnsDesc": "Mhux sodisfatt? Ibgħat lura fi żmien 30 jum għal rifużjoni sħiħa.", "secureTitle": "Ħlasijiet Siguri", "secureDesc": "Ixtri bla periklu b'ħlas kriptat." },
+      "testimonials": { "title": "Stil Maħbub minn Eluf", "subtitle": "Ara għaliex il-klijenti tagħna dejjem jerġgħu lura." },
+      "journal": { "title": "Mill-Ġurnal", "subtitle": "Skopri ispirazzjoni ta' stil u xejriet staġonali.", "readMore": "Aqra Aktar", "viewMore": "Ara Aktar" },
+      "newsletter": { "title": "Ingħaqad man-Newsletter", "subtitle": "Kun l-ewwel li tiskopri prodotti ġodda u offerti.", "placeholder": "Daħħal l-email tiegħek", "cta": "Abbona", "disclaimer": "Billi tabbona taqbel mal-Politika ta' Privatezza tagħna." }
+    },
+    "Product": { "new": "Ġdid", "addToWishlist": "Żid mal-lista tax-xewqat", "quickView": "Ħarsa mgħaġġla" },
+    "Footer": { "tagline": "Moda moderna ta' kuljum, magħmula biex tiċċaqlaq miegħek.", "shopHeading": "Ħanut", "shopMen": "Rġiel", "shopWomen": "Nisa", "shopKids": "Tfal", "shopNewArrivals": "Ġodda", "helpHeading": "Għajnuna", "helpContact": "Ikkuntattjana", "helpShipping": "Informazzjoni dwar il-Kunsinna", "helpReturns": "Ritorni u Rifużjonijiet", "helpFaq": "Mistoqsijiet Frekwenti", "companyHeading": "Kumpanija", "companyAbout": "Dwarna", "companyJournal": "Ġurnal", "companyCareers": "Karrieri", "legalHeading": "Legali", "legalPrivacy": "Politika ta' Privatezza", "legalTerms": "Termini tas-Servizz", "legalReturns": "Politika ta' Ritorn", "legalCookies": "Politika tal-Cookies", "regionHeading": "Reġjun u Lingwa", "newsletterHeading": "Ibqa' informat", "copyright": "© {year} WearTry. Id-drittijiet kollha riżervati." },
+    "Market": { "region": "Reġjun", "chooseCountry": "Pajjiż / Reġjun", "chooseLanguage": "Lingwa", "save": "Issejvja", "shippingTo": "Kunsinna lejn {country}" },
+    "Legal": { "cookieBanner": { "message": "Nużaw cookies biex intejbu l-esperjenza tiegħek.", "accept": "Aċċetta Kollox", "decline": "Irrifjuta dawk mhux essenzjali", "manage": "Immaniġġja Preferenzi", "learnMore": "Tgħallem Aktar" } }
+}

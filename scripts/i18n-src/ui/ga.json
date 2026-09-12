@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Stíl ar Siúl", "description": "Faisean nua-aimseartha laethúil d'fhir, do mhná agus do leanaí. Seachadadh ar fud an AE, na Ríochta Aontaithe agus na SA." },
+    "Nav": { "shop": "Siopa", "men": "Fir", "women": "Mná", "kids": "Leanaí", "journal": "Iris", "about": "Fúinn", "contact": "Teagmháil", "search": "Cuardach", "searchPlaceholder": "Cuardaigh táirgí...", "account": "Cuntas", "wishlist": "Liosta mianta", "cart": "Cairt" },
+    "PromoBar": { "message1": "Díolachán Séasúir Nua", "message2": "Suas le 30% Lascaine" },
+    "Hero": { "eyebrow": "Séasúr Nua", "title": "Stíl ar Siúl", "subtitle": "Píosaí séasúir nua déanta le haghaidh muiníne laethúla.", "cta": "Siopáil Anois", "badgeTitle": "T-léinte Coitianta", "badgeCta": "Siopáil anois" },
+    "MarqueeText": { "phrase1": "Deartha le Bogadh", "phrase2": "Déanta le Maireachtáil" },
+    "Sections": {
+      "newArrivals": { "title": "Tá an Bailiúchán Nua Anseo", "viewMore": "Féach Tuilleadh" },
+      "seasonalDrop": { "title": "Bailiúchán Séasúrach", "cta": "Siopáil Anois" },
+      "bestSellers": { "title": "Na Díolacháin is Fearr", "filterAll": "Gach", "filterJacket": "Seaicéad", "filterHoodie": "Hoodie", "filterPants": "Bríste", "filterTshirt": "T-léine", "viewMore": "Féach Tuilleadh" },
+      "categories": { "title": "Siopáil de réir Catagóire", "menLabel": "D'Fhir", "menTitle": "Deartha don Mhuinín Laethúil", "womenLabel": "Do Mhná", "womenTitle": "Deartha don Saol Nua-Aimseartha", "kidsLabel": "Do Leanaí", "kidsTitle": "Compord do Gach Eachtra", "cta": "Siopáil Anois" },
+      "features": { "title": "Siopáil le Muinín", "shippingTitle": "Seachadadh Domhanda", "shippingDesc": "Seachadaimid ar fud an AE, na Ríochta Aontaithe agus na SA go tapa agus go hiontaofa.", "sustainableTitle": "Ábhair Inbhuanaithe", "sustainableDesc": "Tá gach píosa déanta as ábhair a fhaightear go freagrach.", "returnsTitle": "Aischur Saor in Aisce 30 Lá", "returnsDesc": "Gan a bheith sásta? Cuir ar ais laistigh de 30 lá le haghaidh aisíocaíocht iomlán.", "secureTitle": "Íocaíochtaí Slána", "secureDesc": "Siopáil go sábháilte le híocaíocht chriptithe." },
+      "testimonials": { "title": "Stíl a bhfuil Grá ag Na Mílte dó", "subtitle": "Féach cén fáth a dtagann ár gcustaiméirí ar ais i gcónaí." },
+      "journal": { "title": "Ón Iris", "subtitle": "Faigh inspioráid stíle agus treochtaí séasúracha.", "readMore": "Léigh Tuilleadh", "viewMore": "Féach Tuilleadh" },
+      "newsletter": { "title": "Bí Rannpháirteach inár Nuachtlitir", "subtitle": "Bí ar an gcéad duine a chloisfidh faoi tháirgí nua agus tairiscintí.", "placeholder": "Cuir isteach do ríomhphost", "cta": "Liostáil", "disclaimer": "Trí liostáil aontaíonn tú lenár mBeartas Príobháideachais." }
+    },
+    "Product": { "new": "Nua", "addToWishlist": "Cuir le liosta mianta", "quickView": "Amharc tapa" },
+    "Footer": { "tagline": "Faisean nua-aimseartha laethúil, déanta le bogadh leat.", "shopHeading": "Siopa", "shopMen": "Fir", "shopWomen": "Mná", "shopKids": "Leanaí", "shopNewArrivals": "Nuashonruithe", "helpHeading": "Cabhair", "helpContact": "Déan Teagmháil Linn", "helpShipping": "Eolas Seachadta", "helpReturns": "Aischuir agus Aisíocaíochtaí", "helpFaq": "Ceisteanna Coitianta", "companyHeading": "Cuideachta", "companyAbout": "Fúinn", "companyJournal": "Iris", "companyCareers": "Gairmeacha", "legalHeading": "Dlíthiúil", "legalPrivacy": "Beartas Príobháideachais", "legalTerms": "Téarmaí Seirbhíse", "legalReturns": "Beartas Aischuir", "legalCookies": "Beartas Fianán", "regionHeading": "Réigiún agus Teanga", "newsletterHeading": "Fan ar an eolas", "copyright": "© {year} WearTry. Gach ceart ar cosaint." },
+    "Market": { "region": "Réigiún", "chooseCountry": "Tír / Réigiún", "chooseLanguage": "Teanga", "save": "Sábháil", "shippingTo": "Seachadadh go {country}" },
+    "Legal": { "cookieBanner": { "message": "Úsáidimid fianáin chun d'eispéireas a fheabhsú.", "accept": "Glac le Gach Rud", "decline": "Diúltaigh do neamhriachtanach", "manage": "Bainistigh Roghanna", "learnMore": "Foghlaim Tuilleadh" } }
+}

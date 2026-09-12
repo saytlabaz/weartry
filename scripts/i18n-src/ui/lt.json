@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Stilius judesyje", "description": "Moderni kasdienė mada vyrams, moterims ir vaikams. Pristatome į visą ES, Jungtinę Karalystę ir JAV." },
+    "Nav": { "shop": "Parduotuvė", "men": "Vyrams", "women": "Moterims", "kids": "Vaikams", "journal": "Žurnalas", "about": "Apie mus", "contact": "Kontaktai", "search": "Paieška", "searchPlaceholder": "Ieškoti produktų...", "account": "Paskyra", "wishlist": "Norų sąrašas", "cart": "Krepšelis" },
+    "PromoBar": { "message1": "Naujo sezono išpardavimas", "message2": "Iki 30% nuolaida" },
+    "Hero": { "eyebrow": "Naujas sezonas", "title": "Stilius judesyje", "subtitle": "Naujo sezono drabužiai kasdienio pasitikėjimo užtikrinimui.", "cta": "Pirkti dabar", "badgeTitle": "Populiarūs marškinėliai", "badgeCta": "Pirkti dabar" },
+    "MarqueeText": { "phrase1": "Sukurta judėjimui", "phrase2": "Pagaminta ilgam" },
+    "Sections": {
+      "newArrivals": { "title": "Naujiena jau čia", "viewMore": "Žiūrėti daugiau" },
+      "seasonalDrop": { "title": "Sezoninė kolekcija", "cta": "Pirkti dabar" },
+      "bestSellers": { "title": "Perkamiausi", "filterAll": "Visi", "filterJacket": "Striukė", "filterHoodie": "Džemperis su gobtuvu", "filterPants": "Kelnės", "filterTshirt": "Marškinėliai", "viewMore": "Žiūrėti daugiau" },
+      "categories": { "title": "Pirkite pagal kategoriją", "menLabel": "Vyrams", "menTitle": "Sukurta kasdieniam pasitikėjimui", "womenLabel": "Moterims", "womenTitle": "Sukurta modernaus gyvenimo būdui", "kidsLabel": "Vaikams", "kidsTitle": "Patogumas kiekvienam nuotykiui", "cta": "Pirkti dabar" },
+      "features": { "title": "Pirkite užtikrintai", "shippingTitle": "Pristatymas visame pasaulyje", "shippingDesc": "Greitai ir patikimai pristatome į ES, Jungtinę Karalystę ir JAV.", "sustainableTitle": "Tvarios medžiagos", "sustainableDesc": "Kiekvienas gaminys pagamintas iš atsakingai gautų medžiagų.", "returnsTitle": "30 dienų nemokamas grąžinimas", "returnsDesc": "Nepatenkinti? Grąžinkite per 30 dienų ir gaukite visą pinigų grąžinimą.", "secureTitle": "Saugūs mokėjimai", "secureDesc": "Pirkite saugiai su šifruotu mokėjimu." },
+      "testimonials": { "title": "Stilius, kurį myli tūkstančiai", "subtitle": "Sužinokite, kodėl mūsų klientai visada grįžta." },
+      "journal": { "title": "Iš žurnalo", "subtitle": "Atraskite stiliaus įkvėpimą ir sezonines tendencijas.", "readMore": "Skaityti daugiau", "viewMore": "Žiūrėti daugiau" },
+      "newsletter": { "title": "Prisijunkite prie naujienlaiškio", "subtitle": "Sužinokite pirmi apie naujienas ir pasiūlymus.", "placeholder": "Įveskite el. paštą", "cta": "Prenumeruoti", "disclaimer": "Prenumeruodami sutinkate su mūsų Privatumo politika." }
+    },
+    "Product": { "new": "Naujiena", "addToWishlist": "Įtraukti į norų sąrašą", "quickView": "Greita peržiūra" },
+    "Footer": { "tagline": "Moderni kasdienė mada, judanti kartu su jumis.", "shopHeading": "Parduotuvė", "shopMen": "Vyrams", "shopWomen": "Moterims", "shopKids": "Vaikams", "shopNewArrivals": "Naujienos", "helpHeading": "Pagalba", "helpContact": "Susisiekite su mumis", "helpShipping": "Pristatymo informacija", "helpReturns": "Grąžinimas ir pinigų grąžinimas", "helpFaq": "DUK", "companyHeading": "Įmonė", "companyAbout": "Apie mus", "companyJournal": "Žurnalas", "companyCareers": "Karjera", "legalHeading": "Teisinė informacija", "legalPrivacy": "Privatumo politika", "legalTerms": "Naudojimo sąlygos", "legalReturns": "Grąžinimo politika", "legalCookies": "Slapukų politika", "regionHeading": "Regionas ir kalba", "newsletterHeading": "Sekite naujienas", "copyright": "© {year} WearTry. Visos teisės saugomos." },
+    "Market": { "region": "Regionas", "chooseCountry": "Šalis / regionas", "chooseLanguage": "Kalba", "save": "Išsaugoti", "shippingTo": "Pristatymas į {country}" },
+    "Legal": { "cookieBanner": { "message": "Naudojame slapukus, kad pagerintume jūsų patirtį.", "accept": "Priimti visus", "decline": "Atmesti nebūtinus", "manage": "Tvarkyti nustatymus", "learnMore": "Sužinoti daugiau" } }
+}

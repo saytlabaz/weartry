@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Stil u pokretu", "description": "Moderna svakodnevna moda za muškarce, žene i djecu. Dostava diljem Europe, Ujedinjenog Kraljevstva i SAD-a." },
+    "Nav": { "shop": "Trgovina", "men": "Muškarci", "women": "Žene", "kids": "Djeca", "journal": "Blog", "about": "O nama", "contact": "Kontakt", "search": "Pretraga", "searchPlaceholder": "Pretraži proizvode...", "account": "Račun", "wishlist": "Omiljeno", "cart": "Košarica" },
+    "PromoBar": { "message1": "Rasprodaja nove sezone", "message2": "Do 30% popusta" },
+    "Hero": { "eyebrow": "Nova sezona", "title": "Stil u pokretu", "subtitle": "Komadi nove sezone stvoreni za svakodnevno samopouzdanje.", "cta": "Kupi sada", "badgeTitle": "Popularne majice", "badgeCta": "Kupi sada" },
+    "MarqueeText": { "phrase1": "Stvoreno za pokret", "phrase2": "Izrađeno da traje" },
+    "Sections": {
+      "newArrivals": { "title": "Nova kolekcija je stigla", "viewMore": "Pogledaj više" },
+      "seasonalDrop": { "title": "Sezonska kolekcija", "cta": "Kupi sada" },
+      "bestSellers": { "title": "Najprodavaniji", "filterAll": "Sve", "filterJacket": "Jakna", "filterHoodie": "Hoodie", "filterPants": "Hlače", "filterTshirt": "Majica", "viewMore": "Pogledaj više" },
+      "categories": { "title": "Kupujte po kategorijama", "menLabel": "Za muškarce", "menTitle": "Stvoreno za svakodnevno samopouzdanje", "womenLabel": "Za žene", "womenTitle": "Dizajnirano za moderan život", "kidsLabel": "Za djecu", "kidsTitle": "Udobnost za svaku avanturu", "cta": "Kupi sada" },
+      "features": { "title": "Kupujte sigurno", "shippingTitle": "Dostava diljem svijeta", "shippingDesc": "Dostavljamo u EU, Ujedinjeno Kraljevstvo i SAD brzo i pouzdano.", "sustainableTitle": "Održivi materijali", "sustainableDesc": "Svaki komad izrađen je od odgovorno nabavljenih materijala.", "returnsTitle": "30 dana besplatnog povrata", "returnsDesc": "Niste zadovoljni? Vratite u roku od 30 dana za puni povrat novca.", "secureTitle": "Sigurno plaćanje", "secureDesc": "Kupujte sigurno uz šifrirano plaćanje." },
+      "testimonials": { "title": "Stil koji vole tisuće", "subtitle": "Saznajte zašto nam se kupci uvijek vraćaju." },
+      "journal": { "title": "Iz bloga", "subtitle": "Istražite stilske inspiracije i sezonske trendove.", "readMore": "Pročitaj više", "viewMore": "Pogledaj više" },
+      "newsletter": { "title": "Pridružite se newsletteru", "subtitle": "Budite prvi koji saznaju za nove proizvode i ponude.", "placeholder": "Unesite email", "cta": "Pretplati se", "disclaimer": "Pretplatom prihvaćate našu Politiku privatnosti." }
+    },
+    "Product": { "new": "Novo", "addToWishlist": "Dodaj u omiljeno", "quickView": "Brzi pregled" },
+    "Footer": { "tagline": "Moderna svakodnevna moda, stvorena da se kreće s vama.", "shopHeading": "Trgovina", "shopMen": "Muškarci", "shopWomen": "Žene", "shopKids": "Djeca", "shopNewArrivals": "Nova kolekcija", "helpHeading": "Pomoć", "helpContact": "Kontaktirajte nas", "helpShipping": "Informacije o dostavi", "helpReturns": "Povrati i refundacije", "helpFaq": "Česta pitanja", "companyHeading": "Tvrtka", "companyAbout": "O nama", "companyJournal": "Blog", "companyCareers": "Karijere", "legalHeading": "Pravno", "legalPrivacy": "Politika privatnosti", "legalTerms": "Uvjeti korištenja", "legalReturns": "Politika povrata", "legalCookies": "Politika kolačića", "regionHeading": "Regija i jezik", "newsletterHeading": "Ostanite informirani", "copyright": "© {year} WearTry. Sva prava pridržana." },
+    "Market": { "region": "Regija", "chooseCountry": "Država / regija", "chooseLanguage": "Jezik", "save": "Spremi", "shippingTo": "Dostava u {country}" },
+    "Legal": { "cookieBanner": { "message": "Koristimo kolačiće kako bismo poboljšali vaše iskustvo.", "accept": "Prihvati sve", "decline": "Odbij neobavezne", "manage": "Upravljaj postavkama", "learnMore": "Saznaj više" } }
+}

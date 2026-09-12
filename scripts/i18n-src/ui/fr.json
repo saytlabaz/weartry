@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Le style en mouvement", "description": "Mode moderne du quotidien pour hommes, femmes et enfants. Livraison dans toute l'UE, au Royaume-Uni et aux États-Unis." },
+    "Nav": { "shop": "Boutique", "men": "Homme", "women": "Femme", "kids": "Enfant", "journal": "Journal", "about": "À propos", "contact": "Contact", "search": "Recherche", "searchPlaceholder": "Rechercher des produits...", "account": "Compte", "wishlist": "Favoris", "cart": "Panier" },
+    "PromoBar": { "message1": "Soldes nouvelle saison", "message2": "Jusqu'à 30% de réduction" },
+    "Hero": { "eyebrow": "Nouvelle saison", "title": "Le style en mouvement", "subtitle": "Des pièces de la nouvelle saison pour une confiance au quotidien.", "cta": "Achetez maintenant", "badgeTitle": "T-shirts populaires", "badgeCta": "Acheter" },
+    "MarqueeText": { "phrase1": "Conçu pour bouger", "phrase2": "Fait pour durer" },
+    "Sections": {
+      "newArrivals": { "title": "Les nouveautés sont arrivées", "viewMore": "Voir plus" },
+      "seasonalDrop": { "title": "Collection saisonnière", "cta": "Achetez maintenant" },
+      "bestSellers": { "title": "Meilleures ventes", "filterAll": "Tous", "filterJacket": "Veste", "filterHoodie": "Sweat à capuche", "filterPants": "Pantalon", "filterTshirt": "T-shirt", "viewMore": "Voir plus" },
+      "categories": { "title": "Achetez par catégorie", "menLabel": "Pour homme", "menTitle": "Conçu pour la confiance au quotidien", "womenLabel": "Pour femme", "womenTitle": "Conçu pour la vie moderne", "kidsLabel": "Pour enfant", "kidsTitle": "Confort pour chaque aventure", "cta": "Achetez maintenant" },
+      "features": { "title": "Achetez en toute confiance", "shippingTitle": "Livraison mondiale", "shippingDesc": "Nous livrons dans toute l'UE, au Royaume-Uni et aux États-Unis, rapidement et de manière fiable.", "sustainableTitle": "Matériaux durables", "sustainableDesc": "Chaque pièce est fabriquée à partir de matériaux responsables.", "returnsTitle": "Retours gratuits sous 30 jours", "returnsDesc": "Pas satisfait ? Retournez sous 30 jours pour un remboursement complet.", "secureTitle": "Paiements sécurisés", "secureDesc": "Achetez en toute sécurité avec un paiement crypté." },
+      "testimonials": { "title": "Un style aimé par des milliers de clients", "subtitle": "Découvrez pourquoi nos clients reviennent toujours." },
+      "journal": { "title": "Depuis le journal", "subtitle": "Découvrez l'inspiration style et les tendances de saison.", "readMore": "Lire plus", "viewMore": "Voir plus" },
+      "newsletter": { "title": "Rejoignez notre newsletter", "subtitle": "Soyez le premier informé des nouveautés et offres exclusives.", "placeholder": "Entrez votre e-mail", "cta": "S'abonner", "disclaimer": "En vous abonnant, vous acceptez notre Politique de confidentialité." }
+    },
+    "Product": { "new": "Nouveau", "addToWishlist": "Ajouter aux favoris", "quickView": "Aperçu rapide" },
+    "Footer": { "tagline": "Mode moderne du quotidien, conçue pour bouger avec vous.", "shopHeading": "Boutique", "shopMen": "Homme", "shopWomen": "Femme", "shopKids": "Enfant", "shopNewArrivals": "Nouveautés", "helpHeading": "Aide", "helpContact": "Nous contacter", "helpShipping": "Infos livraison", "helpReturns": "Retours et remboursements", "helpFaq": "FAQ", "companyHeading": "Entreprise", "companyAbout": "À propos", "companyJournal": "Journal", "companyCareers": "Carrières", "legalHeading": "Mentions légales", "legalPrivacy": "Politique de confidentialité", "legalTerms": "Conditions d'utilisation", "legalReturns": "Politique de retour", "legalCookies": "Politique de cookies", "regionHeading": "Région et langue", "newsletterHeading": "Restez informé", "copyright": "© {year} WearTry. Tous droits réservés." },
+    "Market": { "region": "Région", "chooseCountry": "Pays / région", "chooseLanguage": "Langue", "save": "Enregistrer", "shippingTo": "Livraison vers {country}" },
+    "Legal": { "cookieBanner": { "message": "Nous utilisons des cookies pour améliorer votre expérience.", "accept": "Tout accepter", "decline": "Refuser les non essentiels", "manage": "Gérer les préférences", "learnMore": "En savoir plus" } }
+}

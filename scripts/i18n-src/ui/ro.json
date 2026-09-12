@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Stil în mișcare", "description": "Modă modernă de zi cu zi pentru bărbați, femei și copii. Livrăm în toată UE, Regatul Unit și SUA." },
+    "Nav": { "shop": "Magazin", "men": "Bărbați", "women": "Femei", "kids": "Copii", "journal": "Jurnal", "about": "Despre noi", "contact": "Contact", "search": "Căutare", "searchPlaceholder": "Caută produse...", "account": "Cont", "wishlist": "Favorite", "cart": "Coș" },
+    "PromoBar": { "message1": "Reducere de sezon nou", "message2": "Până la 30% reducere" },
+    "Hero": { "eyebrow": "Sezon nou", "title": "Stil în mișcare", "subtitle": "Piese de sezon nou create pentru încredere zilnică.", "cta": "Cumpără acum", "badgeTitle": "Tricouri populare", "badgeCta": "Cumpără acum" },
+    "MarqueeText": { "phrase1": "Creat pentru mișcare", "phrase2": "Făcut să dureze" },
+    "Sections": {
+      "newArrivals": { "title": "Noua colecție a sosit", "viewMore": "Vezi mai mult" },
+      "seasonalDrop": { "title": "Colecție de sezon", "cta": "Cumpără acum" },
+      "bestSellers": { "title": "Cele mai vândute", "filterAll": "Toate", "filterJacket": "Jachetă", "filterHoodie": "Hanorac", "filterPants": "Pantaloni", "filterTshirt": "Tricou", "viewMore": "Vezi mai mult" },
+      "categories": { "title": "Cumpără pe categorii", "menLabel": "Pentru bărbați", "menTitle": "Creat pentru încredere zilnică", "womenLabel": "Pentru femei", "womenTitle": "Conceput pentru viața modernă", "kidsLabel": "Pentru copii", "kidsTitle": "Confort pentru fiecare aventură", "cta": "Cumpără acum" },
+      "features": { "title": "Cumpără cu încredere", "shippingTitle": "Livrare mondială", "shippingDesc": "Livrăm rapid și fiabil în UE, Regatul Unit și SUA.", "sustainableTitle": "Materiale sustenabile", "sustainableDesc": "Fiecare piesă este realizată din materiale obținute responsabil.", "returnsTitle": "Retur gratuit în 30 de zile", "returnsDesc": "Nu ești mulțumit? Returnează în 30 de zile pentru rambursare completă.", "secureTitle": "Plăți securizate", "secureDesc": "Cumpără în siguranță cu plată criptată." },
+      "testimonials": { "title": "Stil îndrăgit de mii de oameni", "subtitle": "Descoperă de ce clienții noștri revin mereu." },
+      "journal": { "title": "Din jurnal", "subtitle": "Descoperă inspirație de stil și tendințe de sezon.", "readMore": "Citește mai mult", "viewMore": "Vezi mai mult" },
+      "newsletter": { "title": "Abonează-te la newsletter", "subtitle": "Fii primul care află despre noutăți și oferte.", "placeholder": "Introdu adresa de email", "cta": "Abonează-te", "disclaimer": "Abonându-te, accepți Politica noastră de confidențialitate." }
+    },
+    "Product": { "new": "Nou", "addToWishlist": "Adaugă la favorite", "quickView": "Vizualizare rapidă" },
+    "Footer": { "tagline": "Modă modernă de zi cu zi, creată să se miște cu tine.", "shopHeading": "Magazin", "shopMen": "Bărbați", "shopWomen": "Femei", "shopKids": "Copii", "shopNewArrivals": "Noutăți", "helpHeading": "Ajutor", "helpContact": "Contactează-ne", "helpShipping": "Informații livrare", "helpReturns": "Retururi și rambursări", "helpFaq": "Întrebări frecvente", "companyHeading": "Companie", "companyAbout": "Despre noi", "companyJournal": "Jurnal", "companyCareers": "Cariere", "legalHeading": "Legal", "legalPrivacy": "Politica de confidențialitate", "legalTerms": "Termeni și condiții", "legalReturns": "Politica de retur", "legalCookies": "Politica de cookie-uri", "regionHeading": "Regiune și limbă", "newsletterHeading": "Rămâi la curent", "copyright": "© {year} WearTry. Toate drepturile rezervate." },
+    "Market": { "region": "Regiune", "chooseCountry": "Țară / regiune", "chooseLanguage": "Limbă", "save": "Salvează", "shippingTo": "Livrare în {country}" },
+    "Legal": { "cookieBanner": { "message": "Folosim cookie-uri pentru a-ți îmbunătăți experiența.", "accept": "Acceptă tot", "decline": "Refuză neesențiale", "manage": "Gestionează preferințele", "learnMore": "Află mai multe" } }
+}

@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Stils kustībā", "description": "Moderna ikdienas mode vīriešiem, sievietēm un bērniem. Piegādājam visā ES, Apvienotajā Karalistē un ASV." },
+    "Nav": { "shop": "Veikals", "men": "Vīriešiem", "women": "Sievietēm", "kids": "Bērniem", "journal": "Žurnāls", "about": "Par mums", "contact": "Kontakti", "search": "Meklēt", "searchPlaceholder": "Meklēt produktus...", "account": "Konts", "wishlist": "Vēlmju saraksts", "cart": "Grozs" },
+    "PromoBar": { "message1": "Jaunās sezonas izpārdošana", "message2": "Līdz 30% atlaide" },
+    "Hero": { "eyebrow": "Jauna sezona", "title": "Stils kustībā", "subtitle": "Jaunas sezonas apģērbi ikdienas pašapziņai.", "cta": "Iepirkties tagad", "badgeTitle": "Populāri T-krekli", "badgeCta": "Iepirkties" },
+    "MarqueeText": { "phrase1": "Radīts kustībai", "phrase2": "Radīts ilgam laikam" },
+    "Sections": {
+      "newArrivals": { "title": "Jaunā kolekcija ir klāt", "viewMore": "Skatīt vairāk" },
+      "seasonalDrop": { "title": "Sezonas kolekcija", "cta": "Iepirkties tagad" },
+      "bestSellers": { "title": "Populārākie", "filterAll": "Visi", "filterJacket": "Jaka", "filterHoodie": "Džemperis", "filterPants": "Bikses", "filterTshirt": "T-krekls", "viewMore": "Skatīt vairāk" },
+      "categories": { "title": "Iepērcies pēc kategorijas", "menLabel": "Vīriešiem", "menTitle": "Radīts ikdienas pašapziņai", "womenLabel": "Sievietēm", "womenTitle": "Radīts modernai dzīvei", "kidsLabel": "Bērniem", "kidsTitle": "Ērtības katrai piedzīvojumam", "cta": "Iepirkties tagad" },
+      "features": { "title": "Iepērcies ar pārliecību", "shippingTitle": "Piegāde visā pasaulē", "shippingDesc": "Piegādājam ātri un uzticami uz ES, Apvienoto Karalisti un ASV.", "sustainableTitle": "Ilgtspējīgi materiāli", "sustainableDesc": "Katrs izstrādājums ir izgatavots no atbildīgi iegūtiem materiāliem.", "returnsTitle": "30 dienu bezmaksas atgriešana", "returnsDesc": "Neesat apmierināts? Atgrieziet 30 dienu laikā, lai saņemtu pilnu atmaksu.", "secureTitle": "Droši maksājumi", "secureDesc": "Iepērcies droši ar šifrētu maksājumu." },
+      "testimonials": { "title": "Stils, ko mīl tūkstoši", "subtitle": "Uzziniet, kāpēc mūsu klienti vienmēr atgriežas." },
+      "journal": { "title": "No žurnāla", "subtitle": "Atklājiet stila iedvesmu un sezonas tendences.", "readMore": "Lasīt vairāk", "viewMore": "Skatīt vairāk" },
+      "newsletter": { "title": "Pievienojies jaunumu vēstulei", "subtitle": "Uzzini pirmais par jaunumiem un piedāvājumiem.", "placeholder": "Ievadiet e-pastu", "cta": "Abonēt", "disclaimer": "Abonējot jūs piekrītat mūsu Privātuma politikai." }
+    },
+    "Product": { "new": "Jauns", "addToWishlist": "Pievienot vēlmju sarakstam", "quickView": "Ātrais skats" },
+    "Footer": { "tagline": "Moderna ikdienas mode, kas kustas kopā ar tevi.", "shopHeading": "Veikals", "shopMen": "Vīriešiem", "shopWomen": "Sievietēm", "shopKids": "Bērniem", "shopNewArrivals": "Jaunumi", "helpHeading": "Palīdzība", "helpContact": "Sazinies ar mums", "helpShipping": "Piegādes informācija", "helpReturns": "Atgriešana un atmaksa", "helpFaq": "BUJ", "companyHeading": "Uzņēmums", "companyAbout": "Par mums", "companyJournal": "Žurnāls", "companyCareers": "Karjera", "legalHeading": "Juridiskā informācija", "legalPrivacy": "Privātuma politika", "legalTerms": "Lietošanas noteikumi", "legalReturns": "Atgriešanas politika", "legalCookies": "Sīkdatņu politika", "regionHeading": "Reģions un valoda", "newsletterHeading": "Esiet informēti", "copyright": "© {year} WearTry. Visas tiesības aizsargātas." },
+    "Market": { "region": "Reģions", "chooseCountry": "Valsts / reģions", "chooseLanguage": "Valoda", "save": "Saglabāt", "shippingTo": "Piegāde uz {country}" },
+    "Legal": { "cookieBanner": { "message": "Mēs izmantojam sīkdatnes, lai uzlabotu jūsu pieredzi.", "accept": "Pieņemt visu", "decline": "Noraidīt nebūtiskās", "manage": "Pārvaldīt iestatījumus", "learnMore": "Uzzināt vairāk" } }
+}

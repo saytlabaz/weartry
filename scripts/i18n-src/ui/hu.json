@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Stílus mozgásban", "description": "Modern, hétköznapi divat férfiaknak, nőknek és gyerekeknek. Szállítás az EU-ba, az Egyesült Királyságba és az USA-ba." },
+    "Nav": { "shop": "Bolt", "men": "Férfi", "women": "Női", "kids": "Gyerek", "journal": "Magazin", "about": "Rólunk", "contact": "Kapcsolat", "search": "Keresés", "searchPlaceholder": "Termékek keresése...", "account": "Fiók", "wishlist": "Kedvencek", "cart": "Kosár" },
+    "PromoBar": { "message1": "Új szezonos akció", "message2": "Akár 30% kedvezmény" },
+    "Hero": { "eyebrow": "Új szezon", "title": "Stílus mozgásban", "subtitle": "Új szezonos darabok a mindennapi magabiztossághoz.", "cta": "Vásárolj most", "badgeTitle": "Népszerű pólók", "badgeCta": "Vásárolj most" },
+    "MarqueeText": { "phrase1": "Mozgásra tervezve", "phrase2": "Tartósra készítve" },
+    "Sections": {
+      "newArrivals": { "title": "Megérkezett az új kollekció", "viewMore": "Több megtekintése" },
+      "seasonalDrop": { "title": "Szezonális kollekció", "cta": "Vásárolj most" },
+      "bestSellers": { "title": "Legkelendőbb termékek", "filterAll": "Összes", "filterJacket": "Dzseki", "filterHoodie": "Pulóver", "filterPants": "Nadrág", "filterTshirt": "Póló", "viewMore": "Több megtekintése" },
+      "categories": { "title": "Vásárlás kategóriák szerint", "menLabel": "Férfiaknak", "menTitle": "A mindennapi magabiztosságért", "womenLabel": "Nőknek", "womenTitle": "A modern élethez tervezve", "kidsLabel": "Gyerekeknek", "kidsTitle": "Kényelem minden kalandhoz", "cta": "Vásárolj most" },
+      "features": { "title": "Vásárolj magabiztosan", "shippingTitle": "Világszerte szállítás", "shippingDesc": "Gyorsan és megbízhatóan szállítunk az EU-ba, az Egyesült Királyságba és az USA-ba.", "sustainableTitle": "Fenntartható anyagok", "sustainableDesc": "Minden termék felelősségteljesen beszerzett anyagokból készül.", "returnsTitle": "30 napos ingyenes visszaküldés", "returnsDesc": "Nem elégedett? Küldje vissza 30 napon belül a teljes visszatérítésért.", "secureTitle": "Biztonságos fizetés", "secureDesc": "Vásároljon biztonságosan titkosított fizetéssel." },
+      "testimonials": { "title": "Ezrek kedvenc stílusa", "subtitle": "Tudja meg, miért térnek vissza mindig ügyfeleink." },
+      "journal": { "title": "A magazinból", "subtitle": "Fedezze fel a stílusinspirációt és a szezonális trendeket.", "readMore": "Tovább olvasom", "viewMore": "Több megtekintése" },
+      "newsletter": { "title": "Iratkozzon fel hírlevelünkre", "subtitle": "Elsőként értesüljön az újdonságokról és akciókról.", "placeholder": "Adja meg e-mail címét", "cta": "Feliratkozás", "disclaimer": "A feliratkozással elfogadja Adatvédelmi Szabályzatunkat." }
+    },
+    "Product": { "new": "Új", "addToWishlist": "Kedvencekhez adás", "quickView": "Gyors nézet" },
+    "Footer": { "tagline": "Modern hétköznapi divat, amely veled mozog.", "shopHeading": "Bolt", "shopMen": "Férfi", "shopWomen": "Női", "shopKids": "Gyerek", "shopNewArrivals": "Újdonságok", "helpHeading": "Segítség", "helpContact": "Lépjen kapcsolatba velünk", "helpShipping": "Szállítási információk", "helpReturns": "Visszaküldés és visszatérítés", "helpFaq": "GYIK", "companyHeading": "Cég", "companyAbout": "Rólunk", "companyJournal": "Magazin", "companyCareers": "Karrier", "legalHeading": "Jogi", "legalPrivacy": "Adatvédelmi szabályzat", "legalTerms": "Felhasználási feltételek", "legalReturns": "Visszaküldési szabályzat", "legalCookies": "Cookie szabályzat", "regionHeading": "Régió és nyelv", "newsletterHeading": "Maradjon naprakész", "copyright": "© {year} WearTry. Minden jog fenntartva." },
+    "Market": { "region": "Régió", "chooseCountry": "Ország / régió", "chooseLanguage": "Nyelv", "save": "Mentés", "shippingTo": "Szállítás ide: {country}" },
+    "Legal": { "cookieBanner": { "message": "Cookie-kat használunk élménye javítására.", "accept": "Összes elfogadása", "decline": "Nem szükséges elutasítása", "manage": "Beállítások kezelése", "learnMore": "Tudjon meg többet" } }
+}

@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Tyyliä liikkeessä", "description": "Moderni arkimuoti miehille, naisille ja lapsille. Toimitamme kaikkialle EU:hun, Isoon-Britanniaan ja Yhdysvaltoihin." },
+    "Nav": { "shop": "Kauppa", "men": "Miehet", "women": "Naiset", "kids": "Lapset", "journal": "Blogi", "about": "Meistä", "contact": "Yhteystiedot", "search": "Haku", "searchPlaceholder": "Etsi tuotteita...", "account": "Tili", "wishlist": "Toivelista", "cart": "Ostoskori" },
+    "PromoBar": { "message1": "Uuden kauden ale", "message2": "Jopa 30% alennus" },
+    "Hero": { "eyebrow": "Uusi kausi", "title": "Tyyliä liikkeessä", "subtitle": "Uuden kauden vaatteet arjen itsevarmuuteen.", "cta": "Osta nyt", "badgeTitle": "Suositut t-paidat", "badgeCta": "Osta nyt" },
+    "MarqueeText": { "phrase1": "Suunniteltu liikkeelle", "phrase2": "Tehty kestämään" },
+    "Sections": {
+      "newArrivals": { "title": "Uutuudet ovat saapuneet", "viewMore": "Näytä lisää" },
+      "seasonalDrop": { "title": "Kauden uutuudet", "cta": "Osta nyt" },
+      "bestSellers": { "title": "Myydyimmät", "filterAll": "Kaikki", "filterJacket": "Takki", "filterHoodie": "Huppari", "filterPants": "Housut", "filterTshirt": "T-paita", "viewMore": "Näytä lisää" },
+      "categories": { "title": "Osta kategorioittain", "menLabel": "Miehille", "menTitle": "Suunniteltu arjen itsevarmuuteen", "womenLabel": "Naisille", "womenTitle": "Suunniteltu moderniin elämään", "kidsLabel": "Lapsille", "kidsTitle": "Mukavuutta joka seikkailuun", "cta": "Osta nyt" },
+      "features": { "title": "Osta luottavaisin mielin", "shippingTitle": "Toimitus maailmanlaajuisesti", "shippingDesc": "Toimitamme nopeasti ja luotettavasti EU:hun, Isoon-Britanniaan ja Yhdysvaltoihin.", "sustainableTitle": "Kestävät materiaalit", "sustainableDesc": "Jokainen tuote on valmistettu vastuullisesti hankituista materiaaleista.", "returnsTitle": "30 päivän ilmainen palautus", "returnsDesc": "Etkö ole tyytyväinen? Palauta 30 päivän kuluessa saadaksesi täyden hyvityksen.", "secureTitle": "Turvalliset maksut", "secureDesc": "Osta turvallisesti salatulla maksulla." },
+      "testimonials": { "title": "Tyyli, josta tuhannet pitävät", "subtitle": "Katso miksi asiakkaat palaavat aina uudelleen." },
+      "journal": { "title": "Blogista", "subtitle": "Löydä tyyli-inspiraatiota ja kauden trendejä.", "readMore": "Lue lisää", "viewMore": "Näytä lisää" },
+      "newsletter": { "title": "Liity uutiskirjeeseen", "subtitle": "Ole ensimmäinen, joka kuulee uutuuksista ja tarjouksista.", "placeholder": "Syötä sähköposti", "cta": "Tilaa", "disclaimer": "Tilaamalla hyväksyt tietosuojakäytäntömme." }
+    },
+    "Product": { "new": "Uusi", "addToWishlist": "Lisää toivelistalle", "quickView": "Pikakatselu" },
+    "Footer": { "tagline": "Moderni arkimuoti, joka liikkuu kanssasi.", "shopHeading": "Kauppa", "shopMen": "Miehet", "shopWomen": "Naiset", "shopKids": "Lapset", "shopNewArrivals": "Uutuudet", "helpHeading": "Apua", "helpContact": "Ota yhteyttä", "helpShipping": "Toimitustiedot", "helpReturns": "Palautukset ja hyvitykset", "helpFaq": "UKK", "companyHeading": "Yritys", "companyAbout": "Meistä", "companyJournal": "Blogi", "companyCareers": "Ura", "legalHeading": "Oikeudellinen", "legalPrivacy": "Tietosuojakäytäntö", "legalTerms": "Käyttöehdot", "legalReturns": "Palautuskäytäntö", "legalCookies": "Evästekäytäntö", "regionHeading": "Alue ja kieli", "newsletterHeading": "Pysy ajan tasalla", "copyright": "© {year} WearTry. Kaikki oikeudet pidätetään." },
+    "Market": { "region": "Alue", "chooseCountry": "Maa / alue", "chooseLanguage": "Kieli", "save": "Tallenna", "shippingTo": "Toimitus maahan {country}" },
+    "Legal": { "cookieBanner": { "message": "Käytämme evästeitä parantaaksemme kokemustasi.", "accept": "Hyväksy kaikki", "decline": "Hylkää ei-välttämättömät", "manage": "Hallitse asetuksia", "learnMore": "Lue lisää" } }
+}

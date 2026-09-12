@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Stil i bevægelse", "description": "Moderne hverdagsmode til mænd, kvinder og børn. Vi sender til hele EU, Storbritannien og USA." },
+    "Nav": { "shop": "Shop", "men": "Herre", "women": "Dame", "kids": "Børn", "journal": "Journal", "about": "Om os", "contact": "Kontakt", "search": "Søg", "searchPlaceholder": "Søg produkter...", "account": "Konto", "wishlist": "Ønskeliste", "cart": "Kurv" },
+    "PromoBar": { "message1": "Nyt sæson udsalg", "message2": "Op til 30% rabat" },
+    "Hero": { "eyebrow": "Ny sæson", "title": "Stil i bevægelse", "subtitle": "Nye sæsonvarer skabt til hverdagens selvsikkerhed.", "cta": "Shop nu", "badgeTitle": "Populære T-shirts", "badgeCta": "Shop nu" },
+    "MarqueeText": { "phrase1": "Designet til bevægelse", "phrase2": "Bygget til at holde" },
+    "Sections": {
+      "newArrivals": { "title": "Nye varer er ankommet", "viewMore": "Se mere" },
+      "seasonalDrop": { "title": "Sæsonens nyheder", "cta": "Shop nu" },
+      "bestSellers": { "title": "Bestsellere", "filterAll": "Alle", "filterJacket": "Jakke", "filterHoodie": "Hættetrøje", "filterPants": "Bukser", "filterTshirt": "T-shirt", "viewMore": "Se mere" },
+      "categories": { "title": "Shop efter kategori", "menLabel": "Til herre", "menTitle": "Skabt til hverdagens selvsikkerhed", "womenLabel": "Til dame", "womenTitle": "Designet til det moderne liv", "kidsLabel": "Til børn", "kidsTitle": "Komfort til hvert eventyr", "cta": "Shop nu" },
+      "features": { "title": "Shop med tillid", "shippingTitle": "Verdensomspændende levering", "shippingDesc": "Vi sender til EU, Storbritannien og USA hurtigt og pålideligt.", "sustainableTitle": "Bæredygtige materialer", "sustainableDesc": "Hvert stykke er lavet af ansvarligt indkøbte materialer.", "returnsTitle": "30 dages gratis retur", "returnsDesc": "Ikke tilfreds? Returner inden for 30 dage for fuld refundering.", "secureTitle": "Sikre betalinger", "secureDesc": "Handl trygt med krypteret betaling." },
+      "testimonials": { "title": "Stil elsket af tusindvis", "subtitle": "Se hvorfor kunderne bliver ved med at komme tilbage." },
+      "journal": { "title": "Fra journalen", "subtitle": "Udforsk stilinspiration og sæsonens trends.", "readMore": "Læs mere", "viewMore": "Se mere" },
+      "newsletter": { "title": "Tilmeld dig nyhedsbrevet", "subtitle": "Vær den første til at høre om nye varer og tilbud.", "placeholder": "Indtast din e-mail", "cta": "Tilmeld", "disclaimer": "Ved at tilmelde dig accepterer du vores Privatlivspolitik." }
+    },
+    "Product": { "new": "Ny", "addToWishlist": "Føj til ønskeliste", "quickView": "Hurtigt kig" },
+    "Footer": { "tagline": "Moderne hverdagsmode, skabt til at bevæge sig med dig.", "shopHeading": "Shop", "shopMen": "Herre", "shopWomen": "Dame", "shopKids": "Børn", "shopNewArrivals": "Nyheder", "helpHeading": "Hjælp", "helpContact": "Kontakt os", "helpShipping": "Leveringsinfo", "helpReturns": "Retur og refundering", "helpFaq": "Ofte stillede spørgsmål", "companyHeading": "Virksomhed", "companyAbout": "Om os", "companyJournal": "Journal", "companyCareers": "Karriere", "legalHeading": "Juridisk", "legalPrivacy": "Privatlivspolitik", "legalTerms": "Servicevilkår", "legalReturns": "Returpolitik", "legalCookies": "Cookiepolitik", "regionHeading": "Region og sprog", "newsletterHeading": "Hold dig opdateret", "copyright": "© {year} WearTry. Alle rettigheder forbeholdes." },
+    "Market": { "region": "Region", "chooseCountry": "Land / region", "chooseLanguage": "Sprog", "save": "Gem", "shippingTo": "Levering til {country}" },
+    "Legal": { "cookieBanner": { "message": "Vi bruger cookies til at forbedre din oplevelse.", "accept": "Accepter alle", "decline": "Afvis ikke-nødvendige", "manage": "Administrer indstillinger", "learnMore": "Læs mere" } }
+}

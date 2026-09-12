@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Στιλ σε κίνηση", "description": "Μοντέρνα καθημερινή μόδα για άνδρες, γυναίκες και παιδιά. Αποστολή σε όλη την ΕΕ, το Ηνωμένο Βασίλειο και τις ΗΠΑ." },
+    "Nav": { "shop": "Κατάστημα", "men": "Άνδρες", "women": "Γυναίκες", "kids": "Παιδιά", "journal": "Blog", "about": "Σχετικά", "contact": "Επικοινωνία", "search": "Αναζήτηση", "searchPlaceholder": "Αναζήτηση προϊόντων...", "account": "Λογαριασμός", "wishlist": "Αγαπημένα", "cart": "Καλάθι" },
+    "PromoBar": { "message1": "Έκπτωση νέας σεζόν", "message2": "Έως 30% έκπτωση" },
+    "Hero": { "eyebrow": "Νέα σεζόν", "title": "Στιλ σε κίνηση", "subtitle": "Νέα κομμάτια για καθημερινή αυτοπεποίθηση.", "cta": "Αγορά τώρα", "badgeTitle": "Δημοφιλή T-shirts", "badgeCta": "Αγορά τώρα" },
+    "MarqueeText": { "phrase1": "Σχεδιασμένο για κίνηση", "phrase2": "Φτιαγμένο για να διαρκεί" },
+    "Sections": {
+      "newArrivals": { "title": "Οι νέες αφίξεις είναι εδώ", "viewMore": "Δείτε περισσότερα" },
+      "seasonalDrop": { "title": "Εποχιακή συλλογή", "cta": "Αγορά τώρα" },
+      "bestSellers": { "title": "Best Sellers", "filterAll": "Όλα", "filterJacket": "Μπουφάν", "filterHoodie": "Φούτερ", "filterPants": "Παντελόνι", "filterTshirt": "T-shirt", "viewMore": "Δείτε περισσότερα" },
+      "categories": { "title": "Αγοράστε ανά κατηγορία", "menLabel": "Για άνδρες", "menTitle": "Σχεδιασμένο για καθημερινή αυτοπεποίθηση", "womenLabel": "Για γυναίκες", "womenTitle": "Σχεδιασμένο για τη σύγχρονη ζωή", "kidsLabel": "Για παιδιά", "kidsTitle": "Άνεση για κάθε περιπέτεια", "cta": "Αγορά τώρα" },
+      "features": { "title": "Αγοράστε με σιγουριά", "shippingTitle": "Παγκόσμια αποστολή", "shippingDesc": "Αποστέλλουμε γρήγορα και αξιόπιστα σε ΕΕ, Ηνωμένο Βασίλειο και ΗΠΑ.", "sustainableTitle": "Βιώσιμα υλικά", "sustainableDesc": "Κάθε κομμάτι κατασκευάζεται από υπεύθυνα υλικά.", "returnsTitle": "Δωρεάν επιστροφή 30 ημερών", "returnsDesc": "Δεν είστε ικανοποιημένοι; Επιστρέψτε εντός 30 ημερών για πλήρη επιστροφή χρημάτων.", "secureTitle": "Ασφαλείς πληρωμές", "secureDesc": "Αγοράστε με ασφάλεια με κρυπτογραφημένη πληρωμή." },
+      "testimonials": { "title": "Στιλ αγαπημένο από χιλιάδες", "subtitle": "Δείτε γιατί οι πελάτες μας συνεχίζουν να επιστρέφουν." },
+      "journal": { "title": "Από το Blog", "subtitle": "Ανακαλύψτε έμπνευση στιλ και εποχιακές τάσεις.", "readMore": "Διαβάστε περισσότερα", "viewMore": "Δείτε περισσότερα" },
+      "newsletter": { "title": "Εγγραφείτε στο newsletter", "subtitle": "Μάθετε πρώτοι για νέες αφίξεις και προσφορές.", "placeholder": "Εισάγετε το email σας", "cta": "Εγγραφή", "disclaimer": "Εγγραφόμενοι αποδέχεστε την Πολιτική Απορρήτου μας." }
+    },
+    "Product": { "new": "Νέο", "addToWishlist": "Προσθήκη στα αγαπημένα", "quickView": "Γρήγορη προβολή" },
+    "Footer": { "tagline": "Μοντέρνα καθημερινή μόδα, φτιαγμένη να κινείται μαζί σας.", "shopHeading": "Κατάστημα", "shopMen": "Άνδρες", "shopWomen": "Γυναίκες", "shopKids": "Παιδιά", "shopNewArrivals": "Νέες αφίξεις", "helpHeading": "Βοήθεια", "helpContact": "Επικοινωνήστε μαζί μας", "helpShipping": "Πληροφορίες αποστολής", "helpReturns": "Επιστροφές & Επιστροφές χρημάτων", "helpFaq": "Συχνές ερωτήσεις", "companyHeading": "Εταιρεία", "companyAbout": "Σχετικά με εμάς", "companyJournal": "Blog", "companyCareers": "Καριέρες", "legalHeading": "Νομικά", "legalPrivacy": "Πολιτική Απορρήτου", "legalTerms": "Όροι Χρήσης", "legalReturns": "Πολιτική Επιστροφών", "legalCookies": "Πολιτική Cookies", "regionHeading": "Περιοχή & Γλώσσα", "newsletterHeading": "Μείνετε ενημερωμένοι", "copyright": "© {year} WearTry. Όλα τα δικαιώματα διατηρούνται." },
+    "Market": { "region": "Περιοχή", "chooseCountry": "Χώρα / Περιοχή", "chooseLanguage": "Γλώσσα", "save": "Αποθήκευση", "shippingTo": "Αποστολή στη {country}" },
+    "Legal": { "cookieBanner": { "message": "Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας.", "accept": "Αποδοχή όλων", "decline": "Απόρριψη μη απαραίτητων", "manage": "Διαχείριση προτιμήσεων", "learnMore": "Μάθετε περισσότερα" } }
+}

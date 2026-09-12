@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Štýl v pohybe", "description": "Moderná každodenná móda pre mužov, ženy a deti. Doručujeme po celej EÚ, Spojenom kráľovstve a USA." },
+    "Nav": { "shop": "Obchod", "men": "Muži", "women": "Ženy", "kids": "Deti", "journal": "Blog", "about": "O nás", "contact": "Kontakt", "search": "Hľadať", "searchPlaceholder": "Hľadať produkty...", "account": "Účet", "wishlist": "Obľúbené", "cart": "Košík" },
+    "PromoBar": { "message1": "Výpredaj novej sezóny", "message2": "Zľava až 30 %" },
+    "Hero": { "eyebrow": "Nová sezóna", "title": "Štýl v pohybe", "subtitle": "Kúsky novej sezóny pre každodennú sebadôveru.", "cta": "Nakupovať", "badgeTitle": "Obľúbené tričká", "badgeCta": "Nakupovať" },
+    "MarqueeText": { "phrase1": "Navrhnuté pre pohyb", "phrase2": "Vyrobené na dlho" },
+    "Sections": {
+      "newArrivals": { "title": "Nová kolekcia je tu", "viewMore": "Zobraziť viac" },
+      "seasonalDrop": { "title": "Sezónna kolekcia", "cta": "Nakupovať" },
+      "bestSellers": { "title": "Najpredávanejšie", "filterAll": "Všetko", "filterJacket": "Bunda", "filterHoodie": "Mikina", "filterPants": "Nohavice", "filterTshirt": "Tričko", "viewMore": "Zobraziť viac" },
+      "categories": { "title": "Nakupujte podľa kategórie", "menLabel": "Pre mužov", "menTitle": "Navrhnuté pre každodennú sebadôveru", "womenLabel": "Pre ženy", "womenTitle": "Navrhnuté pre moderný život", "kidsLabel": "Pre deti", "kidsTitle": "Pohodlie pre každé dobrodružstvo", "cta": "Nakupovať" },
+      "features": { "title": "Nakupujte s istotou", "shippingTitle": "Doprava po celom svete", "shippingDesc": "Doručujeme rýchlo a spoľahlivo do EÚ, Spojeného kráľovstva a USA.", "sustainableTitle": "Udržateľné materiály", "sustainableDesc": "Každý kus je vyrobený zo zodpovedne získaných materiálov.", "returnsTitle": "30-dňové bezplatné vrátenie", "returnsDesc": "Nie ste spokojní? Vráťte tovar do 30 dní pre plné vrátenie peňazí.", "secureTitle": "Bezpečné platby", "secureDesc": "Nakupujte bezpečne so šifrovanou platbou." },
+      "testimonials": { "title": "Štýl, ktorý milujú tisíce", "subtitle": "Zistite, prečo sa k nám zákazníci stále vracajú." },
+      "journal": { "title": "Z blogu", "subtitle": "Objavte štýlovú inšpiráciu a sezónne trendy.", "readMore": "Čítať viac", "viewMore": "Zobraziť viac" },
+      "newsletter": { "title": "Prihláste sa na odber", "subtitle": "Buďte prví, kto sa dozví o novinkách a ponukách.", "placeholder": "Zadajte e-mail", "cta": "Odoberať", "disclaimer": "Prihlásením súhlasíte s našimi Zásadami ochrany osobných údajov." }
+    },
+    "Product": { "new": "Novinka", "addToWishlist": "Pridať do obľúbených", "quickView": "Rýchly náhľad" },
+    "Footer": { "tagline": "Moderná každodenná móda, ktorá sa hýbe s vami.", "shopHeading": "Obchod", "shopMen": "Muži", "shopWomen": "Ženy", "shopKids": "Deti", "shopNewArrivals": "Novinky", "helpHeading": "Pomoc", "helpContact": "Kontaktujte nás", "helpShipping": "Informácie o doprave", "helpReturns": "Vrátenie a refundácie", "helpFaq": "Časté otázky", "companyHeading": "Spoločnosť", "companyAbout": "O nás", "companyJournal": "Blog", "companyCareers": "Kariéra", "legalHeading": "Právne informácie", "legalPrivacy": "Zásady ochrany osobných údajov", "legalTerms": "Obchodné podmienky", "legalReturns": "Zásady vrátenia tovaru", "legalCookies": "Zásady cookies", "regionHeading": "Región a jazyk", "newsletterHeading": "Zostaňte informovaní", "copyright": "© {year} WearTry. Všetky práva vyhradené." },
+    "Market": { "region": "Región", "chooseCountry": "Krajina / región", "chooseLanguage": "Jazyk", "save": "Uložiť", "shippingTo": "Doručenie do {country}" },
+    "Legal": { "cookieBanner": { "message": "Používame cookies na zlepšenie vášho zážitku.", "accept": "Prijať všetko", "decline": "Odmietnuť nepovinné", "manage": "Spravovať predvoľby", "learnMore": "Zistiť viac" } }
+}

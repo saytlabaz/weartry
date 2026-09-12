@@ -1,0 +1,325 @@
+{
+  "Meta": {
+    "title": "WearTry — Стил в движение",
+    "description": "Модерна ежедневна мода за мъже, жени и деца. Доставка в Европа, Обединеното кралство и САЩ."
+  },
+  "Nav": {
+    "shop": "Магазин",
+    "men": "Мъже",
+    "women": "Жени",
+    "kids": "Деца",
+    "journal": "Блог",
+    "about": "За нас",
+    "contact": "Контакти",
+    "search": "Търсене",
+    "searchPlaceholder": "Търсене на продукти...",
+    "account": "Профил",
+    "wishlist": "Любими",
+    "cart": "Количка"
+  },
+  "PromoBar": {
+    "message1": "Разпродажба на новия сезон",
+    "message2": "До 30% отстъпка"
+  },
+  "Hero": {
+    "eyebrow": "Нов сезон",
+    "title": "Стил в движение",
+    "subtitle": "Дрехи за новия сезон, създадени за ежедневна увереност.",
+    "cta": "Пазарувай сега",
+    "badgeTitle": "Популярни тениски",
+    "badgeCta": "Пазарувай"
+  },
+  "MarqueeText": {
+    "phrase1": "Създадено за движение",
+    "phrase2": "Издръжливо качество"
+  },
+  "Sections": {
+    "newArrivals": {
+      "title": "Нови продукти",
+      "viewMore": "Виж повече"
+    },
+    "seasonalDrop": {
+      "title": "Сезонна колекция",
+      "cta": "Пазарувай сега"
+    },
+    "bestSellers": {
+      "title": "Най-продавани",
+      "filterAll": "Всички",
+      "filterJacket": "Яке",
+      "filterHoodie": "Суитшърт",
+      "filterPants": "Панталони",
+      "filterTshirt": "Тениска",
+      "viewMore": "Виж повече"
+    },
+    "categories": {
+      "title": "Пазарувай по категории",
+      "menLabel": "За мъже",
+      "menTitle": "Създадено за ежедневна увереност",
+      "womenLabel": "За жени",
+      "womenTitle": "Дизайн за модерен живот",
+      "kidsLabel": "За деца",
+      "kidsTitle": "Комфорт за всяко приключение",
+      "cta": "Пазарувай сега"
+    },
+    "features": {
+      "title": "Пазарувай с увереност",
+      "shippingTitle": "Доставка по света",
+      "shippingDesc": "Доставяме в ЕС, Обединеното кралство и САЩ бързо и надеждно. Проследете поръчката си на всяка стъпка.",
+      "sustainableTitle": "Устойчиви материали",
+      "sustainableDesc": "Всеки продукт е изработен от отговорно набавени материали.",
+      "returnsTitle": "30 дни безплатно връщане",
+      "returnsDesc": "Не сте доволни? Върнете в рамките на 30 дни за пълно възстановяване на сумата.",
+      "secureTitle": "Сигурни плащания",
+      "secureDesc": "Пазарувайте безопасно с криптирано плащане."
+    },
+    "testimonials": {
+      "title": "Стил, обичан от хиляди",
+      "subtitle": "Разберете защо клиентите ни се връщат отново и отново."
+    },
+    "journal": {
+      "title": "От блога",
+      "subtitle": "Открийте вдъхновение за стил и сезонни тенденции.",
+      "readMore": "Прочети повече",
+      "viewMore": "Виж повече"
+    },
+    "newsletter": {
+      "title": "Абонирайте се за бюлетина",
+      "subtitle": "Бъдете първи, които научават за нови продукти и оферти.",
+      "placeholder": "Въведете имейл",
+      "cta": "Абонирай се",
+      "disclaimer": "Абонирайки се, приемате нашата Политика за поверителност."
+    }
+  },
+  "Product": {
+    "new": "Ново",
+    "addToWishlist": "Добави в любими",
+    "quickView": "Бърз преглед"
+  },
+  "Footer": {
+    "tagline": "Модерна ежедневна мода, създадена да се движи с теб.",
+    "shopHeading": "Магазин",
+    "shopMen": "Мъже",
+    "shopWomen": "Жени",
+    "shopKids": "Деца",
+    "shopNewArrivals": "Нови продукти",
+    "helpHeading": "Помощ",
+    "helpContact": "Свържете се с нас",
+    "helpShipping": "Информация за доставка",
+    "helpReturns": "Връщания и възстановявания",
+    "helpFaq": "Въпроси",
+    "companyHeading": "Компания",
+    "companyAbout": "За нас",
+    "companyJournal": "Блог",
+    "companyCareers": "Кариери",
+    "legalHeading": "Правна информация",
+    "legalPrivacy": "Политика за поверителност",
+    "legalTerms": "Условия за ползване",
+    "legalReturns": "Политика за връщане",
+    "legalCookies": "Политика за бисквитки",
+    "regionHeading": "Регион и език",
+    "newsletterHeading": "Бъдете в течение",
+    "copyright": "© {year} WearTry. Всички права запазени."
+  },
+  "Market": {
+    "region": "Регион",
+    "chooseCountry": "Държава / регион",
+    "chooseLanguage": "Език",
+    "save": "Запази",
+    "shippingTo": "Доставка до {country}"
+  },
+  "Legal": {
+    "lastUpdated": "Last updated: {date}",
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "This Privacy Policy explains how WearTry (\"we\", \"us\", \"our\") collects, uses, shares and protects your personal data when you visit our website or make a purchase, in accordance with the EU General Data Protection Regulation (GDPR), the UK GDPR, and applicable US state privacy laws.",
+      "sections": [
+        {
+          "heading": "1. Who We Are",
+          "body": "WearTry is an online fashion retailer serving customers across the European Union, the United Kingdom and the United States. For any privacy-related questions, you can contact us at privacy@weartry.com."
+        },
+        {
+          "heading": "2. Information We Collect",
+          "body": "We collect information you provide directly (name, email, shipping and billing address, phone number, payment details processed by our payment provider), information collected automatically (IP address, browser type, device information, pages visited, cookies), and information from third parties (payment processors, delivery partners, marketing platforms)."
+        },
+        {
+          "heading": "3. How We Use Your Information",
+          "body": "We use your data to process and deliver orders, provide customer support, personalise your shopping experience, send marketing communications where you have consented, prevent fraud, and comply with legal obligations."
+        },
+        {
+          "heading": "4. Legal Basis for Processing (EU/UK Users)",
+          "body": "We process personal data on the basis of contract performance (to fulfil your order), legitimate interest (to improve our services and prevent fraud), consent (for marketing communications and non-essential cookies), and legal obligation (tax and accounting records)."
+        },
+        {
+          "heading": "5. Sharing Your Information",
+          "body": "We share data with payment processors, shipping and logistics partners, IT and hosting providers, and marketing tools, all under appropriate data processing agreements. We do not sell your personal data."
+        },
+        {
+          "heading": "6. International Data Transfers",
+          "body": "Where data is transferred outside the EU/UK/US, we rely on adequacy decisions or Standard Contractual Clauses to ensure an equivalent level of protection."
+        },
+        {
+          "heading": "7. Data Retention",
+          "body": "We retain personal data for as long as necessary to fulfil the purposes described in this policy, including legal, accounting and reporting requirements."
+        },
+        {
+          "heading": "8. Your Rights",
+          "body": "Depending on your location, you may have the right to access, correct, delete or port your data, object to or restrict processing, and withdraw consent at any time. EU and UK residents may also lodge a complaint with their local data protection authority."
+        },
+        {
+          "heading": "9. Cookies",
+          "body": "We use cookies and similar technologies as described in our Cookie Policy. You can manage your preferences at any time via our cookie settings."
+        },
+        {
+          "heading": "10. Children's Privacy",
+          "body": "Our kids' collection is intended for purchase by adults. We do not knowingly collect personal data directly from children under 16."
+        },
+        {
+          "heading": "11. Changes to This Policy",
+          "body": "We may update this Privacy Policy from time to time. Material changes will be notified via our website or by email."
+        },
+        {
+          "heading": "12. Contact Us",
+          "body": "For any questions about this Privacy Policy or to exercise your rights, please contact us at privacy@weartry.com."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "intro": "These Terms of Service (\"Terms\") govern your access to and use of the WearTry website and any purchases made through it. By using our website, you agree to these Terms.",
+      "sections": [
+        {
+          "heading": "1. Orders and Acceptance",
+          "body": "All orders are subject to acceptance and availability. We reserve the right to refuse or cancel any order at our discretion, including in cases of suspected fraud or pricing errors."
+        },
+        {
+          "heading": "2. Pricing and Payment",
+          "body": "All prices are displayed in the currency relevant to your selected region and include applicable VAT or sales tax where required by law. Payment is processed securely at checkout."
+        },
+        {
+          "heading": "3. Shipping",
+          "body": "We ship to all European Union member states, the United Kingdom and the United States. Delivery times and costs vary by destination and are shown at checkout."
+        },
+        {
+          "heading": "4. Returns and Refunds",
+          "body": "Please refer to our Return Policy for full details on returns, exchanges and refunds."
+        },
+        {
+          "heading": "5. Intellectual Property",
+          "body": "All content on this website, including text, graphics, logos and images, is the property of WearTry or its licensors and may not be used without permission."
+        },
+        {
+          "heading": "6. Limitation of Liability",
+          "body": "To the maximum extent permitted by law, WearTry shall not be liable for any indirect, incidental or consequential damages arising from your use of the website."
+        },
+        {
+          "heading": "7. Consumer Rights",
+          "body": "Nothing in these Terms affects your statutory rights as a consumer under EU, UK or US law, including your right to withdraw from a purchase within the applicable cooling-off period."
+        },
+        {
+          "heading": "8. Governing Law",
+          "body": "These Terms are governed by the laws applicable in your country of residence for consumer protection purposes, without prejudice to any mandatory local consumer protection laws."
+        },
+        {
+          "heading": "9. Changes to These Terms",
+          "body": "We may revise these Terms at any time. Continued use of the website after changes constitutes acceptance of the revised Terms."
+        },
+        {
+          "heading": "10. Contact Us",
+          "body": "Questions about these Terms can be sent to legal@weartry.com."
+        }
+      ]
+    },
+    "returns": {
+      "title": "Return & Refund Policy",
+      "intro": "We want you to love what you ordered. If something isn't right, you can return most items within 30 days of delivery for a full refund or exchange.",
+      "sections": [
+        {
+          "heading": "1. Return Window",
+          "body": "You have 30 days from the date of delivery to return an item for a refund or exchange, provided it is unworn, unwashed and in its original packaging with tags attached."
+        },
+        {
+          "heading": "2. EU & UK Right of Withdrawal",
+          "body": "In addition to our 30-day policy, customers in the EU and UK have a statutory right to withdraw from their purchase within 14 days of receiving their order, without giving any reason, in accordance with the EU Consumer Rights Directive and UK Consumer Contracts Regulations."
+        },
+        {
+          "heading": "3. How to Start a Return",
+          "body": "Log into your account and select the order you wish to return, or contact our support team at returns@weartry.com with your order number."
+        },
+        {
+          "heading": "4. Refunds",
+          "body": "Once we receive and inspect your return, refunds are issued to your original payment method within 5–10 business days."
+        },
+        {
+          "heading": "5. Exchanges",
+          "body": "If you need a different size or colour, select the exchange option when starting your return, subject to availability."
+        },
+        {
+          "heading": "6. Non-Returnable Items",
+          "body": "For hygiene reasons, underwear, swimwear and earrings cannot be returned unless faulty."
+        },
+        {
+          "heading": "7. Faulty or Damaged Items",
+          "body": "If an item arrives faulty or damaged, contact us within 30 days for a free return, replacement or refund at no extra cost to you."
+        },
+        {
+          "heading": "8. Return Shipping Costs",
+          "body": "Returns within the EU and UK are free of charge. Return shipping costs for US orders may apply unless the item is faulty."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "intro": "This Cookie Policy explains how WearTry uses cookies and similar technologies to recognise you when you visit our website, in line with the EU ePrivacy Directive, GDPR, and UK PECR.",
+      "sections": [
+        {
+          "heading": "1. What Are Cookies",
+          "body": "Cookies are small data files placed on your device that help websites function properly and provide analytics and personalisation."
+        },
+        {
+          "heading": "2. Types of Cookies We Use",
+          "body": "Strictly necessary cookies (required for the website to function, e.g. shopping cart and checkout), performance and analytics cookies (help us understand how visitors use our site), functional cookies (remember your preferences, such as language and region), and marketing cookies (used to deliver relevant advertising)."
+        },
+        {
+          "heading": "3. Your Consent",
+          "body": "When you first visit our website, you will be asked to accept or manage non-essential cookies. You can change your preferences at any time via the cookie settings link in the footer."
+        },
+        {
+          "heading": "4. Managing Cookies in Your Browser",
+          "body": "Most browsers allow you to refuse or delete cookies through their settings. Please note that blocking essential cookies may affect the functionality of our website."
+        },
+        {
+          "heading": "5. Third-Party Cookies",
+          "body": "Some cookies are placed by third-party services we use, such as analytics and payment providers, who have their own privacy and cookie policies."
+        },
+        {
+          "heading": "6. Changes to This Policy",
+          "body": "We may update this Cookie Policy periodically to reflect changes in technology or legislation."
+        }
+      ]
+    },
+    "cookieBanner": {
+      "message": "Използваме бисквитки, за да подобрим вашето изживяване.",
+      "accept": "Приеми всички",
+      "decline": "Отказ на незадължителните",
+      "manage": "Управление",
+      "learnMore": "Научи повече"
+    }
+  },
+  "Contact": {
+    "title": "Contact Us",
+    "intro": "Have a question about your order, sizing, or anything else? We're here to help.",
+    "emailLabel": "Email",
+    "email": "support@weartry.com",
+    "hoursLabel": "Support Hours",
+    "hours": "Monday–Friday, 9:00–18:00 (GMT+4)",
+    "formHeading": "Send us a message",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailFieldLabel": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "How can we help?",
+    "submit": "Send Message",
+    "submitted": "Thanks — we've received your message and will reply within 1–2 business days."
+  }
+}

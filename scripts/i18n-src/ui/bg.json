@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Стил в движение", "description": "Модерна ежедневна мода за мъже, жени и деца. Доставка в Европа, Обединеното кралство и САЩ." },
+    "Nav": { "shop": "Магазин", "men": "Мъже", "women": "Жени", "kids": "Деца", "journal": "Блог", "about": "За нас", "contact": "Контакти", "search": "Търсене", "searchPlaceholder": "Търсене на продукти...", "account": "Профил", "wishlist": "Любими", "cart": "Количка" },
+    "PromoBar": { "message1": "Разпродажба на новия сезон", "message2": "До 30% отстъпка" },
+    "Hero": { "eyebrow": "Нов сезон", "title": "Стил в движение", "subtitle": "Дрехи за новия сезон, създадени за ежедневна увереност.", "cta": "Пазарувай сега", "badgeTitle": "Популярни тениски", "badgeCta": "Пазарувай" },
+    "MarqueeText": { "phrase1": "Създадено за движение", "phrase2": "Издръжливо качество" },
+    "Sections": {
+      "newArrivals": { "title": "Нови продукти", "viewMore": "Виж повече" },
+      "seasonalDrop": { "title": "Сезонна колекция", "cta": "Пазарувай сега" },
+      "bestSellers": { "title": "Най-продавани", "filterAll": "Всички", "filterJacket": "Яке", "filterHoodie": "Суитшърт", "filterPants": "Панталони", "filterTshirt": "Тениска", "viewMore": "Виж повече" },
+      "categories": { "title": "Пазарувай по категории", "menLabel": "За мъже", "menTitle": "Създадено за ежедневна увереност", "womenLabel": "За жени", "womenTitle": "Дизайн за модерен живот", "kidsLabel": "За деца", "kidsTitle": "Комфорт за всяко приключение", "cta": "Пазарувай сега" },
+      "features": { "title": "Пазарувай с увереност", "shippingTitle": "Доставка по света", "shippingDesc": "Доставяме в ЕС, Обединеното кралство и САЩ бързо и надеждно. Проследете поръчката си на всяка стъпка.", "sustainableTitle": "Устойчиви материали", "sustainableDesc": "Всеки продукт е изработен от отговорно набавени материали.", "returnsTitle": "30 дни безплатно връщане", "returnsDesc": "Не сте доволни? Върнете в рамките на 30 дни за пълно възстановяване на сумата.", "secureTitle": "Сигурни плащания", "secureDesc": "Пазарувайте безопасно с криптирано плащане." },
+      "testimonials": { "title": "Стил, обичан от хиляди", "subtitle": "Разберете защо клиентите ни се връщат отново и отново." },
+      "journal": { "title": "От блога", "subtitle": "Открийте вдъхновение за стил и сезонни тенденции.", "readMore": "Прочети повече", "viewMore": "Виж повече" },
+      "newsletter": { "title": "Абонирайте се за бюлетина", "subtitle": "Бъдете първи, които научават за нови продукти и оферти.", "placeholder": "Въведете имейл", "cta": "Абонирай се", "disclaimer": "Абонирайки се, приемате нашата Политика за поверителност." }
+    },
+    "Product": { "new": "Ново", "addToWishlist": "Добави в любими", "quickView": "Бърз преглед" },
+    "Footer": { "tagline": "Модерна ежедневна мода, създадена да се движи с теб.", "shopHeading": "Магазин", "shopMen": "Мъже", "shopWomen": "Жени", "shopKids": "Деца", "shopNewArrivals": "Нови продукти", "helpHeading": "Помощ", "helpContact": "Свържете се с нас", "helpShipping": "Информация за доставка", "helpReturns": "Връщания и възстановявания", "helpFaq": "Въпроси", "companyHeading": "Компания", "companyAbout": "За нас", "companyJournal": "Блог", "companyCareers": "Кариери", "legalHeading": "Правна информация", "legalPrivacy": "Политика за поверителност", "legalTerms": "Условия за ползване", "legalReturns": "Политика за връщане", "legalCookies": "Политика за бисквитки", "regionHeading": "Регион и език", "newsletterHeading": "Бъдете в течение", "copyright": "© {year} WearTry. Всички права запазени." },
+    "Market": { "region": "Регион", "chooseCountry": "Държава / регион", "chooseLanguage": "Език", "save": "Запази", "shippingTo": "Доставка до {country}" },
+    "Legal": { "cookieBanner": { "message": "Използваме бисквитки, за да подобрим вашето изживяване.", "accept": "Приеми всички", "decline": "Отказ на незадължителните", "manage": "Управление", "learnMore": "Научи повече" } }
+}

@@ -1,0 +1,21 @@
+{
+    "Meta": { "title": "WearTry — Stijl in beweging", "description": "Moderne alledaagse mode voor heren, dames en kinderen. Levering in de hele EU, VK en VS." },
+    "Nav": { "shop": "Shop", "men": "Heren", "women": "Dames", "kids": "Kinderen", "journal": "Journal", "about": "Over ons", "contact": "Contact", "search": "Zoeken", "searchPlaceholder": "Zoek producten...", "account": "Account", "wishlist": "Verlanglijst", "cart": "Winkelwagen" },
+    "PromoBar": { "message1": "Nieuw seizoen uitverkoop", "message2": "Tot 30% korting" },
+    "Hero": { "eyebrow": "Nieuw seizoen", "title": "Stijl in beweging", "subtitle": "Nieuwe items voor dagelijks zelfvertrouwen.", "cta": "Shop nu", "badgeTitle": "Populaire T-shirts", "badgeCta": "Shop nu" },
+    "MarqueeText": { "phrase1": "Ontworpen om te bewegen", "phrase2": "Gemaakt om te blijven" },
+    "Sections": {
+      "newArrivals": { "title": "Nieuwe collectie is er", "viewMore": "Bekijk meer" },
+      "seasonalDrop": { "title": "Seizoenscollectie", "cta": "Shop nu" },
+      "bestSellers": { "title": "Bestsellers", "filterAll": "Alle", "filterJacket": "Jas", "filterHoodie": "Hoodie", "filterPants": "Broek", "filterTshirt": "T-shirt", "viewMore": "Bekijk meer" },
+      "categories": { "title": "Shop per categorie", "menLabel": "Voor heren", "menTitle": "Gemaakt voor dagelijks zelfvertrouwen", "womenLabel": "Voor dames", "womenTitle": "Ontworpen voor het moderne leven", "kidsLabel": "Voor kinderen", "kidsTitle": "Comfort voor elk avontuur", "cta": "Shop nu" },
+      "features": { "title": "Shop met vertrouwen", "shippingTitle": "Wereldwijde verzending", "shippingDesc": "Wij verzenden snel en betrouwbaar naar de EU, VK en VS.", "sustainableTitle": "Duurzame materialen", "sustainableDesc": "Elk kledingstuk is gemaakt van verantwoord ingekochte materialen.", "returnsTitle": "30 dagen gratis retour", "returnsDesc": "Niet tevreden? Retourneer binnen 30 dagen voor volledige terugbetaling.", "secureTitle": "Veilige betalingen", "secureDesc": "Winkel veilig met versleutelde betaling." },
+      "testimonials": { "title": "Stijl geliefd door duizenden", "subtitle": "Ontdek waarom klanten steeds terugkomen." },
+      "journal": { "title": "Uit de journal", "subtitle": "Ontdek stijlinspiratie en seizoenstrends.", "readMore": "Lees meer", "viewMore": "Bekijk meer" },
+      "newsletter": { "title": "Meld je aan voor de nieuwsbrief", "subtitle": "Wees de eerste die nieuwe items en aanbiedingen ontdekt.", "placeholder": "Voer je e-mail in", "cta": "Aanmelden", "disclaimer": "Door je aan te melden ga je akkoord met ons Privacybeleid." }
+    },
+    "Product": { "new": "Nieuw", "addToWishlist": "Toevoegen aan verlanglijst", "quickView": "Snel bekijken" },
+    "Footer": { "tagline": "Moderne alledaagse mode, gemaakt om met je mee te bewegen.", "shopHeading": "Shop", "shopMen": "Heren", "shopWomen": "Dames", "shopKids": "Kinderen", "shopNewArrivals": "Nieuwe collectie", "helpHeading": "Help", "helpContact": "Neem contact op", "helpShipping": "Verzendinformatie", "helpReturns": "Retourneren en terugbetalingen", "helpFaq": "Veelgestelde vragen", "companyHeading": "Bedrijf", "companyAbout": "Over ons", "companyJournal": "Journal", "companyCareers": "Vacatures", "legalHeading": "Juridisch", "legalPrivacy": "Privacybeleid", "legalTerms": "Servicevoorwaarden", "legalReturns": "Retourbeleid", "legalCookies": "Cookiebeleid", "regionHeading": "Regio en taal", "newsletterHeading": "Blijf op de hoogte", "copyright": "© {year} WearTry. Alle rechten voorbehouden." },
+    "Market": { "region": "Regio", "chooseCountry": "Land / regio", "chooseLanguage": "Taal", "save": "Opslaan", "shippingTo": "Verzending naar {country}" },
+    "Legal": { "cookieBanner": { "message": "Wij gebruiken cookies om je ervaring te verbeteren.", "accept": "Alles accepteren", "decline": "Niet-essentiële weigeren", "manage": "Voorkeuren beheren", "learnMore": "Meer informatie" } }
+}
