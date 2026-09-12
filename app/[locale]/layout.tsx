@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/layout/CookieConsent";
+import CustomCursor from "@/components/motion/CustomCursor";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -52,6 +53,7 @@ export default async function LocaleLayout({
           <main className="flex-1">{children}</main>
           <Footer />
           <CookieConsent />
+          <CustomCursor />
         </NextIntlClientProvider>
       </body>
     </html>

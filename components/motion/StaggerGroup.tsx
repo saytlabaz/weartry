@@ -5,12 +5,13 @@ import type { ReactNode } from "react";
 
 /**
  * Wraps a list of children (e.g. product cards) and staggers the
- * blur+fade+rise animation across them as the group scrolls into view.
+ * blur+fade+rise+scale animation across them as the group scrolls into
+ * view. Plays once per group — it never re-triggers on repeated scroll.
  */
 export function StaggerGroup({
   children,
   className,
-  stagger = 0.08,
+  stagger = 0.055,
 }: {
   children: ReactNode;
   className?: string;
@@ -28,7 +29,7 @@ export function StaggerGroup({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2, margin: "0px 0px -8% 0px" }}
       variants={container}
     >
       {children}
@@ -39,27 +40,30 @@ export function StaggerGroup({
 export function StaggerItem({
   children,
   className,
-  offset = 20,
-  blur = 10,
+  offset = 40,
+  blur = 2,
+  scale = 0.985,
 }: {
   children: ReactNode;
   className?: string;
   offset?: number;
   blur?: number;
+  scale?: number;
 }) {
   const shouldReduceMotion = useReducedMotion();
 
   const item: Variants = {
     hidden: shouldReduceMotion
       ? { opacity: 0 }
-      : { opacity: 0, y: offset, filter: `blur(${blur}px)` },
+      : { opacity: 0, y: offset, scale, filter: `blur(${blur}px)` },
     visible: shouldReduceMotion
       ? { opacity: 1 }
       : {
           opacity: 1,
           y: 0,
+          scale: 1,
           filter: "blur(0px)",
-          transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+          transition: { duration: 0.7, ease: [0.44, 0, 0.56, 1] },
         },
   };
 

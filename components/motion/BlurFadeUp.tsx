@@ -14,22 +14,27 @@ interface BlurFadeUpProps {
   offset?: number;
   /** Starting blur in pixels */
   blur?: number;
+  /** Starting scale the element grows from (1 = no scale effect) */
+  scale?: number;
   as?: "div" | "span" | "h1" | "h2" | "h3" | "p";
   once?: boolean;
 }
 
 /**
- * Recreates the reference site's signature hero/heading animation:
- * the element starts blurred, slightly lower and transparent, then
- * rises into place while the blur clears and opacity fades in.
+ * The site's signature scroll-reveal animation (matches the weighted
+ * rise-and-settle motion from the Saytlab reference): the element starts
+ * blurred, slightly lower, slightly scaled down and transparent, then
+ * rises into place while blur clears, scale settles and opacity fades in.
+ * Plays once per element — it never re-triggers on repeated scroll.
  */
 export default function BlurFadeUp({
   children,
   className,
   delay = 0,
-  duration = 0.9,
-  offset = 24,
-  blur = 12,
+  duration = 0.7,
+  offset = 44,
+  blur = 2,
+  scale = 0.985,
   as = "div",
   once = true,
 }: BlurFadeUpProps) {
@@ -38,17 +43,18 @@ export default function BlurFadeUp({
   const variants: Variants = {
     hidden: shouldReduceMotion
       ? { opacity: 0 }
-      : { opacity: 0, y: offset, filter: `blur(${blur}px)` },
+      : { opacity: 0, y: offset, scale, filter: `blur(${blur}px)` },
     visible: shouldReduceMotion
       ? { opacity: 1 }
       : {
           opacity: 1,
           y: 0,
+          scale: 1,
           filter: "blur(0px)",
           transition: {
             duration,
             delay,
-            ease: [0.16, 1, 0.3, 1],
+            ease: [0.44, 0, 0.56, 1],
           },
         },
   };
@@ -60,7 +66,7 @@ export default function BlurFadeUp({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount: 0.3 }}
+      viewport={{ once, amount: 0.2, margin: "0px 0px -8% 0px" }}
       variants={variants}
     >
       {children}
