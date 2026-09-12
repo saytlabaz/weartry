@@ -9,7 +9,6 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/layout/CookieConsent";
 import CartDrawer from "@/components/layout/CartDrawer";
-import WishlistDrawer from "@/components/layout/WishlistDrawer";
 import PageTransition from "@/components/layout/PageTransition";
 import CustomCursor from "@/components/motion/CustomCursor";
 import { MarketProvider } from "@/lib/market-context";
@@ -84,7 +83,6 @@ export default async function LocaleLayout({
               <Footer />
               <CookieConsent />
               <CartDrawer />
-              <WishlistDrawer />
               <CustomCursor />
             </StoreProvider>
           </MarketProvider>

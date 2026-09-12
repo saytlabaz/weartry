@@ -38,7 +38,7 @@ export default function PromoBar() {
 
   return (
     <div className="bg-neutral-900 py-2.5">
-      <Marquee duration={duration} gap="2.5rem" copies={4} onIteration={handleIteration}>
+      <Marquee duration={duration} gap="2.5rem" onIteration={handleIteration}>
         {item}
       </Marquee>
     </div>

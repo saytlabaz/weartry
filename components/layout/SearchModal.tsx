@@ -25,7 +25,12 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return [];
-    return allProducts.filter((p) => p.name.toLowerCase().includes(q));
+    return allProducts.filter(
+      (p) =>
+        p.name.toLowerCase().includes(q) ||
+        p.audience.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q)
+    );
   }, [query]);
 
   const popular = useMemo(() => allProducts.slice(0, 4), []);

@@ -11,6 +11,8 @@ function discountPercent(price: number, compareAt?: number) {
   return Math.round(((compareAt - price) / compareAt) * 100);
 }
 
+const MAX_VISIBLE_COLORS = 3;
+
 export default function ProductCard({ product }: { product: Product }) {
   const t = useTranslations("Product");
   const tProductDetail = useTranslations("ProductDetail");
@@ -70,26 +72,32 @@ export default function ProductCard({ product }: { product: Product }) {
           </div>
         </div>
 
-        <div className="mt-3 flex items-start justify-between gap-2">
-          <div>
-            <p className="text-sm font-medium">{product.name}</p>
-            <p className="mt-1 text-sm">
+        <div className="mt-2 flex flex-col gap-1 sm:mt-3 sm:flex-row sm:items-start sm:justify-between sm:gap-2">
+          <div className="min-w-0">
+            <p className="truncate text-[11px] font-medium sm:text-sm">{product.name}</p>
+            <p className="mt-0.5 text-[11px] sm:mt-1 sm:text-sm">
               <span className="font-semibold">${product.price.toFixed(2)}</span>
               {product.compareAtPrice && (
-                <span className="ml-2 text-neutral-400 line-through">
-                  ${product.compareAtPrice.toFixed(2)}
-                </span>
+                <>
+                  {" "}
+                  <span className="text-neutral-400 line-through">${product.compareAtPrice.toFixed(2)}</span>
+                </>
               )}
             </p>
           </div>
-          <div className="mt-1 flex shrink-0 gap-1">
-            {product.colors.map((c) => (
+          <div className="flex max-w-full shrink-0 flex-wrap items-center gap-1 overflow-hidden sm:mt-1 sm:justify-end">
+            {product.colors.slice(0, MAX_VISIBLE_COLORS).map((c) => (
               <span
                 key={c}
-                className="h-3.5 w-3.5 rounded-full ring-1 ring-black/10"
+                className="h-3 w-3 shrink-0 rounded-full ring-1 ring-black/10 sm:h-3.5 sm:w-3.5"
                 style={{ backgroundColor: c }}
               />
             ))}
+            {product.colors.length > MAX_VISIBLE_COLORS && (
+              <span className="text-[10px] font-medium text-neutral-400">
+                +{product.colors.length - MAX_VISIBLE_COLORS}
+              </span>
+            )}
           </div>
         </div>
       </Link>

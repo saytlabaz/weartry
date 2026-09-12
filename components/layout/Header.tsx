@@ -7,17 +7,11 @@ import { Link } from "@/i18n/navigation";
 import { useStore } from "@/lib/store-context";
 import PromoBar from "./PromoBar";
 import SearchModal from "./SearchModal";
+import LanguageMarketSwitcher from "./LanguageMarketSwitcher";
 
 const MOBILE_BREAKPOINT = 768;
 const SCROLL_HIDE_THRESHOLD = 80;
 
-function LogoMark() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
-      <path d="M8 4 4 7v3h3v10h10V10h3V7l-4-3-2 2h-2L8 4Z" strokeLinejoin="round" strokeLinecap="round" />
-    </svg>
-  );
-}
 function SearchIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -90,18 +84,22 @@ function useHideOnMobileScrollDown() {
   return hidden;
 }
 
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 export default function Header() {
   const t = useTranslations("Nav");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const { cartIds, wishlistIds, openCart, openWishlist } = useStore();
+  const { cartIds, wishlistIds, openCart } = useStore();
   const hidden = useHideOnMobileScrollDown();
   const shouldReduceMotion = useReducedMotion();
 
   const navLinks = [
-    { href: "/#categories", label: t("men") },
-    { href: "/#categories", label: t("women") },
-    { href: "/#categories", label: t("kids") },
+    { href: "/category/men", label: t("men") },
+    { href: "/category/women", label: t("women") },
+    { href: "/category/kids", label: t("kids") },
   ];
 
   return (
@@ -112,43 +110,41 @@ export default function Header() {
     >
       <PromoBar />
       <div className="border-b border-border">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
+        <div className="mx-auto flex max-w-7xl items-end justify-between px-4 pb-3 pt-6 sm:px-6 lg:px-8">
+          <div className="flex items-end gap-4">
             <button
               type="button"
-              className="lg:hidden"
+              className="mb-0.5 lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={t("menu")}
               aria-expanded={mobileOpen}
             >
               <MenuIcon open={mobileOpen} />
             </button>
-            <Link href="/" className="flex items-center gap-1.5 text-xl font-bold tracking-tight">
-              <LogoMark />
+            <Link href="/" onClick={scrollToTop} className="text-xl font-bold tracking-tight">
               WEARTRY
             </Link>
+            <nav className="hidden items-end gap-6 text-sm font-medium lg:flex">
+              {navLinks.map((l) => (
+                <Link key={l.href} href={l.href} className="transition-colors hover:text-neutral-500">
+                  {l.label}
+                </Link>
+              ))}
+            </nav>
           </div>
 
-          <nav className="hidden items-center gap-7 text-sm font-medium lg:flex">
-            {navLinks.map((l) => (
-              <a key={l.label} href={l.href} className="transition-colors hover:text-neutral-500">
-                {l.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-4 sm:gap-5">
-            <button type="button" aria-label={t("account")} className="hidden sm:block">
+          <div className="flex items-end gap-4 sm:gap-5">
+            <button type="button" aria-label={t("account")}>
               <AccountIcon />
             </button>
-            <button type="button" aria-label={t("wishlist")} className="relative" onClick={openWishlist}>
+            <Link href="/wishlist" aria-label={t("wishlist")} className="relative">
               <HeartIcon />
               {wishlistIds.length > 0 && (
                 <span className="absolute -right-1.5 -top-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-neutral-900 text-[9px] text-white">
                   {wishlistIds.length}
                 </span>
               )}
-            </button>
+            </Link>
             <button type="button" aria-label={t("cart")} className="relative" onClick={openCart}>
               <CartIcon />
               {cartIds.length > 0 && (
@@ -189,22 +185,17 @@ export default function Header() {
                 {t("search")}
               </button>
               {navLinks.map((l) => (
-                <a
-                  key={l.label}
+                <Link
+                  key={l.href}
                   href={l.href}
                   className="rounded-md px-2 py-2 hover:bg-muted"
                   onClick={() => setMobileOpen(false)}
                 >
                   {l.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#journal"
-                className="rounded-md px-2 py-2 hover:bg-muted"
-                onClick={() => setMobileOpen(false)}
-              >
-                {t("journal")}
-              </a>
+              <div className="my-1 border-t border-border" />
+              <LanguageMarketSwitcher variant="inline" />
               <div className="h-2" />
             </motion.nav>
           )}

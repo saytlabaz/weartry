@@ -8,7 +8,11 @@ interface Section {
 
 const FULLY_TRANSLATED_LOCALES = new Set(["en", "az"]);
 
-export default function LegalPage({ namespace }: { namespace: "privacy" | "terms" | "returns" | "cookies" }) {
+export default function LegalPage({
+  namespace,
+}: {
+  namespace: "privacy" | "terms" | "returns" | "cookies" | "shipping";
+}) {
   const t = useTranslations(`Legal.${namespace}`);
   const tLegal = useTranslations("Legal");
   const format = useFormatter();

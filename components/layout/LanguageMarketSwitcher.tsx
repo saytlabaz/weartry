@@ -16,12 +16,38 @@ function GlobeIcon() {
   );
 }
 
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      className={`transition-transform ${open ? "rotate-180" : ""}`}
+    >
+      <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+interface LanguageMarketSwitcherProps {
+  /**
+   * "popover" (default): a floating dropdown anchored to the trigger — used
+   * in the footer. "inline": expands in place instead, since it's meant to
+   * live inside the mobile menu's own collapsing (overflow-hidden) panel,
+   * where a floating popover would get clipped.
+   */
+  variant?: "popover" | "inline";
+}
+
 /**
- * Header language picker: a plain globe icon that opens an animated dropdown
- * listing only languages (no flags, no country/region selection — region and
- * currency now live in the checkout flow, see lib/market-context.tsx).
+ * Language picker: a plain globe icon that opens an animated list of
+ * languages (no flags, no country/region selection — region and currency
+ * now live in the checkout flow, see lib/market-context.tsx).
  */
-export default function LanguageMarketSwitcher() {
+export default function LanguageMarketSwitcher({ variant = "popover" }: LanguageMarketSwitcherProps) {
   const t = useTranslations("Market");
   const locale = useLocale() as Locale;
   const router = useRouter();
@@ -32,6 +58,7 @@ export default function LanguageMarketSwitcher() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (variant !== "popover") return;
     function handleClick(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) {
         setOpen(false);
@@ -39,11 +66,60 @@ export default function LanguageMarketSwitcher() {
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
+  }, [variant]);
 
   function selectLocale(next: Locale) {
     router.replace(pathname, { locale: next });
     setOpen(false);
+  }
+
+  const list = (
+    <ul className="max-h-72 space-y-0.5 overflow-y-auto pr-1">
+      {locales.map((l) => (
+        <li key={l}>
+          <button
+            type="button"
+            onClick={() => selectLocale(l)}
+            className={`flex w-full items-center rounded-md px-3 py-1.5 text-left text-sm transition-colors hover:bg-muted ${
+              l === locale ? "bg-muted font-medium" : ""
+            }`}
+          >
+            {localeNames[l]}
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+
+  if (variant === "inline") {
+    return (
+      <div>
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="flex w-full items-center gap-2 rounded-md px-2 py-2 text-left hover:bg-muted"
+          aria-haspopup="true"
+          aria-expanded={open}
+        >
+          <GlobeIcon />
+          <span className="flex-1">{localeNames[locale]}</span>
+          <ChevronIcon open={open} />
+        </button>
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={shouldReduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+              animate={shouldReduceMotion ? { opacity: 1 } : { height: "auto", opacity: 1 }}
+              exit={shouldReduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="overflow-hidden pl-2"
+            >
+              <div className="py-1">{list}</div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    );
   }
 
   return (
@@ -68,21 +144,7 @@ export default function LanguageMarketSwitcher() {
             transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
             className="absolute bottom-full right-0 z-50 mb-3 w-52 origin-bottom-right rounded-xl border border-border bg-background p-2 shadow-xl"
           >
-            <ul className="max-h-72 space-y-0.5 overflow-y-auto pr-1">
-              {locales.map((l) => (
-                <li key={l}>
-                  <button
-                    type="button"
-                    onClick={() => selectLocale(l)}
-                    className={`flex w-full items-center rounded-md px-3 py-1.5 text-left text-sm transition-colors hover:bg-muted ${
-                      l === locale ? "bg-muted font-medium" : ""
-                    }`}
-                  >
-                    {localeNames[l]}
-                  </button>
-                </li>
-              ))}
-            </ul>
+            {list}
           </motion.div>
         )}
       </AnimatePresence>

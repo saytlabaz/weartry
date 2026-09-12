@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
@@ -20,13 +20,23 @@ interface SidePanelProps {
 }
 
 /**
- * Shared right-hand slide-in panel used by the cart and wishlist drawers.
- * Fully AnimatePresence-driven (backdrop fade + panel slide via x transform)
- * so there's no plain display:none toggle anywhere in the open/close path.
+ * Right-hand slide-in panel used by the cart drawer. Fully AnimatePresence-
+ * driven (backdrop fade + panel slide via x transform) so there's no plain
+ * display:none toggle anywhere in the open/close path. The backdrop blurs
+ * the rest of the page and locks body scroll while open.
  */
 export default function SidePanel({ open, onClose, title, children }: SidePanelProps) {
   const tCommon = useTranslations("Common");
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
 
   return (
     <AnimatePresence>
@@ -37,7 +47,7 @@ export default function SidePanel({ open, onClose, title, children }: SidePanelP
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[60] bg-black/40"
+            className="fixed inset-0 z-[60] bg-black/30 backdrop-blur-md"
             onClick={onClose}
             aria-hidden
           />

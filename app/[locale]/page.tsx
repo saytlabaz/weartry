@@ -6,8 +6,7 @@ import Categories from "@/components/home/Categories";
 import BestSellers from "@/components/home/BestSellers";
 import Features from "@/components/home/Features";
 import Testimonials from "@/components/home/Testimonials";
-import Journal from "@/components/home/Journal";
-import NewsletterSection from "@/components/home/NewsletterSection";
+import FAQSection from "@/components/home/FAQSection";
 
 export default function Home() {
   return (
@@ -20,8 +19,7 @@ export default function Home() {
       <BestSellers />
       <Features />
       <Testimonials />
-      <Journal />
-      <NewsletterSection />
+      <FAQSection />
     </>
   );
 }

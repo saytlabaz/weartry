@@ -15,11 +15,8 @@ interface StoreContextValue {
   removeFromCart: (id: string) => void;
   removeFromWishlist: (id: string) => void;
   isCartOpen: boolean;
-  isWishlistOpen: boolean;
   openCart: () => void;
   closeCart: () => void;
-  openWishlist: () => void;
-  closeWishlist: () => void;
 }
 
 const StoreContext = createContext<StoreContextValue | null>(null);
@@ -32,7 +29,6 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     wishlistStore.getServerSnapshot
   );
   const [isCartOpen, setCartOpen] = useState(false);
-  const [isWishlistOpen, setWishlistOpen] = useState(false);
 
   function addToCart(product: Product) {
     const current = cartStore.current;
@@ -47,7 +43,6 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     if (!current.includes(product.id)) {
       wishlistStore.set([...current, product.id]);
     }
-    setWishlistOpen(true);
   }
 
   function removeFromCart(id: string) {
@@ -68,11 +63,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         removeFromCart,
         removeFromWishlist,
         isCartOpen,
-        isWishlistOpen,
         openCart: () => setCartOpen(true),
         closeCart: () => setCartOpen(false),
-        openWishlist: () => setWishlistOpen(true),
-        closeWishlist: () => setWishlistOpen(false),
       }}
     >
       {children}

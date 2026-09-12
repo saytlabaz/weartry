@@ -233,39 +233,31 @@
     },
     "returns": {
       "title": "Return & Refund Policy",
-      "intro": "We want you to love what you ordered. If something isn't right, you can return most items within 30 days of delivery for a full refund or exchange.",
+      "intro": "We want you to love what you ordered. If something isn't right, here's how we make it right.",
       "sections": [
         {
-          "heading": "1. Return Window",
-          "body": "You have 30 days from the date of delivery to return an item for a refund or exchange, provided it is unworn, unwashed and in its original packaging with tags attached."
+          "heading": "1. Shipping Times",
+          "body": "Most orders arrive within 3–10 business days after dispatch, depending on your destination."
         },
         {
-          "heading": "2. EU & UK Right of Withdrawal",
-          "body": "In addition to our 30-day policy, customers in the EU and UK have a statutory right to withdraw from their purchase within 14 days of receiving their order, without giving any reason, in accordance with the EU Consumer Rights Directive and UK Consumer Contracts Regulations."
+          "heading": "2. Return Window",
+          "body": "You may request a return or exchange within 30 days of delivery, provided the item is unworn, unused and in its original packaging."
         },
         {
-          "heading": "3. How to Start a Return",
-          "body": "Log into your account and select the order you wish to return, or contact our support team at returns@weartry.com with your order number."
+          "heading": "3. Reporting a Problem",
+          "body": "If your item arrives faulty, damaged or incorrect, contact us within 14 days of delivery to open a dispute."
         },
         {
-          "heading": "4. Refunds",
-          "body": "Once we receive and inspect your return, refunds are issued to your original payment method within 5–10 business days."
+          "heading": "4. How to Start a Return",
+          "body": "Email returns@weartry.com with your order number and, for faulty or incorrect items, photos of the issue."
         },
         {
-          "heading": "5. Exchanges",
-          "body": "If you need a different size or colour, select the exchange option when starting your return, subject to availability."
+          "heading": "5. Review & Approval",
+          "body": "Our team reviews your request, typically within 2–3 business days, and confirms the next step — a return label, replacement, or refund."
         },
         {
-          "heading": "6. Non-Returnable Items",
-          "body": "For hygiene reasons, underwear, swimwear and earrings cannot be returned unless faulty."
-        },
-        {
-          "heading": "7. Faulty or Damaged Items",
-          "body": "If an item arrives faulty or damaged, contact us within 30 days for a free return, replacement or refund at no extra cost to you."
-        },
-        {
-          "heading": "8. Return Shipping Costs",
-          "body": "Returns within the EU and UK are free of charge. Return shipping costs for US orders may apply unless the item is faulty."
+          "heading": "6. Refunds & Replacements",
+          "body": "Approved refunds are issued to your original payment method within 5–10 business days; replacements ship as soon as stock allows."
         }
       ]
     },
@@ -306,7 +298,25 @@
       "manage": "Spravovat předvolby",
       "learnMore": "Zjistit více"
     },
-    "fallbackNotice": "Tento obsah je momentálně dostupný pouze v angličtině."
+    "fallbackNotice": "Tento obsah je momentálně dostupný pouze v angličtině.",
+    "shipping": {
+      "title": "Shipping Information",
+      "intro": "Here's what to expect once your order ships.",
+      "sections": [
+        {
+          "heading": "1. Delivery Times",
+          "body": "Most orders arrive within 3–10 business days after dispatch, depending on your destination."
+        },
+        {
+          "heading": "2. Order Tracking",
+          "body": "You'll receive a tracking link by email as soon as your order ships."
+        },
+        {
+          "heading": "3. International Shipping",
+          "body": "We currently ship across the EU, UK and US, with more destinations added over time."
+        }
+      ]
+    }
   },
   "Contact": {
     "title": "Contact Us",
@@ -352,5 +362,54 @@
     "title": "Hledat",
     "noResults": "Nebyly nalezeny žádné výsledky",
     "popularSearches": "Oblíbená hledání"
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "How can I track my order?",
+        "answer": "Once your order ships, you'll receive a tracking link by email — use it anytime to check delivery status."
+      },
+      {
+        "question": "How long does shipping take?",
+        "answer": "Most orders arrive within 3–10 business days, depending on your location."
+      },
+      {
+        "question": "What is your return policy?",
+        "answer": "You can return unworn items within 30 days of delivery — see our Return Policy for full details."
+      },
+      {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept Visa, Mastercard, American Express, PayPal, Apple Pay and other major card networks."
+      },
+      {
+        "question": "How do I find my size?",
+        "answer": "Check the size guide on each product page — measurements are listed in both cm and inches."
+      },
+      {
+        "question": "Do you ship internationally?",
+        "answer": "Yes, we ship across the EU, UK and US, with more destinations added regularly."
+      },
+      {
+        "question": "Can I cancel or change my order?",
+        "answer": "Contact us within a few hours of placing your order and we'll do our best to update or cancel it before it ships."
+      },
+      {
+        "question": "Do you offer discount codes?",
+        "answer": "Sign up for our newsletter and follow our promo bar for seasonal discount codes."
+      },
+      {
+        "question": "What materials are your products made from?",
+        "answer": "We use responsibly sourced fabrics — check each product page for exact material composition."
+      },
+      {
+        "question": "How can I contact customer support?",
+        "answer": "Reach our support team anytime via the Contact page — we typically reply within 1–2 business days."
+      }
+    ]
+  },
+  "Category": {
+    "sortPlaceholder": "Řadit podle: Doporučené",
+    "itemsLabel": "položek"
   }
 }

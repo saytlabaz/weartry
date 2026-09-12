@@ -25,7 +25,7 @@ export default function SeasonalDrop() {
             </BlurFadeUp>
           </div>
 
-          <StaggerGroup className="grid grid-cols-3 gap-4 lg:col-span-3">
+          <StaggerGroup className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:col-span-3">
             {seasonalDrop.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}

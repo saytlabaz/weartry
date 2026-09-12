@@ -18,7 +18,7 @@ export default function NewArrivals() {
         </a>
       </div>
 
-      <StaggerGroup className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6">
+      <StaggerGroup className="grid grid-cols-4 gap-x-2 gap-y-6 sm:gap-x-6 sm:gap-y-8">
         {newArrivals.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}

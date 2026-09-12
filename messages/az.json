@@ -233,39 +233,31 @@
     },
     "returns": {
       "title": "Qaytarma və Geri Ödəniş Siyasəti",
-      "intro": "Sifariş etdiyiniz məhsulu sevməyinizi istəyirik. Bir şey düz olmasa, əksər məhsulları çatdırılmadan 30 gün ərzində tam geri ödəniş və ya dəyişdirmə üçün qaytara bilərsiniz.",
+      "intro": "Sifarişinizdən razı qalmağınızı istəyirik. Əgər nəsə düz deyilsə, məsələni necə həll etdiyimiz budur.",
       "sections": [
         {
-          "heading": "1. Qaytarma Müddəti",
-          "body": "Geyilməmiş, yuyulmamış və orijinal qablaşdırmada, etiketləri taxılı olmaq şərtilə, çatdırılma tarixindən 30 gün ərzində məhsulu geri ödəniş və ya dəyişdirmə üçün qaytara bilərsiniz."
+          "heading": "1. Çatdırılma Müddəti",
+          "body": "Sifarişlər adətən göndərildikdən sonra ünvanınızdan asılı olaraq 3-10 iş günü ərzində çatdırılır."
         },
         {
-          "heading": "2. AB və BB İmtina Hüququ",
-          "body": "30 günlük siyasətimizə əlavə olaraq, AB Vahid İstehlakçı Hüquqları Direktivinə və BB İstehlakçı Müqavilələri Qaydalarına uyğun olaraq, AB və BB müştəriləri sifarişlərini aldıqdan sonra 14 gün ərzində heç bir səbəb göstərmədən alışdan imtina etmək hüququna malikdirlər."
+          "heading": "2. Qaytarma Müddəti",
+          "body": "Çatdırılmadan sonra 30 gün ərzində geyilməmiş, istifadə olunmamış və orijinal qablaşdırmada olan məhsulları qaytara və ya dəyişə bilərsiniz."
         },
         {
-          "heading": "3. Qaytarmaya Necə Başlamalı",
-          "body": "Hesabınıza daxil olub qaytarmaq istədiyiniz sifarişi seçin, və ya sifariş nömrənizlə returns@weartry.com ünvanında dəstək komandamızla əlaqə saxlayın."
+          "heading": "3. Problem Haqqında Bildiriş",
+          "body": "Məhsul qüsurlu, zədəli və ya səhv gəlibsə, çatdırılmadan sonra 14 gün ərzində bizimlə əlaqə saxlayaraq mübahisə aça bilərsiniz."
         },
         {
-          "heading": "4. Geri Ödənişlər",
-          "body": "Qaytarılan məhsulu aldıqdan və yoxladıqdan sonra, geri ödəniş 5-10 iş günü ərzində orijinal ödəniş üsulunuza edilir."
+          "heading": "4. Qaytarmanı Necə Başlatmaq Olar",
+          "body": "Sifariş nömrənizi və (qüsurlu/səhv məhsullar üçün) problemin şəkillərini returns@weartry.com ünvanına göndərin."
         },
         {
-          "heading": "5. Dəyişdirmə",
-          "body": "Fərqli ölçü və ya rəng lazımdırsa, qaytarmaya başlayarkən dəyişdirmə seçimini seçin, mövcudluqdan asılı olaraq."
+          "heading": "5. Baxış və Təsdiq",
+          "body": "Komandamız tələbinizi adətən 2-3 iş günü ərzində nəzərdən keçirir və növbəti addımı — qaytarma etiketi, dəyişdirmə və ya geri ödəniş — təsdiqləyir."
         },
         {
-          "heading": "6. Qaytarıla Bilməyən Məhsullar",
-          "body": "Gigiyena səbəbləri ilə, qüsurlu olmadığı halda alt paltarı, çimərlik geyimi və sırğalar qaytarıla bilməz."
-        },
-        {
-          "heading": "7. Qüsurlu və ya Zədələnmiş Məhsullar",
-          "body": "Məhsul qüsurlu və ya zədələnmiş şəkildə gəlibsə, sizə əlavə xərc olmadan pulsuz qaytarma, əvəzləmə və ya geri ödəniş üçün 30 gün ərzində bizimlə əlaqə saxlayın."
-        },
-        {
-          "heading": "8. Qaytarma Çatdırılma Xərcləri",
-          "body": "AB və BB daxilində qaytarmalar pulsuzdur. ABŞ sifarişləri üçün qaytarma çatdırılma xərcləri, məhsul qüsurlu olmadığı halda, tətbiq oluna bilər."
+          "heading": "6. Geri Ödəniş və Dəyişdirmə",
+          "body": "Təsdiqlənmiş geri ödənişlər 5-10 iş günü ərzində ilkin ödəniş üsulunuza edilir; dəyişdirmələr stok mövcud olan kimi göndərilir."
         }
       ]
     },
@@ -306,7 +298,25 @@
       "manage": "Tərcihləri İdarə Et",
       "learnMore": "Ətraflı öyrən"
     },
-    "fallbackNotice": "Bu məzmun hazırda yalnız ingilis dilində mövcuddur."
+    "fallbackNotice": "Bu məzmun hazırda yalnız ingilis dilində mövcuddur.",
+    "shipping": {
+      "title": "Çatdırılma Məlumatı",
+      "intro": "Sifarişiniz göndəriləndə nə gözləməli olduğunuzu buradan öyrənə bilərsiniz.",
+      "sections": [
+        {
+          "heading": "1. Çatdırılma Müddəti",
+          "body": "Əksər sifarişlər göndərildikdən sonra ünvanınızdan asılı olaraq 3-10 iş günü ərzində çatır."
+        },
+        {
+          "heading": "2. Sifariş İzləmə",
+          "body": "Sifarişiniz göndərilən kimi e-poçtla izləmə linki alacaqsınız."
+        },
+        {
+          "heading": "3. Beynəlxalq Çatdırılma",
+          "body": "Hazırda Avropa Birliyi, Böyük Britaniya və ABŞ-a çatdırırıq, zamanla yeni ünvanlar əlavə olunacaq."
+        }
+      ]
+    }
   },
   "Contact": {
     "title": "Bizimlə Əlaqə",
@@ -352,5 +362,54 @@
     "title": "Axtarış",
     "noResults": "Nəticə tapılmadı",
     "popularSearches": "Populyar Axtarışlar"
+  },
+  "FAQ": {
+    "title": "Tez-tez Verilən Suallar",
+    "items": [
+      {
+        "question": "Sifarişimi necə izləyə bilərəm?",
+        "answer": "Sifarişiniz göndəriləndən sonra e-poçtla izləmə linki alacaqsınız — çatdırılma statusunu istənilən vaxt yoxlaya bilərsiniz."
+      },
+      {
+        "question": "Çatdırılma nə qədər vaxt aparır?",
+        "answer": "Əksər sifarişlər ünvanınızdan asılı olaraq 3-10 iş günü ərzində çatdırılır."
+      },
+      {
+        "question": "Qaytarma siyasətiniz necədir?",
+        "answer": "Çatdırılmadan sonra 30 gün ərzində geyilməmiş məhsulları qaytara bilərsiniz — ətraflı məlumat üçün Qaytarma Siyasətimizə baxın."
+      },
+      {
+        "question": "Hansı ödəniş üsullarını qəbul edirsiniz?",
+        "answer": "Visa, Mastercard, American Express, PayPal, Apple Pay və digər əsas kart şəbəkələrini qəbul edirik."
+      },
+      {
+        "question": "Ölçümü necə tapa bilərəm?",
+        "answer": "Hər məhsul səhifəsindəki ölçü bələdçisinə baxın — ölçülər həm sm, həm də düym ilə göstərilir."
+      },
+      {
+        "question": "Beynəlxalq çatdırılma edirsiniz?",
+        "answer": "Bəli, Avropa Birliyi, Böyük Britaniya və ABŞ-a çatdırırıq, yeni ünvanlar mütəmadi əlavə olunur."
+      },
+      {
+        "question": "Sifarişimi ləğv edə və ya dəyişə bilərəmmi?",
+        "answer": "Sifariş verdikdən bir neçə saat ərzində bizimlə əlaqə saxlayın, göndərilmədən əvvəl onu yeniləmək və ya ləğv etmək üçün əlimizdən gələni edəcəyik."
+      },
+      {
+        "question": "Endirim kodları təklif edirsinizmi?",
+        "answer": "Bültenimizə abunə olun və mövsümi endirim kodları üçün promo zolağımızı izləyin."
+      },
+      {
+        "question": "Məhsullarınız hansı materiallardan hazırlanır?",
+        "answer": "Məsuliyyətlə əldə edilmiş parçalardan istifadə edirik — dəqiq material tərkibi üçün hər məhsul səhifəsinə baxın."
+      },
+      {
+        "question": "Müştəri dəstəyi ilə necə əlaqə saxlaya bilərəm?",
+        "answer": "Əlaqə səhifəsi vasitəsilə istənilən vaxt dəstək komandamıza müraciət edin — adətən 1-2 iş günü ərzində cavab veririk."
+      }
+    ]
+  },
+  "Category": {
+    "sortPlaceholder": "Sırala: Seçilmiş",
+    "itemsLabel": "məhsul"
   }
 }
