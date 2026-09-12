@@ -25,7 +25,8 @@ interface BlurFadeUpProps {
  * rise-and-settle motion from the Saytlab reference): the element starts
  * blurred, slightly lower, slightly scaled down and transparent, then
  * rises into place while blur clears, scale settles and opacity fades in.
- * Plays once per element — it never re-triggers on repeated scroll.
+ * Repeats on every viewport entry/exit by default — pass once={true} for
+ * a single-play element.
  */
 export default function BlurFadeUp({
   children,
@@ -36,7 +37,7 @@ export default function BlurFadeUp({
   blur = 2,
   scale = 0.985,
   as = "div",
-  once = true,
+  once = false,
 }: BlurFadeUpProps) {
   const shouldReduceMotion = useReducedMotion();
 
