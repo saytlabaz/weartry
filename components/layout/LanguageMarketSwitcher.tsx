@@ -1,33 +1,34 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { locales, localeNames, localeFlags, type Locale } from "@/i18n/locales";
-import { markets, defaultMarket, getMarket, type MarketCode } from "@/i18n/markets";
+import { locales, localeNames, type Locale } from "@/i18n/locales";
 
-const MARKET_COOKIE = "weartry_market";
-
-function persistMarket(code: MarketCode) {
-  document.cookie = `${MARKET_COOKIE}=${code}; path=/; max-age=${60 * 60 * 24 * 365}`;
+function GlobeIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3c2.8 2.6 4.2 5.7 4.2 9s-1.4 6.4-4.2 9c-2.8-2.6-4.2-5.7-4.2-9s1.4-6.4 4.2-9Z" />
+    </svg>
+  );
 }
 
+/**
+ * Header language picker: a plain globe icon that opens an animated dropdown
+ * listing only languages (no flags, no country/region selection — region and
+ * currency now live in the checkout flow, see lib/market-context.tsx).
+ */
 export default function LanguageMarketSwitcher() {
   const t = useTranslations("Market");
   const locale = useLocale() as Locale;
   const router = useRouter();
   const pathname = usePathname();
+  const shouldReduceMotion = useReducedMotion();
 
   const [open, setOpen] = useState(false);
-  const [tab, setTab] = useState<"language" | "country">("country");
-  const [market, setMarket] = useState<MarketCode>(() => {
-    if (typeof document === "undefined") return defaultMarket;
-    const stored = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith(`${MARKET_COOKIE}=`))
-      ?.split("=")[1];
-    return (stored as MarketCode) ?? defaultMarket;
-  });
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -40,101 +41,51 @@ export default function LanguageMarketSwitcher() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  function selectMarket(code: MarketCode) {
-    persistMarket(code);
-    setMarket(code);
-  }
-
   function selectLocale(next: Locale) {
     router.replace(pathname, { locale: next });
     setOpen(false);
   }
-
-  const activeMarket = getMarket(market);
 
   return (
     <div className="relative" ref={ref}>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1.5 text-lg leading-none"
+        className="flex items-center justify-center text-neutral-700 transition-colors hover:text-neutral-950"
         aria-haspopup="true"
         aria-expanded={open}
-        aria-label={t("region")}
+        aria-label={t("chooseLanguage")}
       >
-        <span>{activeMarket.flag}</span>
-        <span className="text-xs font-medium tracking-wide text-neutral-500">
-          {localeNames[locale]?.slice(0, 2).toUpperCase()}
-        </span>
+        <GlobeIcon />
       </button>
 
-      {open && (
-        <div className="absolute right-0 z-50 mt-3 w-80 rounded-xl border border-border bg-background p-4 shadow-xl">
-          <div className="mb-3 flex gap-1 rounded-lg bg-muted p-1 text-sm">
-            <button
-              type="button"
-              onClick={() => setTab("country")}
-              className={`flex-1 rounded-md py-1.5 font-medium transition-colors ${
-                tab === "country" ? "bg-background shadow-sm" : "text-neutral-500"
-              }`}
-            >
-              {t("chooseCountry")}
-            </button>
-            <button
-              type="button"
-              onClick={() => setTab("language")}
-              className={`flex-1 rounded-md py-1.5 font-medium transition-colors ${
-                tab === "language" ? "bg-background shadow-sm" : "text-neutral-500"
-              }`}
-            >
-              {t("chooseLanguage")}
-            </button>
-          </div>
-
-          <div className="max-h-72 overflow-y-auto pr-1">
-            {tab === "country" ? (
-              <ul className="space-y-0.5">
-                {markets.map((m) => (
-                  <li key={m.code}>
-                    <button
-                      type="button"
-                      onClick={() => selectMarket(m.code)}
-                      className={`flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted ${
-                        m.code === market ? "bg-muted font-medium" : ""
-                      }`}
-                    >
-                      <span className="text-base leading-none">{m.flag}</span>
-                      <span className="flex-1">{m.name}</span>
-                      <span className="text-xs text-neutral-400">{m.currency}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <ul className="space-y-0.5">
-                {locales.map((l) => (
-                  <li key={l}>
-                    <button
-                      type="button"
-                      onClick={() => selectLocale(l)}
-                      className={`flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted ${
-                        l === locale ? "bg-muted font-medium" : ""
-                      }`}
-                    >
-                      <span className="text-base leading-none">{localeFlags[l]}</span>
-                      <span>{localeNames[l]}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          <p className="mt-3 border-t border-border pt-3 text-xs text-neutral-500">
-            {t("shippingTo", { country: activeMarket.name })} · {activeMarket.currencySymbol} {activeMarket.currency}
-          </p>
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96, y: 6 }}
+            animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }}
+            exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96, y: 6 }}
+            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute bottom-full right-0 z-50 mb-3 w-52 origin-bottom-right rounded-xl border border-border bg-background p-2 shadow-xl"
+          >
+            <ul className="max-h-72 space-y-0.5 overflow-y-auto pr-1">
+              {locales.map((l) => (
+                <li key={l}>
+                  <button
+                    type="button"
+                    onClick={() => selectLocale(l)}
+                    className={`flex w-full items-center rounded-md px-3 py-1.5 text-left text-sm transition-colors hover:bg-muted ${
+                      l === locale ? "bg-muted font-medium" : ""
+                    }`}
+                  >
+                    {localeNames[l]}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

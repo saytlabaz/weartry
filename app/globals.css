@@ -18,6 +18,17 @@
   --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
 }
 
+html,
+body {
+  /* Safety net against any element that could exceed the viewport width and
+     force horizontal scroll on mobile — the real fix is keeping full-width
+     sections on w-full/max-w-full rather than w-screen, but this is cheap
+     insurance if one slips through. Uses `clip` rather than `hidden`: unlike
+     hidden, clip doesn't turn the body into a scroll container, so it can't
+     break position:sticky on descendants like the header. */
+  overflow-x: clip;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

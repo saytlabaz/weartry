@@ -15,11 +15,12 @@
     "searchPlaceholder": "Produkte suchen...",
     "account": "Konto",
     "wishlist": "Wunschliste",
-    "cart": "Warenkorb"
+    "cart": "Warenkorb",
+    "menu": "Menü"
   },
   "PromoBar": {
     "message1": "Sale der neuen Saison",
-    "message2": "Bis zu 30% Rabatt"
+    "message2": "Bis zu {percent}% Rabatt"
   },
   "Hero": {
     "eyebrow": "Neue Saison",
@@ -118,7 +119,8 @@
     "legalCookies": "Cookie-Richtlinie",
     "regionHeading": "Region & Sprache",
     "newsletterHeading": "Bleiben Sie informiert",
-    "copyright": "© {year} WearTry. Alle Rechte vorbehalten."
+    "copyright": "© {year} WearTry. Alle Rechte vorbehalten.",
+    "language": "Sprache"
   },
   "Market": {
     "region": "Region",
@@ -303,7 +305,8 @@
       "decline": "Nicht notwendige ablehnen",
       "manage": "Einstellungen verwalten",
       "learnMore": "Mehr erfahren"
-    }
+    },
+    "fallbackNotice": "Dieser Inhalt ist derzeit nur auf Englisch verfügbar."
   },
   "Contact": {
     "title": "Contact Us",
@@ -321,5 +324,33 @@
     "messagePlaceholder": "How can we help?",
     "submit": "Send Message",
     "submitted": "Thanks — we've received your message and will reply within 1–2 business days."
+  },
+  "Common": {
+    "close": "Schließen"
+  },
+  "CheckoutSummary": {
+    "title": "Bestellübersicht",
+    "selectRegion": "Wählen Sie Ihre Region",
+    "currency": "Währung"
+  },
+  "ProductDetail": {
+    "addToCart": "In den Warenkorb",
+    "selectSize": "Größe wählen",
+    "description": "Beschreibung",
+    "descriptionPlaceholder": "Beispielhafte Produktbeschreibung — vor dem Launch durch echten Text ersetzen.",
+    "back": "Zurück zum Shop"
+  },
+  "Cart": {
+    "title": "Dein Warenkorb",
+    "empty": "Dein Warenkorb ist leer"
+  },
+  "Wishlist": {
+    "title": "Deine Wunschliste",
+    "empty": "Deine Wunschliste ist leer"
+  },
+  "Search": {
+    "title": "Suche",
+    "noResults": "Keine Ergebnisse gefunden",
+    "popularSearches": "Beliebte Suchanfragen"
   }
 }

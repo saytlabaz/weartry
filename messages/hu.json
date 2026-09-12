@@ -15,11 +15,12 @@
     "searchPlaceholder": "Termékek keresése...",
     "account": "Fiók",
     "wishlist": "Kedvencek",
-    "cart": "Kosár"
+    "cart": "Kosár",
+    "menu": "Menü"
   },
   "PromoBar": {
     "message1": "Új szezonos akció",
-    "message2": "Akár 30% kedvezmény"
+    "message2": "Akár {percent}% kedvezmény"
   },
   "Hero": {
     "eyebrow": "Új szezon",
@@ -118,7 +119,8 @@
     "legalCookies": "Cookie szabályzat",
     "regionHeading": "Régió és nyelv",
     "newsletterHeading": "Maradjon naprakész",
-    "copyright": "© {year} WearTry. Minden jog fenntartva."
+    "copyright": "© {year} WearTry. Minden jog fenntartva.",
+    "language": "Nyelv"
   },
   "Market": {
     "region": "Régió",
@@ -303,7 +305,8 @@
       "decline": "Nem szükséges elutasítása",
       "manage": "Beállítások kezelése",
       "learnMore": "Tudjon meg többet"
-    }
+    },
+    "fallbackNotice": "Ez a tartalom jelenleg csak angol nyelven érhető el."
   },
   "Contact": {
     "title": "Contact Us",
@@ -321,5 +324,33 @@
     "messagePlaceholder": "How can we help?",
     "submit": "Send Message",
     "submitted": "Thanks — we've received your message and will reply within 1–2 business days."
+  },
+  "Common": {
+    "close": "Bezárás"
+  },
+  "CheckoutSummary": {
+    "title": "Rendelés összegzése",
+    "selectRegion": "Válassza ki a régióját",
+    "currency": "Pénznem"
+  },
+  "ProductDetail": {
+    "addToCart": "Kosárba",
+    "selectSize": "Méret kiválasztása",
+    "description": "Leírás",
+    "descriptionPlaceholder": "Minta termékleírás — indulás előtt cserélje valódi szövegre.",
+    "back": "Vissza a boltba"
+  },
+  "Cart": {
+    "title": "Kosarad",
+    "empty": "A kosarad üres"
+  },
+  "Wishlist": {
+    "title": "Kívánságlistád",
+    "empty": "A kívánságlistád üres"
+  },
+  "Search": {
+    "title": "Keresés",
+    "noResults": "Nincs találat",
+    "popularSearches": "Népszerű keresések"
   }
 }

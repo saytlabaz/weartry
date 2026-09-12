@@ -15,11 +15,12 @@
     "searchPlaceholder": "Sök produkter...",
     "account": "Konto",
     "wishlist": "Önskelista",
-    "cart": "Varukorg"
+    "cart": "Varukorg",
+    "menu": "Meny"
   },
   "PromoBar": {
     "message1": "Nya säsongens rea",
-    "message2": "Upp till 30% rabatt"
+    "message2": "Upp till {percent}% rabatt"
   },
   "Hero": {
     "eyebrow": "Ny säsong",
@@ -118,7 +119,8 @@
     "legalCookies": "Cookiepolicy",
     "regionHeading": "Region och språk",
     "newsletterHeading": "Håll dig uppdaterad",
-    "copyright": "© {year} WearTry. Alla rättigheter förbehållna."
+    "copyright": "© {year} WearTry. Alla rättigheter förbehållna.",
+    "language": "Språk"
   },
   "Market": {
     "region": "Region",
@@ -303,7 +305,8 @@
       "decline": "Avvisa ej nödvändiga",
       "manage": "Hantera inställningar",
       "learnMore": "Läs mer"
-    }
+    },
+    "fallbackNotice": "Det här innehållet är för närvarande endast tillgängligt på engelska."
   },
   "Contact": {
     "title": "Contact Us",
@@ -321,5 +324,33 @@
     "messagePlaceholder": "How can we help?",
     "submit": "Send Message",
     "submitted": "Thanks — we've received your message and will reply within 1–2 business days."
+  },
+  "Common": {
+    "close": "Stäng"
+  },
+  "CheckoutSummary": {
+    "title": "Ordersammanfattning",
+    "selectRegion": "Välj din region",
+    "currency": "Valuta"
+  },
+  "ProductDetail": {
+    "addToCart": "Lägg i varukorgen",
+    "selectSize": "Välj storlek",
+    "description": "Beskrivning",
+    "descriptionPlaceholder": "Exempel på produktbeskrivning — ersätt med riktig text före lansering.",
+    "back": "Tillbaka till butiken"
+  },
+  "Cart": {
+    "title": "Din varukorg",
+    "empty": "Din varukorg är tom"
+  },
+  "Wishlist": {
+    "title": "Din önskelista",
+    "empty": "Din önskelista är tom"
+  },
+  "Search": {
+    "title": "Sök",
+    "noResults": "Inga resultat hittades",
+    "popularSearches": "Populära sökningar"
   }
 }

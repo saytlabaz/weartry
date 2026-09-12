@@ -15,11 +15,12 @@
     "searchPlaceholder": "Søg produkter...",
     "account": "Konto",
     "wishlist": "Ønskeliste",
-    "cart": "Kurv"
+    "cart": "Kurv",
+    "menu": "Menu"
   },
   "PromoBar": {
     "message1": "Nyt sæson udsalg",
-    "message2": "Op til 30% rabat"
+    "message2": "Op til {percent}% rabat"
   },
   "Hero": {
     "eyebrow": "Ny sæson",
@@ -118,7 +119,8 @@
     "legalCookies": "Cookiepolitik",
     "regionHeading": "Region og sprog",
     "newsletterHeading": "Hold dig opdateret",
-    "copyright": "© {year} WearTry. Alle rettigheder forbeholdes."
+    "copyright": "© {year} WearTry. Alle rettigheder forbeholdes.",
+    "language": "Sprog"
   },
   "Market": {
     "region": "Region",
@@ -303,7 +305,8 @@
       "decline": "Afvis ikke-nødvendige",
       "manage": "Administrer indstillinger",
       "learnMore": "Læs mere"
-    }
+    },
+    "fallbackNotice": "Dette indhold er i øjeblikket kun tilgængeligt på engelsk."
   },
   "Contact": {
     "title": "Contact Us",
@@ -321,5 +324,33 @@
     "messagePlaceholder": "How can we help?",
     "submit": "Send Message",
     "submitted": "Thanks — we've received your message and will reply within 1–2 business days."
+  },
+  "Common": {
+    "close": "Luk"
+  },
+  "CheckoutSummary": {
+    "title": "Ordreoversigt",
+    "selectRegion": "Vælg din region",
+    "currency": "Valuta"
+  },
+  "ProductDetail": {
+    "addToCart": "Tilføj til kurv",
+    "selectSize": "Vælg størrelse",
+    "description": "Beskrivelse",
+    "descriptionPlaceholder": "Eksempel på produktbeskrivelse — erstat med rigtig tekst før lancering.",
+    "back": "Tilbage til butikken"
+  },
+  "Cart": {
+    "title": "Din kurv",
+    "empty": "Din kurv er tom"
+  },
+  "Wishlist": {
+    "title": "Din ønskeliste",
+    "empty": "Din ønskeliste er tom"
+  },
+  "Search": {
+    "title": "Søg",
+    "noResults": "Ingen resultater fundet",
+    "popularSearches": "Populære søgninger"
   }
 }

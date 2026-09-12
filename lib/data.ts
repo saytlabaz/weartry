@@ -36,6 +36,16 @@ export const bestSellers: Product[] = [
   { id: "bs-8", slug: "utility-cargo-pants", nameKey: "utilityCargoPants", name: "Utility Cargo Pants", price: 149, compareAtPrice: 179, category: "pants", colors: ["#8a8060", "#1a1a1a"], gradient: "from-lime-100 to-lime-200" },
 ];
 
+export const allProducts: Product[] = [...newArrivals, ...seasonalDrop, ...bestSellers];
+
+export function findProductById(id: string): Product | undefined {
+  return allProducts.find((p) => p.id === id);
+}
+
+export function findProductBySlug(slug: string): Product | undefined {
+  return allProducts.find((p) => p.slug === slug);
+}
+
 export const testimonials = [
   { id: "t1", quote: "The quality exceeded my expectations. Every piece feels premium and fits perfectly.", author: "Olivia" },
   { id: "t2", quote: "The fabric feels amazing and the fit is effortless. I wear it every week.", author: "Sophia" },

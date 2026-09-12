@@ -15,11 +15,12 @@
     "searchPlaceholder": "Zoek producten...",
     "account": "Account",
     "wishlist": "Verlanglijst",
-    "cart": "Winkelwagen"
+    "cart": "Winkelwagen",
+    "menu": "Menu"
   },
   "PromoBar": {
     "message1": "Nieuw seizoen uitverkoop",
-    "message2": "Tot 30% korting"
+    "message2": "Tot {percent}% korting"
   },
   "Hero": {
     "eyebrow": "Nieuw seizoen",
@@ -118,7 +119,8 @@
     "legalCookies": "Cookiebeleid",
     "regionHeading": "Regio en taal",
     "newsletterHeading": "Blijf op de hoogte",
-    "copyright": "© {year} WearTry. Alle rechten voorbehouden."
+    "copyright": "© {year} WearTry. Alle rechten voorbehouden.",
+    "language": "Taal"
   },
   "Market": {
     "region": "Regio",
@@ -303,7 +305,8 @@
       "decline": "Niet-essentiële weigeren",
       "manage": "Voorkeuren beheren",
       "learnMore": "Meer informatie"
-    }
+    },
+    "fallbackNotice": "Deze inhoud is momenteel alleen beschikbaar in het Engels."
   },
   "Contact": {
     "title": "Contact Us",
@@ -321,5 +324,33 @@
     "messagePlaceholder": "How can we help?",
     "submit": "Send Message",
     "submitted": "Thanks — we've received your message and will reply within 1–2 business days."
+  },
+  "Common": {
+    "close": "Sluiten"
+  },
+  "CheckoutSummary": {
+    "title": "Besteloverzicht",
+    "selectRegion": "Selecteer uw regio",
+    "currency": "Valuta"
+  },
+  "ProductDetail": {
+    "addToCart": "Toevoegen aan winkelwagen",
+    "selectSize": "Kies maat",
+    "description": "Beschrijving",
+    "descriptionPlaceholder": "Voorbeeldproductbeschrijving — vervang door echte tekst vóór lancering.",
+    "back": "Terug naar de winkel"
+  },
+  "Cart": {
+    "title": "Jouw winkelwagen",
+    "empty": "Je winkelwagen is leeg"
+  },
+  "Wishlist": {
+    "title": "Jouw verlanglijst",
+    "empty": "Je verlanglijst is leeg"
+  },
+  "Search": {
+    "title": "Zoeken",
+    "noResults": "Geen resultaten gevonden",
+    "popularSearches": "Populaire zoekopdrachten"
   }
 }

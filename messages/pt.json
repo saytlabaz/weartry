@@ -15,11 +15,12 @@
     "searchPlaceholder": "Pesquisar produtos...",
     "account": "Conta",
     "wishlist": "Lista de desejos",
-    "cart": "Carrinho"
+    "cart": "Carrinho",
+    "menu": "Menu"
   },
   "PromoBar": {
     "message1": "Saldos da nova estação",
-    "message2": "Até 30% de desconto"
+    "message2": "Até {percent}% de desconto"
   },
   "Hero": {
     "eyebrow": "Nova estação",
@@ -118,7 +119,8 @@
     "legalCookies": "Política de cookies",
     "regionHeading": "Região e idioma",
     "newsletterHeading": "Fique a par",
-    "copyright": "© {year} WearTry. Todos os direitos reservados."
+    "copyright": "© {year} WearTry. Todos os direitos reservados.",
+    "language": "Idioma"
   },
   "Market": {
     "region": "Região",
@@ -303,7 +305,8 @@
       "decline": "Recusar não essenciais",
       "manage": "Gerir preferências",
       "learnMore": "Saiba mais"
-    }
+    },
+    "fallbackNotice": "Este conteúdo está atualmente disponível apenas em inglês."
   },
   "Contact": {
     "title": "Contact Us",
@@ -321,5 +324,33 @@
     "messagePlaceholder": "How can we help?",
     "submit": "Send Message",
     "submitted": "Thanks — we've received your message and will reply within 1–2 business days."
+  },
+  "Common": {
+    "close": "Fechar"
+  },
+  "CheckoutSummary": {
+    "title": "Resumo do pedido",
+    "selectRegion": "Selecione a sua região",
+    "currency": "Moeda"
+  },
+  "ProductDetail": {
+    "addToCart": "Adicionar ao carrinho",
+    "selectSize": "Selecionar tamanho",
+    "description": "Descrição",
+    "descriptionPlaceholder": "Descrição de exemplo do produto — substitua por texto real antes do lançamento.",
+    "back": "Voltar à loja"
+  },
+  "Cart": {
+    "title": "O seu carrinho",
+    "empty": "O seu carrinho está vazio"
+  },
+  "Wishlist": {
+    "title": "A sua lista de desejos",
+    "empty": "A sua lista de desejos está vazia"
+  },
+  "Search": {
+    "title": "Pesquisar",
+    "noResults": "Nenhum resultado encontrado",
+    "popularSearches": "Pesquisas populares"
   }
 }

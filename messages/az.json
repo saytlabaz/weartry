@@ -15,11 +15,12 @@
     "searchPlaceholder": "Məhsul axtar...",
     "account": "Hesab",
     "wishlist": "Sevimlilər",
-    "cart": "Səbət"
+    "cart": "Səbət",
+    "menu": "Menyu"
   },
   "PromoBar": {
     "message1": "Yeni Sezon Endirimi",
-    "message2": "30%-ə qədər Endirim"
+    "message2": "{percent}%-ə qədər Endirim"
   },
   "Hero": {
     "eyebrow": "Yeni Sezon",
@@ -118,7 +119,8 @@
     "legalCookies": "Kuki Siyasəti",
     "regionHeading": "Region və Dil",
     "newsletterHeading": "Xəbərdar olun",
-    "copyright": "© {year} WearTry. Bütün hüquqlar qorunur."
+    "copyright": "© {year} WearTry. Bütün hüquqlar qorunur.",
+    "language": "Dil"
   },
   "Market": {
     "region": "Region",
@@ -303,7 +305,8 @@
       "decline": "Məcburi Olmayanları Rədd Et",
       "manage": "Tərcihləri İdarə Et",
       "learnMore": "Ətraflı öyrən"
-    }
+    },
+    "fallbackNotice": "Bu məzmun hazırda yalnız ingilis dilində mövcuddur."
   },
   "Contact": {
     "title": "Bizimlə Əlaqə",
@@ -321,5 +324,33 @@
     "messagePlaceholder": "Sizə necə kömək edə bilərik?",
     "submit": "Mesajı Göndər",
     "submitted": "Təşəkkürlər — mesajınızı aldıq, 1–2 iş günü ərzində cavab verəcəyik."
+  },
+  "Common": {
+    "close": "Bağla"
+  },
+  "CheckoutSummary": {
+    "title": "Sifariş Xülasəsi",
+    "selectRegion": "Regionunuzu seçin",
+    "currency": "Valyuta"
+  },
+  "ProductDetail": {
+    "addToCart": "Səbətə əlavə et",
+    "selectSize": "Ölçünü seçin",
+    "description": "Təsvir",
+    "descriptionPlaceholder": "Nümunə məhsul təsviri — buraxılışdan əvvəl əsl mətnlə əvəz edin.",
+    "back": "Mağazaya qayıt"
+  },
+  "Cart": {
+    "title": "Səbətiniz",
+    "empty": "Səbətiniz boşdur"
+  },
+  "Wishlist": {
+    "title": "İstək Siyahınız",
+    "empty": "İstək siyahınız boşdur"
+  },
+  "Search": {
+    "title": "Axtarış",
+    "noResults": "Nəticə tapılmadı",
+    "popularSearches": "Populyar Axtarışlar"
   }
 }

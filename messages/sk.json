@@ -15,11 +15,12 @@
     "searchPlaceholder": "Hľadať produkty...",
     "account": "Účet",
     "wishlist": "Obľúbené",
-    "cart": "Košík"
+    "cart": "Košík",
+    "menu": "Menu"
   },
   "PromoBar": {
     "message1": "Výpredaj novej sezóny",
-    "message2": "Zľava až 30 %"
+    "message2": "Zľava až {percent} %"
   },
   "Hero": {
     "eyebrow": "Nová sezóna",
@@ -118,7 +119,8 @@
     "legalCookies": "Zásady cookies",
     "regionHeading": "Región a jazyk",
     "newsletterHeading": "Zostaňte informovaní",
-    "copyright": "© {year} WearTry. Všetky práva vyhradené."
+    "copyright": "© {year} WearTry. Všetky práva vyhradené.",
+    "language": "Jazyk"
   },
   "Market": {
     "region": "Región",
@@ -303,7 +305,8 @@
       "decline": "Odmietnuť nepovinné",
       "manage": "Spravovať predvoľby",
       "learnMore": "Zistiť viac"
-    }
+    },
+    "fallbackNotice": "Tento obsah je momentálne dostupný iba v angličtine."
   },
   "Contact": {
     "title": "Contact Us",
@@ -321,5 +324,33 @@
     "messagePlaceholder": "How can we help?",
     "submit": "Send Message",
     "submitted": "Thanks — we've received your message and will reply within 1–2 business days."
+  },
+  "Common": {
+    "close": "Zavrieť"
+  },
+  "CheckoutSummary": {
+    "title": "Zhrnutie objednávky",
+    "selectRegion": "Vyberte svoj región",
+    "currency": "Mena"
+  },
+  "ProductDetail": {
+    "addToCart": "Pridať do košíka",
+    "selectSize": "Vybrať veľkosť",
+    "description": "Popis",
+    "descriptionPlaceholder": "Vzorový popis produktu — pred spustením nahraďte skutočným textom.",
+    "back": "Späť do obchodu"
+  },
+  "Cart": {
+    "title": "Váš košík",
+    "empty": "Váš košík je prázdny"
+  },
+  "Wishlist": {
+    "title": "Váš zoznam želaní",
+    "empty": "Váš zoznam želaní je prázdny"
+  },
+  "Search": {
+    "title": "Hľadať",
+    "noResults": "Neboli nájdené žiadne výsledky",
+    "popularSearches": "Obľúbené vyhľadávania"
   }
 }

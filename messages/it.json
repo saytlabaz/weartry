@@ -15,11 +15,12 @@
     "searchPlaceholder": "Cerca prodotti...",
     "account": "Account",
     "wishlist": "Preferiti",
-    "cart": "Carrello"
+    "cart": "Carrello",
+    "menu": "Menu"
   },
   "PromoBar": {
     "message1": "Saldi nuova stagione",
-    "message2": "Fino al 30% di sconto"
+    "message2": "Fino al {percent}% di sconto"
   },
   "Hero": {
     "eyebrow": "Nuova stagione",
@@ -118,7 +119,8 @@
     "legalCookies": "Politica sui cookie",
     "regionHeading": "Regione e lingua",
     "newsletterHeading": "Resta aggiornato",
-    "copyright": "© {year} WearTry. Tutti i diritti riservati."
+    "copyright": "© {year} WearTry. Tutti i diritti riservati.",
+    "language": "Lingua"
   },
   "Market": {
     "region": "Regione",
@@ -303,7 +305,8 @@
       "decline": "Rifiuta non essenziali",
       "manage": "Gestisci preferenze",
       "learnMore": "Scopri di più"
-    }
+    },
+    "fallbackNotice": "Questo contenuto è attualmente disponibile solo in inglese."
   },
   "Contact": {
     "title": "Contact Us",
@@ -321,5 +324,33 @@
     "messagePlaceholder": "How can we help?",
     "submit": "Send Message",
     "submitted": "Thanks — we've received your message and will reply within 1–2 business days."
+  },
+  "Common": {
+    "close": "Chiudi"
+  },
+  "CheckoutSummary": {
+    "title": "Riepilogo ordine",
+    "selectRegion": "Seleziona la tua regione",
+    "currency": "Valuta"
+  },
+  "ProductDetail": {
+    "addToCart": "Aggiungi al carrello",
+    "selectSize": "Seleziona taglia",
+    "description": "Descrizione",
+    "descriptionPlaceholder": "Descrizione di esempio del prodotto — sostituire con testo reale prima del lancio.",
+    "back": "Torna al negozio"
+  },
+  "Cart": {
+    "title": "Il tuo carrello",
+    "empty": "Il tuo carrello è vuoto"
+  },
+  "Wishlist": {
+    "title": "La tua lista dei desideri",
+    "empty": "La tua lista dei desideri è vuota"
+  },
+  "Search": {
+    "title": "Cerca",
+    "noResults": "Nessun risultato trovato",
+    "popularSearches": "Ricerche popolari"
   }
 }

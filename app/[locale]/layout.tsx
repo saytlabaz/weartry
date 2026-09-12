@@ -4,10 +4,16 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { locales, defaultLocale } from "@/i18n/locales";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/layout/CookieConsent";
+import CartDrawer from "@/components/layout/CartDrawer";
+import WishlistDrawer from "@/components/layout/WishlistDrawer";
+import PageTransition from "@/components/layout/PageTransition";
 import CustomCursor from "@/components/motion/CustomCursor";
+import { MarketProvider } from "@/lib/market-context";
+import { StoreProvider } from "@/lib/store-context";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -21,9 +27,29 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Meta" });
+
+  const languages: Record<string, string> = {};
+  for (const l of locales) {
+    languages[l] = l === defaultLocale ? "/" : `/${l}`;
+  }
+
   return {
     title: t("title"),
     description: t("description"),
+    alternates: {
+      languages,
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      type: "website",
+      locale,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+    },
   };
 }
 
@@ -47,13 +73,21 @@ export default async function LocaleLayout({
       lang={locale}
       className="h-full antialiased"
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col overflow-x-clip bg-background text-foreground">
         <NextIntlClientProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <CookieConsent />
-          <CustomCursor />
+          <MarketProvider>
+            <StoreProvider>
+              <Header />
+              <main className="flex-1">
+                <PageTransition>{children}</PageTransition>
+              </main>
+              <Footer />
+              <CookieConsent />
+              <CartDrawer />
+              <WishlistDrawer />
+              <CustomCursor />
+            </StoreProvider>
+          </MarketProvider>
         </NextIntlClientProvider>
       </body>
     </html>

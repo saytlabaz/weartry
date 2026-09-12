@@ -15,11 +15,12 @@
     "searchPlaceholder": "Pretraži proizvode...",
     "account": "Račun",
     "wishlist": "Omiljeno",
-    "cart": "Košarica"
+    "cart": "Košarica",
+    "menu": "Izbornik"
   },
   "PromoBar": {
     "message1": "Rasprodaja nove sezone",
-    "message2": "Do 30% popusta"
+    "message2": "Do {percent}% popusta"
   },
   "Hero": {
     "eyebrow": "Nova sezona",
@@ -118,7 +119,8 @@
     "legalCookies": "Politika kolačića",
     "regionHeading": "Regija i jezik",
     "newsletterHeading": "Ostanite informirani",
-    "copyright": "© {year} WearTry. Sva prava pridržana."
+    "copyright": "© {year} WearTry. Sva prava pridržana.",
+    "language": "Jezik"
   },
   "Market": {
     "region": "Regija",
@@ -303,7 +305,8 @@
       "decline": "Odbij neobavezne",
       "manage": "Upravljaj postavkama",
       "learnMore": "Saznaj više"
-    }
+    },
+    "fallbackNotice": "Ovaj sadržaj trenutno je dostupan samo na engleskom jeziku."
   },
   "Contact": {
     "title": "Contact Us",
@@ -321,5 +324,33 @@
     "messagePlaceholder": "How can we help?",
     "submit": "Send Message",
     "submitted": "Thanks — we've received your message and will reply within 1–2 business days."
+  },
+  "Common": {
+    "close": "Zatvori"
+  },
+  "CheckoutSummary": {
+    "title": "Sažetak narudžbe",
+    "selectRegion": "Odaberite svoju regiju",
+    "currency": "Valuta"
+  },
+  "ProductDetail": {
+    "addToCart": "Dodaj u košaricu",
+    "selectSize": "Odaberite veličinu",
+    "description": "Opis",
+    "descriptionPlaceholder": "Primjer opisa proizvoda — zamijenite stvarnim tekstom prije lansiranja.",
+    "back": "Natrag u trgovinu"
+  },
+  "Cart": {
+    "title": "Vaša košarica",
+    "empty": "Vaša košarica je prazna"
+  },
+  "Wishlist": {
+    "title": "Popis želja",
+    "empty": "Vaš popis želja je prazan"
+  },
+  "Search": {
+    "title": "Pretraga",
+    "noResults": "Nema pronađenih rezultata",
+    "popularSearches": "Popularne pretrage"
   }
 }

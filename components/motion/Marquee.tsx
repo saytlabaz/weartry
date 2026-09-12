@@ -9,6 +9,10 @@ interface MarqueeProps {
   duration?: number;
   reverse?: boolean;
   gap?: string;
+  /** Number of times the content is duplicated (wide screens need more copies to avoid gaps) */
+  copies?: number;
+  /** Fired every time a track completes one full loop — used to gradually speed up the promo bar */
+  onIteration?: () => void;
 }
 
 /**
@@ -22,33 +26,28 @@ export default function Marquee({
   duration = 28,
   reverse = false,
   gap = "2.5rem",
+  copies = 4,
+  onIteration,
 }: MarqueeProps) {
   return (
     <div className={`group relative flex overflow-hidden ${className}`}>
-      <div
-        className="flex shrink-0 items-center animate-marquee group-hover:[animation-play-state:paused] motion-reduce:animate-none"
-        style={{
-          gap,
-          // @ts-expect-error custom property
-          "--marquee-duration": `${duration}s`,
-          animationDirection: reverse ? "reverse" : "normal",
-        }}
-      >
-        {children}
-      </div>
-      <div
-        aria-hidden
-        className="flex shrink-0 items-center animate-marquee group-hover:[animation-play-state:paused] motion-reduce:animate-none"
-        style={{
-          gap,
-          marginLeft: gap,
-          // @ts-expect-error custom property
-          "--marquee-duration": `${duration}s`,
-          animationDirection: reverse ? "reverse" : "normal",
-        }}
-      >
-        {children}
-      </div>
+      {Array.from({ length: copies }).map((_, i) => (
+        <div
+          key={i}
+          aria-hidden={i > 0}
+          onAnimationIteration={i === 0 ? onIteration : undefined}
+          className="flex shrink-0 items-center animate-marquee group-hover:[animation-play-state:paused] motion-reduce:animate-none"
+          style={{
+            gap,
+            marginLeft: i === 0 ? undefined : gap,
+            // @ts-expect-error custom property
+            "--marquee-duration": `${duration}s`,
+            animationDirection: reverse ? "reverse" : "normal",
+          }}
+        >
+          {children}
+        </div>
+      ))}
     </div>
   );
 }
