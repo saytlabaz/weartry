@@ -14,8 +14,8 @@ interface FAQItem {
 function ChevronIcon({ open }: { open: boolean }) {
   return (
     <svg
-      width="18"
-      height="18"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -27,21 +27,20 @@ function ChevronIcon({ open }: { open: boolean }) {
   );
 }
 
-export default function FAQSection() {
-  const t = useTranslations("FAQ");
+export default function ProductFAQ() {
+  const t = useTranslations("ProductFAQ");
   const shouldReduceMotion = useReducedMotion();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   const items = t.raw("items") as FAQItem[];
 
   return (
-    <section id="faq" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-      <div className="mx-auto max-w-2xl">
-        <BlurFadeUp as="h2" className="text-left text-3xl font-bold tracking-tight sm:text-4xl">
-          {t("title")}
+    <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_260px]">
+      <div>
+        <BlurFadeUp as="h2" className="text-2xl font-bold tracking-tight sm:text-3xl">
+          {t("heading")}
         </BlurFadeUp>
 
-        <StaggerGroup className="mt-10 divide-y divide-border border-t border-b border-border">
+        <StaggerGroup className="mt-6 divide-y divide-border border-t border-b border-border">
           {items.map((item, i) => {
             const open = openIndex === i;
             return (
@@ -50,7 +49,7 @@ export default function FAQSection() {
                   type="button"
                   onClick={() => setOpenIndex(open ? null : i)}
                   aria-expanded={open}
-                  className="flex w-full items-center justify-between gap-4 py-4 text-left text-sm font-medium text-foreground sm:text-base"
+                  className="flex w-full items-center justify-between gap-4 py-4 text-left text-sm font-medium"
                 >
                   {item.question}
                   <ChevronIcon open={open} />
@@ -73,6 +72,10 @@ export default function FAQSection() {
           })}
         </StaggerGroup>
       </div>
-    </section>
+
+      <BlurFadeUp delay={0.1} className="h-fit rounded-2xl border border-border bg-muted/30 p-5 text-sm text-neutral-600">
+        {t("contactLine")}
+      </BlurFadeUp>
+    </div>
   );
 }

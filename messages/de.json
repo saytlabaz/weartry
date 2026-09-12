@@ -348,7 +348,23 @@
     "selectSize": "Größe wählen",
     "description": "Beschreibung",
     "descriptionPlaceholder": "Beispielhafte Produktbeschreibung — vor dem Launch durch echten Text ersetzen.",
-    "back": "Zurück zum Shop"
+    "back": "Zurück zum Shop",
+    "quantityLabel": "Quantity",
+    "buyNow": "Buy Now",
+    "buyNowPlaceholder": "Checkout isn't connected yet — add to cart instead.",
+    "ratingsCount": "({count} reviews)",
+    "lowStockWarning": "Only {count} left in stock",
+    "trustBadge": "We guarantee the product matches the photos shown",
+    "detailsTitle": "Details",
+    "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
+    "shippingTitle": "Free Shipping",
+    "shippingContent": "Most orders arrive within 3–10 business days. Free shipping is included on all orders over $50.",
+    "returnsTitle": "Return Policy",
+    "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
+    "relatedHeading": "Products related to this item",
+    "sold": "Sold: {count}",
+    "available": "Available: {count}",
+    "colorLabel": "Color"
   },
   "Cart": {
     "title": "Dein Warenkorb",
@@ -364,47 +380,47 @@
     "popularSearches": "Beliebte Suchanfragen"
   },
   "FAQ": {
-    "title": "Frequently Asked Questions",
+    "title": "Häufig gestellte Fragen",
     "items": [
       {
-        "question": "How can I track my order?",
-        "answer": "Once your order ships, you'll receive a tracking link by email — use it anytime to check delivery status."
+        "question": "Wie kann ich meine Bestellung verfolgen?",
+        "answer": "Sobald Ihre Bestellung versandt wurde, erhalten Sie einen Sendungsverfolgungslink per E-Mail — nutzen Sie ihn jederzeit, um den Lieferstatus zu prüfen."
       },
       {
-        "question": "How long does shipping take?",
-        "answer": "Most orders arrive within 3–10 business days, depending on your location."
+        "question": "Wie lange dauert der Versand?",
+        "answer": "Die meisten Bestellungen treffen innerhalb von 3–10 Werktagen ein, abhängig von Ihrem Standort."
       },
       {
-        "question": "What is your return policy?",
-        "answer": "You can return unworn items within 30 days of delivery — see our Return Policy for full details."
+        "question": "Wie lautet eure Rückgaberichtlinie?",
+        "answer": "Ungetragene Artikel können innerhalb von 30 Tagen nach Lieferung zurückgegeben werden — alle Details finden Sie in unserer Rückgaberichtlinie."
       },
       {
-        "question": "What payment methods do you accept?",
-        "answer": "We accept Visa, Mastercard, American Express, PayPal, Apple Pay and other major card networks."
+        "question": "Welche Zahlungsmethoden akzeptiert ihr?",
+        "answer": "Wir akzeptieren Visa, Mastercard, American Express, PayPal, Apple Pay und andere gängige Kartennetzwerke."
       },
       {
-        "question": "How do I find my size?",
-        "answer": "Check the size guide on each product page — measurements are listed in both cm and inches."
+        "question": "Wie finde ich meine Größe?",
+        "answer": "Schauen Sie sich den Größenleitfaden auf jeder Produktseite an — die Maße sind in cm und Zoll angegeben."
       },
       {
-        "question": "Do you ship internationally?",
-        "answer": "Yes, we ship across the EU, UK and US, with more destinations added regularly."
+        "question": "Liefert ihr international?",
+        "answer": "Ja, wir liefern in die EU, nach Großbritannien und in die USA, mit regelmäßig neuen Zielen."
       },
       {
-        "question": "Can I cancel or change my order?",
-        "answer": "Contact us within a few hours of placing your order and we'll do our best to update or cancel it before it ships."
+        "question": "Kann ich meine Bestellung stornieren oder ändern?",
+        "answer": "Kontaktieren Sie uns innerhalb weniger Stunden nach der Bestellung, dann bemühen wir uns, sie vor dem Versand zu aktualisieren oder zu stornieren."
       },
       {
-        "question": "Do you offer discount codes?",
-        "answer": "Sign up for our newsletter and follow our promo bar for seasonal discount codes."
+        "question": "Bietet ihr Rabattcodes an?",
+        "answer": "Melden Sie sich für unseren Newsletter an und verfolgen Sie unsere Promo-Leiste für saisonale Rabattcodes."
       },
       {
-        "question": "What materials are your products made from?",
-        "answer": "We use responsibly sourced fabrics — check each product page for exact material composition."
+        "question": "Aus welchen Materialien bestehen eure Produkte?",
+        "answer": "Wir verwenden verantwortungsvoll bezogene Stoffe — die genaue Materialzusammensetzung finden Sie auf jeder Produktseite."
       },
       {
-        "question": "How can I contact customer support?",
-        "answer": "Reach our support team anytime via the Contact page — we typically reply within 1–2 business days."
+        "question": "Wie kann ich den Kundenservice kontaktieren?",
+        "answer": "Erreichen Sie unser Support-Team jederzeit über die Kontaktseite — wir antworten in der Regel innerhalb von 1–2 Werktagen."
       }
     ]
   },
@@ -424,5 +440,63 @@
     "classicHoodie": "Classic Hoodie",
     "softKnitSweater": "Soft Knit Sweater",
     "utilityCargoPants": "Utility Cargo Pants"
+  },
+  "Auth": {
+    "loginTitle": "Log In",
+    "registerTitle": "Create Account",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "••••••••",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "confirmPasswordLabel": "Confirm Password",
+    "loginButton": "Log In",
+    "registerButton": "Create Account",
+    "noAccountText": "Don't have an account?",
+    "switchToRegister": "Sign up",
+    "haveAccountText": "Already have an account?",
+    "switchToLogin": "Log in",
+    "loginPlaceholderMessage": "Thanks — account login isn't connected yet. Check back soon.",
+    "registerPlaceholderMessage": "Thanks for signing up — account creation isn't connected yet. Check back soon."
+  },
+  "ProductReviews": {
+    "headline": "1000+ customers rated this 4 stars and above!",
+    "summaryBasedOn": "Based on {count} reviews",
+    "loadMore": "Load More",
+    "writeReview": "Write a Review",
+    "writeReviewPlaceholder": "Review submission isn't connected yet — thanks for your interest!"
+  },
+  "ProductFAQ": {
+    "heading": "Questions About This Product",
+    "contactLine": "Still have questions? Contact us at support@weartry.com",
+    "items": [
+      {
+        "question": "What size should I order?",
+        "answer": "Check the size guide above — measurements are listed in both cm and inches for an accurate fit."
+      },
+      {
+        "question": "What material is this made from?",
+        "answer": "We use responsibly sourced, high-quality fabrics. See the Details section above for this item's exact composition."
+      },
+      {
+        "question": "How should I care for this item?",
+        "answer": "Machine wash cold with similar colors and avoid high heat when drying — check the care label for full instructions."
+      },
+      {
+        "question": "Is this item in stock?",
+        "answer": "Stock levels are shown above in real time. If an item is low in stock, we recommend ordering soon."
+      },
+      {
+        "question": "How long will delivery take?",
+        "answer": "Most orders arrive within 3–10 business days after dispatch, depending on your location."
+      }
+    ]
+  },
+  "TrustBadges": {
+    "freeShipping": "Free Shipping",
+    "securedPayment": "Secured Payment",
+    "dayReturn": "30-Day Return",
+    "productCheck": "Product Check"
   }
 }

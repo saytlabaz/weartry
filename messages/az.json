@@ -348,7 +348,23 @@
     "selectSize": "Ölçünü seçin",
     "description": "Təsvir",
     "descriptionPlaceholder": "Nümunə məhsul təsviri — buraxılışdan əvvəl əsl mətnlə əvəz edin.",
-    "back": "Mağazaya qayıt"
+    "back": "Mağazaya qayıt",
+    "quantityLabel": "Miqdar",
+    "buyNow": "İndi Al",
+    "buyNowPlaceholder": "Ödəniş sistemi hələ qoşulmayıb — əvəzinə səbətə əlavə edin.",
+    "ratingsCount": "({count} rəy)",
+    "lowStockWarning": "Anbarda yalnız {count} ədəd qalıb",
+    "trustBadge": "Məhsulun nümunə şəkillə eyni olduğuna zəmanət veririk",
+    "detailsTitle": "Təfərrüatlar",
+    "detailsContent": "Premium materiallardan, forma və tikişə diqqətlə hazırlanıb. Maşında yuyula bilər — tam təlimat üçün qulluq etiketinə baxın.",
+    "shippingTitle": "Pulsuz Çatdırılma",
+    "shippingContent": "Əksər sifarişlər 3-10 iş günü ərzində çatdırılır. 50 $-dan yuxarı bütün sifarişlərə pulsuz çatdırılma daxildir.",
+    "returnsTitle": "Qaytarma Siyasəti",
+    "returnsContent": "Ölçü uyğun gəlmədi? Çatdırılmadan sonra 30 gün ərzində geyilməmiş məhsulları tam geri ödəniş üçün qaytara bilərsiniz.",
+    "relatedHeading": "Bu məhsulla əlaqəli məhsullar",
+    "sold": "Satılıb: {count}",
+    "available": "Mövcuddur: {count}",
+    "colorLabel": "Rəng"
   },
   "Cart": {
     "title": "Səbətiniz",
@@ -424,5 +440,63 @@
     "classicHoodie": "Klassik Hudi",
     "softKnitSweater": "Yumşaq Trikotaj Sviter",
     "utilityCargoPants": "Utility Karqo Şalvar"
+  },
+  "Auth": {
+    "loginTitle": "Daxil ol",
+    "registerTitle": "Hesab yarat",
+    "emailLabel": "E-poçt",
+    "emailPlaceholder": "sen@numune.com",
+    "passwordLabel": "Şifrə",
+    "passwordPlaceholder": "••••••••",
+    "nameLabel": "Ad",
+    "namePlaceholder": "Adınız",
+    "confirmPasswordLabel": "Şifrəni təsdiqləyin",
+    "loginButton": "Daxil ol",
+    "registerButton": "Hesab yarat",
+    "noAccountText": "Hesabınız yoxdur?",
+    "switchToRegister": "Qeydiyyatdan keç",
+    "haveAccountText": "Artıq hesabınız var?",
+    "switchToLogin": "Daxil ol",
+    "loginPlaceholderMessage": "Təşəkkürlər — hesaba giriş hələ qoşulmayıb. Tezliklə yoxlayın.",
+    "registerPlaceholderMessage": "Qeydiyyat üçün təşəkkürlər — hesab yaratma hələ qoşulmayıb. Tezliklə yoxlayın."
+  },
+  "ProductReviews": {
+    "headline": "1000+ müştəri bu üslubu 4 ulduz və yuxarı qiymətləndirib!",
+    "summaryBasedOn": "{count} rəyə əsasən",
+    "loadMore": "Daha çox göstər",
+    "writeReview": "Rəy Yaz",
+    "writeReviewPlaceholder": "Rəy göndərmə hələ qoşulmayıb — marağınız üçün təşəkkürlər!"
+  },
+  "ProductFAQ": {
+    "heading": "Bu Məhsul Haqqında Suallar",
+    "contactLine": "Hələ sualınız var? Bizimlə əlaqə: support@weartry.com",
+    "items": [
+      {
+        "question": "Hansı ölçünü sifariş verməliyəm?",
+        "answer": "Yuxarıdakı ölçü bələdçisinə baxın — dəqiq uyğunluq üçün ölçülər həm sm, həm də düym ilə göstərilir."
+      },
+      {
+        "question": "Bu məhsul hansı materialdan hazırlanıb?",
+        "answer": "Məsuliyyətlə əldə edilmiş, yüksək keyfiyyətli parçalardan istifadə edirik. Bu məhsulun dəqiq tərkibi üçün yuxarıdakı Təfərrüatlar bölməsinə baxın."
+      },
+      {
+        "question": "Bu məhsula necə qulluq etməliyəm?",
+        "answer": "Oxşar rənglərlə soyuq suda maşında yuyun və qurutma zamanı yüksək istilikdən çəkinin — tam təlimat üçün qulluq etiketinə baxın."
+      },
+      {
+        "question": "Bu məhsul stokdadır?",
+        "answer": "Stok səviyyələri yuxarıda real vaxtda göstərilir. Əgər məhsul azdırsa, tezliklə sifariş verməyi tövsiyə edirik."
+      },
+      {
+        "question": "Çatdırılma nə qədər vaxt aparacaq?",
+        "answer": "Əksər sifarişlər göndərildikdən sonra ünvanınızdan asılı olaraq 3-10 iş günü ərzində çatır."
+      }
+    ]
+  },
+  "TrustBadges": {
+    "freeShipping": "Pulsuz Çatdırılma",
+    "securedPayment": "Təhlükəsiz Ödəniş",
+    "dayReturn": "30 Günlük Qaytarma",
+    "productCheck": "Məhsul Yoxlanışı"
   }
 }

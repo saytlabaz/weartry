@@ -111,11 +111,11 @@ export default function Header() {
     >
       <PromoBar />
       <div className="border-b border-border">
-        <div className="relative mx-auto flex max-w-7xl items-end justify-between px-4 pb-3 pt-6 sm:px-6 lg:px-8">
-          <div className="flex items-end gap-4">
+        <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-4 justify-self-start">
             <button
               type="button"
-              className="mb-0.5 lg:hidden"
+              className="lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={t("menu")}
               aria-expanded={mobileOpen}
@@ -129,12 +129,12 @@ export default function Header() {
                 width={168}
                 height={85}
                 priority
-                className="h-8 w-auto"
+                className="block h-8 w-auto"
               />
             </Link>
           </div>
 
-          <nav className="absolute inset-y-0 left-1/2 hidden -translate-x-1/2 items-end gap-6 pb-3 text-sm font-medium lg:flex">
+          <nav className="hidden items-center justify-center gap-6 text-sm font-medium lg:flex">
             {navLinks.map((l) => (
               <Link key={l.href} href={l.href} className="transition-colors hover:text-neutral-500">
                 {l.label}
@@ -142,10 +142,10 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-end gap-4 sm:gap-5">
-            <button type="button" aria-label={t("account")}>
+          <div className="flex items-center gap-4 justify-self-end sm:gap-5">
+            <Link href="/account/login" aria-label={t("account")}>
               <AccountIcon />
-            </button>
+            </Link>
             <Link href="/wishlist" aria-label={t("wishlist")} className="relative">
               <HeartIcon />
               {wishlistIds.length > 0 && (
