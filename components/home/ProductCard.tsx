@@ -15,9 +15,11 @@ const MAX_VISIBLE_COLORS = 3;
 
 export default function ProductCard({ product }: { product: Product }) {
   const t = useTranslations("Product");
+  const tProducts = useTranslations("Products");
   const tProductDetail = useTranslations("ProductDetail");
   const { addToWishlist, addToCart } = useStore();
   const discount = discountPercent(product.price, product.compareAtPrice);
+  const name = tProducts(product.nameKey);
 
   return (
     <StaggerItem className="group">
@@ -25,7 +27,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className={`relative aspect-[3/4] overflow-hidden rounded-xl bg-gradient-to-br ${product.gradient}`}>
           {/* Placeholder swatch — replace with real product photography */}
           <div className="absolute inset-0 flex items-center justify-center text-xs font-medium uppercase tracking-wide text-black/30">
-            {product.name}
+            {name}
           </div>
 
           <div className="absolute left-3 top-3 flex gap-1.5">
@@ -72,10 +74,10 @@ export default function ProductCard({ product }: { product: Product }) {
           </div>
         </div>
 
-        <div className="mt-2 flex flex-col gap-1 sm:mt-3 sm:flex-row sm:items-start sm:justify-between sm:gap-2">
+        <div className="mt-3 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-2">
           <div className="min-w-0">
-            <p className="truncate text-[11px] font-medium sm:text-sm">{product.name}</p>
-            <p className="mt-0.5 text-[11px] sm:mt-1 sm:text-sm">
+            <p className="truncate text-sm font-medium">{name}</p>
+            <p className="mt-1 text-sm">
               <span className="font-semibold">${product.price.toFixed(2)}</span>
               {product.compareAtPrice && (
                 <>
@@ -85,11 +87,11 @@ export default function ProductCard({ product }: { product: Product }) {
               )}
             </p>
           </div>
-          <div className="flex max-w-full shrink-0 flex-wrap items-center gap-1 overflow-hidden sm:mt-1 sm:justify-end">
+          <div className="mt-1 flex max-w-full shrink-0 flex-wrap items-center gap-1.5 overflow-hidden sm:justify-end">
             {product.colors.slice(0, MAX_VISIBLE_COLORS).map((c) => (
               <span
                 key={c}
-                className="h-3 w-3 shrink-0 rounded-full ring-1 ring-black/10 sm:h-3.5 sm:w-3.5"
+                className="h-3.5 w-3.5 shrink-0 rounded-full ring-1 ring-black/10"
                 style={{ backgroundColor: c }}
               />
             ))}

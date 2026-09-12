@@ -19,6 +19,7 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
   const t = useTranslations("Search");
   const tCommon = useTranslations("Common");
   const tNav = useTranslations("Nav");
+  const tProducts = useTranslations("Products");
   const shouldReduceMotion = useReducedMotion();
   const [query, setQuery] = useState("");
 
@@ -27,11 +28,11 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
     if (!q) return [];
     return allProducts.filter(
       (p) =>
-        p.name.toLowerCase().includes(q) ||
+        tProducts(p.nameKey).toLowerCase().includes(q) ||
         p.audience.toLowerCase().includes(q) ||
         p.category.toLowerCase().includes(q)
     );
-  }, [query]);
+  }, [query, tProducts]);
 
   const popular = useMemo(() => allProducts.slice(0, 4), []);
 
@@ -110,6 +111,7 @@ function ResultsList({
   products: (typeof allProducts)[number][];
   onNavigate: () => void;
 }) {
+  const tProducts = useTranslations("Products");
   return (
     <ul className="space-y-1">
       {products.map((product) => (
@@ -120,7 +122,7 @@ function ResultsList({
             className="flex items-center gap-3 rounded-xl px-2 py-2 transition-colors hover:bg-muted"
           >
             <span className={`h-12 w-10 shrink-0 rounded-lg bg-gradient-to-br ${product.gradient}`} />
-            <span className="flex-1 text-sm font-medium">{product.name}</span>
+            <span className="flex-1 text-sm font-medium">{tProducts(product.nameKey)}</span>
             <span className="text-sm text-neutral-500">${product.price.toFixed(2)}</span>
           </Link>
         </li>

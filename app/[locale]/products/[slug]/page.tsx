@@ -19,8 +19,9 @@ export async function generateMetadata({
   if (!product) return {};
 
   const t = await getTranslations("Meta");
+  const tProducts = await getTranslations("Products");
   return {
-    title: `${product.name} — WearTry`,
+    title: `${tProducts(product.nameKey)} — WearTry`,
     description: t("description"),
   };
 }

@@ -5,7 +5,7 @@ import LanguageMarketSwitcher from "./LanguageMarketSwitcher";
 
 function CardBadge({ children, label }: { children: ReactNode; label: string }) {
   return (
-    <svg width="32" height="20" viewBox="0 0 32 20" aria-label={label} role="img">
+    <svg className="h-full w-auto" viewBox="0 0 32 20" aria-label={label} role="img">
       <rect x="0.5" y="0.5" width="31" height="19" rx="2.5" fill="white" stroke="currentColor" strokeOpacity="0.15" />
       {children}
     </svg>
@@ -33,7 +33,7 @@ function MastercardIcon() {
 
 function AmexIcon() {
   return (
-    <svg width="32" height="20" viewBox="0 0 32 20" aria-label="American Express" role="img">
+    <svg className="h-full w-auto" viewBox="0 0 32 20" aria-label="American Express" role="img">
       <rect x="0.5" y="0.5" width="31" height="19" rx="2.5" fill="#2E77BC" />
       <text x="16" y="13.5" textAnchor="middle" fontSize="7" fontWeight="700" fill="white" letterSpacing="0.5">
         AMEX
@@ -59,7 +59,7 @@ function PayPalIcon() {
 
 function ApplePayIcon() {
   return (
-    <svg width="32" height="20" viewBox="0 0 32 20" aria-label="Apple Pay" role="img">
+    <svg className="h-full w-auto" viewBox="0 0 32 20" aria-label="Apple Pay" role="img">
       <rect x="0.5" y="0.5" width="31" height="19" rx="2.5" fill="#000" />
       <path
         d="M11.1 8.3c.3-.4.5-1 .5-1.5-.5 0-1 .3-1.4.7-.3.3-.6.9-.5 1.4.5 0 1-.3 1.4-.6Zm.5.8c-.7 0-1.4.4-1.7.4-.4 0-.9-.4-1.5-.4-.8 0-1.5.5-1.9 1.2-.8 1.4-.2 3.5.6 4.6.4.6.8 1.2 1.4 1.2.6 0 .8-.4 1.5-.4s.9.4 1.5.4c.6 0 1-.6 1.4-1.1.4-.6.6-1.2.6-1.2s-1.2-.5-1.2-1.8c0-1.1.9-1.7 1-1.7-.5-.8-1.3-.9-1.6-.9-.7-.1-1.1-.3-1.1-.3Z"
@@ -79,7 +79,7 @@ function ApplePayIcon() {
 
 function DiscoverIcon() {
   return (
-    <svg width="32" height="20" viewBox="0 0 32 20" aria-label="Discover" role="img">
+    <svg className="h-full w-auto" viewBox="0 0 32 20" aria-label="Discover" role="img">
       <rect x="0.5" y="0.5" width="31" height="19" rx="2.5" fill="white" stroke="currentColor" strokeOpacity="0.15" />
       <clipPath id="discover-clip">
         <rect x="1" y="1" width="30" height="18" rx="2" />
@@ -94,7 +94,7 @@ function DiscoverIcon() {
 
 function JCBIcon() {
   return (
-    <svg width="32" height="20" viewBox="0 0 32 20" aria-label="JCB" role="img">
+    <svg className="h-full w-auto" viewBox="0 0 32 20" aria-label="JCB" role="img">
       <rect x="0.5" y="0.5" width="31" height="19" rx="2.5" fill="white" stroke="currentColor" strokeOpacity="0.15" />
       <rect x="4" y="4" width="7" height="12" rx="1.5" fill="#0E4C96" />
       <rect x="12.5" y="4" width="7" height="12" rx="1.5" fill="#B01F2C" />
@@ -114,7 +114,7 @@ function JCBIcon() {
 
 function DinersClubIcon() {
   return (
-    <svg width="32" height="20" viewBox="0 0 32 20" aria-label="Diners Club" role="img">
+    <svg className="h-full w-auto" viewBox="0 0 32 20" aria-label="Diners Club" role="img">
       <rect x="0.5" y="0.5" width="31" height="19" rx="2.5" fill="white" stroke="currentColor" strokeOpacity="0.15" />
       <circle cx="16" cy="10" r="6.5" fill="#0079BE" />
       <path d="M16 4.5a5.5 5.5 0 0 0 0 11" fill="none" stroke="white" strokeWidth="1.2" />
@@ -125,7 +125,7 @@ function DinersClubIcon() {
 
 function UnionPayIcon() {
   return (
-    <svg width="32" height="20" viewBox="0 0 32 20" aria-label="UnionPay" role="img">
+    <svg className="h-full w-auto" viewBox="0 0 32 20" aria-label="UnionPay" role="img">
       <rect x="0.5" y="0.5" width="31" height="19" rx="2.5" fill="white" stroke="currentColor" strokeOpacity="0.15" />
       <rect x="4" y="4" width="7.3" height="12" rx="1.5" fill="#E21836" />
       <rect x="12.3" y="4" width="7.3" height="12" rx="1.5" fill="#00447C" />
@@ -190,16 +190,14 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-xs text-neutral-500 sm:flex-row">
-          <div className="flex flex-wrap items-center gap-2.5">
-            <VisaIcon />
-            <MastercardIcon />
-            <AmexIcon />
-            <PayPalIcon />
-            <ApplePayIcon />
-            <DiscoverIcon />
-            <JCBIcon />
-            <DinersClubIcon />
-            <UnionPayIcon />
+          <div className="flex flex-wrap items-center gap-2 gap-y-2">
+            {[VisaIcon, MastercardIcon, AmexIcon, PayPalIcon, ApplePayIcon, DiscoverIcon, JCBIcon, DinersClubIcon, UnionPayIcon].map(
+              (Icon, i) => (
+                <span key={i} className="flex h-6 items-center justify-center p-1">
+                  <Icon />
+                </span>
+              )
+            )}
           </div>
           <div className="flex items-center gap-4">
             <p>{t("copyright", { year })}</p>

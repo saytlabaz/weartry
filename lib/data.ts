@@ -18,6 +18,7 @@ export const newArrivals: Product[] = [
   { id: "na-1", slug: "everyday-hoodie", nameKey: "everydayHoodie", name: "Everyday Hoodie", price: 95, compareAtPrice: 120, category: "hoodie", audience: "men", isNew: true, colors: ["#e8a0a0", "#c9a7e0", "#e8d6a0"], gradient: "from-rose-200 to-rose-300" },
   { id: "na-2", slug: "lightweight-jacket", nameKey: "lightweightJacket", name: "Lightweight Jacket", price: 189, compareAtPrice: 219, category: "jacket", audience: "women", isNew: true, colors: ["#d8cdb8", "#8a8a8a"], gradient: "from-stone-200 to-stone-300" },
   { id: "na-3", slug: "oversized-graphic-tee", nameKey: "oversizedGraphicTee", name: "Oversized Graphic Tee", price: 69, compareAtPrice: 89, category: "tshirt", audience: "men", isNew: true, colors: ["#1a1a1a", "#2b4c8c", "#e8d6a0"], gradient: "from-neutral-300 to-neutral-400" },
+  { id: "na-4", slug: "classic-denim-jacket", nameKey: "classicDenimJacket", name: "Classic Denim Jacket", price: 139, compareAtPrice: 169, category: "jacket", audience: "men", isNew: true, colors: ["#4a6b8a", "#1a1a1a"], gradient: "from-sky-200 to-blue-300" },
 ];
 
 export const seasonalDrop: Product[] = [

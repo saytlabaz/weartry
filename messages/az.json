@@ -411,5 +411,18 @@
   "Category": {
     "sortPlaceholder": "Sırala: Seçilmiş",
     "itemsLabel": "məhsul"
+  },
+  "Products": {
+    "everydayHoodie": "Gündəlik Hudi",
+    "lightweightJacket": "Yüngül Gödəkçə",
+    "oversizedGraphicTee": "Oversize Qrafik Tişört",
+    "classicDenimJacket": "Klassik Cins Gödəkçə",
+    "zipperJacket": "Zəncirli Gödəkçə",
+    "relaxedFitCardigan": "Rahat Kəsim Kardiqan",
+    "kidsPufferJacket": "Uşaq Pufer Gödəkçəsi",
+    "kidsEverydayHoodie": "Uşaq Gündəlik Hudisi",
+    "classicHoodie": "Klassik Hudi",
+    "softKnitSweater": "Yumşaq Trikotaj Sviter",
+    "utilityCargoPants": "Utility Karqo Şalvar"
   }
 }

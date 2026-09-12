@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -110,7 +111,7 @@ export default function Header() {
     >
       <PromoBar />
       <div className="border-b border-border">
-        <div className="mx-auto flex max-w-7xl items-end justify-between px-4 pb-3 pt-6 sm:px-6 lg:px-8">
+        <div className="relative mx-auto flex max-w-7xl items-end justify-between px-4 pb-3 pt-6 sm:px-6 lg:px-8">
           <div className="flex items-end gap-4">
             <button
               type="button"
@@ -121,17 +122,25 @@ export default function Header() {
             >
               <MenuIcon open={mobileOpen} />
             </button>
-            <Link href="/" onClick={scrollToTop} className="text-xl font-bold tracking-tight">
-              WEARTRY
+            <Link href="/" onClick={scrollToTop} className="block">
+              <Image
+                src="/weartry-logo-black.png"
+                alt="WearTry"
+                width={168}
+                height={85}
+                priority
+                className="h-8 w-auto"
+              />
             </Link>
-            <nav className="hidden items-end gap-6 text-sm font-medium lg:flex">
-              {navLinks.map((l) => (
-                <Link key={l.href} href={l.href} className="transition-colors hover:text-neutral-500">
-                  {l.label}
-                </Link>
-              ))}
-            </nav>
           </div>
+
+          <nav className="absolute inset-y-0 left-1/2 hidden -translate-x-1/2 items-end gap-6 pb-3 text-sm font-medium lg:flex">
+            {navLinks.map((l) => (
+              <Link key={l.href} href={l.href} className="transition-colors hover:text-neutral-500">
+                {l.label}
+              </Link>
+            ))}
+          </nav>
 
           <div className="flex items-end gap-4 sm:gap-5">
             <button type="button" aria-label={t("account")}>

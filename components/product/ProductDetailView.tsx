@@ -13,6 +13,7 @@ const SIZES = ["S", "M", "L", "XL"];
 export default function ProductDetailView({ product }: { product: Product }) {
   const t = useTranslations("ProductDetail");
   const tProduct = useTranslations("Product");
+  const tProducts = useTranslations("Products");
   const { addToCart } = useStore();
   const [size, setSize] = useState(SIZES[1]);
 
@@ -36,7 +37,7 @@ export default function ProductDetailView({ product }: { product: Product }) {
                 {tProduct("new")}
               </span>
             )}
-            <h1 className="mt-3 text-3xl font-bold tracking-tight">{product.name}</h1>
+            <h1 className="mt-3 text-3xl font-bold tracking-tight">{tProducts(product.nameKey)}</h1>
           </StaggerItem>
 
           <StaggerItem>

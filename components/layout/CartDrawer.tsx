@@ -8,6 +8,7 @@ import SidePanel from "./SidePanel";
 
 export default function CartDrawer() {
   const t = useTranslations("Cart");
+  const tProducts = useTranslations("Products");
   const { cartIds, isCartOpen, closeCart, removeFromCart } = useStore();
   const items = cartIds.map(findProductById).filter((p): p is NonNullable<typeof p> => Boolean(p));
 
@@ -27,7 +28,7 @@ export default function CartDrawer() {
               <div className="flex flex-1 items-start justify-between gap-2">
                 <div>
                   <Link href={`/products/${product.slug}`} onClick={closeCart} className="text-sm font-medium hover:underline">
-                    {product.name}
+                    {tProducts(product.nameKey)}
                   </Link>
                   <p className="mt-1 text-sm text-neutral-500">${product.price.toFixed(2)}</p>
                 </div>

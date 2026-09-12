@@ -411,5 +411,18 @@
   "Category": {
     "sortPlaceholder": "Ταξινόμηση: Προτεινόμενα",
     "itemsLabel": "προϊόντα"
+  },
+  "Products": {
+    "everydayHoodie": "Everyday Hoodie",
+    "lightweightJacket": "Lightweight Jacket",
+    "oversizedGraphicTee": "Oversized Graphic Tee",
+    "classicDenimJacket": "Classic Denim Jacket",
+    "zipperJacket": "Zipper Jacket",
+    "relaxedFitCardigan": "Relaxed Fit Cardigan",
+    "kidsPufferJacket": "Kids Puffer Jacket",
+    "kidsEverydayHoodie": "Kids Everyday Hoodie",
+    "classicHoodie": "Classic Hoodie",
+    "softKnitSweater": "Soft Knit Sweater",
+    "utilityCargoPants": "Utility Cargo Pants"
   }
 }
