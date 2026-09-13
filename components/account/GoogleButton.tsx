@@ -1,5 +1,7 @@
 "use client";
 
+import { signIn } from "next-auth/react";
+
 function GoogleLogo() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24">
@@ -25,8 +27,7 @@ function GoogleLogo() {
 
 export default function GoogleButton({ label }: { label: string }) {
   function handleClick() {
-    // TODO: Google OAuth — API key veriləndə tamamlanacaq
-    console.log("Google auth clicked — not yet connected");
+    signIn("google", { callbackUrl: "/" });
   }
 
   return (

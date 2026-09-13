@@ -2,14 +2,15 @@
 
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import { Link } from "@/i18n/navigation";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
-import { mockAuthStore, createMockUser } from "@/lib/mock-auth";
 import GoogleButton from "./GoogleButton";
 
 type Mode = "login" | "register";
+type Step = "form" | "code";
 
 function Divider({ label }: { label: string }) {
   return (
@@ -27,29 +28,97 @@ const labelClass = "mb-1.5 block text-sm font-medium text-neutral-700";
 
 export default function AuthView() {
   const t = useTranslations("Auth");
+  const locale = useLocale();
+  const router = useRouter();
   const shouldReduceMotion = useReducedMotion();
   const [mode, setMode] = useState<Mode>("login");
-  const [submitted, setSubmitted] = useState(false);
+  const [step, setStep] = useState<Step>("form");
+  const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [gender, setGender] = useState("");
+  const [code, setCode] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function errorMessage(code: string | null) {
+    if (!code) return null;
+    if (code === "invalid_or_expired") return t("otpInvalidCode");
+    if (code === "invalid_email") return t("otpInvalidEmail");
+    return t("otpGenericError");
+  }
+
+  async function handleRequestCode(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: connect to auth backend
+    setError(null);
     const data = new FormData(e.currentTarget);
-    const email = data.get("email");
-    const fullName = data.get("name");
-    mockAuthStore.set(
-      createMockUser({
-        ...(typeof email === "string" && email ? { email } : {}),
-        ...(typeof fullName === "string" && fullName ? { fullName } : {}),
-      })
-    );
-    setSubmitted(true);
+    const emailValue = String(data.get("email") ?? "").trim();
+    if (mode === "register") {
+      setFullName(String(data.get("name") ?? "").trim());
+      setGender(String(data.get("gender") ?? ""));
+    }
+    setEmail(emailValue);
+    setLoading(true);
+    try {
+      const res = await fetch("/api/auth/otp/request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: emailValue, locale }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        setError(body.error ?? "unknown");
+        return;
+      }
+      setStep("code");
+    } catch {
+      setError("unknown");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleVerifyCode(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+    try {
+      const res = await fetch("/api/auth/otp/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          code,
+          ...(mode === "register" ? { fullName, gender } : {}),
+        }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        setError(body.error ?? "unknown");
+        return;
+      }
+      router.push("/");
+      router.refresh();
+    } catch {
+      setError("unknown");
+    } finally {
+      setLoading(false);
+    }
   }
 
   function switchMode(next: Mode) {
     setMode(next);
-    setSubmitted(false);
+    setStep("form");
+    setError(null);
+    setCode("");
   }
+
+  function backToForm() {
+    setStep("form");
+    setError(null);
+    setCode("");
+  }
+
+  const displayError = errorMessage(error);
 
   return (
     <div className="mx-auto max-w-md px-4 py-16 sm:px-6 lg:py-24">
@@ -59,21 +128,73 @@ export default function AuthView() {
 
       <div className="mt-10 overflow-hidden rounded-xl border border-border bg-background p-6 sm:p-8">
         <AnimatePresence mode="wait" initial={false}>
-          {submitted ? (
-            <motion.div
-              key="submitted"
-              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 8 }}
-              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-              exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
-              transition={{ duration: 0.25 }}
-              className="py-4 text-center text-sm text-neutral-600"
+          {step === "code" ? (
+            <motion.form
+              key="code"
+              onSubmit={handleVerifyCode}
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 12 }}
+              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
+              exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -12 }}
+              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
             >
-              {mode === "login" ? t("loginPlaceholderMessage") : t("registerPlaceholderMessage")}
-            </motion.div>
+              <StaggerGroup className="space-y-5">
+                <StaggerItem>
+                  <p className="text-center text-sm text-neutral-500">
+                    {t("otpCodeSentTo", { email })}
+                  </p>
+                </StaggerItem>
+                <StaggerItem>
+                  <div>
+                    <label htmlFor="otp-code" className={labelClass}>
+                      {t("otpCodeLabel")}
+                    </label>
+                    <input
+                      id="otp-code"
+                      name="code"
+                      type="text"
+                      inputMode="numeric"
+                      autoComplete="one-time-code"
+                      maxLength={6}
+                      required
+                      value={code}
+                      onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
+                      placeholder={t("otpCodePlaceholder")}
+                      className={`${inputClass} text-center text-lg tracking-[0.5em]`}
+                    />
+                  </div>
+                </StaggerItem>
+                {displayError && (
+                  <StaggerItem>
+                    <p className="text-center text-sm text-red-600">{displayError}</p>
+                  </StaggerItem>
+                )}
+                <StaggerItem>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white disabled:opacity-60"
+                  >
+                    {loading ? t("otpVerifying") : t("otpVerifyButton")}
+                  </button>
+                </StaggerItem>
+                <StaggerItem>
+                  <p className="text-center text-sm text-neutral-500">
+                    {t("otpResendText")}{" "}
+                    <button
+                      type="button"
+                      onClick={backToForm}
+                      className="font-medium text-foreground underline underline-offset-2"
+                    >
+                      {t("otpChangeEmail")}
+                    </button>
+                  </p>
+                </StaggerItem>
+              </StaggerGroup>
+            </motion.form>
           ) : mode === "login" ? (
             <motion.form
               key="login"
-              onSubmit={handleSubmit}
+              onSubmit={handleRequestCode}
               initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -12 }}
               animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
               exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 12 }}
@@ -95,27 +216,18 @@ export default function AuthView() {
                     />
                   </div>
                 </StaggerItem>
-                <StaggerItem>
-                  <div>
-                    <label htmlFor="login-password" className={labelClass}>
-                      {t("passwordLabel")}
-                    </label>
-                    <input
-                      id="login-password"
-                      name="password"
-                      type="password"
-                      required
-                      placeholder={t("passwordPlaceholder")}
-                      className={inputClass}
-                    />
-                  </div>
-                </StaggerItem>
+                {displayError && (
+                  <StaggerItem>
+                    <p className="text-center text-sm text-red-600">{displayError}</p>
+                  </StaggerItem>
+                )}
                 <StaggerItem>
                   <button
                     type="submit"
-                    className="w-full rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white"
+                    disabled={loading}
+                    className="w-full rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white disabled:opacity-60"
                   >
-                    {t("loginButton")}
+                    {loading ? t("otpSending") : t("otpSendCode")}
                   </button>
                 </StaggerItem>
                 <StaggerItem>
@@ -141,7 +253,7 @@ export default function AuthView() {
           ) : (
             <motion.form
               key="register"
-              onSubmit={handleSubmit}
+              onSubmit={handleRequestCode}
               initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 12 }}
               animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
               exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -12 }}
@@ -194,36 +306,6 @@ export default function AuthView() {
                   </div>
                 </StaggerItem>
                 <StaggerItem>
-                  <div>
-                    <label htmlFor="register-password" className={labelClass}>
-                      {t("passwordLabel")}
-                    </label>
-                    <input
-                      id="register-password"
-                      name="password"
-                      type="password"
-                      required
-                      placeholder={t("passwordPlaceholder")}
-                      className={inputClass}
-                    />
-                  </div>
-                </StaggerItem>
-                <StaggerItem>
-                  <div>
-                    <label htmlFor="register-confirm" className={labelClass}>
-                      {t("confirmPasswordLabel")}
-                    </label>
-                    <input
-                      id="register-confirm"
-                      name="confirmPassword"
-                      type="password"
-                      required
-                      placeholder={t("passwordPlaceholder")}
-                      className={inputClass}
-                    />
-                  </div>
-                </StaggerItem>
-                <StaggerItem>
                   <label className="flex items-start gap-2.5 rounded-lg border border-neutral-900 bg-neutral-50 px-3 py-2.5">
                     <input
                       type="checkbox"
@@ -248,12 +330,18 @@ export default function AuthView() {
                     </span>
                   </label>
                 </StaggerItem>
+                {displayError && (
+                  <StaggerItem>
+                    <p className="text-center text-sm text-red-600">{displayError}</p>
+                  </StaggerItem>
+                )}
                 <StaggerItem>
                   <button
                     type="submit"
-                    className="w-full rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white"
+                    disabled={loading}
+                    className="w-full rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white disabled:opacity-60"
                   >
-                    {t("registerButton")}
+                    {loading ? t("otpSending") : t("registerButton")}
                   </button>
                 </StaggerItem>
                 <StaggerItem>

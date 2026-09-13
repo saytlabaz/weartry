@@ -1,18 +1,22 @@
 "use client";
 
-import { useState, useSyncExternalStore, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { findProductById } from "@/lib/data";
 import { useStore } from "@/lib/store-context";
 import { markets } from "@/i18n/markets";
-import { mockAuthStore } from "@/lib/mock-auth";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
 import { ApplePayIcon, GooglePayIcon, CardIcon } from "@/components/layout/PaymentIcons";
 
 type PaymentMethod = "apple" | "google" | "card";
+
+interface CheckoutUser {
+  name?: string | null;
+  email?: string | null;
+}
 
 const inputClass =
   "w-full min-h-11 rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none focus:border-neutral-400";
@@ -27,18 +31,14 @@ function SuccessCheck() {
   );
 }
 
-export default function CheckoutPageView() {
+export default function CheckoutPageView({ user }: { user: CheckoutUser | null }) {
   const t = useTranslations("Checkout");
   const tProducts = useTranslations("Products");
   const shouldReduceMotion = useReducedMotion();
   const { cartItems, clearCart } = useStore();
-  const mockUser = useSyncExternalStore(
-    mockAuthStore.subscribe,
-    mockAuthStore.getSnapshot,
-    mockAuthStore.getServerSnapshot
-  );
   const [method, setMethod] = useState<PaymentMethod>("card");
   const [placed, setPlaced] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const items = cartItems
     .map((entry) => {
@@ -53,11 +53,38 @@ export default function CheckoutPageView() {
   const shippingFee: number = 0;
   const total = subtotal + shippingFee;
 
-  function handlePlaceOrder(e: FormEvent) {
+  async function handlePlaceOrder(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: connect to a real payment/order backend
-    setPlaced(true);
-    clearCart();
+    const data = new FormData(e.currentTarget);
+    const email = String(data.get("email") ?? "");
+    setSubmitting(true);
+    try {
+      await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          items: items.map(({ product, quantity }) => ({ id: product.id, quantity, price: product.price })),
+          shippingAddress: {
+            fullName: data.get("fullName"),
+            phone: data.get("phone"),
+            country: data.get("country"),
+            city: data.get("city"),
+            addressLine1: data.get("addressLine1"),
+            addressLine2: data.get("addressLine2"),
+            postalCode: data.get("postalCode"),
+          },
+          paymentMethod: method,
+          subtotal,
+          shippingCost: shippingFee,
+          total,
+        }),
+      });
+    } finally {
+      setSubmitting(false);
+      setPlaced(true);
+      clearCart();
+    }
   }
 
   if (placed) {
@@ -101,12 +128,12 @@ export default function CheckoutPageView() {
       </BlurFadeUp>
 
       <form
-        key={mockUser?.email ?? "guest"}
+        key={user?.email ?? "guest"}
         onSubmit={handlePlaceOrder}
         className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_380px]"
       >
         <StaggerGroup className="space-y-8">
-          {!mockUser && (
+          {!user && (
             <StaggerItem>
               <p className="text-sm text-neutral-500">
                 {t("loginPrompt")}{" "}
@@ -130,7 +157,7 @@ export default function CheckoutPageView() {
                     name="fullName"
                     type="text"
                     required
-                    defaultValue={mockUser?.fullName ?? ""}
+                    defaultValue={user?.name ?? ""}
                     className={inputClass}
                   />
                 </div>
@@ -143,7 +170,7 @@ export default function CheckoutPageView() {
                     name="email"
                     type="email"
                     required
-                    defaultValue={mockUser?.email ?? ""}
+                    defaultValue={user?.email ?? ""}
                     className={inputClass}
                   />
                 </div>
@@ -156,7 +183,7 @@ export default function CheckoutPageView() {
                     name="phone"
                     type="tel"
                     required
-                    defaultValue={mockUser?.phone ?? ""}
+                    defaultValue={""}
                     className={inputClass}
                   />
                 </div>
@@ -176,7 +203,7 @@ export default function CheckoutPageView() {
                     id="checkout-country"
                     name="country"
                     required
-                    defaultValue={mockUser?.country ?? ""}
+                    defaultValue={""}
                     className={inputClass}
                   >
                     <option value="" disabled>
@@ -198,7 +225,7 @@ export default function CheckoutPageView() {
                     name="city"
                     type="text"
                     required
-                    defaultValue={mockUser?.city ?? ""}
+                    defaultValue={""}
                     className={inputClass}
                   />
                 </div>
@@ -211,7 +238,7 @@ export default function CheckoutPageView() {
                     name="addressLine1"
                     type="text"
                     required
-                    defaultValue={mockUser?.addressLine1 ?? ""}
+                    defaultValue={""}
                     className={inputClass}
                   />
                 </div>
@@ -223,7 +250,7 @@ export default function CheckoutPageView() {
                     id="checkout-address2"
                     name="addressLine2"
                     type="text"
-                    defaultValue={mockUser?.addressLine2 ?? ""}
+                    defaultValue={""}
                     className={inputClass}
                   />
                 </div>
@@ -236,7 +263,7 @@ export default function CheckoutPageView() {
                     name="postalCode"
                     type="text"
                     required
-                    defaultValue={mockUser?.postalCode ?? ""}
+                    defaultValue={""}
                     className={inputClass}
                   />
                 </div>
@@ -380,7 +407,8 @@ export default function CheckoutPageView() {
 
           <button
             type="submit"
-            className="mt-5 w-full min-h-11 rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02]"
+            disabled={submitting}
+            className="mt-5 w-full min-h-11 rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02] disabled:opacity-60"
           >
             {t("placeOrderButton")}
           </button>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useSession, signOut } from "next-auth/react";
 import { Link } from "@/i18n/navigation";
 import { useStore } from "@/lib/store-context";
 import PromoBar from "./PromoBar";
@@ -91,11 +92,26 @@ function scrollToTop() {
 
 export default function Header() {
   const t = useTranslations("Nav");
+  const tAccount = useTranslations("Account");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
+  const accountRef = useRef<HTMLDivElement>(null);
+  const { data: session } = useSession();
   const { cartCount, wishlistIds, openCart } = useStore();
   const hidden = useHideOnMobileScrollDown();
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (!accountOpen) return;
+    function handleClickOutside(e: MouseEvent) {
+      if (accountRef.current && !accountRef.current.contains(e.target as Node)) {
+        setAccountOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [accountOpen]);
 
   const navLinks = [
     { href: "/category/men", label: t("men") },
@@ -147,9 +163,58 @@ export default function Header() {
           </nav>
 
           <div className="flex shrink-0 items-center gap-4">
-            <Link href="/account/login" aria-label={t("account")}>
-              <AccountIcon />
-            </Link>
+            {session?.user ? (
+              <div ref={accountRef} className="relative">
+                <button
+                  type="button"
+                  aria-label={t("account")}
+                  aria-expanded={accountOpen}
+                  onClick={() => setAccountOpen((v) => !v)}
+                >
+                  <AccountIcon />
+                </button>
+                <AnimatePresence>
+                  {accountOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -6 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 top-full z-50 mt-3 w-48 rounded-xl border border-border bg-background p-1.5 shadow-lg"
+                    >
+                      <Link
+                        href="/account"
+                        onClick={() => setAccountOpen(false)}
+                        className="block rounded-lg px-3 py-2 text-sm hover:bg-muted"
+                      >
+                        {tAccount("myAccount")}
+                      </Link>
+                      <Link
+                        href="/account/orders"
+                        onClick={() => setAccountOpen(false)}
+                        className="block rounded-lg px-3 py-2 text-sm hover:bg-muted"
+                      >
+                        {tAccount("myOrders")}
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setAccountOpen(false);
+                          signOut({ callbackUrl: "/" });
+                        }}
+                        className="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-muted"
+                      >
+                        {tAccount("signOut")}
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <Link href="/account/login" aria-label={t("account")}>
+                <AccountIcon />
+              </Link>
+            )}
             <Link href="/wishlist" aria-label={t("wishlist")} className="relative">
               <HeartIcon />
               {wishlistIds.length > 0 && (

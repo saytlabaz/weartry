@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { SessionProvider } from "next-auth/react";
 import { routing } from "@/i18n/routing";
 import { locales, defaultLocale } from "@/i18n/locales";
 import Header from "@/components/layout/Header";
@@ -74,18 +75,26 @@ export default async function LocaleLayout({
     >
       <body className="min-h-full flex flex-col overflow-x-clip bg-background text-foreground">
         <NextIntlClientProvider>
-          <MarketProvider>
-            <StoreProvider>
-              <Header />
-              <main className="flex-1">
-                <PageTransition>{children}</PageTransition>
-              </main>
-              <Footer />
-              <CookieConsent />
-              <CartDrawer />
-              <CustomCursor />
-            </StoreProvider>
-          </MarketProvider>
+          {/* No server-fetched session is passed here — doing so would call
+              auth() in the root layout, which reads cookies and forces every
+              page under it (including static storefront pages) into dynamic
+              rendering. SessionProvider fetches the session client-side
+              instead, which is the standard next-auth App Router pattern
+              when only a few routes (checkout, account) need it server-side. */}
+          <SessionProvider>
+            <MarketProvider>
+              <StoreProvider>
+                <Header />
+                <main className="flex-1">
+                  <PageTransition>{children}</PageTransition>
+                </main>
+                <Footer />
+                <CookieConsent />
+                <CartDrawer />
+                <CustomCursor />
+              </StoreProvider>
+            </MarketProvider>
+          </SessionProvider>
         </NextIntlClientProvider>
       </body>
     </html>
