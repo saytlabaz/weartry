@@ -368,11 +368,19 @@
   },
   "Cart": {
     "title": "Dein Warenkorb",
-    "empty": "Dein Warenkorb ist leer"
+    "empty": "Dein Warenkorb ist leer",
+    "subtotal": "Subtotal",
+    "viewCart": "View Cart",
+    "buyNow": "Buy Now",
+    "remove": "Remove",
+    "checkoutButton": "Proceed to Checkout"
   },
   "Wishlist": {
     "title": "Deine Wunschliste",
-    "empty": "Deine Wunschliste ist leer"
+    "empty": "Deine Wunschliste ist leer",
+    "recommendedHeading": "You might like these",
+    "recommendedSubtext": "Add something you love to your wishlist.",
+    "alsoLikeHeading": "You may also like"
   },
   "Search": {
     "title": "Suche",
@@ -458,7 +466,15 @@
     "haveAccountText": "Already have an account?",
     "switchToLogin": "Log in",
     "loginPlaceholderMessage": "Thanks — account login isn't connected yet. Check back soon.",
-    "registerPlaceholderMessage": "Thanks for signing up — account creation isn't connected yet. Check back soon."
+    "registerPlaceholderMessage": "Thanks for signing up — account creation isn't connected yet. Check back soon.",
+    "genderLabel": "Gender",
+    "genderMale": "Male",
+    "genderFemale": "Female",
+    "genderPreferNot": "Prefer not to say",
+    "acceptPoliciesText": "I accept all policies (<privacy>Privacy Policy</privacy>, <terms>Terms of Service</terms>)",
+    "googleLogin": "Continue with Google",
+    "googleRegister": "Sign up with Google",
+    "orDivider": "OR"
   },
   "ProductReviews": {
     "headline": "1000+ customers rated this 4 stars and above!",
@@ -498,5 +514,40 @@
     "securedPayment": "Secured Payment",
     "dayReturn": "30-Day Return",
     "productCheck": "Product Check"
+  },
+  "Checkout": {
+    "title": "Checkout",
+    "loginPrompt": "Have an account?",
+    "loginLink": "Log in",
+    "contactHeading": "Contact Information",
+    "fullNameLabel": "Full Name",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone Number",
+    "shippingHeading": "Shipping Address",
+    "countryLabel": "Country",
+    "cityLabel": "City",
+    "addressLine1Label": "Address Line 1",
+    "addressLine2Label": "Address Line 2 (optional)",
+    "postalCodeLabel": "Postal Code",
+    "paymentHeading": "Payment Method",
+    "paymentApplePay": "Apple Pay",
+    "paymentGooglePay": "Google Pay",
+    "paymentCard": "Credit / Debit Card",
+    "applePayNote": "You'll be asked to confirm this payment via Apple Pay.",
+    "googlePayNote": "You'll be asked to confirm this payment via Google Pay.",
+    "cardNumberLabel": "Card Number",
+    "cardExpiryLabel": "Expiry Date",
+    "cardCvvLabel": "CVV",
+    "cardNameLabel": "Name on Card",
+    "orderSummaryHeading": "Order Summary",
+    "shippingFeeLabel": "Shipping",
+    "freeLabel": "Free",
+    "totalLabel": "Total",
+    "placeOrderButton": "Place Order",
+    "successHeading": "Order Placed!",
+    "successMessage": "Thank you — your order has been received. This is a demo checkout; no payment was actually processed and no order was really placed.",
+    "continueShopping": "Continue Shopping",
+    "emptyCartMessage": "Your cart is empty — add something before checking out.",
+    "subtotalLabel": "Subtotal"
   }
 }

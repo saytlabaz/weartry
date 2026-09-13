@@ -15,7 +15,7 @@ const SCROLL_HIDE_THRESHOLD = 80;
 
 function SearchIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="11" cy="11" r="7" />
       <path d="m21 21-4.3-4.3" strokeLinecap="round" />
     </svg>
@@ -23,7 +23,7 @@ function SearchIcon() {
 }
 function AccountIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="12" cy="8" r="4" />
       <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" strokeLinecap="round" />
     </svg>
@@ -31,14 +31,14 @@ function AccountIcon() {
 }
 function HeartIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M12 20s-7-4.35-9.5-8.5C.7 8 2.2 4.5 5.8 4c2-.3 3.7.7 6.2 3 2.5-2.3 4.2-3.3 6.2-3 3.6.5 5.1 4 3.3 7.5C19 15.65 12 20 12 20Z" strokeLinejoin="round" />
     </svg>
   );
 }
 function CartIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 6h16l-1.5 10.5a2 2 0 0 1-2 1.5H7.5a2 2 0 0 1-2-1.5L4 6Z" strokeLinejoin="round" />
       <path d="M8 6V5a4 4 0 0 1 8 0v1" strokeLinecap="round" />
     </svg>
@@ -93,7 +93,7 @@ export default function Header() {
   const t = useTranslations("Nav");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const { cartIds, wishlistIds, openCart } = useStore();
+  const { cartCount, wishlistIds, openCart } = useStore();
   const hidden = useHideOnMobileScrollDown();
   const shouldReduceMotion = useReducedMotion();
 
@@ -111,8 +111,8 @@ export default function Header() {
     >
       <PromoBar />
       <div className="border-b border-border">
-        <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4 justify-self-start">
+        <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex shrink-0 items-center gap-4">
             <button
               type="button"
               className="lg:hidden"
@@ -129,12 +129,16 @@ export default function Header() {
                 width={168}
                 height={85}
                 priority
-                className="block h-8 w-auto"
+                className="block h-10 w-auto md:h-12"
               />
             </Link>
           </div>
 
-          <nav className="hidden items-center justify-center gap-6 text-sm font-medium lg:flex">
+          {/* Absolutely centered on the FULL header width, independent of the
+              logo/icon blocks' widths — a grid's middle 1fr track only
+              centers within the leftover space between them, which drifts
+              off-center whenever those two blocks aren't equally wide. */}
+          <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-8 text-base font-medium lg:flex">
             {navLinks.map((l) => (
               <Link key={l.href} href={l.href} className="transition-colors hover:text-neutral-500">
                 {l.label}
@@ -142,7 +146,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-4 justify-self-end sm:gap-5">
+          <div className="flex shrink-0 items-center gap-4">
             <Link href="/account/login" aria-label={t("account")}>
               <AccountIcon />
             </Link>
@@ -156,9 +160,9 @@ export default function Header() {
             </Link>
             <button type="button" aria-label={t("cart")} className="relative" onClick={openCart}>
               <CartIcon />
-              {cartIds.length > 0 && (
+              {cartCount > 0 && (
                 <span className="absolute -right-1.5 -top-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-neutral-900 text-[9px] text-white">
-                  {cartIds.length}
+                  {cartCount}
                 </span>
               )}
             </button>

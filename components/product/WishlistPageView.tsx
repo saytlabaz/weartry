@@ -1,16 +1,20 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { findProductById } from "@/lib/data";
+import { bestSellers, findProductById } from "@/lib/data";
 import { useStore } from "@/lib/store-context";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import { StaggerGroup } from "@/components/motion/StaggerGroup";
 import ProductCard from "@/components/home/ProductCard";
 
+const RECOMMENDED_COUNT = 4;
+
 export default function WishlistPageView() {
   const t = useTranslations("Wishlist");
   const { wishlistIds } = useStore();
   const items = wishlistIds.map(findProductById).filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+  const recommended = bestSellers.filter((p) => !wishlistIds.includes(p.id)).slice(0, RECOMMENDED_COUNT);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
@@ -19,13 +23,34 @@ export default function WishlistPageView() {
       </BlurFadeUp>
 
       {items.length === 0 ? (
-        <p className="mt-6 text-sm text-neutral-500">{t("empty")}</p>
+        <BlurFadeUp delay={0.05} className="mt-6 text-sm text-neutral-500">
+          {t("empty")}
+        </BlurFadeUp>
       ) : (
         <StaggerGroup className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4">
           {items.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </StaggerGroup>
+      )}
+
+      {recommended.length > 0 && (
+        <div className="mt-16">
+          <BlurFadeUp as="h2" className="text-xl font-bold tracking-tight">
+            {items.length === 0 ? t("recommendedHeading") : t("alsoLikeHeading")}
+          </BlurFadeUp>
+          {items.length === 0 && (
+            <BlurFadeUp delay={0.05} className="mt-1.5 text-sm text-neutral-500">
+              {t("recommendedSubtext")}
+            </BlurFadeUp>
+          )}
+
+          <StaggerGroup className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4">
+            {recommended.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </StaggerGroup>
+        </div>
       )}
     </div>
   );

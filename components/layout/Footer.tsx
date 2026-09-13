@@ -42,7 +42,7 @@ export default function Footer() {
               alt="WearTry"
               width={210}
               height={107}
-              className="block h-10 w-auto sm:h-12"
+              className="block h-10 w-auto md:h-12"
             />
           </div>
 

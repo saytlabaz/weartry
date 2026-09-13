@@ -180,7 +180,7 @@ export default function ProductDetailView({ product }: { product: Product }) {
             <div className="flex flex-col gap-3 sm:flex-row">
               <button
                 type="button"
-                onClick={() => addToCart(product)}
+                onClick={() => addToCart(product, quantity)}
                 className="flex-1 rounded-full bg-neutral-900 px-6 py-3.5 text-sm font-semibold text-white transition-transform hover:scale-[1.02]"
               >
                 {t("addToCart")}

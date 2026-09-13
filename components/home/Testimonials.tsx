@@ -40,23 +40,20 @@ export default function Testimonials() {
           {testimonials.map((item) => (
             <div
               key={item.id}
-              className="flex w-80 shrink-0 gap-4 rounded-2xl border border-border bg-background p-6"
+              className="w-80 shrink-0 rounded-2xl border border-border bg-background p-6"
             >
-              <div className={`h-14 w-14 shrink-0 rounded-full bg-gradient-to-br ${item.gradient}`} />
-              <div className="min-w-0 flex-1">
-                <div className="mb-2 flex gap-0.5 text-amber-400" aria-hidden>
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <StarIcon key={i} filled={i < item.rating} />
-                  ))}
-                </div>
-                <p className="text-sm leading-relaxed text-neutral-700">&ldquo;{item.quote}&rdquo;</p>
-                <div className="mt-3 flex items-center justify-between gap-2">
-                  <p className="flex items-center gap-1.5 text-xs font-medium text-neutral-500">
-                    <span aria-hidden>{item.flag}</span>
-                    {item.name}
-                  </p>
-                  <p className="shrink-0 text-xs font-semibold text-neutral-400">${item.relatedPrice.toFixed(2)}</p>
-                </div>
+              <div className="mb-2 flex gap-0.5 text-amber-400" aria-hidden>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon key={i} filled={i < item.rating} />
+                ))}
+              </div>
+              <p className="text-sm leading-relaxed text-neutral-700">&ldquo;{item.quote}&rdquo;</p>
+              <div className="mt-3 flex items-center justify-between gap-2">
+                <p className="flex items-center gap-1.5 text-xs font-medium text-neutral-500">
+                  <span aria-hidden>{item.flag}</span>
+                  {item.name}
+                </p>
+                <p className="shrink-0 text-xs font-semibold text-neutral-400">${item.relatedPrice.toFixed(2)}</p>
               </div>
             </div>
           ))}

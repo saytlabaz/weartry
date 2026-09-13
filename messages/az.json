@@ -368,11 +368,19 @@
   },
   "Cart": {
     "title": "Səbətiniz",
-    "empty": "Səbətiniz boşdur"
+    "empty": "Səbətiniz boşdur",
+    "subtotal": "Ara Cəm",
+    "viewCart": "Səbətə Bax",
+    "buyNow": "Birbaşa Ödəniş",
+    "remove": "Sil",
+    "checkoutButton": "Ödənişə Keç"
   },
   "Wishlist": {
     "title": "İstək Siyahınız",
-    "empty": "İstək siyahınız boşdur"
+    "empty": "İstək siyahınız boşdur",
+    "recommendedHeading": "Bunları bəyənə bilərsiniz",
+    "recommendedSubtext": "Sevdiyiniz bir məhsulu istək siyahınıza əlavə edin.",
+    "alsoLikeHeading": "Bunlar da xoşunuza gələ bilər"
   },
   "Search": {
     "title": "Axtarış",
@@ -458,7 +466,15 @@
     "haveAccountText": "Artıq hesabınız var?",
     "switchToLogin": "Daxil ol",
     "loginPlaceholderMessage": "Təşəkkürlər — hesaba giriş hələ qoşulmayıb. Tezliklə yoxlayın.",
-    "registerPlaceholderMessage": "Qeydiyyat üçün təşəkkürlər — hesab yaratma hələ qoşulmayıb. Tezliklə yoxlayın."
+    "registerPlaceholderMessage": "Qeydiyyat üçün təşəkkürlər — hesab yaratma hələ qoşulmayıb. Tezliklə yoxlayın.",
+    "genderLabel": "Cinsiyyət",
+    "genderMale": "Kişi",
+    "genderFemale": "Qadın",
+    "genderPreferNot": "Bildirmək istəmirəm",
+    "acceptPoliciesText": "Bütün siyasətləri (<privacy>Məxfilik Siyasəti</privacy>, <terms>İstifadə Şərtləri</terms>) qəbul edirəm",
+    "googleLogin": "Google ilə daxil ol",
+    "googleRegister": "Google ilə qeydiyyatdan keç",
+    "orDivider": "VƏ YA"
   },
   "ProductReviews": {
     "headline": "1000+ müştəri bu üslubu 4 ulduz və yuxarı qiymətləndirib!",
@@ -498,5 +514,40 @@
     "securedPayment": "Təhlükəsiz Ödəniş",
     "dayReturn": "30 Günlük Qaytarma",
     "productCheck": "Məhsul Yoxlanışı"
+  },
+  "Checkout": {
+    "title": "Ödəniş",
+    "loginPrompt": "Hesabınız var?",
+    "loginLink": "Daxil olun",
+    "contactHeading": "Əlaqə Məlumatı",
+    "fullNameLabel": "Ad Soyad",
+    "emailLabel": "E-poçt",
+    "phoneLabel": "Telefon Nömrəsi",
+    "shippingHeading": "Çatdırılma Ünvanı",
+    "countryLabel": "Ölkə",
+    "cityLabel": "Şəhər",
+    "addressLine1Label": "Ünvan sətri 1",
+    "addressLine2Label": "Ünvan sətri 2 (məcburi deyil)",
+    "postalCodeLabel": "Poçt Kodu",
+    "paymentHeading": "Ödəniş Metodu",
+    "paymentApplePay": "Apple Pay",
+    "paymentGooglePay": "Google Pay",
+    "paymentCard": "Bank Kartı",
+    "applePayNote": "Bu ödənişi Apple Pay vasitəsilə təsdiqləməyiniz istəniləcək.",
+    "googlePayNote": "Bu ödənişi Google Pay vasitəsilə təsdiqləməyiniz istəniləcək.",
+    "cardNumberLabel": "Kart Nömrəsi",
+    "cardExpiryLabel": "Son İstifadə Tarixi",
+    "cardCvvLabel": "CVV",
+    "cardNameLabel": "Kart Üzərindəki Ad",
+    "orderSummaryHeading": "Sifariş Xülasəsi",
+    "shippingFeeLabel": "Çatdırılma",
+    "freeLabel": "Pulsuz",
+    "totalLabel": "Cəmi",
+    "placeOrderButton": "Sifarişi Tamamla",
+    "successHeading": "Sifarişiniz Qəbul Edildi!",
+    "successMessage": "Təşəkkürlər — sifarişiniz qəbul edildi. Bu demo ödənişdir; heç bir real ödəniş həyata keçirilməyib və sifariş faktiki verilməyib.",
+    "continueShopping": "Alış-verişə Davam Et",
+    "emptyCartMessage": "Səbətiniz boşdur — ödənişə keçmədən əvvəl bir şey əlavə edin.",
+    "subtotalLabel": "Ara Cəm"
   }
 }
