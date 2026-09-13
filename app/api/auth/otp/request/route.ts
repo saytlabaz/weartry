@@ -11,11 +11,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "invalid_email" }, { status: 400 });
   }
 
-  const { data: existingUser } = await supabaseNextAuth
+  const { data: existingUser, error: lookupError } = await supabaseNextAuth
     .from("users")
     .select("id")
     .eq("email", email)
     .maybeSingle();
+
+  if (lookupError) {
+    console.error("[otp/request] user lookup error:", lookupError);
+    return NextResponse.json({ error: "server_error" }, { status: 500 });
+  }
 
   if (mode === "login" && !existingUser) {
     return NextResponse.json({ error: "no_account" }, { status: 404 });

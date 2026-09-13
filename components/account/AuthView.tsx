@@ -41,10 +41,14 @@ export default function AuthView() {
 
   function errorMessage(code: string | null) {
     if (!code) return null;
-    if (code === "invalid_or_expired") return t("otpInvalidCode");
+    if (code === "invalid_code") return t("otpInvalidCode");
+    if (code === "code_expired") return t("otpCodeExpired");
     if (code === "invalid_email") return t("otpInvalidEmail");
     if (code === "no_account") return t("otpNoAccount");
     if (code === "account_exists") return t("otpAccountExists");
+    // "server_error" and anything unrecognized both fall back to a generic
+    // message — the specifics are logged server-side (see otp/verify's
+    // console.error calls), not something the user needs to parse.
     return t("otpGenericError");
   }
 
