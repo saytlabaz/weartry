@@ -467,6 +467,8 @@
     "otpResendText": "Kod almadınız?",
     "otpChangeEmail": "Başqa e-poçt istifadə et",
     "otpInvalidCode": "Kod yanlışdır və ya vaxtı bitib.",
+    "otpNoAccount": "Bu email ilə hesab tapılmadı.",
+    "otpAccountExists": "Bu email ilə hesab artıq mövcuddur.",
     "otpInvalidEmail": "Zəhmət olmasa düzgün e-poçt ünvanı daxil edin.",
     "otpGenericError": "Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.",
     "registerButton": "Hesab yarat",

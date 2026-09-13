@@ -8,6 +8,10 @@ import { SupabaseAdapter } from "@auth/supabase-adapter";
 // not whenever this module is imported (e.g. during `next build`'s static
 // page-data collection, before env vars are necessarily available).
 export const { handlers, signIn, signOut, auth } = NextAuth(() => ({
+  // Vercel (and other reverse-proxy hosts) terminate TLS in front of the
+  // app, so Auth.js can't verify the host itself from the raw request —
+  // without this it refuses to trust the forwarded host/proto headers.
+  trustHost: true,
   adapter: SupabaseAdapter({
     url: process.env.NEXT_PUBLIC_SUPABASE_URL!,
     secret: process.env.SUPABASE_SERVICE_ROLE_KEY!,

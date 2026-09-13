@@ -3,8 +3,8 @@
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
-import { useRouter } from "@/i18n/navigation";
 import { Link } from "@/i18n/navigation";
+import { defaultLocale } from "@/i18n/locales";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
 import GoogleButton from "./GoogleButton";
@@ -29,7 +29,6 @@ const labelClass = "mb-1.5 block text-sm font-medium text-neutral-700";
 export default function AuthView() {
   const t = useTranslations("Auth");
   const locale = useLocale();
-  const router = useRouter();
   const shouldReduceMotion = useReducedMotion();
   const [mode, setMode] = useState<Mode>("login");
   const [step, setStep] = useState<Step>("form");
@@ -44,7 +43,40 @@ export default function AuthView() {
     if (!code) return null;
     if (code === "invalid_or_expired") return t("otpInvalidCode");
     if (code === "invalid_email") return t("otpInvalidEmail");
+    if (code === "no_account") return t("otpNoAccount");
+    if (code === "account_exists") return t("otpAccountExists");
     return t("otpGenericError");
+  }
+
+  /** Which tab the error implies the user should switch to, if any. */
+  function errorSwitchTarget(code: string | null): Mode | null {
+    if (code === "no_account") return "register";
+    if (code === "account_exists") return "login";
+    return null;
+  }
+
+  function renderError() {
+    if (!displayError) return null;
+    const target = errorSwitchTarget(error);
+    return (
+      <StaggerItem>
+        <p className="text-center text-sm text-red-600">
+          {displayError}
+          {target && (
+            <>
+              {" "}
+              <button
+                type="button"
+                onClick={() => switchMode(target)}
+                className="font-medium underline underline-offset-2"
+              >
+                {target === "register" ? t("switchToRegister") : t("switchToLogin")}
+              </button>
+            </>
+          )}
+        </p>
+      </StaggerItem>
+    );
   }
 
   async function handleRequestCode(e: FormEvent<HTMLFormElement>) {
@@ -62,7 +94,7 @@ export default function AuthView() {
       const res = await fetch("/api/auth/otp/request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: emailValue, locale }),
+        body: JSON.stringify({ email: emailValue, locale, mode }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
@@ -94,13 +126,17 @@ export default function AuthView() {
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
         setError(body.error ?? "unknown");
+        setLoading(false);
         return;
       }
-      router.push("/");
-      router.refresh();
+      // A full page load (not client-side navigation) so the browser sends
+      // the just-set session cookie on the very next request — otherwise
+      // useSession()/Header can keep showing "logged out" until a manual
+      // reload, since router.refresh() only re-runs server components, not
+      // next-auth's client-side session cache.
+      window.location.href = locale === defaultLocale ? "/" : `/${locale}`;
     } catch {
       setError("unknown");
-    } finally {
       setLoading(false);
     }
   }
@@ -163,11 +199,7 @@ export default function AuthView() {
                     />
                   </div>
                 </StaggerItem>
-                {displayError && (
-                  <StaggerItem>
-                    <p className="text-center text-sm text-red-600">{displayError}</p>
-                  </StaggerItem>
-                )}
+                {renderError()}
                 <StaggerItem>
                   <button
                     type="submit"
@@ -216,11 +248,7 @@ export default function AuthView() {
                     />
                   </div>
                 </StaggerItem>
-                {displayError && (
-                  <StaggerItem>
-                    <p className="text-center text-sm text-red-600">{displayError}</p>
-                  </StaggerItem>
-                )}
+                {renderError()}
                 <StaggerItem>
                   <button
                     type="submit"
@@ -330,11 +358,7 @@ export default function AuthView() {
                     </span>
                   </label>
                 </StaggerItem>
-                {displayError && (
-                  <StaggerItem>
-                    <p className="text-center text-sm text-red-600">{displayError}</p>
-                  </StaggerItem>
-                )}
+                {renderError()}
                 <StaggerItem>
                   <button
                     type="submit"

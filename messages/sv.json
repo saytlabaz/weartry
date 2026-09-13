@@ -467,6 +467,8 @@
     "otpResendText": "Didn't get a code?",
     "otpChangeEmail": "Use a different email",
     "otpInvalidCode": "That code is invalid or has expired.",
+    "otpNoAccount": "No account found with this email.",
+    "otpAccountExists": "An account with this email already exists.",
     "otpInvalidEmail": "Please enter a valid email address.",
     "otpGenericError": "Something went wrong. Please try again.",
     "registerButton": "Create Account",
