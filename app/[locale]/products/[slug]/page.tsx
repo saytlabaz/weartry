@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { allProducts, findProductBySlug } from "@/lib/data";
+import { getActiveDbProductBySlug } from "@/lib/catalog";
 import ProductDetailView from "@/components/product/ProductDetailView";
 
 export function generateStaticParams() {
@@ -15,20 +16,22 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = findProductBySlug(slug);
+  const product = findProductBySlug(slug) ?? (await getActiveDbProductBySlug(slug));
   if (!product) return {};
 
   const t = await getTranslations("Meta");
   const tProducts = await getTranslations("Products");
   return {
-    title: `${tProducts(product.nameKey)} — WearTry`,
+    title: `${product.isDbProduct ? product.name : tProducts(product.nameKey)} — WearTry`,
     description: t("description"),
   };
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const product = findProductBySlug(slug);
+  // DB lookup only runs when the static catalogue doesn't have this slug —
+  // that's every request for a static product, unchanged from before.
+  const product = findProductBySlug(slug) ?? (await getActiveDbProductBySlug(slug));
 
   if (!product) {
     notFound();

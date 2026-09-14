@@ -19,6 +19,22 @@ import type { MaxShippingResult } from "@/lib/cj/getMaxShippingCost";
 const DEBOUNCE_MS = 500;
 type Category = "MEN" | "WOMEN" | "KIDS";
 
+/**
+ * A platform-level failure (e.g. a genuine function timeout) makes Vercel
+ * itself answer with an HTML error page instead of our route's JSON — a
+ * plain `res.json()` would throw "Unexpected token '<'" on that, which is
+ * a confusing crash rather than a clean error message. This always
+ * resolves to a plain object with at least `.error` set.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- response shape varies per caller (search results, detail, freight result); each call site narrows it itself
+async function safeJson(res: Response): Promise<any> {
+  try {
+    return await res.json();
+  } catch {
+    return { error: "CJ ilə əlaqə qurula bilmədi, bir az sonra yenidən cəhd edin." };
+  }
+}
+
 interface SelectedVariant extends CjVariantDetail {
   selected: boolean;
 }
@@ -76,7 +92,7 @@ export default function CjSearchView() {
     setSearchError(null);
     try {
       const res = await fetch(`/api/admin/cj/search?keyword=${encodeURIComponent(kw)}&page=${targetPage}`);
-      const body = await res.json();
+      const body = await safeJson(res);
       if (!res.ok) throw new Error(body.error ?? "search_failed");
       setItems(body.items ?? []);
       setTotalPages(body.totalPages ?? 0);
@@ -104,7 +120,7 @@ export default function CjSearchView() {
     setActiveImage(0);
     try {
       const res = await fetch(`/api/admin/cj/detail?pid=${encodeURIComponent(pid)}`);
-      const body = await res.json();
+      const body = await safeJson(res);
       if (!res.ok) throw new Error(body.error ?? "detail_failed");
       const d = body as CjProductDetail;
       setDetail(d);
@@ -150,7 +166,7 @@ export default function CjSearchView() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ vid: reference.vid, quantity: 1 }),
       });
-      const body = await res.json();
+      const body = await safeJson(res);
       if (!res.ok) throw new Error(body.error ?? "freight_failed");
       setShipping(body as MaxShippingResult);
     } catch (err) {
@@ -192,7 +208,7 @@ export default function CjSearchView() {
             maxShippingCountry: shipping?.countryName ?? null,
           }),
         });
-        const body = await res.json();
+        const body = await safeJson(res);
         if (!res.ok) throw new Error(body.error ?? "import_failed");
         toast.success("Məhsul sayta əlavə edildi");
         closeDetail();

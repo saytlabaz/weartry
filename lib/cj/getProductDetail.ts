@@ -42,23 +42,47 @@ function splitVariantKey(key: string): { color: string; size: string } {
   return { color: "", size: parts[0] ?? "" };
 }
 
-function sumInventory(inventories: unknown): number {
-  if (!Array.isArray(inventories)) return 0;
-  return inventories.reduce((sum: number, inv) => {
-    const rec = inv as Record<string, unknown> | null;
-    const n = Number(rec?.totalInventory ?? rec?.inventoryNum ?? 0);
-    return sum + (Number.isFinite(n) ? n : 0);
-  }, 0);
+interface CjInventoryResponse {
+  code: number;
+  message?: string;
+  data?: unknown[];
 }
 
-/** Fetches a single CJ product's full detail via GET /v1/product/query. */
+/**
+ * The general /product/query response's embedded `variants[].inventories`
+ * is unreliable (frequently empty/zero) — CJ's dedicated inventory
+ * endpoint (GET /v1/product/inventory/query) is the real, live source.
+ * One call returns every variant's stock for the whole product, so this
+ * is a single extra request per detail view, not per variant. Returns
+ * vid -> summed totalInventory across every warehouse/country CJ reports.
+ */
+async function getRealStockByVid(pid: string): Promise<Map<string, number>> {
+  const qs = new URLSearchParams({ pid });
+  const res = await cjFetch(`/v1/product/inventory/query?${qs.toString()}`);
+  const body = (await res.json()) as CjInventoryResponse;
+
+  const stockByVid = new Map<string, number>();
+  if (!res.ok || body.code !== 200 || !Array.isArray(body.data)) return stockByVid;
+
+  for (const entry of body.data) {
+    const rec = entry as Record<string, unknown>;
+    const vid = rec.vid != null ? String(rec.vid) : null;
+    if (!vid) continue;
+    const n = Number(rec.totalInventory ?? 0);
+    if (!Number.isFinite(n)) continue;
+    stockByVid.set(vid, (stockByVid.get(vid) ?? 0) + n);
+  }
+  return stockByVid;
+}
+
+/** Fetches a single CJ product's full detail via GET /v1/product/query, plus real stock via GET /v1/product/inventory/query. */
 export async function getCjProductDetail(pid: string): Promise<CjProductDetail> {
   const qs = new URLSearchParams({ pid });
-  const res = await cjFetch(`/v1/product/query?${qs.toString()}`);
-  const body = (await res.json()) as CjDetailResponse;
+  const [detailRes, stockByVid] = await Promise.all([cjFetch(`/v1/product/query?${qs.toString()}`), getRealStockByVid(pid)]);
+  const body = (await detailRes.json()) as CjDetailResponse;
 
-  if (!res.ok || body.code !== 200 || !body.data) {
-    throw new Error(body.message ?? `CJ product detail failed (${res.status})`);
+  if (!detailRes.ok || body.code !== 200 || !body.data) {
+    throw new Error(body.message ?? `CJ product detail failed (${detailRes.status})`);
   }
 
   const data = body.data;
@@ -71,21 +95,27 @@ export async function getCjProductDetail(pid: string): Promise<CjProductDetail> 
       const key = String(v.variantKey ?? v.variantNameEn ?? "");
       const { color, size } = splitVariantKey(key);
       const vid = v.vid ?? v.id;
+      const vidStr = vid != null ? String(vid) : "";
       const sellPrice = v.variantSellPrice;
       return {
-        vid: vid != null ? String(vid) : "",
+        vid: vidStr,
         key,
         color,
         size,
         image: typeof v.variantImage === "string" && v.variantImage ? v.variantImage : bigImage,
         sellPrice: sellPrice != null ? Number(sellPrice) : null,
-        stock: sumInventory(v.inventories),
+        stock: stockByVid.get(vidStr) ?? 0,
       };
     })
     .filter((v) => v.vid);
 
   const rawImages = Array.isArray(data.productImageSet) ? (data.productImageSet as unknown[]) : [];
-  const images = rawImages.length > 0 ? rawImages.map(String) : bigImage ? [bigImage] : [];
+  const galleryImages = rawImages.length > 0 ? rawImages.map(String) : bigImage ? [bigImage] : [];
+  // Fold in any per-variant images the gallery doesn't already have, so
+  // every color's photo ends up in the product's image set even though
+  // ProductVariant has no image field of its own to keep them separate.
+  const variantImages = variants.map((v) => v.image).filter(Boolean);
+  const images = Array.from(new Set([...galleryImages, ...variantImages]));
 
   return {
     pid: String(data.pid ?? pid),

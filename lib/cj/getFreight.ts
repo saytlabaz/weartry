@@ -37,15 +37,19 @@ export interface FreightQuote {
   price: number;
   methodName: string;
   aging: string;
+  /** False when CJ has no method whose quoted time falls in the 8-15 day window for this country — `price` is then the most expensive method CJ offers regardless of timeframe, not a made-up number. */
+  inWindow: boolean;
 }
 
 /**
  * Calls CJ's freight calculator (POST /v1/logistic/freightCalculate) for
- * one destination country, and returns the most expensive method whose
- * quoted shipping time falls in the 8-15 day window — per the admin
- * panel's requirement to reference the highest plausible cost, not the
- * cheapest. Returns null if CJ has no method in that window for this
- * country (e.g. it doesn't ship there at all).
+ * one destination country. Prefers the most expensive method whose quoted
+ * shipping time falls in the 8-15 day window; if CJ has methods for this
+ * country but none land in that window, falls back to the most expensive
+ * method CJ offers regardless of timeframe (flagged via `inWindow: false`)
+ * rather than treating it as no result — CJ genuinely ships there, the
+ * 8-15 day constraint just doesn't apply to this specific variant/route.
+ * Returns null only when CJ has no shipping method to this country at all.
  */
 export async function getFreightQuote(params: {
   vid: string;
@@ -68,12 +72,20 @@ export async function getFreightQuote(params: {
     throw new Error(`CJ freightCalculate failed (HTTP ${res.status}, CJ code ${body.code}): ${body.message ?? res.statusText}`);
   }
 
-  const inWindow = body.data
-    .map((m) => ({ method: m, range: parseAgingDays(m.logisticAging) }))
-    .filter((m): m is { method: CjFreightMethod; range: [number, number] } => m.range !== null && isWithinWindow(m.range, 8, 15));
+  if (body.data.length === 0) return null;
 
-  if (inWindow.length === 0) return null;
+  const withRange = body.data.map((m) => ({ method: m, range: parseAgingDays(m.logisticAging) }));
+  const inWindow = withRange.filter(
+    (m): m is { method: CjFreightMethod; range: [number, number] } => m.range !== null && isWithinWindow(m.range, 8, 15)
+  );
 
-  const most = inWindow.reduce((a, b) => (b.method.logisticPrice > a.method.logisticPrice ? b : a));
-  return { price: most.method.logisticPrice, methodName: most.method.logisticName, aging: most.method.logisticAging };
+  const pool = inWindow.length > 0 ? inWindow : withRange;
+  const most = pool.reduce((a, b) => (b.method.logisticPrice > a.method.logisticPrice ? b : a));
+
+  return {
+    price: most.method.logisticPrice,
+    methodName: most.method.logisticName,
+    aging: most.method.logisticAging,
+    inWindow: inWindow.length > 0,
+  };
 }

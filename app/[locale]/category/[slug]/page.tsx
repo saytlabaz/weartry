@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { findProductsByAudience, type Product } from "@/lib/data";
+import { getActiveDbProducts } from "@/lib/catalog";
 import CategoryPageView from "@/components/product/CategoryPageView";
 
 const AUDIENCES: Product["audience"][] = ["men", "women", "kids"];
@@ -33,7 +34,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
-  const products = findProductsByAudience(slug);
+  const staticProducts = findProductsByAudience(slug);
+  const dbProducts = (await getActiveDbProducts()).filter((p) => p.audience === slug);
+  const products = [...dbProducts, ...staticProducts];
 
   return <CategoryPageView audience={slug} products={products} />;
 }

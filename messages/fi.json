@@ -435,7 +435,9 @@
     "relatedHeading": "Products related to this item",
     "sold": "Sold: {count}",
     "available": "Available: {count}",
-    "colorLabel": "Color"
+    "colorLabel": "Color",
+    "freeShipping": "Free Shipping",
+    "cjShippingNote": "Delivery time: 8-15 business days"
   },
   "Cart": {
     "title": "Ostoskorisi",

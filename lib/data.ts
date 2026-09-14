@@ -11,6 +11,17 @@ export interface Product {
   isNew?: boolean;
   colors: string[];
   gradient: string;
+  /**
+   * Set on DB-sourced products (see lib/catalog.ts) — real photos and a
+   * literal admin-set name instead of this static catalogue's gradient
+   * placeholder + next-intl translation key. Rendering components must
+   * use `.name` directly (not `tProducts(product.nameKey)`) when this
+   * is true, since `nameKey` isn't a real translation key here.
+   */
+  isDbProduct?: boolean;
+  images?: string[];
+  /** True for CJ-imported products whose shipping cost is already folded into the sell price — drives the "8-15 gün" note and "Pulsuz Çatdırılma" badge. */
+  isCjImport?: boolean;
 }
 
 // Placeholder catalogue — swap in real product photography and copy before launch.

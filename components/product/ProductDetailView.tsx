@@ -54,7 +54,7 @@ export default function ProductDetailView({ product }: { product: Product }) {
       {/* a) Gallery + main info */}
       <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2">
         <BlurFadeUp immediate>
-          <ProductGallery gradient={product.gradient} />
+          <ProductGallery gradient={product.gradient} images={product.images} />
         </BlurFadeUp>
 
         <StaggerGroup className="space-y-5" immediate>
@@ -64,7 +64,9 @@ export default function ProductDetailView({ product }: { product: Product }) {
                 {tProduct("new")}
               </span>
             )}
-            <h1 className="mt-3 text-3xl font-bold tracking-tight">{tProducts(product.nameKey)}</h1>
+            <h1 className="mt-3 text-3xl font-bold tracking-tight">
+              {product.isDbProduct ? product.name : tProducts(product.nameKey)}
+            </h1>
           </StaggerItem>
 
           <StaggerItem>
@@ -82,6 +84,17 @@ export default function ProductDetailView({ product }: { product: Product }) {
               )}
             </p>
           </StaggerItem>
+
+          {product.isCjImport && (
+            <StaggerItem>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                  {t("freeShipping")}
+                </span>
+                <span className="text-xs text-neutral-500">{t("cjShippingNote")}</span>
+              </div>
+            </StaggerItem>
+          )}
 
           {stock <= LOW_STOCK_THRESHOLD && (
             <StaggerItem>

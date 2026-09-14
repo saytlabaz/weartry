@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { Product } from "@/lib/data";
 import { useStore } from "@/lib/store-context";
@@ -19,16 +20,21 @@ export default function ProductCard({ product }: { product: Product }) {
   const tProductDetail = useTranslations("ProductDetail");
   const { addToWishlist, addToCart } = useStore();
   const discount = discountPercent(product.price, product.compareAtPrice);
-  const name = tProducts(product.nameKey);
+  const name = product.isDbProduct ? product.name : tProducts(product.nameKey);
+  const image = product.images?.[0];
 
   return (
     <StaggerItem className="group">
       <Link href={`/products/${product.slug}`} className="block">
         <div className={`relative aspect-[3/4] overflow-hidden rounded-xl bg-gradient-to-br ${product.gradient}`}>
-          {/* Placeholder swatch — replace with real product photography */}
-          <div className="absolute inset-0 flex items-center justify-center text-xs font-medium uppercase tracking-wide text-black/30">
-            {name}
-          </div>
+          {image ? (
+            <Image src={image} alt={name} fill sizes="(min-width: 640px) 25vw, 50vw" className="object-cover" />
+          ) : (
+            // Placeholder swatch — replace with real product photography
+            <div className="absolute inset-0 flex items-center justify-center text-xs font-medium uppercase tracking-wide text-black/30">
+              {name}
+            </div>
+          )}
 
           <div className="absolute left-3 top-3 flex gap-1.5">
             {discount && (
@@ -39,6 +45,11 @@ export default function ProductCard({ product }: { product: Product }) {
             {product.isNew && (
               <span className="rounded-full bg-white px-2 py-1 text-[10px] font-semibold text-neutral-900">
                 {t("new")}
+              </span>
+            )}
+            {product.isCjImport && (
+              <span className="rounded-full bg-emerald-600 px-2 py-1 text-[10px] font-semibold text-white">
+                {tProductDetail("freeShipping")}
               </span>
             )}
           </div>
