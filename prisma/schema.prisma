@@ -97,6 +97,8 @@ model ProductVariant {
   size      String
   stock     Int     @default(0)
   sku       String? @unique
+  /** CJ Dropshipping's variant id (vid) for this color+size combo, once sourced from CJ. */
+  cjVariantId String?
 
   @@unique([productId, color, size])
 }

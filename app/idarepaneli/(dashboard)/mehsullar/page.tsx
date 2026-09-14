@@ -4,7 +4,7 @@ import { Prisma } from "@/lib/generated/prisma/client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Plus } from "lucide-react";
+import { Plus, Search } from "lucide-react";
 import ProductFilters from "./ProductFilters";
 import ProductRowActions from "./ProductRowActions";
 
@@ -30,10 +30,16 @@ export default async function ProductsPage({
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">Məhsullar</h1>
-        <Button render={<Link href="/idarepaneli/mehsullar/yeni" />}>
-          <Plus className="h-4 w-4" />
-          Yeni Məhsul Əlavə Et
-        </Button>
+        <div className="flex gap-2">
+          <Button variant="outline" render={<Link href="/idarepaneli/mehsullar/cj-axtar" />}>
+            <Search className="h-4 w-4" />
+            CJ-dən Məhsul Axtar
+          </Button>
+          <Button render={<Link href="/idarepaneli/mehsullar/yeni" />}>
+            <Plus className="h-4 w-4" />
+            Yeni Məhsul Əlavə Et
+          </Button>
+        </div>
       </div>
 
       <ProductFilters />
