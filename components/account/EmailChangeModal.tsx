@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import Modal from "@/components/ui/Modal";
+import OtpInput from "@/components/ui/OtpInput";
 
 type Step = "email" | "code";
 
@@ -32,6 +33,7 @@ export default function EmailChangeModal({
   const [error, setError] = useState<string | null>(null);
   const [blockedMinutes, setBlockedMinutes] = useState<number | null>(null);
   const [attemptsLeft, setAttemptsLeft] = useState<number | null>(null);
+  const [errorTick, setErrorTick] = useState(0);
 
   function reset() {
     setStep("email");
@@ -39,6 +41,7 @@ export default function EmailChangeModal({
     setCode("");
     setError(null);
     setLoading(false);
+    setErrorTick(0);
   }
 
   function handleClose() {
@@ -87,15 +90,14 @@ export default function EmailChangeModal({
     }
   }
 
-  async function handleVerify(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  async function verifyCode(codeValue: string) {
     setError(null);
     setLoading(true);
     try {
       const res = await fetch("/api/account/change-email/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code }),
+        body: JSON.stringify({ code: codeValue }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
@@ -106,15 +108,22 @@ export default function EmailChangeModal({
           setAttemptsLeft(typeof body.attemptsLeft === "number" ? body.attemptsLeft : null);
         }
         setError(body.error ?? "unknown");
+        setErrorTick((n) => n + 1);
         return;
       }
       onSuccess(newEmail);
       handleClose();
     } catch {
       setError("unknown");
+      setErrorTick((n) => n + 1);
     } finally {
       setLoading(false);
     }
+  }
+
+  async function handleVerify(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    await verifyCode(code);
   }
 
   const displayError = errorMessage(error);
@@ -166,24 +175,16 @@ export default function EmailChangeModal({
             className="space-y-4"
           >
             <p className="text-sm text-neutral-500">{tAuth("otpCodeSentTo", { email: newEmail })}</p>
-            <div>
-              <label htmlFor="email-otp-code" className={labelClass}>
-                {tAuth("otpCodeLabel")}
-              </label>
-              <input
-                id="email-otp-code"
-                name="code"
-                type="text"
-                inputMode="numeric"
-                autoComplete="one-time-code"
-                maxLength={6}
-                required
-                value={code}
-                onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
-                placeholder={tAuth("otpCodePlaceholder")}
-                className={`${inputClass} text-center text-lg tracking-[0.5em]`}
-              />
-            </div>
+            <OtpInput
+              id="email-otp-code"
+              label={tAuth("otpCodeLabel")}
+              placeholder={tAuth("otpCodePlaceholder")}
+              value={code}
+              onChange={setCode}
+              onComplete={verifyCode}
+              loading={loading}
+              errorTick={errorTick}
+            />
             {displayError && <p className="text-sm text-red-600">{displayError}</p>}
             <motion.button
               type="submit"

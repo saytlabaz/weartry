@@ -6,12 +6,10 @@ import { useLocale, useTranslations } from "next-intl";
 import { signOut } from "next-auth/react";
 import Modal from "@/components/ui/Modal";
 import PasswordInput from "@/components/ui/PasswordInput";
+import OtpInput from "@/components/ui/OtpInput";
 
 type Step = "confirm" | "code";
 
-const inputClass =
-  "w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none focus:border-neutral-400";
-const labelClass = "mb-1.5 block text-sm font-medium text-neutral-700";
 const tapHover = { whileHover: { scale: 1.02 }, whileTap: { scale: 0.97 } };
 
 export default function DeleteAccountModal({
@@ -34,6 +32,7 @@ export default function DeleteAccountModal({
   const [error, setError] = useState<string | null>(null);
   const [blockedMinutes, setBlockedMinutes] = useState<number | null>(null);
   const [attemptsLeft, setAttemptsLeft] = useState<number | null>(null);
+  const [errorTick, setErrorTick] = useState(0);
 
   function reset() {
     setStep("confirm");
@@ -41,6 +40,7 @@ export default function DeleteAccountModal({
     setUnderstood(false);
     setError(null);
     setLoading(false);
+    setErrorTick(0);
   }
 
   function handleClose() {
@@ -73,6 +73,9 @@ export default function DeleteAccountModal({
       setAttemptsLeft(typeof body.attemptsLeft === "number" ? body.attemptsLeft : null);
     }
     setError(body.error ?? "unknown");
+    if (body.error === "invalid_code" || body.error === "code_expired" || body.error === "blocked") {
+      setErrorTick((n) => n + 1);
+    }
   }
 
   async function handleRequestCode() {
@@ -176,20 +179,14 @@ export default function DeleteAccountModal({
             ) : (
               <div>
                 <p className="mb-3 text-sm text-neutral-500">{t("codeSentToYourEmail")}</p>
-                <label htmlFor="delete-otp-code" className={labelClass}>
-                  {tAuth("otpCodeLabel")}
-                </label>
-                <input
+                <OtpInput
                   id="delete-otp-code"
-                  type="text"
-                  inputMode="numeric"
-                  autoComplete="one-time-code"
-                  maxLength={6}
-                  required
-                  value={code}
-                  onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
+                  label={tAuth("otpCodeLabel")}
                   placeholder={tAuth("otpCodePlaceholder")}
-                  className={`${inputClass} text-center text-lg tracking-[0.5em]`}
+                  value={code}
+                  onChange={setCode}
+                  loading={loading}
+                  errorTick={errorTick}
                 />
               </div>
             )}

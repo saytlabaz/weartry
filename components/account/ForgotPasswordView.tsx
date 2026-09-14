@@ -7,6 +7,7 @@ import { useRouter, Link } from "@/i18n/navigation";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
 import PasswordInput from "@/components/ui/PasswordInput";
+import OtpInput from "@/components/ui/OtpInput";
 
 type Step = "email" | "reset";
 
@@ -28,6 +29,7 @@ export default function ForgotPasswordView() {
   const [error, setError] = useState<string | null>(null);
   const [blockedMinutes, setBlockedMinutes] = useState<number | null>(null);
   const [attemptsLeft, setAttemptsLeft] = useState<number | null>(null);
+  const [errorTick, setErrorTick] = useState(0);
 
   function errorMessage(code: string | null) {
     if (!code) return null;
@@ -102,6 +104,9 @@ export default function ForgotPasswordView() {
           setAttemptsLeft(typeof body.attemptsLeft === "number" ? body.attemptsLeft : null);
         }
         setError(body.error ?? "unknown");
+        if (body.error === "invalid_code" || body.error === "code_expired" || body.error === "blocked") {
+          setErrorTick((n) => n + 1);
+        }
         setLoading(false);
         return;
       }
@@ -116,7 +121,7 @@ export default function ForgotPasswordView() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-16 sm:px-6 lg:py-24">
-      <BlurFadeUp as="h1" className="text-center text-3xl font-bold tracking-tight">
+      <BlurFadeUp as="h1" immediate className="text-center text-3xl font-bold tracking-tight">
         {t("forgotPasswordTitle")}
       </BlurFadeUp>
 
@@ -188,24 +193,15 @@ export default function ForgotPasswordView() {
                   <p className="text-center text-sm text-neutral-500">{t("otpCodeSentTo", { email })}</p>
                 </StaggerItem>
                 <StaggerItem>
-                  <div>
-                    <label htmlFor="reset-code" className={labelClass}>
-                      {t("otpCodeLabel")}
-                    </label>
-                    <input
-                      id="reset-code"
-                      name="code"
-                      type="text"
-                      inputMode="numeric"
-                      autoComplete="one-time-code"
-                      maxLength={6}
-                      required
-                      value={code}
-                      onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
-                      placeholder={t("otpCodePlaceholder")}
-                      className={`${inputClass} text-center text-lg tracking-[0.5em]`}
-                    />
-                  </div>
+                  <OtpInput
+                    id="reset-code"
+                    label={t("otpCodeLabel")}
+                    placeholder={t("otpCodePlaceholder")}
+                    value={code}
+                    onChange={setCode}
+                    loading={loading}
+                    errorTick={errorTick}
+                  />
                 </StaggerItem>
                 <StaggerItem>
                   <PasswordInput

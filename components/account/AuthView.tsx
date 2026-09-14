@@ -10,6 +10,7 @@ import { defaultLocale } from "@/i18n/locales";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
 import PasswordInput from "@/components/ui/PasswordInput";
+import OtpInput from "@/components/ui/OtpInput";
 import GoogleButton from "./GoogleButton";
 
 type Mode = "login" | "register";
@@ -56,6 +57,7 @@ export default function AuthView() {
   const [error, setError] = useState<string | null>(null);
   const [blockedMinutes, setBlockedMinutes] = useState<number | null>(null);
   const [attemptsLeft, setAttemptsLeft] = useState<number | null>(null);
+  const [errorTick, setErrorTick] = useState(0);
 
   function homeHref() {
     return locale === defaultLocale ? "/" : `/${locale}`;
@@ -155,15 +157,14 @@ export default function AuthView() {
     }
   }
 
-  async function handleVerifyRegisterCode(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  async function verifyRegisterCode(codeValue: string) {
     setError(null);
     setLoading(true);
     try {
       const res = await fetch("/api/auth/register/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, code }),
+        body: JSON.stringify({ email, code: codeValue }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
@@ -174,6 +175,7 @@ export default function AuthView() {
           setAttemptsLeft(typeof body.attemptsLeft === "number" ? body.attemptsLeft : null);
         }
         setError(body.error ?? "unknown");
+        setErrorTick((n) => n + 1);
         setLoading(false);
         return;
       }
@@ -189,8 +191,14 @@ export default function AuthView() {
       window.location.href = homeHref();
     } catch {
       setError("unknown");
+      setErrorTick((n) => n + 1);
       setLoading(false);
     }
+  }
+
+  async function handleVerifyRegisterCode(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    await verifyRegisterCode(code);
   }
 
   function switchMode(next: Mode) {
@@ -199,6 +207,7 @@ export default function AuthView() {
     setAccountExists(false);
     setError(null);
     setCode("");
+    setErrorTick(0);
   }
 
   function goToLoginFromExists() {
@@ -211,7 +220,7 @@ export default function AuthView() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-16 sm:px-6 lg:py-24">
-      <BlurFadeUp as="h1" className="text-center text-3xl font-bold tracking-tight">
+      <BlurFadeUp as="h1" immediate className="text-center text-3xl font-bold tracking-tight">
         {accountExists ? t("accountExistsTitle") : mode === "login" ? t("loginTitle") : t("registerTitle")}
       </BlurFadeUp>
 
@@ -267,24 +276,16 @@ export default function AuthView() {
                   <p className="text-center text-sm text-neutral-500">{t("otpCodeSentTo", { email })}</p>
                 </StaggerItem>
                 <StaggerItem>
-                  <div>
-                    <label htmlFor="register-otp-code" className={labelClass}>
-                      {t("otpCodeLabel")}
-                    </label>
-                    <input
-                      id="register-otp-code"
-                      name="code"
-                      type="text"
-                      inputMode="numeric"
-                      autoComplete="one-time-code"
-                      maxLength={6}
-                      required
-                      value={code}
-                      onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
-                      placeholder={t("otpCodePlaceholder")}
-                      className={`${inputClass} text-center text-lg tracking-[0.5em]`}
-                    />
-                  </div>
+                  <OtpInput
+                    id="register-otp-code"
+                    label={t("otpCodeLabel")}
+                    placeholder={t("otpCodePlaceholder")}
+                    value={code}
+                    onChange={setCode}
+                    onComplete={verifyRegisterCode}
+                    loading={loading}
+                    errorTick={errorTick}
+                  />
                 </StaggerItem>
                 {displayError && (
                   <StaggerItem>

@@ -5,12 +5,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import Modal from "@/components/ui/Modal";
 import PasswordInput from "@/components/ui/PasswordInput";
+import OtpInput from "@/components/ui/OtpInput";
 
 type Step = "request" | "code";
 
-const inputClass =
-  "w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none focus:border-neutral-400";
-const labelClass = "mb-1.5 block text-sm font-medium text-neutral-700";
 const tapHover = { whileHover: { scale: 1.02 }, whileTap: { scale: 0.97 } };
 
 export default function PasswordChangeModal({
@@ -34,12 +32,14 @@ export default function PasswordChangeModal({
   const [error, setError] = useState<string | null>(null);
   const [blockedMinutes, setBlockedMinutes] = useState<number | null>(null);
   const [attemptsLeft, setAttemptsLeft] = useState<number | null>(null);
+  const [errorTick, setErrorTick] = useState(0);
 
   function reset() {
     setStep("request");
     setCode("");
     setError(null);
     setLoading(false);
+    setErrorTick(0);
   }
 
   function handleClose() {
@@ -115,6 +115,11 @@ export default function PasswordChangeModal({
           setAttemptsLeft(typeof body.attemptsLeft === "number" ? body.attemptsLeft : null);
         }
         setError(body.error ?? "unknown");
+        // Only the code field needs clearing — a wrong code doesn't mean the
+        // new password the user typed was bad, so leave those untouched.
+        if (body.error === "invalid_code" || body.error === "code_expired" || body.error === "blocked") {
+          setErrorTick((n) => n + 1);
+        }
         return;
       }
       onSuccess();
@@ -166,24 +171,15 @@ export default function PasswordChangeModal({
             className="space-y-4"
           >
             <p className="text-sm text-neutral-500">{t("codeSentToYourEmail")}</p>
-            <div>
-              <label htmlFor="password-otp-code" className={labelClass}>
-                {tAuth("otpCodeLabel")}
-              </label>
-              <input
-                id="password-otp-code"
-                name="code"
-                type="text"
-                inputMode="numeric"
-                autoComplete="one-time-code"
-                maxLength={6}
-                required
-                value={code}
-                onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
-                placeholder={tAuth("otpCodePlaceholder")}
-                className={`${inputClass} text-center text-lg tracking-[0.5em]`}
-              />
-            </div>
+            <OtpInput
+              id="password-otp-code"
+              label={tAuth("otpCodeLabel")}
+              placeholder={tAuth("otpCodePlaceholder")}
+              value={code}
+              onChange={setCode}
+              loading={loading}
+              errorTick={errorTick}
+            />
             <PasswordInput
               id="new-password"
               name="newPassword"
