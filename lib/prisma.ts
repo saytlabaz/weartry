@@ -10,16 +10,17 @@ function createClient(): PrismaClient {
   if (!connectionString) {
     throw new Error("DATABASE_URL is not set");
   }
-  // DATABASE_URL currently points at Supabase's Session pooler, which caps
-  // total concurrent connections at 15 across every client — and each
-  // serverless function instance gets its own pool here (node-postgres
-  // defaults to `max: 10`), so a handful of concurrent instances alone
-  // exhausts it ("max clients reached in session mode"), independent of
-  // real traffic volume. Capping each instance's own pool is a stopgap;
-  // the real fix is moving DATABASE_URL to Supabase's Transaction pooler
-  // (port 6543), which is built for exactly this many-short-lived-clients
-  // shape instead of a fixed session-per-client budget.
-  return new PrismaClient({ adapter: new PrismaPg({ connectionString, max: 3 }) });
+  // DATABASE_URL now points at Supabase's Transaction pooler (port 6543,
+  // PgBouncer transaction mode) instead of the Session pooler — it
+  // multiplexes many short-lived logical connections onto a small shared
+  // pool of real Postgres backend connections, rather than handing each
+  // client its own fixed session slot. That's what caused the earlier
+  // "(EMAXCONNSESSION) max clients reached in session mode" outage: each
+  // serverless instance's own pool counted against Session pooler's fixed
+  // 15-connection budget. Transaction pooler doesn't have that shape, so
+  // `max` no longer needs to be squeezed down — 10 is node-postgres's own
+  // default, kept explicit here rather than left implicit.
+  return new PrismaClient({ adapter: new PrismaPg({ connectionString, max: 10 }) });
 }
 
 // Lazy for the same reason lib/supabase/admin.ts's client is: a missing
