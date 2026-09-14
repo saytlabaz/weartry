@@ -68,16 +68,6 @@ export async function getFreightQuote(params: {
 
   const body = (await res.json()) as CjFreightResponse;
 
-  // TEMPORARY — confirming the request-shape fix (CJ's own error was
-  // "products must be not null": the endpoint needs a `products` array,
-  // not flat top-level vid/quantity) actually produces real quotes.
-  // Remove once confirmed.
-  if (params.endCountryCode === "AT" || params.endCountryCode === "US") {
-    console.error(
-      `CJ freight debug: request=${JSON.stringify({ startCountryCode: params.startCountryCode ?? "CN", endCountryCode: params.endCountryCode, products: [{ vid: params.vid, quantity: params.quantity }] })}, raw response=${JSON.stringify(body)}`
-    );
-  }
-
   if (!res.ok || body.code !== 200 || !Array.isArray(body.data)) {
     throw new Error(`CJ freightCalculate failed (HTTP ${res.status}, CJ code ${body.code}): ${body.message ?? res.statusText}`);
   }
