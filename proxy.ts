@@ -6,7 +6,7 @@ import { markets, defaultMarket } from "./i18n/markets";
 const MARKET_COOKIE = "weartry_market";
 const intlMiddleware = createMiddleware(routing);
 
-export default function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const response = intlMiddleware(request);
 
   if (!request.cookies.get(MARKET_COOKIE)) {
