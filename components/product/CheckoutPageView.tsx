@@ -51,6 +51,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
       phone: String(data.get("phone") ?? ""),
       country: String(data.get("country") ?? ""),
       city: String(data.get("city") ?? ""),
+      province: String(data.get("province") ?? ""),
       addressLine1: String(data.get("addressLine1") ?? ""),
       addressLine2: String(data.get("addressLine2") ?? ""),
       postalCode: String(data.get("postalCode") ?? ""),
@@ -180,6 +181,18 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                     name="city"
                     type="text"
                     required
+                    defaultValue={""}
+                    className={inputClass}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="checkout-province" className={labelClass}>
+                    {t("provinceLabel")}
+                  </label>
+                  <input
+                    id="checkout-province"
+                    name="province"
+                    type="text"
                     defaultValue={""}
                     className={inputClass}
                   />

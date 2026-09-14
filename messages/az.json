@@ -236,16 +236,16 @@
       "intro": "Sifarişinizdən razı qalmağınızı istəyirik. Əgər nəsə düz deyilsə, məsələni necə həll etdiyimiz budur.",
       "sections": [
         {
-          "heading": "1. Çatdırılma Müddəti",
-          "body": "Sifarişlər adətən göndərildikdən sonra ünvanınızdan asılı olaraq 3-10 iş günü ərzində çatdırılır."
+          "heading": "1. Hazırlanma və Çatdırılma Müddəti",
+          "body": "Sifarişlər adətən 1-3 iş günü ərzində hazırlanır; çatdırılma qlobal təchizat şəbəkəmizdən həyata keçirilir və ünvanınızdan asılı olaraq adətən 7-20 iş günü çəkir."
         },
         {
           "heading": "2. Qaytarma Müddəti",
-          "body": "Çatdırılmadan sonra 30 gün ərzində geyilməmiş, istifadə olunmamış və orijinal qablaşdırmada olan məhsulları qaytara və ya dəyişə bilərsiniz."
+          "body": "Çatdırılmadan sonra 30 gün ərzində geyilməmiş, istifadə olunmamış və orijinal qablaşdırmada olan məhsulları qaytara və ya dəyişə bilərsiniz. Fikir dəyişikliyi ilə bağlı qaytarmalarda geri göndərmə xərci alıcının üzərinə düşür."
         },
         {
           "heading": "3. Problem Haqqında Bildiriş",
-          "body": "Məhsul qüsurlu, zədəli və ya səhv gəlibsə, çatdırılmadan sonra 14 gün ərzində bizimlə əlaqə saxlayaraq mübahisə aça bilərsiniz."
+          "body": "Məhsul qüsurlu, zədəli və ya səhv gəlibsə, çatdırılmadan sonra 14 gün ərzində bizimlə əlaqə saxlayın. Əksər hallarda etibarlı foto sübutu əsasında məhsulu geri göndərmədən əvəzləmə və ya tam geri ödəniş təmin edirik."
         },
         {
           "heading": "4. Qaytarmanı Necə Başlatmaq Olar",
@@ -304,16 +304,38 @@
       "intro": "Sifarişiniz göndəriləndə nə gözləməli olduğunuzu buradan öyrənə bilərsiniz.",
       "sections": [
         {
-          "heading": "1. Çatdırılma Müddəti",
-          "body": "Əksər sifarişlər göndərildikdən sonra ünvanınızdan asılı olaraq 3-10 iş günü ərzində çatır."
+          "heading": "1. Hazırlanma və Çatdırılma Müddəti",
+          "body": "Sifarişlər adətən 1-3 iş günü ərzində hazırlanıb göndərilir. Çatdırılma qlobal təchizat şəbəkəmiz vasitəsilə həyata keçirilir və ünvanınızdan asılı olaraq adətən 7-20 iş günü çəkir."
         },
         {
           "heading": "2. Sifariş İzləmə",
           "body": "Sifarişiniz göndərilən kimi e-poçtla izləmə linki alacaqsınız."
         },
         {
-          "heading": "3. Beynəlxalq Çatdırılma",
-          "body": "Hazırda Avropa Birliyi, Böyük Britaniya və ABŞ-a çatdırırıq, zamanla yeni ünvanlar əlavə olunacaq."
+          "heading": "3. Beynəlxalq Çatdırılma və Gömrük",
+          "body": "Hazırda Avropa Birliyi, Böyük Britaniya və ABŞ-a çatdırırıq, zamanla yeni ünvanlar əlavə olunacaq. Beynəlxalq göndərişlərə gömrük rüsumu və ya idxal vergisi tətbiq oluna bilər — bu xərclər alıcının məsuliyyətindədir və çatdırılma zamanı ölkənizin gömrük qaydalarına uyğun tələb oluna bilər."
+        }
+      ]
+    },
+    "about": {
+      "title": "Haqqımızda",
+      "intro": "WearTry — hər gün geyinmək istəyəcəyiniz müasir, rahat geyimlər təklif edən onlayn moda mağazasıdır.",
+      "sections": [
+        {
+          "heading": "Kimik",
+          "body": "WearTry Avropa Birliyi, Böyük Britaniya və ABŞ-dakı müştərilərə xidmət göstərir. Məqsədimiz sadədir: keyfiyyətli, müasir geyimləri əlçatan qiymətə çatdırmaq."
+        },
+        {
+          "heading": "Kolleksiyamız",
+          "body": "Kişi, qadın və uşaq kolleksiyalarımızı qlobal tərəfdaş şəbəkəmiz vasitəsilə seçib təqdim edirik ki, geniş çeşiddə, daim yenilənən stillər təklif edə bilək."
+        },
+        {
+          "heading": "Keyfiyyətə Sadiqlik",
+          "body": "Hər məhsul göndərilmədən əvvəl keyfiyyət yoxlamasından keçir. Məhsul gözləntinizə uyğun gəlmirsə, Qaytarma Siyasətimiz vasitəsilə asanlıqla həll tapa bilərsiniz."
+        },
+        {
+          "heading": "Bizimlə Əlaqə",
+          "body": "Sualınız var? Bizimlə Əlaqə səhifəsi vasitəsilə komandamıza yazın — 24/7 yanınızdayıq."
         }
       ]
     }
@@ -360,7 +382,7 @@
     "detailsTitle": "Təfərrüatlar",
     "detailsContent": "Premium materiallardan, forma və tikişə diqqətlə hazırlanıb. Maşında yuyula bilər — tam təlimat üçün qulluq etiketinə baxın.",
     "shippingTitle": "Pulsuz Çatdırılma",
-    "shippingContent": "Əksər sifarişlər 3-10 iş günü ərzində çatdırılır. 50 $-dan yuxarı bütün sifarişlərə pulsuz çatdırılma daxildir.",
+    "shippingContent": "Əksər sifarişlər 7-20 iş günü ərzində çatdırılır. 50 $-dan yuxarı bütün sifarişlərə pulsuz çatdırılma daxildir.",
     "returnsTitle": "Qaytarma Siyasəti",
     "returnsContent": "Ölçü uyğun gəlmədi? Çatdırılmadan sonra 30 gün ərzində geyilməmiş məhsulları tam geri ödəniş üçün qaytara bilərsiniz.",
     "relatedHeading": "Bu məhsulla əlaqəli məhsullar",
@@ -398,7 +420,7 @@
       },
       {
         "question": "Çatdırılma nə qədər vaxt aparır?",
-        "answer": "Əksər sifarişlər ünvanınızdan asılı olaraq 3-10 iş günü ərzində çatdırılır."
+        "answer": "Əksər sifarişlər ünvanınızdan asılı olaraq 7-20 iş günü ərzində çatdırılır."
       },
       {
         "question": "Qaytarma siyasətiniz necədir?",
@@ -542,7 +564,7 @@
       },
       {
         "question": "Çatdırılma nə qədər vaxt aparacaq?",
-        "answer": "Əksər sifarişlər göndərildikdən sonra ünvanınızdan asılı olaraq 3-10 iş günü ərzində çatır."
+        "answer": "Əksər sifarişlər göndərildikdən sonra ünvanınızdan asılı olaraq 7-20 iş günü ərzində çatır."
       }
     ]
   },
@@ -563,6 +585,7 @@
     "shippingHeading": "Çatdırılma Ünvanı",
     "countryLabel": "Ölkə",
     "cityLabel": "Şəhər",
+    "provinceLabel": "Vilayət / Ştat",
     "addressLine1Label": "Ünvan sətri 1",
     "addressLine2Label": "Ünvan sətri 2 (məcburi deyil)",
     "postalCodeLabel": "Poçt Kodu",

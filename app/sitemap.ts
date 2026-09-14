@@ -4,7 +4,16 @@ import { allProducts } from "@/lib/data";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://weartry.com";
 
-const STATIC_PATHS = ["", "/contact", "/privacy-policy", "/terms-of-service", "/returns-policy", "/cookie-policy"];
+const STATIC_PATHS = [
+  "",
+  "/about",
+  "/contact",
+  "/privacy-policy",
+  "/terms-of-service",
+  "/returns-policy",
+  "/shipping-info",
+  "/cookie-policy",
+];
 
 function localePath(locale: string, path: string) {
   const prefix = locale === defaultLocale ? "" : `/${locale}`;

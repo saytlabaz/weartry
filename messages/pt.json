@@ -237,7 +237,7 @@
       "sections": [
         {
           "heading": "1. Shipping Times",
-          "body": "Most orders arrive within 3–10 business days after dispatch, depending on your destination."
+          "body": "Most orders arrive within 7–20 business days after dispatch, depending on your destination."
         },
         {
           "heading": "2. Return Window",
@@ -305,7 +305,7 @@
       "sections": [
         {
           "heading": "1. Delivery Times",
-          "body": "Most orders arrive within 3–10 business days after dispatch, depending on your destination."
+          "body": "Most orders arrive within 7–20 business days after dispatch, depending on your destination."
         },
         {
           "heading": "2. Order Tracking",
@@ -314,6 +314,28 @@
         {
           "heading": "3. International Shipping",
           "body": "We currently ship across the EU, UK and US, with more destinations added over time."
+        }
+      ]
+    },
+    "about": {
+      "title": "About Us",
+      "intro": "WearTry is an online fashion store built around modern, comfortable clothing you'll actually want to wear every day.",
+      "sections": [
+        {
+          "heading": "Who We Are",
+          "body": "WearTry serves customers across the EU, UK and US. Our goal is simple: bring well-made, modern clothing to you at a price that makes sense."
+        },
+        {
+          "heading": "Our Collection",
+          "body": "We curate our men's, women's and kids' collections through a global partner network, so we can offer a wide, constantly refreshed range of styles."
+        },
+        {
+          "heading": "Our Commitment to Quality",
+          "body": "Every item goes through a quality check before it ships. If something isn't right, our Return Policy makes it easy to sort out."
+        },
+        {
+          "heading": "Get in Touch",
+          "body": "Have a question? Reach our team any time through the Contact page — we're here 24/7."
         }
       ]
     }
@@ -360,7 +382,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 3–10 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -398,7 +420,7 @@
       },
       {
         "question": "Quanto tempo demora o envio?",
-        "answer": "A maioria dos pedidos chega dentro de 3 a 10 dias úteis, dependendo da sua localização."
+        "answer": "A maioria dos pedidos chega dentro de 7 a 20 dias úteis, dependendo da sua localização."
       },
       {
         "question": "Qual é a vossa política de devolução?",
@@ -542,7 +564,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 3–10 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -563,6 +585,7 @@
     "shippingHeading": "Shipping Address",
     "countryLabel": "Country",
     "cityLabel": "City",
+    "provinceLabel": "Province / State",
     "addressLine1Label": "Address Line 1",
     "addressLine2Label": "Address Line 2 (optional)",
     "postalCodeLabel": "Postal Code",

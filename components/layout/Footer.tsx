@@ -15,12 +15,12 @@ export default function Footer() {
         { href: "/contact", label: t("helpContact") },
         { href: "/shipping-info", label: t("helpShipping") },
         { href: "/#faq", label: t("helpFaq") },
-        { href: "/contact", label: t("companyAbout") },
       ],
     },
     {
       heading: t("legalHeading"),
       links: [
+        { href: "/about", label: t("companyAbout") },
         { href: "/privacy-policy", label: t("legalPrivacy") },
         { href: "/terms-of-service", label: t("legalTerms") },
         { href: "/returns-policy", label: t("legalReturns") },

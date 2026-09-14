@@ -4,6 +4,7 @@ export interface CheckoutInfo {
   phone: string;
   country: string;
   city: string;
+  province: string;
   addressLine1: string;
   addressLine2: string;
   postalCode: string;

@@ -41,28 +41,25 @@ export function StaggerItem({
   children,
   className,
   offset = 40,
-  blur = 2,
   scale = 0.985,
 }: {
   children: ReactNode;
   className?: string;
   offset?: number;
-  blur?: number;
   scale?: number;
 }) {
   const shouldReduceMotion = useReducedMotion();
 
+  // Opacity/y/scale only — no animated `filter: blur()`. See BlurFadeUp for
+  // why: Safari can leave a blur-animated element permanently invisible.
   const item: Variants = {
-    hidden: shouldReduceMotion
-      ? { opacity: 0 }
-      : { opacity: 0, y: offset, scale, filter: `blur(${blur}px)` },
+    hidden: shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: offset, scale },
     visible: shouldReduceMotion
       ? { opacity: 1 }
       : {
           opacity: 1,
           y: 0,
           scale: 1,
-          filter: "blur(0px)",
           transition: { duration: 0.7, ease: [0.44, 0, 0.56, 1] },
         },
   };

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { safeAuth } from "@/lib/auth/safe-auth";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import ContactForm from "@/components/contact/ContactForm";
 
@@ -10,6 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ContactPage() {
   const t = await getTranslations("Contact");
+  const session = await safeAuth();
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -42,7 +44,7 @@ export default async function ContactPage() {
       </div>
 
       <div className="mt-12">
-        <ContactForm />
+        <ContactForm defaultEmail={session?.user?.email ?? ""} defaultName={session?.user?.name ?? ""} />
       </div>
     </article>
   );

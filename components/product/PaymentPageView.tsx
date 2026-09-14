@@ -103,6 +103,7 @@ export default function PaymentPageView() {
             phone: info.phone,
             country: info.country,
             city: info.city,
+            province: info.province,
             addressLine1: info.addressLine1,
             addressLine2: info.addressLine2,
             postalCode: info.postalCode,

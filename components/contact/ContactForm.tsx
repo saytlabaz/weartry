@@ -5,10 +5,16 @@ import { useTranslations } from "next-intl";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
 
-export default function ContactForm() {
+export default function ContactForm({
+  defaultName = "",
+  defaultEmail = "",
+}: {
+  defaultName?: string;
+  defaultEmail?: string;
+}) {
   const t = useTranslations("Contact");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(defaultName);
+  const [email, setEmail] = useState(defaultEmail);
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);

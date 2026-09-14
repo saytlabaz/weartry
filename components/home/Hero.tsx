@@ -26,7 +26,6 @@ export default function Hero() {
           as="h1"
           duration={1.1}
           offset={30}
-          blur={16}
           className="max-w-2xl text-5xl font-bold leading-[1.05] tracking-tight text-neutral-900 sm:text-7xl"
         >
           {t("title")}
@@ -47,8 +46,8 @@ export default function Hero() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 16, filter: "blur(10px)" }}
-        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="absolute bottom-8 right-4 z-10 hidden items-center gap-3 rounded-2xl bg-white/90 p-3 pr-5 shadow-lg backdrop-blur sm:right-8 sm:flex"
       >

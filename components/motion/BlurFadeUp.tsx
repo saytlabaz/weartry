@@ -12,8 +12,6 @@ interface BlurFadeUpProps {
   duration?: number;
   /** Vertical offset in pixels the element rises from */
   offset?: number;
-  /** Starting blur in pixels */
-  blur?: number;
   /** Starting scale the element grows from (1 = no scale effect) */
   scale?: number;
   as?: "div" | "span" | "h1" | "h2" | "h3" | "p";
@@ -21,12 +19,17 @@ interface BlurFadeUpProps {
 }
 
 /**
- * The site's signature scroll-reveal animation (matches the weighted
- * rise-and-settle motion from the Saytlab reference): the element starts
- * blurred, slightly lower, slightly scaled down and transparent, then
- * rises into place while blur clears, scale settles and opacity fades in.
- * Repeats on every viewport entry/exit by default — pass once={true} for
- * a single-play element.
+ * The site's signature scroll-reveal animation: the element starts
+ * slightly lower, slightly scaled down and transparent, then rises into
+ * place while scale settles and opacity fades in. Repeats on every
+ * viewport entry/exit by default — pass once={true} for a single-play
+ * element.
+ *
+ * Deliberately opacity/y/scale only — no animated `filter: blur()`.
+ * Safari's compositor has a long-standing bug where an animated blur
+ * filter combined with a transform can leave the element permanently
+ * stuck at its hidden (invisible) state, so the reveal never plays there
+ * even though it works fine in Chrome.
  */
 export default function BlurFadeUp({
   children,
@@ -34,7 +37,6 @@ export default function BlurFadeUp({
   delay = 0,
   duration = 0.7,
   offset = 44,
-  blur = 2,
   scale = 0.985,
   as = "div",
   once = false,
@@ -42,16 +44,13 @@ export default function BlurFadeUp({
   const shouldReduceMotion = useReducedMotion();
 
   const variants: Variants = {
-    hidden: shouldReduceMotion
-      ? { opacity: 0 }
-      : { opacity: 0, y: offset, scale, filter: `blur(${blur}px)` },
+    hidden: shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: offset, scale },
     visible: shouldReduceMotion
       ? { opacity: 1 }
       : {
           opacity: 1,
           y: 0,
           scale: 1,
-          filter: "blur(0px)",
           transition: {
             duration,
             delay,
