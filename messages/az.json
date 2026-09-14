@@ -108,7 +108,6 @@
     "helpShipping": "Çatdırılma Məlumatı",
     "helpReturns": "Qaytarma və Geri Ödəniş",
     "helpFaq": "Tez-tez Verilən Suallar",
-    "companyHeading": "Şirkət",
     "companyAbout": "Haqqımızda",
     "companyJournal": "Jurnal",
     "companyCareers": "Karyera",
@@ -120,7 +119,8 @@
     "regionHeading": "Region və Dil",
     "newsletterHeading": "Xəbərdar olun",
     "copyright": "© {year} WearTry. Bütün hüquqlar qorunur.",
-    "language": "Dil"
+    "language": "Dil",
+    "slogan": "Hər gün üçün rahat, müasir üslub."
   },
   "Market": {
     "region": "Region",
@@ -583,7 +583,13 @@
     "successMessage": "Təşəkkürlər — sifarişiniz qəbul edildi. Bu demo ödənişdir; heç bir real ödəniş həyata keçirilməyib və sifariş faktiki verilməyib.",
     "continueShopping": "Alış-verişə Davam Et",
     "emptyCartMessage": "Səbətiniz boşdur — ödənişə keçmədən əvvəl bir şey əlavə edin.",
-    "subtotalLabel": "Ara Cəm"
+    "subtotalLabel": "Ara Cəm",
+    "stepOneOfTwo": "1/2 addım — Əlaqə və Çatdırılma",
+    "continueToPaymentButton": "Ödənişə Keç",
+    "backToShipping": "Ünvana qayıt",
+    "securePaymentNote": "Təhlükəsiz, şifrələnmiş ödəniş",
+    "addAnotherCardButton": "Yeni kart əlavə et",
+    "placingOrder": "Sifariş göndərilir..."
   },
   "Account": {
     "myAccount": "Hesabım",

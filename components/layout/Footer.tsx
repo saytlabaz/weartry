@@ -14,13 +14,9 @@ export default function Footer() {
       links: [
         { href: "/contact", label: t("helpContact") },
         { href: "/shipping-info", label: t("helpShipping") },
-        { href: "/returns-policy", label: t("helpReturns") },
         { href: "/#faq", label: t("helpFaq") },
+        { href: "/contact", label: t("companyAbout") },
       ],
-    },
-    {
-      heading: t("companyHeading"),
-      links: [{ href: "/contact", label: t("companyAbout") }],
     },
     {
       heading: t("legalHeading"),
@@ -42,11 +38,12 @@ export default function Footer() {
               alt="WearTry"
               width={210}
               height={107}
-              className="block h-10 w-auto md:h-12"
+              className="block h-14 w-auto md:h-20"
             />
+            <p className="mt-3 text-sm text-neutral-500">{t("slogan")}</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-10 gap-y-6 sm:grid-cols-3 sm:gap-x-14">
+          <div className="grid grid-cols-2 gap-x-10 gap-y-6 sm:gap-x-14">
             {columns.map((col) => (
               <div key={col.heading} className="w-auto">
                 <h3 className="text-sm font-semibold">{col.heading}</h3>

@@ -108,7 +108,6 @@
     "helpShipping": "Verzendinformatie",
     "helpReturns": "Retourneren en terugbetalingen",
     "helpFaq": "Veelgestelde vragen",
-    "companyHeading": "Bedrijf",
     "companyAbout": "Over ons",
     "companyJournal": "Journal",
     "companyCareers": "Vacatures",
@@ -120,7 +119,8 @@
     "regionHeading": "Regio en taal",
     "newsletterHeading": "Blijf op de hoogte",
     "copyright": "© {year} WearTry. Alle rechten voorbehouden.",
-    "language": "Taal"
+    "language": "Taal",
+    "slogan": "Everyday comfort, modern style."
   },
   "Market": {
     "region": "Regio",
@@ -583,7 +583,13 @@
     "successMessage": "Thank you — your order has been received. This is a demo checkout; no payment was actually processed and no order was really placed.",
     "continueShopping": "Continue Shopping",
     "emptyCartMessage": "Your cart is empty — add something before checking out.",
-    "subtotalLabel": "Subtotal"
+    "subtotalLabel": "Subtotal",
+    "stepOneOfTwo": "Step 1 of 2 — Contact & Shipping",
+    "continueToPaymentButton": "Continue to Payment",
+    "backToShipping": "Back to shipping",
+    "securePaymentNote": "Secure, encrypted payment",
+    "addAnotherCardButton": "Add another card",
+    "placingOrder": "Placing order..."
   },
   "Account": {
     "myAccount": "My Account",
