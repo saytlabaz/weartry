@@ -663,7 +663,9 @@
     "addAnotherCardButton": "Add another card",
     "placingOrder": "Placing order...",
     "orderNumberLabel": "Bestillingsnummer",
-    "checkoutError": "Der gik noget galt med din bestilling. Prøv igen, eller kontakt support."
+    "checkoutError": "Der gik noget galt med din bestilling. Prøv igen, eller kontakt support.",
+    "euOrderLimitExceeded": "Orders shipping to EU countries must total under €{limit} (customs rules). Please split your cart and place separate orders.",
+    "euOrderLimitApproaching": "Your cart total is approaching the €{limit} limit for orders shipping to EU countries."
   },
   "Account": {
     "myAccount": "My Account",

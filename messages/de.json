@@ -663,7 +663,9 @@
     "addAnotherCardButton": "Add another card",
     "placingOrder": "Placing order...",
     "orderNumberLabel": "Bestellnummer",
-    "checkoutError": "Beim Aufgeben Ihrer Bestellung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den Support."
+    "checkoutError": "Beim Aufgeben Ihrer Bestellung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den Support.",
+    "euOrderLimitExceeded": "Orders shipping to EU countries must total under €{limit} (customs rules). Please split your cart and place separate orders.",
+    "euOrderLimitApproaching": "Your cart total is approaching the €{limit} limit for orders shipping to EU countries."
   },
   "Account": {
     "myAccount": "My Account",

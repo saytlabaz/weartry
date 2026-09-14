@@ -663,7 +663,9 @@
     "addAnotherCardButton": "Yeni kart əlavə et",
     "placingOrder": "Sifariş göndərilir...",
     "orderNumberLabel": "Sifariş Nömrəsi",
-    "checkoutError": "Sifarişi vermək mümkün olmadı. Zəhmət olmasa yenidən cəhd edin və ya bizimlə əlaqə saxlayın."
+    "checkoutError": "Sifarişi vermək mümkün olmadı. Zəhmət olmasa yenidən cəhd edin və ya bizimlə əlaqə saxlayın.",
+    "euOrderLimitExceeded": "AB ölkələrinə hər sifarişin ümumi dəyəri {limit} avrodan aşağı olmalıdır (gömrük qaydaları). Zəhmət olmasa səbətinizi bölün və ayrı-ayrı sifariş verin.",
+    "euOrderLimitApproaching": "Səbətinizin dəyəri AB ölkələrinə çatdırılma üçün {limit} avroluq limitə yaxınlaşır."
   },
   "Account": {
     "myAccount": "Hesabım",

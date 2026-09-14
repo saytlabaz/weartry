@@ -14,6 +14,8 @@ import {
   getCheckoutInfoSnapshot,
   subscribeCheckoutInfo,
 } from "@/lib/checkout-info";
+import { getMarket } from "@/i18n/markets";
+import type { ShippingConfig } from "@/lib/shipping/constants";
 
 type PaymentMethod = "apple" | "google" | "card";
 
@@ -54,7 +56,7 @@ const PAYMENT_METHODS = [
   { key: "card" as const, src: "/payment/bank-card.png", alt: "Card", w: 30, h: 30 },
 ];
 
-export default function PaymentPageView() {
+export default function PaymentPageView({ shippingConfig }: { shippingConfig: ShippingConfig }) {
   const t = useTranslations("Checkout");
   const tProducts = useTranslations("Products");
   const router = useRouter();
@@ -88,9 +90,19 @@ export default function PaymentPageView() {
   const shippingFee: number = 0;
   const total = subtotal + shippingFee;
 
+  // CJ's IOSS-scheme threshold applies to EU destinations only (UK/US
+  // have their own customs rules, untouched here) — real enforcement is
+  // server-side in /api/checkout (this route can be called directly), this
+  // is just an early, friendlier warning before the shopper fills in a
+  // card.
+  const market = info ? getMarket(info.country) : null;
+  const totalEur = total * shippingConfig.usdToEurRate;
+  const euLimitExceeded = market?.euMember === true && totalEur > shippingConfig.euOrderLimitEur;
+  const euLimitApproaching = market?.euMember === true && !euLimitExceeded && totalEur > shippingConfig.euOrderLimitEur * 0.8;
+
   async function handlePlaceOrder(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!info) return;
+    if (!info || euLimitExceeded) return;
     setSubmitting(true);
     setError(false);
     try {
@@ -321,11 +333,22 @@ export default function PaymentPageView() {
             </div>
           </div>
 
+          {euLimitExceeded && (
+            <p className="mt-4 rounded-lg bg-red-50 p-3 text-sm text-red-700">
+              {t("euOrderLimitExceeded", { limit: shippingConfig.euOrderLimitEur })}
+            </p>
+          )}
+          {euLimitApproaching && (
+            <p className="mt-4 rounded-lg bg-amber-50 p-3 text-sm text-amber-700">
+              {t("euOrderLimitApproaching", { limit: shippingConfig.euOrderLimitEur })}
+            </p>
+          )}
+
           {error && <p className="mt-4 text-sm text-red-600">{t("checkoutError")}</p>}
 
           <motion.button
             type="submit"
-            disabled={submitting}
+            disabled={submitting || euLimitExceeded}
             whileHover={{ scale: submitting ? 1 : 1.02 }}
             whileTap={{ scale: submitting ? 1 : 0.98 }}
             className="mt-5 flex w-full min-h-11 items-center justify-center gap-2 rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white disabled:opacity-70"

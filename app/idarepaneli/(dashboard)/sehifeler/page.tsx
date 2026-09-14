@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import HomepageContentForm from "./HomepageContentForm";
 import FeaturedProductsPicker from "./FeaturedProductsPicker";
+import ShippingConfigForm from "./ShippingConfigForm";
 
 export default async function SiteContentPage() {
   const [contentRows, products] = await Promise.all([
@@ -22,6 +23,7 @@ export default async function SiteContentPage() {
       <Tabs defaultValue="homepage">
         <TabsList>
           <TabsTrigger value="homepage">Ana Səhifə</TabsTrigger>
+          <TabsTrigger value="shipping">Çatdırılma</TabsTrigger>
         </TabsList>
         <TabsContent value="homepage" className="mt-6 space-y-8">
           <div>
@@ -35,6 +37,9 @@ export default async function SiteContentPage() {
             </p>
             <FeaturedProductsPicker products={products} />
           </div>
+        </TabsContent>
+        <TabsContent value="shipping" className="mt-6">
+          <ShippingConfigForm values={values} />
         </TabsContent>
       </Tabs>
     </div>

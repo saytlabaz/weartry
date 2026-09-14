@@ -21,6 +21,9 @@ interface ImportBody {
   price: number;
   images: string[];
   variants: ImportVariantInput[];
+  /** Optional — set only if the admin already ran "Çatdırılma Qiymətini Hesabla" in the detail modal; never recomputed here (that's a ~30s, 29-request CJ sweep). */
+  maxShippingCost?: number | null;
+  maxShippingCountry?: string | null;
 }
 
 function slugify(value: string) {
@@ -98,6 +101,9 @@ export async function POST(req: NextRequest) {
         colors,
         stock: totalStock,
         cjProductId: body.cjProductId,
+        cjMaxShippingCost:
+          body.maxShippingCost != null ? new Prisma.Decimal(body.maxShippingCost.toFixed(2)) : null,
+        cjMaxShippingCountry: body.maxShippingCountry ?? null,
         isActive: true,
         isFeatured: false,
         variants: { create: variants },

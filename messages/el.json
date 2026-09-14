@@ -663,7 +663,9 @@
     "addAnotherCardButton": "Add another card",
     "placingOrder": "Placing order...",
     "orderNumberLabel": "Αριθμός Παραγγελίας",
-    "checkoutError": "Παρουσιάστηκε σφάλμα κατά την παραγγελία. Δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη."
+    "checkoutError": "Παρουσιάστηκε σφάλμα κατά την παραγγελία. Δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη.",
+    "euOrderLimitExceeded": "Orders shipping to EU countries must total under €{limit} (customs rules). Please split your cart and place separate orders.",
+    "euOrderLimitApproaching": "Your cart total is approaching the €{limit} limit for orders shipping to EU countries."
   },
   "Account": {
     "myAccount": "My Account",

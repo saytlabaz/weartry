@@ -3,23 +3,18 @@
 import { useEffect, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Search, Loader2, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, Loader2, ChevronLeft, ChevronRight, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import type { CjSearchItem } from "@/lib/cj/searchProducts";
 import type { CjProductDetail, CjVariantDetail } from "@/lib/cj/getProductDetail";
+import type { MaxShippingResult } from "@/lib/cj/getMaxShippingCost";
 
 const DEBOUNCE_MS = 500;
 type Category = "MEN" | "WOMEN" | "KIDS";
@@ -45,11 +40,17 @@ export default function CjSearchView() {
   const [detailLoading, setDetailLoading] = useState(false);
   const [detailError, setDetailError] = useState<string | null>(null);
   const [variants, setVariants] = useState<SelectedVariant[]>([]);
+  const [activeImage, setActiveImage] = useState(0);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState<Category>("MEN");
   const [price, setPrice] = useState("");
   const [importPending, startImport] = useTransition();
+
+  // Shipping reference (freight sweep) state — manual, never automatic
+  const [shipping, setShipping] = useState<MaxShippingResult | null>(null);
+  const [shippingLoading, setShippingLoading] = useState(false);
+  const [shippingError, setShippingError] = useState<string | null>(null);
 
   // Debounced search — CJ rate-limits requests per minute, so we wait
   // until the admin stops typing rather than firing on every keystroke.
@@ -98,6 +99,9 @@ export default function CjSearchView() {
     setDetail(null);
     setDetailError(null);
     setDetailLoading(true);
+    setShipping(null);
+    setShippingError(null);
+    setActiveImage(0);
     try {
       const res = await fetch(`/api/admin/cj/detail?pid=${encodeURIComponent(pid)}`);
       const body = await res.json();
@@ -120,10 +124,42 @@ export default function CjSearchView() {
     setSelectedPid(null);
     setDetail(null);
     setVariants([]);
+    setShipping(null);
+    setShippingError(null);
   }
 
   function updateVariant(index: number, patch: Partial<SelectedVariant>) {
     setVariants((prev) => prev.map((v, i) => (i === index ? { ...v, ...patch } : v)));
+  }
+
+  async function handleCalculateShipping() {
+    // Uses the first selected variant as the reference — CJ's freight
+    // calculator prices per-variant (weight-dependent), but the product
+    // only has one sell price, so one representative variant's quote
+    // stands in for the whole product rather than sweeping all of them.
+    const reference = variants.find((v) => v.selected) ?? variants[0];
+    if (!reference?.vid) {
+      toast.error("Hesablamaq üçün ən azı bir variant seçin.");
+      return;
+    }
+    setShippingLoading(true);
+    setShippingError(null);
+    try {
+      const res = await fetch("/api/admin/cj/freight", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ vid: reference.vid, quantity: 1 }),
+      });
+      const body = await res.json();
+      if (!res.ok) throw new Error(body.error ?? "freight_failed");
+      setShipping(body as MaxShippingResult);
+    } catch (err) {
+      setShippingError(
+        err instanceof Error && err.message ? err.message : "CJ ilə əlaqə qurula bilmədi, bir az sonra yenidən cəhd edin."
+      );
+    } finally {
+      setShippingLoading(false);
+    }
   }
 
   function handleImport() {
@@ -152,6 +188,8 @@ export default function CjSearchView() {
             price: priceNum,
             images: detail.images,
             variants: chosen.map((v) => ({ vid: v.vid, color: v.color, size: v.size, stock: v.stock })),
+            maxShippingCost: shipping?.cost ?? null,
+            maxShippingCountry: shipping?.countryName ?? null,
           }),
         });
         const body = await res.json();
@@ -164,6 +202,9 @@ export default function CjSearchView() {
       }
     });
   }
+
+  const cjPrice = detail?.sellPrice ?? null;
+  const totalCost = cjPrice != null && shipping ? cjPrice + shipping.cost : null;
 
   return (
     <div className="space-y-4">
@@ -231,107 +272,192 @@ export default function CjSearchView() {
       )}
 
       <Dialog open={selectedPid !== null} onOpenChange={(open) => !open && closeDetail()}>
-        <DialogContent className="max-h-[85vh] max-w-3xl overflow-y-auto">
-          <DialogHeader>
+        <DialogContent className="flex h-[95vh] w-[95vw] max-w-none max-h-none flex-col overflow-hidden p-0 sm:max-w-none">
+          <DialogHeader className="shrink-0 border-b border-neutral-200 px-6 py-4">
             <DialogTitle>Məhsulu Sayta Əlavə Et</DialogTitle>
           </DialogHeader>
 
-          {detailLoading && (
-            <div className="flex items-center gap-2 py-8 text-sm text-neutral-500">
-              <Loader2 className="h-4 w-4 animate-spin" />
-              Yüklənir...
-            </div>
-          )}
+          <div className="flex-1 overflow-y-auto px-6 py-5">
+            {detailLoading && (
+              <div className="flex items-center gap-2 py-8 text-sm text-neutral-500">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Yüklənir...
+              </div>
+            )}
 
-          {detailError && <p className="py-4 text-sm text-red-600">{detailError}</p>}
+            {detailError && <p className="py-4 text-sm text-red-600">{detailError}</p>}
 
-          {detail && !detailLoading && (
-            <div className="space-y-5">
-              {detail.images.length > 0 && (
-                <div className="flex gap-2 overflow-x-auto">
-                  {detail.images.slice(0, 8).map((src, i) => (
-                    // eslint-disable-next-line @next/next/no-img-element -- arbitrary CJ CDN URLs, admin-only preview
-                    <img key={i} src={src} alt="" className="h-20 w-20 shrink-0 rounded-md border border-neutral-200 object-cover" />
-                  ))}
-                </div>
-              )}
+            {detail && !detailLoading && (
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.1fr_1fr]">
+                {/* Left: images, description, variants */}
+                <div className="space-y-6">
+                  {detail.images.length > 0 && (
+                    <div className="space-y-2">
+                      <div className="aspect-square w-full overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50">
+                        {/* eslint-disable-next-line @next/next/no-img-element -- arbitrary CJ CDN URLs, admin-only preview */}
+                        <img
+                          src={detail.images[activeImage] ?? detail.images[0]}
+                          alt=""
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                      {detail.images.length > 1 && (
+                        <div className="flex flex-wrap gap-2">
+                          {detail.images.map((src, i) => (
+                            <button
+                              key={i}
+                              type="button"
+                              onClick={() => setActiveImage(i)}
+                              className={`h-16 w-16 shrink-0 overflow-hidden rounded-md border transition-colors ${
+                                i === activeImage ? "border-neutral-900" : "border-neutral-200 hover:border-neutral-400"
+                              }`}
+                            >
+                              {/* eslint-disable-next-line @next/next/no-img-element -- arbitrary CJ CDN URLs, admin-only thumbnail */}
+                              <img src={src} alt="" className="h-full w-full object-cover" />
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div className="space-y-1.5 sm:col-span-2">
-                  <Label htmlFor="cj-name">Ad</Label>
-                  <Input id="cj-name" value={name} onChange={(e) => setName(e.target.value)} />
+                  <div className="space-y-1.5">
+                    <Label htmlFor="cj-desc">Təsvir</Label>
+                    <Textarea id="cj-desc" rows={6} value={description} onChange={(e) => setDescription(e.target.value)} />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <Label>
+                      Variantlar ({variants.filter((v) => v.selected).length} / {variants.length} seçili)
+                    </Label>
+                    <div className="rounded-lg border border-neutral-200">
+                      <Table>
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="w-10"></TableHead>
+                            <TableHead>Rəng</TableHead>
+                            <TableHead>Razmer</TableHead>
+                            <TableHead>CJ Qiyməti</TableHead>
+                            <TableHead>Stok</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {variants.map((v, i) => (
+                            <TableRow key={v.vid || i}>
+                              <TableCell>
+                                <Checkbox
+                                  checked={v.selected}
+                                  onCheckedChange={(checked) => updateVariant(i, { selected: checked === true })}
+                                />
+                              </TableCell>
+                              <TableCell>
+                                <Input
+                                  value={v.color}
+                                  onChange={(e) => updateVariant(i, { color: e.target.value })}
+                                  className="h-8 w-28"
+                                />
+                              </TableCell>
+                              <TableCell>
+                                <Input
+                                  value={v.size}
+                                  onChange={(e) => updateVariant(i, { size: e.target.value })}
+                                  className="h-8 w-20"
+                                />
+                              </TableCell>
+                              <TableCell>{v.sellPrice != null ? `$${v.sellPrice.toFixed(2)}` : "—"}</TableCell>
+                              <TableCell>{v.stock}</TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </div>
+                  </div>
                 </div>
-                <div className="space-y-1.5 sm:col-span-2">
-                  <Label htmlFor="cj-desc">Təsvir</Label>
-                  <Textarea id="cj-desc" rows={4} value={description} onChange={(e) => setDescription(e.target.value)} />
-                </div>
-                <div className="space-y-1.5">
-                  <Label>Kateqoriya</Label>
-                  <Select value={category} onValueChange={(v) => setCategory(v as Category)}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="MEN">Kişi</SelectItem>
-                      <SelectItem value="WOMEN">Qadın</SelectItem>
-                      <SelectItem value="KIDS">Uşaq</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="cj-price">Satış Qiyməti ($)</Label>
-                  <Input id="cj-price" type="number" step="0.01" value={price} onChange={(e) => setPrice(e.target.value)} />
+
+                {/* Right: form fields + pricing reference */}
+                <div className="space-y-5">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="cj-name">Ad</Label>
+                    <Input id="cj-name" value={name} onChange={(e) => setName(e.target.value)} />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <Label>Kateqoriya</Label>
+                      <Select value={category} onValueChange={(v) => setCategory(v as Category)}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="MEN">Kişi</SelectItem>
+                          <SelectItem value="WOMEN">Qadın</SelectItem>
+                          <SelectItem value="KIDS">Uşaq</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-1.5">
+                      <Label htmlFor="cj-price">Satış Qiyməti ($)</Label>
+                      <Input id="cj-price" type="number" step="0.01" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-500">CJ məhsul qiyməti</span>
+                      <span className="font-medium">{cjPrice != null ? `$${cjPrice.toFixed(2)}` : "—"}</span>
+                    </div>
+
+                    <div className="flex items-start justify-between gap-3 text-sm">
+                      <span className="text-neutral-500">Ən yüksək çatdırılma (8-15 gün)</span>
+                      {shipping ? (
+                        <span className="text-right font-medium">
+                          ${shipping.cost.toFixed(2)} — {shipping.countryName}
+                        </span>
+                      ) : (
+                        <span className="text-neutral-400">Hesablanmayıb</span>
+                      )}
+                    </div>
+
+                    {totalCost != null && (
+                      <div className="flex items-center justify-between border-t border-neutral-200 pt-3 text-sm font-semibold">
+                        <span>Ümumi maya dəyəri</span>
+                        <span>${totalCost.toFixed(2)}</span>
+                      </div>
+                    )}
+
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="w-full gap-1.5"
+                      onClick={handleCalculateShipping}
+                      disabled={shippingLoading}
+                    >
+                      {shippingLoading ? (
+                        <>
+                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                          Hesablanır (~30 saniyə, 29 ölkə)...
+                        </>
+                      ) : (
+                        <>
+                          <Truck className="h-3.5 w-3.5" />
+                          {shipping ? "Yenidən Hesabla" : "Çatdırılma Qiymətini Hesabla"}
+                        </>
+                      )}
+                    </Button>
+
+                    {shippingError && <p className="text-xs text-red-600">{shippingError}</p>}
+                    {shipping && shipping.skipped.length > 0 && (
+                      <p className="text-xs text-neutral-400">
+                        {shipping.skipped.length} ölkə üçün 8-15 gün aralığında metod tapılmadı.
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
+            )}
+          </div>
 
-              <div className="space-y-1.5">
-                <Label>Variantlar ({variants.filter((v) => v.selected).length} / {variants.length} seçili)</Label>
-                <div className="rounded-lg border border-neutral-200">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-10"></TableHead>
-                        <TableHead>Rəng</TableHead>
-                        <TableHead>Razmer</TableHead>
-                        <TableHead>CJ Qiyməti</TableHead>
-                        <TableHead>Stok</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {variants.map((v, i) => (
-                        <TableRow key={v.vid || i}>
-                          <TableCell>
-                            <Checkbox
-                              checked={v.selected}
-                              onCheckedChange={(checked) => updateVariant(i, { selected: checked === true })}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <Input
-                              value={v.color}
-                              onChange={(e) => updateVariant(i, { color: e.target.value })}
-                              className="h-8 w-28"
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <Input
-                              value={v.size}
-                              onChange={(e) => updateVariant(i, { size: e.target.value })}
-                              className="h-8 w-20"
-                            />
-                          </TableCell>
-                          <TableCell>{v.sellPrice != null ? `$${v.sellPrice.toFixed(2)}` : "—"}</TableCell>
-                          <TableCell>{v.stock}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              </div>
-            </div>
-          )}
-
-          <DialogFooter>
+          <DialogFooter className="shrink-0 border-t border-neutral-200 px-6 py-4">
             <Button type="button" variant="outline" onClick={closeDetail}>
               Ləğv et
             </Button>

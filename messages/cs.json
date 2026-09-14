@@ -663,7 +663,9 @@
     "addAnotherCardButton": "Add another card",
     "placingOrder": "Placing order...",
     "orderNumberLabel": "Číslo objednávky",
-    "checkoutError": "Při zadávání objednávky došlo k chybě. Zkuste to znovu nebo kontaktujte podporu."
+    "checkoutError": "Při zadávání objednávky došlo k chybě. Zkuste to znovu nebo kontaktujte podporu.",
+    "euOrderLimitExceeded": "Orders shipping to EU countries must total under €{limit} (customs rules). Please split your cart and place separate orders.",
+    "euOrderLimitApproaching": "Your cart total is approaching the €{limit} limit for orders shipping to EU countries."
   },
   "Account": {
     "myAccount": "My Account",

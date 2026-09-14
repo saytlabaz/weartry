@@ -663,7 +663,9 @@
     "addAnotherCardButton": "Add another card",
     "placingOrder": "Placing order...",
     "orderNumberLabel": "Bestelnummer",
-    "checkoutError": "Er is iets misgegaan bij het plaatsen van je bestelling. Probeer het opnieuw of neem contact op met support."
+    "checkoutError": "Er is iets misgegaan bij het plaatsen van je bestelling. Probeer het opnieuw of neem contact op met support.",
+    "euOrderLimitExceeded": "Orders shipping to EU countries must total under €{limit} (customs rules). Please split your cart and place separate orders.",
+    "euOrderLimitApproaching": "Your cart total is approaching the €{limit} limit for orders shipping to EU countries."
   },
   "Account": {
     "myAccount": "My Account",

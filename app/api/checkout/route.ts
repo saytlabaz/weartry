@@ -3,6 +3,8 @@ import { Prisma } from "@/lib/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 import { findProductById } from "@/lib/data";
 import { nextOrderNumber } from "@/lib/orders/orderNumber";
+import { getMarket } from "@/i18n/markets";
+import { getShippingConfig } from "@/lib/shipping/config";
 
 interface CheckoutItemInput {
   id: string;
@@ -54,6 +56,27 @@ export async function POST(req: NextRequest) {
   const subtotal = validItems.reduce((sum, { product, quantity }) => sum + product.price * quantity, 0);
   const shippingCost = 0;
   const total = subtotal + shippingCost;
+
+  // CJ's IOSS-scheme threshold: an EU-bound order's goods value (not
+  // shipping) must stay under the configured EUR limit, or it needs full
+  // customs clearance instead of VAT-at-checkout. Client-side warns about
+  // this before submit, but that's UX only — this is the real gate, since
+  // this route can be called directly.
+  const market = getMarket(country);
+  if (market.euMember) {
+    const { euOrderLimitEur, usdToEurRate } = await getShippingConfig();
+    const subtotalEur = subtotal * usdToEurRate;
+    if (subtotalEur > euOrderLimitEur) {
+      return NextResponse.json(
+        {
+          error: "eu_order_limit_exceeded",
+          message: `AB ölkələrinə hər sifarişin ümumi dəyəri ${euOrderLimitEur} avrodan aşağı olmalıdır (gömrük qaydaları). Zəhmət olmasa səbətinizi bölün və ayrı-ayrı sifariş verin.`,
+          limitEur: euOrderLimitEur,
+        },
+        { status: 400 }
+      );
+    }
+  }
 
   const address = addressLine2 ? `${addressLine1}, ${addressLine2}` : addressLine1;
 

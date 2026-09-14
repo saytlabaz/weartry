@@ -663,7 +663,9 @@
     "addAnotherCardButton": "Add another card",
     "placingOrder": "Placing order...",
     "orderNumberLabel": "Número de pedido",
-    "checkoutError": "Se produjo un error al realizar tu pedido. Inténtalo de nuevo o contacta con soporte."
+    "checkoutError": "Se produjo un error al realizar tu pedido. Inténtalo de nuevo o contacta con soporte.",
+    "euOrderLimitExceeded": "Orders shipping to EU countries must total under €{limit} (customs rules). Please split your cart and place separate orders.",
+    "euOrderLimitApproaching": "Your cart total is approaching the €{limit} limit for orders shipping to EU countries."
   },
   "Account": {
     "myAccount": "My Account",
