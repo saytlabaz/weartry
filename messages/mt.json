@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "Kemm ħin tieħu l-kunsinna?",
-        "answer": "Ħafna ordnijiet jaslu fi żmien 7–20 ijiem tax-xogħol, skont il-post tiegħek."
+        "answer": "Ħafna ordnijiet jaslu fi żmien 8–15 ijiem tax-xogħol, skont il-post tiegħek."
       },
       {
         "question": "X'inhi l-politika ta' ritorn tagħkom?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Mistoqsijiet Frekwenti — WearTry",
+    "metaDescription": "Tweġibiet għal mistoqsijiet frekwenti dwar ordnijiet, kunsinna, ritorni u daqsijiet f'WearTry.",
+    "title": "Mistoqsijiet Frekwenti",
+    "intro": "Tweġibiet għall-mistoqsijiet li nirċievu l-aktar ta' spiss — dwar ordnijiet, kunsinna, ritorni u daqsijiet. Ma sibtx dak li qed tfittex? Ikkuntattjana mill-paġna ta' Kuntatt.",
+    "searchPlaceholder": "Fittex mistoqsijiet...",
+    "noResults": "L-ebda mistoqsija ma taqbel mat-tfixxija tiegħek. Ipprova kelma differenti jew ikkuntattjana.",
+    "categories": [
+      {
+        "name": "Ordni u Ħlas",
+        "items": [
+          {
+            "question": "Kif nista' nsegwi l-ordni tiegħi?",
+            "answer": "Ladarba l-ordni tiegħek tintbagħat, tirċievi link ta' traċċar bl-email — uża dan meta trid biex tiċċekkja l-istatus tal-kunsinna."
+          },
+          {
+            "question": "Liema metodi ta' ħlas taċċettaw?",
+            "answer": "Naċċettaw Visa, Mastercard, American Express, PayPal, Apple Pay u networks ta' kards ewlenin oħra."
+          },
+          {
+            "question": "Nista' nikkanċella jew nibdel l-ordni tiegħi?",
+            "answer": "Ikkuntattjana fi ftit sigħat mill-ordni u nagħmlu l-aħjar li nistgħu biex nibdluha jew nikkanċellawha qabel tintbagħat."
+          }
+        ]
+      },
+      {
+        "name": "Kunsinna",
+        "items": [
+          {
+            "question": "Meta se tasal l-ordni tiegħi?",
+            "answer": "Il-kunsinna lejn l-Istati Uniti, ir-Renju Unit u l-UE tieħu 8-15 jum tax-xogħol, minbarra 2-5 ijiem tax-xogħol ta' pproċessar — ara l-paġna tagħna ta' Informazzjoni dwar il-Kunsinna għad-dettalji."
+          },
+          {
+            "question": "Għandi nħallas dazju tad-dwana?",
+            "answer": "Għall-maġġoranza tal-ordnijiet taħt il-limitu ta' valur baxx ta' pajjiżek, it-taxxi jinġabru mal-ħlas u ma jibqa' xejn aktar dovut. Ordnijiet ta' valur ogħla jistgħu jeħtieġu ħlas addizzjonali lid-dwana mal-kunsinna — ara l-paġna tagħna ta' Informazzjoni dwar il-Kunsinna għal-limiti eżatti."
+          },
+          {
+            "question": "Tikkunsinaw internazzjonalment?",
+            "answer": "Iva — bħalissa nikkunsinaw lejn l-Istati Uniti, ir-Renju Unit u l-Unjoni Ewropea, b'destinazzjonijiet ġodda miżjuda regolarment."
+          }
+        ]
+      },
+      {
+        "name": "Ritorni u Rifużjonijiet",
+        "items": [
+          {
+            "question": "Kif nirritorna oġġett?",
+            "answer": "Ibgħat email lil support@weartry.shop bin-numru tal-ordni tiegħek fi żmien 30 jum mill-kunsinna, sakemm l-oġġett ma jkunx intlibes u għad għandu t-tikketti — nikkonfermaw il-passi li jmiss u indirizz ta' ritorn."
+          },
+          {
+            "question": "Meta nirċievi r-rifużjoni tiegħi?",
+            "answer": "Ladarba nirċievu u niċċekkjaw l-oġġett irritornat tiegħek, nirrifondu l-metodu ta' ħlas oriġinali tiegħek fi żmien 5-10 ijiem tax-xogħol."
+          },
+          {
+            "question": "X'jiġri jekk l-oġġett tiegħi jasal bil-ħsara jew żbaljat?",
+            "answer": "Ikkuntattjana fi żmien 7 ijiem mill-kunsinna b'ritratti tal-problema, u norganizzaw bdil jew rifużjoni sħiħa — inkluża l-kunsinna ta' ritorn — mingħajr ebda spiża addizzjonali għalik."
+          }
+        ]
+      },
+      {
+        "name": "Daqs u Prodott",
+        "items": [
+          {
+            "question": "Kif nagħżel id-daqs it-tajjeb?",
+            "answer": "Iċċekkja l-gwida tad-daqsijiet fuq kull paġna tal-prodott — il-kejl huwa elenkat kemm f'cm kif ukoll f'pulzieri biex jgħinuk tagħżel l-aħjar qies."
+          },
+          {
+            "question": "Minn liema materjali huma magħmula l-prodotti tagħkom?",
+            "answer": "Nużaw drappijiet miksuba b'mod responsabbli — iċċekkja kull paġna tal-prodott għall-kompożizzjoni eżatta tal-materjal."
+          }
+        ]
+      }
+    ]
   }
 }

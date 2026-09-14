@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "How long does shipping take?",
-        "answer": "Most orders arrive within 7–20 business days, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days, depending on your location."
       },
       {
         "question": "What is your return policy?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Frequently Asked Questions — WearTry",
+    "metaDescription": "Answers to common questions about orders, shipping, returns, and sizing at WearTry.",
+    "title": "Frequently Asked Questions",
+    "intro": "Answers to the questions we get asked most — about orders, shipping, returns, and sizing. Can't find what you need? Reach out on the Contact page.",
+    "searchPlaceholder": "Search questions...",
+    "noResults": "No questions match your search. Try a different word, or contact us.",
+    "categories": [
+      {
+        "name": "Orders & Payment",
+        "items": [
+          {
+            "question": "How can I track my order?",
+            "answer": "Once your order ships, you'll receive a tracking link by email — use it anytime to check delivery status."
+          },
+          {
+            "question": "What payment methods do you accept?",
+            "answer": "We accept Visa, Mastercard, American Express, PayPal, Apple Pay and other major card networks."
+          },
+          {
+            "question": "Can I cancel or change my order?",
+            "answer": "Contact us within a few hours of placing your order and we'll do our best to update or cancel it before it ships."
+          }
+        ]
+      },
+      {
+        "name": "Shipping",
+        "items": [
+          {
+            "question": "When will my order arrive?",
+            "answer": "Delivery takes 8–15 business days to the US, UK, and EU, on top of 2–5 business days processing time — see our Shipping Information page for details."
+          },
+          {
+            "question": "Do I need to pay customs duties?",
+            "answer": "For most orders under your country's low-value threshold, taxes are collected at checkout and nothing further is due. Higher-value orders may require additional payment to customs on delivery — see our Shipping Information page for the exact thresholds."
+          },
+          {
+            "question": "Do you ship internationally?",
+            "answer": "Yes — we currently ship to the United States, United Kingdom, and the European Union, with more destinations added regularly."
+          }
+        ]
+      },
+      {
+        "name": "Returns & Refunds",
+        "items": [
+          {
+            "question": "How do I return an item?",
+            "answer": "Email support@weartry.shop with your order number within 30 days of delivery, provided the item is unworn with tags attached — we'll confirm the next steps and a return address."
+          },
+          {
+            "question": "When will I get my refund?",
+            "answer": "Once we receive and inspect your returned item, we'll refund your original payment method within 5–10 business days."
+          },
+          {
+            "question": "What if my item arrives damaged or wrong?",
+            "answer": "Contact us within 7 days of delivery with photos of the issue, and we'll arrange a replacement or full refund — including return shipping — at no extra cost to you."
+          }
+        ]
+      },
+      {
+        "name": "Size & Product",
+        "items": [
+          {
+            "question": "How do I choose the right size?",
+            "answer": "Check the size guide on each product page — measurements are listed in both cm and inches to help you pick the best fit."
+          },
+          {
+            "question": "What materials are your products made from?",
+            "answer": "We use responsibly sourced fabrics — check each product page for the exact material composition."
+          }
+        ]
+      }
+    ]
   }
 }

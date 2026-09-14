@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "Cât durează livrarea?",
-        "answer": "Majoritatea comenzilor ajung în 7–20 zile lucrătoare, în funcție de locația dvs."
+        "answer": "Majoritatea comenzilor ajung în 8–15 zile lucrătoare, în funcție de locația dvs."
       },
       {
         "question": "Care este politica dvs. de returnare?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Întrebări Frecvente — WearTry",
+    "metaDescription": "Răspunsuri la întrebările frecvente despre comenzi, livrare, retururi și mărimi la WearTry.",
+    "title": "Întrebări Frecvente",
+    "intro": "Răspunsuri la întrebările pe care le primim cel mai des — despre comenzi, livrare, retururi și mărimi. Nu găsești ce cauți? Scrie-ne din pagina de Contact.",
+    "searchPlaceholder": "Caută întrebări...",
+    "noResults": "Nicio întrebare nu corespunde căutării tale. Încearcă alt cuvânt sau contactează-ne.",
+    "categories": [
+      {
+        "name": "Comandă și Plată",
+        "items": [
+          {
+            "question": "Cum îmi pot urmări comanda?",
+            "answer": "Odată ce comanda este expediată, vei primi un link de urmărire prin e-mail — folosește-l oricând pentru a verifica starea livrării."
+          },
+          {
+            "question": "Ce metode de plată acceptați?",
+            "answer": "Acceptăm Visa, Mastercard, American Express, PayPal, Apple Pay și alte rețele de carduri majore."
+          },
+          {
+            "question": "Îmi pot anula sau modifica comanda?",
+            "answer": "Contactează-ne în câteva ore de la plasarea comenzii și vom face tot posibilul să o modificăm sau anulăm înainte de expediere."
+          }
+        ]
+      },
+      {
+        "name": "Livrare",
+        "items": [
+          {
+            "question": "Când va ajunge comanda mea?",
+            "answer": "Livrarea în SUA, Regatul Unit și UE durează 8-15 zile lucrătoare, plus 2-5 zile lucrătoare de procesare — vezi pagina noastră de Informații de Livrare pentru detalii."
+          },
+          {
+            "question": "Trebuie să plătesc taxe vamale?",
+            "answer": "Pentru majoritatea comenzilor sub plafonul de valoare redusă al țării tale, taxele sunt colectate la finalizarea comenzii și nu se mai datorează nimic. Comenzile de valoare mai mare pot necesita o plată vamală suplimentară la livrare — vezi pagina noastră de Informații de Livrare pentru plafoanele exacte."
+          },
+          {
+            "question": "Livrați internațional?",
+            "answer": "Da — livrăm în prezent în Statele Unite, Regatul Unit și Uniunea Europeană, cu noi destinații adăugate regulat."
+          }
+        ]
+      },
+      {
+        "name": "Retururi și Rambursări",
+        "items": [
+          {
+            "question": "Cum returnez un articol?",
+            "answer": "Trimite un e-mail la support@weartry.shop cu numărul comenzii în termen de 30 de zile de la livrare, cu condiția ca articolul să fie neportat și cu etichetele atașate — vom confirma pașii următori și o adresă de retur."
+          },
+          {
+            "question": "Când voi primi rambursarea?",
+            "answer": "Odată ce primim și inspectăm articolul returnat, vom rambursa metoda ta de plată originală în 5-10 zile lucrătoare."
+          },
+          {
+            "question": "Ce se întâmplă dacă articolul ajunge deteriorat sau greșit?",
+            "answer": "Contactează-ne în 7 zile de la livrare cu fotografii ale problemei, iar noi vom organiza o înlocuire sau o rambursare completă — inclusiv transportul de retur — fără costuri suplimentare pentru tine."
+          }
+        ]
+      },
+      {
+        "name": "Mărime și Produs",
+        "items": [
+          {
+            "question": "Cum aleg mărimea potrivită?",
+            "answer": "Verifică ghidul de mărimi de pe fiecare pagină de produs — dimensiunile sunt indicate atât în cm, cât și în inch, pentru a te ajuta să găsești cea mai bună potrivire."
+          },
+          {
+            "question": "Din ce materiale sunt fabricate produsele voastre?",
+            "answer": "Folosim materiale provenite responsabil — verifică fiecare pagină de produs pentru compoziția exactă a materialelor."
+          }
+        ]
+      }
+    ]
   }
 }

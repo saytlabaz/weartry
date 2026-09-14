@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "Kiek laiko trunka pristatymas?",
-        "answer": "Dauguma užsakymų pristatomi per 7–20 darbo dienų, priklausomai nuo jūsų vietos."
+        "answer": "Dauguma užsakymų pristatomi per 8–15 darbo dienų, priklausomai nuo jūsų vietos."
       },
       {
         "question": "Kokia jūsų grąžinimo politika?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Dažnai Užduodami Klausimai — WearTry",
+    "metaDescription": "Atsakymai į dažniausiai užduodamus klausimus apie užsakymus, pristatymą, grąžinimus ir dydžius WearTry.",
+    "title": "Dažnai Užduodami Klausimai",
+    "intro": "Atsakymai į klausimus, kuriuos gauname dažniausiai — apie užsakymus, pristatymą, grąžinimus ir dydžius. Nerandate, ko ieškote? Susisiekite su mumis per Kontaktų puslapį.",
+    "searchPlaceholder": "Ieškoti klausimų...",
+    "noResults": "Jūsų paiešką atitinkančių klausimų nerasta. Pabandykite kitą žodį arba susisiekite su mumis.",
+    "categories": [
+      {
+        "name": "Užsakymas ir Mokėjimas",
+        "items": [
+          {
+            "question": "Kaip galiu sekti savo užsakymą?",
+            "answer": "Kai užsakymas bus išsiųstas, gausite sekimo nuorodą el. paštu — naudokite ją bet kada, norėdami patikrinti pristatymo būseną."
+          },
+          {
+            "question": "Kokius mokėjimo būdus priimate?",
+            "answer": "Priimame Visa, Mastercard, American Express, PayPal, Apple Pay ir kitus pagrindinius kortelių tinklus."
+          },
+          {
+            "question": "Ar galiu atšaukti ar pakeisti savo užsakymą?",
+            "answer": "Susisiekite su mumis per kelias valandas nuo užsakymo ir padarysime visa, kas įmanoma, kad jį pakeistume ar atšauktume prieš išsiuntimą."
+          }
+        ]
+      },
+      {
+        "name": "Pristatymas",
+        "items": [
+          {
+            "question": "Kada atvyks mano užsakymas?",
+            "answer": "Pristatymas į JAV, Jungtinę Karalystę ir ES trunka 8-15 darbo dienų, plius 2-5 darbo dienas paruošimo laiko — išsamią informaciją rasite mūsų Pristatymo Informacijos puslapyje."
+          },
+          {
+            "question": "Ar turėsiu mokėti muito mokesčius?",
+            "answer": "Daugumai užsakymų, esančių žemiau jūsų šalies mažos vertės slenksčio, mokesčiai renkami atsiskaitant ir daugiau mokėti nereikės. Didesnės vertės užsakymams pristatymo metu gali reikėti papildomo mokėjimo muitinei — tikslias ribas rasite mūsų Pristatymo Informacijos puslapyje."
+          },
+          {
+            "question": "Ar pristatote tarptautiniu mastu?",
+            "answer": "Taip — šiuo metu pristatome į Jungtines Amerikos Valstijas, Jungtinę Karalystę ir Europos Sąjungą, reguliariai pridedant naujas paskirties vietas."
+          }
+        ]
+      },
+      {
+        "name": "Grąžinimai ir Pinigų Susigrąžinimas",
+        "items": [
+          {
+            "question": "Kaip grąžinti prekę?",
+            "answer": "Rašykite support@weartry.shop su užsakymo numeriu per 30 dienų nuo pristatymo, jei prekė nenešiota ir su etiketėmis — patvirtinsime kitus žingsnius ir grąžinimo adresą."
+          },
+          {
+            "question": "Kada gausiu pinigų grąžinimą?",
+            "answer": "Kai gausime ir patikrinsime grąžintą prekę, grąžinsime pinigus į jūsų pradinį mokėjimo būdą per 5-10 darbo dienų."
+          },
+          {
+            "question": "Kas atsitiks, jei prekė atvyks sugadinta ar neteisinga?",
+            "answer": "Susisiekite su mumis per 7 dienas nuo pristatymo su problemos nuotraukomis, ir mes organizuosime pakeitimą arba pilną pinigų grąžinimą — įskaitant grąžinimo siuntimą — jums be papildomų išlaidų."
+          }
+        ]
+      },
+      {
+        "name": "Dydis ir Produktas",
+        "items": [
+          {
+            "question": "Kaip pasirinkti tinkamą dydį?",
+            "answer": "Patikrinkite dydžių lentelę kiekviename produkto puslapyje — matmenys nurodyti tiek cm, tiek coliais, kad padėtų pasirinkti geriausią tinkamumą."
+          },
+          {
+            "question": "Iš kokių medžiagų pagaminti jūsų produktai?",
+            "answer": "Naudojame atsakingai gautas medžiagas — tikslią medžiagos sudėtį rasite kiekviename produkto puslapyje."
+          }
+        ]
+      }
+    ]
   }
 }

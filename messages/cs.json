@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "Jak dlouho trvá doprava?",
-        "answer": "Většina objednávek dorazí do 7–20 pracovních dnů, v závislosti na vaší poloze."
+        "answer": "Většina objednávek dorazí do 8–15 pracovních dnů, v závislosti na vaší poloze."
       },
       {
         "question": "Jaká je vaše politika vracení zboží?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Často Kladené Otázky — WearTry",
+    "metaDescription": "Odpovědi na nejčastější otázky o objednávkách, dopravě, vrácení zboží a velikostech na WearTry.",
+    "title": "Často Kladené Otázky",
+    "intro": "Odpovědi na otázky, které se nás lidé ptají nejčastěji — o objednávkách, dopravě, vrácení zboží a velikostech. Nenašli jste, co jste hledali? Napište nám na stránce Kontakt.",
+    "searchPlaceholder": "Hledat otázky...",
+    "noResults": "Žádná otázka neodpovídá vašemu vyhledávání. Zkuste jiné slovo nebo nás kontaktujte.",
+    "categories": [
+      {
+        "name": "Objednávka a Platba",
+        "items": [
+          {
+            "question": "Jak mohu sledovat svou objednávku?",
+            "answer": "Jakmile bude vaše objednávka odeslána, obdržíte e-mailem sledovací odkaz — použijte ho kdykoli ke kontrole stavu doručení."
+          },
+          {
+            "question": "Jaké platební metody přijímáte?",
+            "answer": "Přijímáme Visa, Mastercard, American Express, PayPal, Apple Pay a další hlavní kartové sítě."
+          },
+          {
+            "question": "Mohu zrušit nebo změnit svou objednávku?",
+            "answer": "Kontaktujte nás během několika hodin od objednání a uděláme vše pro to, abychom ji upravili nebo zrušili před odeslením."
+          }
+        ]
+      },
+      {
+        "name": "Doprava",
+        "items": [
+          {
+            "question": "Kdy dorazí moje objednávka?",
+            "answer": "Doručení do USA, UK a EU trvá 8-15 pracovních dnů, plus 2-5 pracovních dnů na zpracování — podrobnosti najdete na naší stránce Informace o Dopravě."
+          },
+          {
+            "question": "Musím platit celní poplatky?",
+            "answer": "U většiny objednávek pod hranicí nízké hodnoty vaší země se daně vybírají při platbě a nic dalšího se neplatí. Objednávky vyšší hodnoty mohou při doručení vyžadovat další platbu celnici — přesné hranice najdete na naší stránce Informace o Dopravě."
+          },
+          {
+            "question": "Zasíláte do zahraničí?",
+            "answer": "Ano — momentálně zasíláme do Spojených států, Velké Británie a Evropské unie, další destinace pravidelně přidáváme."
+          }
+        ]
+      },
+      {
+        "name": "Vrácení a Refundace",
+        "items": [
+          {
+            "question": "Jak vrátím zboží?",
+            "answer": "Napište na support@weartry.shop s číslem objednávky do 30 dnů od doručení, pokud je zboží nenošené se štítky — potvrdíme další kroky a adresu pro vrácení."
+          },
+          {
+            "question": "Kdy obdržím vrácení peněz?",
+            "answer": "Jakmile obdržíme a zkontrolujeme vrácené zboží, vrátíme peníze na váš původní způsob platby do 5-10 pracovních dnů."
+          },
+          {
+            "question": "Co když zboží dorazí poškozené nebo špatné?",
+            "answer": "Kontaktujte nás do 7 dnů od doručení s fotografiemi problému a zajistíme náhradu nebo plnou refundaci — včetně dopravy zpět — bez dalších nákladů pro vás."
+          }
+        ]
+      },
+      {
+        "name": "Velikost a Produkt",
+        "items": [
+          {
+            "question": "Jak vybrat správnou velikost?",
+            "answer": "Podívejte se na tabulku velikostí na každé stránce produktu — rozměry jsou uvedeny v cm i palcích, aby vám pomohly vybrat nejlepší velikost."
+          },
+          {
+            "question": "Z jakých materiálů jsou vaše produkty vyrobeny?",
+            "answer": "Používáme odpovědně získané látky — přesné složení materiálu najdete na každé stránce produktu."
+          }
+        ]
+      }
+    ]
   }
 }

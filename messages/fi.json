@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "Kauanko toimitus kestää?",
-        "answer": "Useimmat tilaukset saapuvat 7–20 arkipäivän kuluessa sijainnistasi riippuen."
+        "answer": "Useimmat tilaukset saapuvat 8–15 arkipäivän kuluessa sijainnistasi riippuen."
       },
       {
         "question": "Mikä on palautuskäytäntönne?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Usein Kysytyt Kysymykset — WearTry",
+    "metaDescription": "Vastauksia usein kysyttyihin kysymyksiin tilauksista, toimituksesta, palautuksista ja koosta WearTryssä.",
+    "title": "Usein Kysytyt Kysymykset",
+    "intro": "Vastauksia kysymyksiin, joita saamme useimmin — tilauksista, toimituksesta, palautuksista ja koosta. Etkö löydä etsimääsi? Ota yhteyttä Yhteystiedot-sivun kautta.",
+    "searchPlaceholder": "Hae kysymyksiä...",
+    "noResults": "Hakuehtoihin ei löytynyt kysymystä. Kokeile toista sanaa tai ota yhteyttä.",
+    "categories": [
+      {
+        "name": "Tilaus ja Maksu",
+        "items": [
+          {
+            "question": "Miten voin seurata tilaustani?",
+            "answer": "Kun tilauksesi on lähetetty, saat seurantalinkin sähköpostitse — käytä sitä milloin tahansa toimituksen tilan tarkistamiseen."
+          },
+          {
+            "question": "Mitä maksutapoja hyväksytte?",
+            "answer": "Hyväksymme Visa-, Mastercard-, American Express-, PayPal-, Apple Pay- ja muita suurimpia korttiverkkoja."
+          },
+          {
+            "question": "Voinko perua tai muuttaa tilaukseni?",
+            "answer": "Ota yhteyttä muutaman tunnin sisällä tilauksesta, ja teemme parhaamme muuttaaksemme tai peruuttaaksemme sen ennen lähetystä."
+          }
+        ]
+      },
+      {
+        "name": "Toimitus",
+        "items": [
+          {
+            "question": "Milloin tilaukseni saapuu?",
+            "answer": "Toimitus Yhdysvaltoihin, Isoon-Britanniaan ja EU:hun kestää 8-15 arkipäivää, lisäksi 2-5 arkipäivää käsittelyaikaa — katso tarkemmat tiedot Toimitustiedot-sivultamme."
+          },
+          {
+            "question": "Täytyykö minun maksaa tullimaksuja?",
+            "answer": "Useimmissa maasi alhaisen arvon rajan alle jäävissä tilauksissa verot kerätään kassalla, ja muuta ei tarvitse maksaa. Arvokkaammat tilaukset voivat vaatia lisämaksun tullille toimituksen yhteydessä — tarkat rajat löydät Toimitustiedot-sivultamme."
+          },
+          {
+            "question": "Toimitatteko kansainvälisesti?",
+            "answer": "Kyllä — toimitamme tällä hetkellä Yhdysvaltoihin, Isoon-Britanniaan ja Euroopan unioniin, ja lisäämme säännöllisesti uusia kohteita."
+          }
+        ]
+      },
+      {
+        "name": "Palautukset ja Hyvitykset",
+        "items": [
+          {
+            "question": "Miten palautan tuotteen?",
+            "answer": "Lähetä sähköposti osoitteeseen support@weartry.shop tilausnumerollasi 30 päivän kuluessa toimituksesta, jos tuote on käyttämätön ja lapuilla — vahvistamme seuraavat vaiheet ja palautusosoitteen."
+          },
+          {
+            "question": "Milloin saan hyvitykseni?",
+            "answer": "Kun olemme vastaanottaneet ja tarkastaneet palautetun tuotteen, hyvitämme alkuperäisen maksutavan 5-10 arkipäivän kuluessa."
+          },
+          {
+            "question": "Mitä jos tuote saapuu vaurioituneena tai vääränä?",
+            "answer": "Ota yhteyttä 7 päivän kuluessa toimituksesta kuvien kanssa ongelmasta, ja järjestämme korvaavan tuotteen tai täyden hyvityksen — mukaan lukien palautuslähetys — ilman lisäkustannuksia sinulle."
+          }
+        ]
+      },
+      {
+        "name": "Koko ja Tuote",
+        "items": [
+          {
+            "question": "Miten valitsen oikean koon?",
+            "answer": "Tarkista kokotaulukko joka tuotesivulla — mitat on ilmoitettu senteissä ja tuumissa parhaan istuvuuden löytämiseksi."
+          },
+          {
+            "question": "Mistä materiaaleista tuotteenne on valmistettu?",
+            "answer": "Käytämme vastuullisesti hankittuja kankaita — tarkista tarkka materiaalikoostumus joka tuotesivulla."
+          }
+        ]
+      }
+    ]
   }
 }

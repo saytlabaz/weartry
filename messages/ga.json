@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "Cá fhad a thógann seachadadh?",
-        "answer": "Sroicheann formhór na n-orduithe laistigh de 7–20 lá oibre, ag brath ar do shuíomh."
+        "answer": "Sroicheann formhór na n-orduithe laistigh de 8–15 lá oibre, ag brath ar do shuíomh."
       },
       {
         "question": "Cad é an beartas fillte agaibh?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Ceisteanna Coitianta — WearTry",
+    "metaDescription": "Freagraí ar cheisteanna coitianta faoi orduithe, seachadadh, aischur agus méideanna ag WearTry.",
+    "title": "Ceisteanna Coitianta",
+    "intro": "Freagraí ar na ceisteanna a chuirtear orainn go minic — faoi orduithe, seachadadh, aischur agus méideanna. Ná bhfuil tú in ann teacht ar an rud a bhí uait? Déan teagmháil linn ón leathanach Teagmháil.",
+    "searchPlaceholder": "Cuardaigh ceisteanna...",
+    "noResults": "Níl aon cheist ag teacht le do chuardach. Bain triail as focal eile nó déan teagmháil linn.",
+    "categories": [
+      {
+        "name": "Ordú agus Íocaíocht",
+        "items": [
+          {
+            "question": "Conas is féidir liom mo ordú a rianú?",
+            "answer": "Nuair a bheidh do ordú seolta, gheobhaidh tú nasc rianaithe trí ríomhphost — bain úsáid as am ar bith le stádas an tseachadta a sheiceáil."
+          },
+          {
+            "question": "Cé na modhanna íocaíochta a ghlacann sibh?",
+            "answer": "Glacaimid le Visa, Mastercard, American Express, PayPal, Apple Pay agus mórlíonraí cárta eile."
+          },
+          {
+            "question": "An féidir liom mo ordú a chealú nó a athrú?",
+            "answer": "Déan teagmháil linn laistigh de chúpla uair a chloig ó chur an ordú agus déanfaimid ár ndícheall é a athrú nó a chealú sula seoltar é."
+          }
+        ]
+      },
+      {
+        "name": "Seachadadh",
+        "items": [
+          {
+            "question": "Cathain a shroichfidh mo ordú?",
+            "answer": "Tógann seachadadh chuig na SAM, an Ríocht Aontaithe agus an AE 8-15 lá oibre, chomh maith le 2-5 lá oibre próiseála — féach ar ár leathanach Eolas Seachadta le sonraí."
+          },
+          {
+            "question": "An gá dom dleachtanna custaim a íoc?",
+            "answer": "Don chuid is mó d'orduithe faoi tairseach luach íseal do thíre, bailítear cánacha ag an seiceamach agus níl aon rud eile dlite. D'fhéadfadh orduithe ar luach níos airde íocaíocht bhreise a bheith de dhíth ag an custaim ar sheachadadh — féach ar ár leathanach Eolas Seachadta le haghaidh na tairseacha beachta."
+          },
+          {
+            "question": "An seolann sibh go hidirnáisiúnta?",
+            "answer": "Sea — seolaimid faoi láthair chuig na Stáit Aontaithe, an Ríocht Aontaithe agus an Aontas Eorpach, le cinn scríbe nua á gcur leis go rialta."
+          }
+        ]
+      },
+      {
+        "name": "Aischur agus Aisíocaíochtaí",
+        "items": [
+          {
+            "question": "Conas a chuirim mír ar ais?",
+            "answer": "Seol ríomhphost chuig support@weartry.shop le d'uimhir ordaithe laistigh de 30 lá ón seachadadh, ar choinníoll nach caitheadh an mhír agus na lipéid fós ceangailte — deimhneoimid na chéad chéimeanna eile agus seoladh aischuir."
+          },
+          {
+            "question": "Cathain a gheobhaidh mé m'aisíocaíocht?",
+            "answer": "Nuair a gheobhaimid agus a scrúdóimid do mhír aischuir, aisíocfaimid do mhodh íocaíochta bunaidh laistigh de 5-10 lá oibre."
+          },
+          {
+            "question": "Cad a tharlaíonn má thagann mo mhír damáiste nó mícheart?",
+            "answer": "Déan teagmháil linn laistigh de 7 lá ón seachadadh le grianghraif den fhadhb, agus eagróimid ionadaíocht nó aisíocaíocht iomlán — an seachadadh aischuir san áireamh — gan aon chostas breise duitse."
+          }
+        ]
+      },
+      {
+        "name": "Méid agus Táirge",
+        "items": [
+          {
+            "question": "Conas a roghnaím an méid ceart?",
+            "answer": "Seiceáil an treoir méide ar gach leathanach táirge — liostaítear na toisí i gcm agus in orlaí chun cabhrú leat an fheistiú is fearr a roghnú."
+          },
+          {
+            "question": "Cad iad na hábhair as a ndéantar do tháirgí?",
+            "answer": "Úsáidimid fabraicí a fhaightear go freagrach — seiceáil gach leathanach táirge le haghaidh comhdhéanamh beacht na n-ábhar."
+          }
+        ]
+      }
+    ]
   }
 }

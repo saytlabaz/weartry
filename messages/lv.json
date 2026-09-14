@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "Cik ilgs laiks nepieciešams piegādei?",
-        "answer": "Lielākā daļa pasūtījumu tiek piegādāti 7–20 darba dienu laikā atkarībā no jūsu atrašanās vietas."
+        "answer": "Lielākā daļa pasūtījumu tiek piegādāti 8–15 darba dienu laikā atkarībā no jūsu atrašanās vietas."
       },
       {
         "question": "Kāda ir jūsu atgriešanas politika?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Biežāk Uzdotie Jautājumi — WearTry",
+    "metaDescription": "Atbildes uz biežāk uzdotajiem jautājumiem par pasūtījumiem, piegādi, atgriešanu un izmēriem WearTry.",
+    "title": "Biežāk Uzdotie Jautājumi",
+    "intro": "Atbildes uz jautājumiem, ko mums uzdod visbiežāk — par pasūtījumiem, piegādi, atgriešanu un izmēriem. Neatradāt, ko meklējāt? Sazinieties ar mums Kontaktu lapā.",
+    "searchPlaceholder": "Meklēt jautājumus...",
+    "noResults": "Jūsu meklēšanai neatbilst neviens jautājums. Izmēģiniet citu vārdu vai sazinieties ar mums.",
+    "categories": [
+      {
+        "name": "Pasūtījums un Maksājums",
+        "items": [
+          {
+            "question": "Kā es varu izsekot savu pasūtījumu?",
+            "answer": "Kad jūsu pasūtījums būs nosūtīts, saņemsiet izsekošanas saiti pa e-pastu — izmantojiet to jebkurā laikā, lai pārbaudītu piegādes statusu."
+          },
+          {
+            "question": "Kādas maksājumu metodes jūs pieņemat?",
+            "answer": "Mēs pieņemam Visa, Mastercard, American Express, PayPal, Apple Pay un citus lielākos karšu tīklus."
+          },
+          {
+            "question": "Vai es varu atcelt vai mainīt savu pasūtījumu?",
+            "answer": "Sazinieties ar mums dažu stundu laikā pēc pasūtījuma veikšanas, un mēs darīsim visu iespējamo, lai to mainītu vai atceltu pirms nosūtīšanas."
+          }
+        ]
+      },
+      {
+        "name": "Piegāde",
+        "items": [
+          {
+            "question": "Kad ieradīsies mans pasūtījums?",
+            "answer": "Piegāde uz ASV, Lielbritāniju un ES aizņem 8-15 darba dienas, papildus 2-5 darba dienām apstrādei — detaļas skatiet mūsu Piegādes Informācijas lapā."
+          },
+          {
+            "question": "Vai man jāmaksā muitas nodokļi?",
+            "answer": "Vairumam pasūtījumu, kas ir zemāki par jūsu valsts zemas vērtības slieksni, nodokļi tiek iekasēti apmaksas laikā, un nekas vairāk nav jāmaksā. Augstākas vērtības pasūtījumiem piegādes laikā var būt nepieciešams papildu maksājums muitai — precīzas robežas skatiet mūsu Piegādes Informācijas lapā."
+          },
+          {
+            "question": "Vai jūs piegādājat starptautiski?",
+            "answer": "Jā — pašlaik piegādājam uz Amerikas Savienotajām Valstīm, Lielbritāniju un Eiropas Savienību, regulāri pievienojot jaunus galamērķus."
+          }
+        ]
+      },
+      {
+        "name": "Atgriešana un Atmaksa",
+        "items": [
+          {
+            "question": "Kā atgriezt preci?",
+            "answer": "Rakstiet uz support@weartry.shop ar pasūtījuma numuru 30 dienu laikā pēc piegādes, ja prece nav lietota un tai ir etiketes — apstiprināsim nākamos soļus un atgriešanas adresi."
+          },
+          {
+            "question": "Kad es saņemsu atmaksu?",
+            "answer": "Kad saņemsim un pārbaudīsim atgriezto preci, atmaksāsim jūsu sākotnējo maksājuma metodi 5-10 darba dienu laikā."
+          },
+          {
+            "question": "Kas notiek, ja prece atnāk bojāta vai nepareiza?",
+            "answer": "Sazinieties ar mums 7 dienu laikā pēc piegādes ar problēmas fotoattēliem, un mēs organizēsim aizvietošanu vai pilnu atmaksu — ieskaitot atgriešanas piegādi — bez papildu izmaksām jums."
+          }
+        ]
+      },
+      {
+        "name": "Izmērs un Produkts",
+        "items": [
+          {
+            "question": "Kā izvēlēties pareizo izmēru?",
+            "answer": "Apskatiet izmēru tabulu katrā produkta lapā — izmēri norādīti gan cm, gan collās, lai palīdzētu izvēlēties labāko piemērotību."
+          },
+          {
+            "question": "No kādiem materiāliem izgatavoti jūsu produkti?",
+            "answer": "Mēs izmantojam atbildīgi iegūtus audumus — precīzu materiāla sastāvu skatiet katrā produkta lapā."
+          }
+        ]
+      }
+    ]
   }
 }

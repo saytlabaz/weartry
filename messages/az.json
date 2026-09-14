@@ -429,7 +429,7 @@
     "detailsTitle": "Təfərrüatlar",
     "detailsContent": "Premium materiallardan, forma və tikişə diqqətlə hazırlanıb. Maşında yuyula bilər — tam təlimat üçün qulluq etiketinə baxın.",
     "shippingTitle": "Pulsuz Çatdırılma",
-    "shippingContent": "Əksər sifarişlər 7-20 iş günü ərzində çatdırılır. 50 $-dan yuxarı bütün sifarişlərə pulsuz çatdırılma daxildir.",
+    "shippingContent": "Əksər sifarişlər 8-15 iş günü ərzində çatdırılır. 50 $-dan yuxarı bütün sifarişlərə pulsuz çatdırılma daxildir.",
     "returnsTitle": "Qaytarma Siyasəti",
     "returnsContent": "Ölçü uyğun gəlmədi? Çatdırılmadan sonra 30 gün ərzində geyilməmiş məhsulları tam geri ödəniş üçün qaytara bilərsiniz.",
     "relatedHeading": "Bu məhsulla əlaqəli məhsullar",
@@ -467,7 +467,7 @@
       },
       {
         "question": "Çatdırılma nə qədər vaxt aparır?",
-        "answer": "Əksər sifarişlər ünvanınızdan asılı olaraq 7-20 iş günü ərzində çatdırılır."
+        "answer": "Əksər sifarişlər ünvanınızdan asılı olaraq 8-15 iş günü ərzində çatdırılır."
       },
       {
         "question": "Qaytarma siyasətiniz necədir?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "Çatdırılma nə qədər vaxt aparacaq?",
-        "answer": "Əksər sifarişlər göndərildikdən sonra ünvanınızdan asılı olaraq 7-20 iş günü ərzində çatır."
+        "answer": "Əksər sifarişlər göndərildikdən sonra ünvanınızdan asılı olaraq 8-15 iş günü ərzində çatır."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "Bunun geri qaytarıla bilməyəcəyini anlayıram.",
     "deleting": "Silinir...",
     "invalidPasswordError": "Şifrə yanlışdır."
+  },
+  "FaqPage": {
+    "metaTitle": "Tez-tez Verilən Suallar — WearTry",
+    "metaDescription": "WearTry-də sifariş, çatdırılma, qaytarma və ölçü seçimi ilə bağlı ən çox verilən sualların cavabları.",
+    "title": "Tez-tez Verilən Suallar",
+    "intro": "Ən çox verilən sualların cavabları — sifariş, çatdırılma, qaytarma və ölçü seçimi haqqında. Axtardığınızı tapa bilmirsiniz? Bizimlə Əlaqə səhifəsindən yazın.",
+    "searchPlaceholder": "Sualları axtar...",
+    "noResults": "Axtarışınıza uyğun sual tapılmadı. Başqa söz cəhd edin və ya bizimlə əlaqə saxlayın.",
+    "categories": [
+      {
+        "name": "Sifariş və Ödəniş",
+        "items": [
+          {
+            "question": "Sifarişimi necə izləyə bilərəm?",
+            "answer": "Sifarişiniz göndəriləndən sonra email vasitəsilə izləmə linki alacaqsınız — çatdırılma statusunu istənilən vaxt yoxlaya bilərsiniz."
+          },
+          {
+            "question": "Hansı ödəniş üsullarını qəbul edirsiniz?",
+            "answer": "Visa, Mastercard, American Express, PayPal, Apple Pay və digər əsas kart şəbəkələrini qəbul edirik."
+          },
+          {
+            "question": "Sifarişimi ləğv edə və ya dəyişə bilərəmmi?",
+            "answer": "Sifariş verdikdən bir neçə saat ərzində bizimlə əlaqə saxlayın, göndərilmədən əvvəl onu dəyişdirmək və ya ləğv etmək üçün əlimizdən gələni edəcəyik."
+          }
+        ]
+      },
+      {
+        "name": "Çatdırılma",
+        "items": [
+          {
+            "question": "Sifarişim nə vaxt çatar?",
+            "answer": "ABŞ, Böyük Britaniya və Avropa Birliyinə çatdırılma 2-5 iş günü hazırlanma müddətindən sonra 8-15 iş günü çəkir — ətraflı məlumat üçün Çatdırılma Məlumatı səhifəmizə baxın."
+          },
+          {
+            "question": "Gömrük rüsumu ödəməliyəm?",
+            "answer": "Ölkənizin aşağı dəyər həddindən aşağı olan sifarişlərin əksəriyyəti üçün vergilər ödəniş zamanı yığılır və əlavə ödəniş tələb olunmur. Daha yüksək dəyərli sifarişlər üçün çatdırılma zamanı gömrüyə əlavə ödəniş tələb oluna bilər — dəqiq həddlər üçün Çatdırılma Məlumatı səhifəmizə baxın."
+          },
+          {
+            "question": "Beynəlxalq çatdırılma edirsinizmi?",
+            "answer": "Bəli — hazırda ABŞ, Böyük Britaniya və Avropa Birliyinə çatdırırıq, yeni ünvanlar müntəzəm olaraq əlavə olunur."
+          }
+        ]
+      },
+      {
+        "name": "Qaytarma və Refund",
+        "items": [
+          {
+            "question": "Malı necə qaytara bilərəm?",
+            "answer": "Çatdırılmadan sonra 30 gün ərzində, məhsul geyilməmiş və etiketləri taxılı olarsa, sifariş nömrənizlə support@weartry.shop ünvanına yazın — növbəti addımları və qaytarma ünvanını təsdiq edəcəyik."
+          },
+          {
+            "question": "Pulumu nə vaxt geri alacağam?",
+            "answer": "Qaytarılan məhsulu aldıqdan və yoxladıqdan sonra, ilkin ödəniş üsulunuza 5-10 iş günü ərzində geri ödəniş edəcəyik."
+          },
+          {
+            "question": "Sifarişim zədəli və ya səhv gəlibsə nə etməliyəm?",
+            "answer": "Çatdırılmadan sonra 7 gün ərzində problemin şəkilləri ilə bizimlə əlaqə saxlayın — heç bir əlavə ödəniş olmadan (qaytarma çatdırılması daxil) yeni məhsul və ya tam geri ödəniş təmin edəcəyik."
+          }
+        ]
+      },
+      {
+        "name": "Ölçü və Məhsul",
+        "items": [
+          {
+            "question": "Ölçünü necə seçim?",
+            "answer": "Hər məhsul səhifəsindəki ölçü cədvəlinə baxın — ölçülər həm sm, həm də düym ilə göstərilib ki, ən uyğun ölçünü seçə biləsiniz."
+          },
+          {
+            "question": "Məhsullarınız hansı materialdan hazırlanır?",
+            "answer": "Məsuliyyətli şəkildə əldə edilmiş parçalardan istifadə edirik — dəqiq material tərkibi üçün hər məhsul səhifəsinə baxın."
+          }
+        ]
+      }
+    ]
   }
 }

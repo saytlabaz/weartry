@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "Koliko traje dostava?",
-        "answer": "Većina narudžbi stiže unutar 7–20 radnih dana, ovisno o vašoj lokaciji."
+        "answer": "Većina narudžbi stiže unutar 8–15 radnih dana, ovisno o vašoj lokaciji."
       },
       {
         "question": "Kakva je vaša politika povrata?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Često Postavljana Pitanja — WearTry",
+    "metaDescription": "Odgovori na najčešća pitanja o narudžbama, dostavi, povratima i veličinama na WearTry.",
+    "title": "Često Postavljana Pitanja",
+    "intro": "Odgovori na pitanja koja nam se najčešće postavljaju — o narudžbama, dostavi, povratima i veličinama. Ne pronalazite što tražite? Javite nam se putem stranice Kontakt.",
+    "searchPlaceholder": "Pretraži pitanja...",
+    "noResults": "Nijedno pitanje ne odgovara vašoj pretrazi. Pokušajte s drugom riječi ili nas kontaktirajte.",
+    "categories": [
+      {
+        "name": "Narudžba i Plaćanje",
+        "items": [
+          {
+            "question": "Kako mogu pratiti svoju narudžbu?",
+            "answer": "Nakon što vaša narudžba bude poslana, primit ćete link za praćenje putem e-maila — koristite ga u bilo kojem trenutku za provjeru statusa dostave."
+          },
+          {
+            "question": "Koje metode plaćanja prihvaćate?",
+            "answer": "Prihvaćamo Visa, Mastercard, American Express, PayPal, Apple Pay i druge glavne kartične mreže."
+          },
+          {
+            "question": "Mogu li otkazati ili promijeniti narudžbu?",
+            "answer": "Kontaktirajte nas u roku od nekoliko sati od narudžbe i učinit ćemo sve što možemo da je promijenimo ili otkažemo prije slanja."
+          }
+        ]
+      },
+      {
+        "name": "Dostava",
+        "items": [
+          {
+            "question": "Kada će stići moja narudžba?",
+            "answer": "Dostava u SAD, UK i EU traje 8-15 radnih dana, uz 2-5 radnih dana pripreme — pogledajte našu stranicu Informacije o Dostavi za detalje."
+          },
+          {
+            "question": "Moram li plaćati carinu?",
+            "answer": "Za većinu narudžbi ispod praga niske vrijednosti vaše zemlje, porezi se naplaćuju prilikom plaćanja i ništa se dodatno ne plaća. Narudžbe veće vrijednosti mogu zahtijevati dodatno plaćanje carini prilikom dostave — točne granice pogledajte na našoj stranici Informacije o Dostavi."
+          },
+          {
+            "question": "Dostavljate li međunarodno?",
+            "answer": "Da — trenutno dostavljamo u Sjedinjene Države, Ujedinjeno Kraljevstvo i Europsku uniju, redovito dodajemo nova odredišta."
+          }
+        ]
+      },
+      {
+        "name": "Povrati i Refundacije",
+        "items": [
+          {
+            "question": "Kako vraćam artikl?",
+            "answer": "Pošaljite e-mail na support@weartry.shop s brojem narudžbe u roku od 30 dana od dostave, uz uvjet da artikl nije nošen i ima etikete — potvrdit ćemo sljedeće korake i adresu za povrat."
+          },
+          {
+            "question": "Kada ću primiti povrat novca?",
+            "answer": "Nakon što primimo i pregledamo vraćeni artikl, vraćamo novac na vašu izvornu metodu plaćanja u roku od 5-10 radnih dana."
+          },
+          {
+            "question": "Što ako artikl stigne oštećen ili pogrešan?",
+            "answer": "Kontaktirajte nas u roku od 7 dana od dostave sa fotografijama problema, a mi ćemo organizirati zamjenu ili potpuni povrat novca — uključujući povratnu dostavu — bez dodatnih troškova za vas."
+          }
+        ]
+      },
+      {
+        "name": "Veličina i Proizvod",
+        "items": [
+          {
+            "question": "Kako odabrati pravu veličinu?",
+            "answer": "Pogledajte tablicu veličina na svakoj stranici proizvoda — mjere su navedene u cm i inčima kako bi vam pomogle odabrati najbolji kroj."
+          },
+          {
+            "question": "Od kojih su materijala izrađeni vaši proizvodi?",
+            "answer": "Koristimo odgovorno nabavljene tkanine — točan sastav materijala pogledajte na svakoj stranici proizvoda."
+          }
+        ]
+      }
+    ]
   }
 }

@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "Mennyi ideig tart a szállítás?",
-        "answer": "A legtöbb rendelés 7–20 munkanapon belül megérkezik, a helyszíntől függően."
+        "answer": "A legtöbb rendelés 8–15 munkanapon belül megérkezik, a helyszíntől függően."
       },
       {
         "question": "Mi a visszaküldési szabályzatuk?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Gyakran Ismételt Kérdések — WearTry",
+    "metaDescription": "Válaszok a rendelésekkel, szállítással, visszaküldéssel és méretekkel kapcsolatos leggyakoribb kérdésekre a WearTry-nél.",
+    "title": "Gyakran Ismételt Kérdések",
+    "intro": "Válaszok a leggyakrabban felmerülő kérdésekre — rendelésekről, szállításról, visszaküldésről és méretekről. Nem találja, amit keres? Írjon nekünk a Kapcsolat oldalon.",
+    "searchPlaceholder": "Kérdések keresése...",
+    "noResults": "Nincs a keresésnek megfelelő kérdés. Próbáljon egy másik szót, vagy vegye fel velünk a kapcsolatot.",
+    "categories": [
+      {
+        "name": "Rendelés és Fizetés",
+        "items": [
+          {
+            "question": "Hogyan követhetem nyomon a rendelésemet?",
+            "answer": "Amint a rendelését elküldtük, e-mailben kap egy nyomkövető linket — bármikor használhatja a szállítási állapot ellenőrzésére."
+          },
+          {
+            "question": "Milyen fizetési módokat fogadnak el?",
+            "answer": "Elfogadjuk a Visa, Mastercard, American Express, PayPal, Apple Pay és más nagyobb kártyahálózatokat."
+          },
+          {
+            "question": "Lemondhatom vagy módosíthatom a rendelésemet?",
+            "answer": "Vegye fel velünk a kapcsolatot a rendelés leadása után néhány órán belül, és mindent megteszünk, hogy módosítsuk vagy lemondjuk a küldés előtt."
+          }
+        ]
+      },
+      {
+        "name": "Szállítás",
+        "items": [
+          {
+            "question": "Mikor érkezik meg a rendelésem?",
+            "answer": "Az USA-ba, az Egyesült Királyságba és az EU-ba a szállítás 8-15 munkanapot vesz igénybe, a 2-5 munkanapos feldolgozási idő mellett — részletekért lásd Szállítási Információk oldalunkat."
+          },
+          {
+            "question": "Kell vámot fizetnem?",
+            "answer": "A legtöbb rendelés esetén, amely az Ön országának alacsony értékű küszöbe alatt van, az adókat a fizetéskor számítjuk fel, és nincs további teendő. A magasabb értékű rendelések esetén szükség lehet további vámfizetésre kiszáláskor — a pontos küszöbökért lásd Szállítási Információk oldalunkat."
+          },
+          {
+            "question": "Szállítanak nemzetközileg?",
+            "answer": "Igen — jelenleg az Egyesült Államokba, az Egyesült Királyságba és az Európai Unióba szállítunk, rendszeresen új célországokkal bővítve."
+          }
+        ]
+      },
+      {
+        "name": "Visszaküldés és Visszatérítés",
+        "items": [
+          {
+            "question": "Hogyan küldhetem vissza a terméket?",
+            "answer": "Írjon a support@weartry.shop címre a rendelési számmal a kiszállítást követő 30 napon belül, feltéve, hogy a terméket nem viselték, és a címkék rajta vannak — megerősítjük a következő lépéseket és a visszaküldési címet."
+          },
+          {
+            "question": "Mikor kapom meg a visszatérítést?",
+            "answer": "Amint megkapjuk és ellenőrizzük a visszaküldött terméket, 5-10 munkanapon belül visszatérítjük az eredeti fizetési módra."
+          },
+          {
+            "question": "Mi van, ha a termék sérülten vagy hibásan érkezik?",
+            "answer": "Vegye fel velünk a kapcsolatot a kiszállítást követő 7 napon belül a probléma fotóival, és megoldjuk a cserét vagy a teljes visszatérítést — beleértve a visszaküldés költségét is — Önnek további költség nélkül."
+          }
+        ]
+      },
+      {
+        "name": "Méret és Termék",
+        "items": [
+          {
+            "question": "Hogyan válasszam ki a megfelelő méretet?",
+            "answer": "Nézze meg a méretezési táblázatot minden termékoldalon — a méretek cm-ben és hüvelykben is szerepelnek, hogy segítsenek a legjobb illeszkedés kiválasztásában."
+          },
+          {
+            "question": "Milyen anyagokból készülnek a termékeik?",
+            "answer": "Felelősségteljesen beszerzett anyagokat használunk — a pontos anyagösszetételért nézze meg minden termékoldalt."
+          }
+        ]
+      }
+    ]
   }
 }

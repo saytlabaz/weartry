@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "¿Cuánto tarda el envío?",
-        "answer": "La mayoría de los pedidos llegan en 7-20 días laborables, según tu ubicación."
+        "answer": "La mayoría de los pedidos llegan en 8-15 días laborables, según tu ubicación."
       },
       {
         "question": "¿Cuál es vuestra política de devoluciones?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Preguntas Frecuentes — WearTry",
+    "metaDescription": "Respuestas a las preguntas más comunes sobre pedidos, envíos, devoluciones y tallas en WearTry.",
+    "title": "Preguntas Frecuentes",
+    "intro": "Respuestas a las preguntas que más nos hacen — sobre pedidos, envíos, devoluciones y tallas. ¿No encuentras lo que buscas? Escríbenos desde la página de Contacto.",
+    "searchPlaceholder": "Buscar preguntas...",
+    "noResults": "Ninguna pregunta coincide con tu búsqueda. Prueba otra palabra o contáctanos.",
+    "categories": [
+      {
+        "name": "Pedido y Pago",
+        "items": [
+          {
+            "question": "¿Cómo puedo rastrear mi pedido?",
+            "answer": "Una vez que se envíe tu pedido, recibirás un enlace de seguimiento por correo electrónico — úsalo en cualquier momento para comprobar el estado de la entrega."
+          },
+          {
+            "question": "¿Qué métodos de pago aceptan?",
+            "answer": "Aceptamos Visa, Mastercard, American Express, PayPal, Apple Pay y otras redes de tarjetas principales."
+          },
+          {
+            "question": "¿Puedo cancelar o cambiar mi pedido?",
+            "answer": "Contáctanos dentro de las primeras horas tras realizar el pedido y haremos lo posible por modificarlo o cancelarlo antes del envío."
+          }
+        ]
+      },
+      {
+        "name": "Envío",
+        "items": [
+          {
+            "question": "¿Cuándo llegará mi pedido?",
+            "answer": "La entrega a EE. UU., Reino Unido y la UE tarda de 8 a 15 días hábiles, además de 2 a 5 días hábiles de preparación — consulta nuestra página de Información de Envío para más detalles."
+          },
+          {
+            "question": "¿Debo pagar aranceles de aduana?",
+            "answer": "En la mayoría de los pedidos por debajo del umbral de bajo valor de tu país, los impuestos se cobran en el pago y no se debe nada más. Los pedidos de mayor valor pueden requerir un pago adicional en aduana al momento de la entrega — consulta nuestra página de Información de Envío para los umbrales exactos."
+          },
+          {
+            "question": "¿Envían internacionalmente?",
+            "answer": "Sí — actualmente enviamos a Estados Unidos, Reino Unido y la Unión Europea, y añadimos nuevos destinos regularmente."
+          }
+        ]
+      },
+      {
+        "name": "Devoluciones y Reembolsos",
+        "items": [
+          {
+            "question": "¿Cómo devuelvo un artículo?",
+            "answer": "Escribe a support@weartry.shop con tu número de pedido dentro de los 30 días posteriores a la entrega, siempre que el artículo no esté usado y conserve sus etiquetas — confirmaremos los siguientes pasos y una dirección de devolución."
+          },
+          {
+            "question": "¿Cuándo recibiré mi reembolso?",
+            "answer": "Una vez que recibamos e inspeccionemos tu artículo devuelto, reembolsaremos tu método de pago original dentro de 5 a 10 días hábiles."
+          },
+          {
+            "question": "¿Qué pasa si mi artículo llega dañado o incorrecto?",
+            "answer": "Contáctanos dentro de los 7 días posteriores a la entrega con fotos del problema, y organizaremos un reemplazo o reembolso completo — incluido el envío de devolución — sin coste adicional para ti."
+          }
+        ]
+      },
+      {
+        "name": "Talla y Producto",
+        "items": [
+          {
+            "question": "¿Cómo elijo la talla correcta?",
+            "answer": "Consulta la guía de tallas en cada página de producto — las medidas se indican en cm y pulgadas para ayudarte a encontrar el mejor ajuste."
+          },
+          {
+            "question": "¿De qué materiales están hechos sus productos?",
+            "answer": "Usamos tejidos de origen responsable — consulta cada página de producto para conocer la composición exacta de los materiales."
+          }
+        ]
+      }
+    ]
   }
 }

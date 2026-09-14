@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "Hvor lang tid tager forsendelsen?",
-        "answer": "De fleste ordrer ankommer inden for 7-20 hverdage, afhængigt af din placering."
+        "answer": "De fleste ordrer ankommer inden for 8-15 hverdage, afhængigt af din placering."
       },
       {
         "question": "Hvad er jeres returpolitik?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Ofte Stillede Spørgsmål — WearTry",
+    "metaDescription": "Svar på ofte stillede spørgsmål om bestillinger, forsendelse, returneringer og størrelser hos WearTry.",
+    "title": "Ofte Stillede Spørgsmål",
+    "intro": "Svar på de spørgsmål, vi oftest får — om bestillinger, forsendelse, returneringer og størrelser. Kan du ikke finde det, du søger? Kontakt os via Kontakt-siden.",
+    "searchPlaceholder": "Søg spørgsmål...",
+    "noResults": "Intet spørgsmål matcher din søgning. Prøv et andet ord, eller kontakt os.",
+    "categories": [
+      {
+        "name": "Bestilling & Betaling",
+        "items": [
+          {
+            "question": "Hvordan kan jeg spore min bestilling?",
+            "answer": "Når din bestilling er afsendt, får du et sporingslink via e-mail — brug det når som helst for at se leveringsstatus."
+          },
+          {
+            "question": "Hvilke betalingsmetoder accepterer I?",
+            "answer": "Vi accepterer Visa, Mastercard, American Express, PayPal, Apple Pay og andre store kortnetværk."
+          },
+          {
+            "question": "Kan jeg annullere eller ændre min bestilling?",
+            "answer": "Kontakt os inden for få timer efter bestilling, og vi gør vores bedste for at ændre eller annullere den før afsendelse."
+          }
+        ]
+      },
+      {
+        "name": "Forsendelse",
+        "items": [
+          {
+            "question": "Hvornår ankommer min bestilling?",
+            "answer": "Levering til USA, UK og EU tager 8-15 hverdage, plus 2-5 hverdages behandlingstid — se vores side om Forsendelsesinformation for detaljer."
+          },
+          {
+            "question": "Skal jeg betale told?",
+            "answer": "For de fleste bestillinger under dit lands lavværditærskel opkræves skatter ved betaling, og der skal ikke betales mere. Bestillinger af højere værdi kan kræve yderligere betaling til tolden ved levering — se vores side om Forsendelsesinformation for de nøjagtige grænser."
+          },
+          {
+            "question": "Sender I internationalt?",
+            "answer": "Ja — vi sender i øjeblikket til USA, Storbritannien og EU, med flere destinationer tilføjet regelmæssigt."
+          }
+        ]
+      },
+      {
+        "name": "Returnering & Refundering",
+        "items": [
+          {
+            "question": "Hvordan returnerer jeg en vare?",
+            "answer": "Skriv til support@weartry.shop med dit ordrenummer inden 30 dage efter levering, forudsat at varen er ubrugt med mærker på — vi bekræfter de næste skridt og en returadresse."
+          },
+          {
+            "question": "Hvornår får jeg min refundering?",
+            "answer": "Når vi har modtaget og undersøgt din returnerede vare, refunderer vi din oprindelige betalingsmetode inden for 5-10 hverdage."
+          },
+          {
+            "question": "Hvad hvis min vare ankommer beskadiget eller forkert?",
+            "answer": "Kontakt os inden 7 dage efter levering med billeder af problemet, og vi arrangerer en erstatning eller fuld refundering — inklusive returforsendelse — uden ekstra omkostninger for dig."
+          }
+        ]
+      },
+      {
+        "name": "Størrelse & Produkt",
+        "items": [
+          {
+            "question": "Hvordan vælger jeg den rigtige størrelse?",
+            "answer": "Se størrelsesguiden på hver produktside — mål er angivet i både cm og tommer for at hjælpe dig med at vælge den bedste pasform."
+          },
+          {
+            "question": "Hvilke materialer er jeres produkter lavet af?",
+            "answer": "Vi bruger ansvarligt indkøbte tekstiler — se hver produktside for den nøjagtige materialesammensætning."
+          }
+        ]
+      }
+    ]
   }
 }

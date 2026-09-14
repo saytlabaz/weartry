@@ -429,7 +429,7 @@
     "detailsTitle": "Details",
     "detailsContent": "Made from premium materials with careful attention to fit and finish. Machine washable — see the care label for full instructions.",
     "shippingTitle": "Free Shipping",
-    "shippingContent": "Most orders arrive within 7–20 business days. Free shipping is included on all orders over $50.",
+    "shippingContent": "Most orders arrive within 8–15 business days. Free shipping is included on all orders over $50.",
     "returnsTitle": "Return Policy",
     "returnsContent": "Not the right fit? Return unworn items within 30 days of delivery for a full refund.",
     "relatedHeading": "Products related to this item",
@@ -467,7 +467,7 @@
       },
       {
         "question": "Hoe lang duurt de verzending?",
-        "answer": "De meeste bestellingen komen binnen 7-20 werkdagen aan, afhankelijk van je locatie."
+        "answer": "De meeste bestellingen komen binnen 8-15 werkdagen aan, afhankelijk van je locatie."
       },
       {
         "question": "Wat is jullie retourbeleid?",
@@ -611,7 +611,7 @@
       },
       {
         "question": "How long will delivery take?",
-        "answer": "Most orders arrive within 7–20 business days after dispatch, depending on your location."
+        "answer": "Most orders arrive within 8–15 business days after dispatch, depending on your location."
       }
     ]
   },
@@ -714,5 +714,79 @@
     "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
     "deleting": "Deleting...",
     "invalidPasswordError": "Incorrect password."
+  },
+  "FaqPage": {
+    "metaTitle": "Veelgestelde Vragen — WearTry",
+    "metaDescription": "Antwoorden op veelgestelde vragen over bestellingen, verzending, retouren en maten bij WearTry.",
+    "title": "Veelgestelde Vragen",
+    "intro": "Antwoorden op de vragen die we het vaakst krijgen — over bestellingen, verzending, retouren en maten. Vind je niet wat je zoekt? Neem contact op via de Contactpagina.",
+    "searchPlaceholder": "Zoek vragen...",
+    "noResults": "Geen vraag komt overeen met je zoekopdracht. Probeer een ander woord of neem contact op.",
+    "categories": [
+      {
+        "name": "Bestelling & Betaling",
+        "items": [
+          {
+            "question": "Hoe kan ik mijn bestelling volgen?",
+            "answer": "Zodra je bestelling is verzonden, ontvang je een trackinglink per e-mail — gebruik deze op elk moment om de leveringsstatus te controleren."
+          },
+          {
+            "question": "Welke betaalmethoden accepteren jullie?",
+            "answer": "Wij accepteren Visa, Mastercard, American Express, PayPal, Apple Pay en andere grote kaartnetwerken."
+          },
+          {
+            "question": "Kan ik mijn bestelling annuleren of wijzigen?",
+            "answer": "Neem binnen een paar uur na het plaatsen van je bestelling contact op en wij doen ons best om deze te wijzigen of te annuleren voordat ze wordt verzonden."
+          }
+        ]
+      },
+      {
+        "name": "Verzending",
+        "items": [
+          {
+            "question": "Wanneer komt mijn bestelling aan?",
+            "answer": "Levering naar de VS, VK en EU duurt 8-15 werkdagen, naast 2-5 werkdagen verwerkingstijd — zie onze pagina Verzendinformatie voor details."
+          },
+          {
+            "question": "Moet ik invoerrechten betalen?",
+            "answer": "Voor de meeste bestellingen onder de laagwaardegrens van je land worden belastingen bij het afrekenen geïnd en is er niets meer verschuldigd. Bestellingen van hogere waarde kunnen bij levering extra betaling aan de douane vereisen — zie onze pagina Verzendinformatie voor de exacte grenzen."
+          },
+          {
+            "question": "Verzenden jullie internationaal?",
+            "answer": "Ja — we verzenden momenteel naar de Verenigde Staten, het Verenigd Koninkrijk en de Europese Unie, met regelmatig nieuwe bestemmingen."
+          }
+        ]
+      },
+      {
+        "name": "Retouren & Terugbetalingen",
+        "items": [
+          {
+            "question": "Hoe retourneer ik een artikel?",
+            "answer": "Mail naar support@weartry.shop met je bestelnummer binnen 30 dagen na levering, mits het artikel ongedragen is met labels nog vast — we bevestigen de volgende stappen en een retouradres."
+          },
+          {
+            "question": "Wanneer krijg ik mijn terugbetaling?",
+            "answer": "Zodra we je geretourneerde artikel hebben ontvangen en gecontroleerd, betalen we je oorspronkelijke betaalmethode binnen 5-10 werkdagen terug."
+          },
+          {
+            "question": "Wat als mijn artikel beschadigd of verkeerd aankomt?",
+            "answer": "Neem binnen 7 dagen na levering contact op met foto's van het probleem, en wij regelen een vervanging of volledige terugbetaling — inclusief retourverzending — zonder extra kosten voor jou."
+          }
+        ]
+      },
+      {
+        "name": "Maat & Product",
+        "items": [
+          {
+            "question": "Hoe kies ik de juiste maat?",
+            "answer": "Bekijk de maattabel op elke productpagina — maten staan zowel in cm als inches vermeld, zodat je de beste pasvorm kunt kiezen."
+          },
+          {
+            "question": "Uit welke materialen zijn jullie producten gemaakt?",
+            "answer": "We gebruiken verantwoord geproduceerde stoffen — bekijk elke productpagina voor de exacte materiaalsamenstelling."
+          }
+        ]
+      }
+    ]
   }
 }
