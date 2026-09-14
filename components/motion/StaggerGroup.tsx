@@ -45,8 +45,8 @@ export function StaggerGroup({
 export function StaggerItem({
   children,
   className,
-  offset = 40,
-  scale = 0.985,
+  offset = 50,
+  scale = 0.94,
 }: {
   children: ReactNode;
   className?: string;
@@ -57,6 +57,8 @@ export function StaggerItem({
 
   // Opacity/y/scale only — no animated `filter: blur()`. See BlurFadeUp for
   // why: Safari can leave a blur-animated element permanently invisible.
+  // The spring's slight overshoot (bounce) is what gives the settle its
+  // weight now that blur isn't there to do it.
   const item: Variants = {
     hidden: shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: offset, scale },
     visible: shouldReduceMotion
@@ -65,7 +67,7 @@ export function StaggerItem({
           opacity: 1,
           y: 0,
           scale: 1,
-          transition: { duration: 0.7, ease: [0.44, 0, 0.56, 1] },
+          transition: { type: "spring", visualDuration: 0.7, bounce: 0.24 },
         },
   };
 

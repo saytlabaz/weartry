@@ -20,10 +20,11 @@ interface BlurFadeUpProps {
 
 /**
  * The site's signature scroll-reveal animation: the element starts
- * slightly lower, slightly scaled down and transparent, then rises into
- * place while scale settles and opacity fades in. Repeats on every
- * viewport entry/exit by default — pass once={true} for a single-play
- * element.
+ * lower, scaled down and transparent, then settles into place with a
+ * weighted, slightly-overshooting spring — that overshoot (bounce) is
+ * what reads as "heavy"/premium motion, standing in for the blur effect
+ * this used to lean on. Repeats on every viewport entry/exit by default —
+ * pass once={true} for a single-play element.
  *
  * Deliberately opacity/y/scale only — no animated `filter: blur()`.
  * Safari's compositor has a long-standing bug where an animated blur
@@ -42,8 +43,8 @@ export default function BlurFadeUp({
   className,
   delay = 0,
   duration = 0.7,
-  offset = 44,
-  scale = 0.985,
+  offset = 56,
+  scale = 0.94,
   as = "div",
   once = false,
 }: BlurFadeUpProps) {
@@ -58,9 +59,10 @@ export default function BlurFadeUp({
           y: 0,
           scale: 1,
           transition: {
-            duration,
+            type: "spring",
+            visualDuration: duration,
+            bounce: 0.24,
             delay,
-            ease: [0.44, 0, 0.56, 1],
           },
         },
   };
