@@ -23,9 +23,21 @@ export default async function ContactPage() {
           <p className="text-sm font-medium text-neutral-500">{t("emailLabel")}</p>
           <p className="mt-1 text-neutral-900">{t("email")}</p>
         </div>
-        <div className="rounded-2xl border border-border p-5">
-          <p className="text-sm font-medium text-neutral-500">{t("hoursLabel")}</p>
-          <p className="mt-1 text-neutral-900">{t("hours")}</p>
+        <div className="flex items-start gap-3 rounded-2xl border border-border p-5">
+          <svg
+            className="mt-0.5 h-5 w-5 shrink-0 text-neutral-500"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+          >
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3.5 2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <div>
+            <p className="text-sm font-medium text-neutral-500">{t("hoursLabel")}</p>
+            <p className="mt-1 text-neutral-900">{t("hours")}</p>
+          </div>
         </div>
       </div>
 

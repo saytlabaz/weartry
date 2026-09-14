@@ -322,9 +322,9 @@
     "title": "Bizimlə Əlaqə",
     "intro": "Sifarişiniz, ölçü seçimi və ya başqa bir sual üçün buradayıq.",
     "emailLabel": "E-poçt",
-    "email": "support@weartry.com",
+    "email": "support@weartry.shop",
     "hoursLabel": "Dəstək Saatları",
-    "hours": "Bazar ertəsi–Cümə, 09:00–18:00 (GMT+4)",
+    "hours": "24/7 — həmişə yanınızdayıq",
     "formHeading": "Bizə mesaj göndərin",
     "nameLabel": "Ad",
     "namePlaceholder": "Adınız",
@@ -333,7 +333,9 @@
     "messageLabel": "Mesaj",
     "messagePlaceholder": "Sizə necə kömək edə bilərik?",
     "submit": "Mesajı Göndər",
-    "submitted": "Təşəkkürlər — mesajınızı aldıq, 1–2 iş günü ərzində cavab verəcəyik."
+    "submitted": "Təşəkkürlər — mesajınızı aldıq, 1–2 iş günü ərzində cavab verəcəyik.",
+    "submitError": "Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.",
+    "submitting": "Göndərilir..."
   },
   "Common": {
     "close": "Bağla"

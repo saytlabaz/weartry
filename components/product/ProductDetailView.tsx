@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import type { Product } from "@/lib/data";
 import { testimonials } from "@/lib/data";
 import { pseudoRandom } from "@/lib/pseudo-random";
+import { marketForSeed } from "@/i18n/markets";
 import { useStore } from "@/lib/store-context";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
@@ -104,9 +105,8 @@ export default function ProductDetailView({ product }: { product: Product }) {
                 <StarRating rating={quote.rating} size={12} />
               </div>
               <p className="mt-2 text-sm italic leading-relaxed text-neutral-600">&ldquo;{quote.quote}&rdquo;</p>
-              <p className="mt-2 flex items-center gap-1.5 text-xs font-medium text-neutral-500">
-                <span aria-hidden>{quote.flag}</span>
-                {quote.name}
+              <p className="mt-2 text-xs font-medium text-neutral-500">
+                {quote.name} · {marketForSeed(quote.id).name}
               </p>
             </div>
           </StaggerItem>

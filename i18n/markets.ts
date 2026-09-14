@@ -1,3 +1,5 @@
+import { pseudoRandom } from "@/lib/pseudo-random";
+
 export type MarketCode =
   | "AT" | "BE" | "BG" | "HR" | "CY" | "CZ" | "DK" | "EE" | "FI" | "FR"
   | "DE" | "GR" | "HU" | "IE" | "IT" | "LV" | "LT" | "LU" | "MT" | "NL"
@@ -50,4 +52,15 @@ export const defaultMarket: MarketCode = "US";
 
 export function getMarket(code: string): Market {
   return markets.find((m) => m.code === code) ?? markets.find((m) => m.code === defaultMarket)!;
+}
+
+/**
+ * Deterministically picks one of the 27 EU states + UK + US from a seed
+ * string (e.g. a testimonial id) — same seed always maps to the same
+ * market, so server and client render the same "random" country and
+ * there's no hydration mismatch, while different seeds still spread
+ * across the whole list.
+ */
+export function marketForSeed(seed: string): Market {
+  return markets[pseudoRandom(seed + "market", 0, markets.length)];
 }

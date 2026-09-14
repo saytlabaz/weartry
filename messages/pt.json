@@ -322,7 +322,7 @@
     "title": "Contact Us",
     "intro": "Have a question about your order, sizing, or anything else? We're here to help.",
     "emailLabel": "Email",
-    "email": "support@weartry.com",
+    "email": "support@weartry.shop",
     "hoursLabel": "Support Hours",
     "hours": "Monday–Friday, 9:00–18:00 (GMT+4)",
     "formHeading": "Send us a message",
@@ -333,7 +333,9 @@
     "messageLabel": "Message",
     "messagePlaceholder": "How can we help?",
     "submit": "Send Message",
-    "submitted": "Thanks — we've received your message and will reply within 1–2 business days."
+    "submitted": "Thanks — we've received your message and will reply within 1–2 business days.",
+    "submitError": "Something went wrong. Please try again.",
+    "submitting": "Sending..."
   },
   "Common": {
     "close": "Fechar"

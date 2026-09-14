@@ -11,12 +11,30 @@ export default function ContactForm() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!name || !email || !message) return;
-    // Wire this up to the store's support inbox / helpdesk (e.g. Zendesk, Gorgias) before launch.
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+      if (!res.ok) {
+        setError(true);
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -84,12 +102,18 @@ export default function ContactForm() {
             />
           </div>
         </StaggerItem>
+        {error && (
+          <StaggerItem>
+            <p className="text-sm text-red-600">{t("submitError")}</p>
+          </StaggerItem>
+        )}
         <StaggerItem>
           <button
             type="submit"
-            className="w-full rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white sm:w-auto sm:px-8"
+            disabled={submitting}
+            className="w-full rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white disabled:opacity-60 sm:w-auto sm:px-8"
           >
-            {t("submit")}
+            {submitting ? t("submitting") : t("submit")}
           </button>
         </StaggerItem>
       </StaggerGroup>

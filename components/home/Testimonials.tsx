@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { testimonials } from "@/lib/data";
+import { marketForSeed } from "@/i18n/markets";
 import Marquee from "@/components/motion/Marquee";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 
@@ -49,9 +50,8 @@ export default function Testimonials() {
               </div>
               <p className="text-sm leading-relaxed text-neutral-700">&ldquo;{item.quote}&rdquo;</p>
               <div className="mt-3 flex items-center justify-between gap-2">
-                <p className="flex items-center gap-1.5 text-xs font-medium text-neutral-500">
-                  <span aria-hidden>{item.flag}</span>
-                  {item.name}
+                <p className="text-xs font-medium text-neutral-500">
+                  {item.name} · {marketForSeed(item.id).name}
                 </p>
                 <p className="shrink-0 text-xs font-semibold text-neutral-400">${item.relatedPrice.toFixed(2)}</p>
               </div>
