@@ -30,6 +30,12 @@ interface BlurFadeUpProps {
  * filter combined with a transform can leave the element permanently
  * stuck at its hidden (invisible) state, so the reveal never plays there
  * even though it works fine in Chrome.
+ *
+ * The viewport margin below is also px-based rather than %-based for the
+ * same cross-browser reason: Safari's IntersectionObserver has a history
+ * of mishandling percentage rootMargin values (the trigger silently never
+ * fires), which independently produces the exact same symptom — elements
+ * that stay invisible forever in Safari but reveal fine in Chrome.
  */
 export default function BlurFadeUp({
   children,
@@ -66,7 +72,7 @@ export default function BlurFadeUp({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount: 0.2, margin: "0px 0px -8% 0px" }}
+      viewport={{ once, amount: 0.2, margin: "0px 0px -80px 0px" }}
       variants={variants}
     >
       {children}
