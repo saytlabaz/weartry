@@ -8,6 +8,7 @@ import { useRouter } from "@/i18n/navigation";
 import Toast from "@/components/ui/Toast";
 import EmailChangeModal from "./EmailChangeModal";
 import PasswordChangeModal from "./PasswordChangeModal";
+import DeleteAccountModal from "./DeleteAccountModal";
 
 export interface AccountProfile {
   firstName: string;
@@ -61,6 +62,7 @@ export default function AccountView({ profile }: { profile: AccountProfile }) {
   const [profileError, setProfileError] = useState(false);
   const [emailModalOpen, setEmailModalOpen] = useState(false);
   const [passwordModalOpen, setPasswordModalOpen] = useState(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
 
   async function handleSaveProfile(e: FormEvent<HTMLFormElement>) {
@@ -213,12 +215,37 @@ export default function AccountView({ profile }: { profile: AccountProfile }) {
         </motion.button>
       </motion.form>
 
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+        className="flex items-center justify-between gap-4 rounded-2xl border border-red-200 bg-red-50 p-6"
+      >
+        <div className="min-w-0">
+          <p className="text-sm font-semibold text-red-700">{t("dangerZoneHeading")}</p>
+          <p className="mt-1 text-xs text-red-600">{t("dangerZoneDescription")}</p>
+        </div>
+        <motion.button
+          type="button"
+          onClick={() => setDeleteModalOpen(true)}
+          {...tapHover}
+          className="shrink-0 rounded-full border border-red-300 bg-white px-4 py-2 text-xs font-medium text-red-700 hover:bg-red-100"
+        >
+          {t("deleteAccountButton")}
+        </motion.button>
+      </motion.div>
+
       <EmailChangeModal open={emailModalOpen} onClose={() => setEmailModalOpen(false)} onSuccess={handleEmailChanged} />
       <PasswordChangeModal
         open={passwordModalOpen}
         onClose={() => setPasswordModalOpen(false)}
         hasPassword={hasPassword}
         onSuccess={handlePasswordChanged}
+      />
+      <DeleteAccountModal
+        open={deleteModalOpen}
+        onClose={() => setDeleteModalOpen(false)}
+        hasPassword={hasPassword}
       />
     </div>
   );

@@ -27,11 +27,16 @@ export default function ForgotPasswordView() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [blockedMinutes, setBlockedMinutes] = useState<number | null>(null);
+  const [attemptsLeft, setAttemptsLeft] = useState<number | null>(null);
 
   function errorMessage(code: string | null) {
     if (!code) return null;
     if (code === "no_account") return t("otpNoAccount");
-    if (code === "invalid_code") return t("otpInvalidCode");
+    if (code === "invalid_code") {
+      return attemptsLeft !== null
+        ? `${t("otpInvalidCode")} ${t("attemptsLeftWarning", { count: attemptsLeft })}`
+        : t("otpInvalidCode");
+    }
     if (code === "code_expired") return t("otpCodeExpired");
     if (code === "weak_password") return t("weakPassword");
     if (code === "password_mismatch") return t("passwordMismatch");
@@ -90,7 +95,12 @@ export default function ForgotPasswordView() {
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        if (body.error === "blocked") setBlockedMinutes(body.minutesLeft ?? 60);
+        if (body.error === "blocked") {
+          setBlockedMinutes(body.minutesLeft ?? 60);
+          setAttemptsLeft(null);
+        } else {
+          setAttemptsLeft(typeof body.attemptsLeft === "number" ? body.attemptsLeft : null);
+        }
         setError(body.error ?? "unknown");
         setLoading(false);
         return;

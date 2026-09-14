@@ -55,6 +55,7 @@ export default function AuthView() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [blockedMinutes, setBlockedMinutes] = useState<number | null>(null);
+  const [attemptsLeft, setAttemptsLeft] = useState<number | null>(null);
 
   function homeHref() {
     return locale === defaultLocale ? "/" : `/${locale}`;
@@ -62,11 +63,19 @@ export default function AuthView() {
 
   function errorMessage(code: string | null) {
     if (!code) return null;
-    if (code === "invalid_credentials") return t("invalidCredentials");
+    if (code === "invalid_credentials") {
+      return attemptsLeft !== null
+        ? `${t("invalidCredentials")} ${t("attemptsLeftWarning", { count: attemptsLeft })}`
+        : t("invalidCredentials");
+    }
     if (code === "blocked") return t("blockedError", { minutes: blockedMinutes ?? 60 });
     if (code === "weak_password") return t("weakPassword");
     if (code === "password_mismatch") return t("passwordMismatch");
-    if (code === "invalid_code") return t("otpInvalidCode");
+    if (code === "invalid_code") {
+      return attemptsLeft !== null
+        ? `${t("otpInvalidCode")} ${t("attemptsLeftWarning", { count: attemptsLeft })}`
+        : t("otpInvalidCode");
+    }
     if (code === "code_expired") return t("otpCodeExpired");
     return t("otpGenericError");
   }
@@ -84,8 +93,11 @@ export default function AuthView() {
       if (res?.error) {
         if (res.code === "blocked") {
           setBlockedMinutes(60);
+          setAttemptsLeft(null);
           setError("blocked");
         } else {
+          const match = res.code?.match(/^invalid_credentials_(\d+)$/);
+          setAttemptsLeft(match ? Number(match[1]) : null);
           setError("invalid_credentials");
         }
         setLoading(false);
@@ -155,7 +167,12 @@ export default function AuthView() {
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        if (body.error === "blocked") setBlockedMinutes(body.minutesLeft ?? 60);
+        if (body.error === "blocked") {
+          setBlockedMinutes(body.minutesLeft ?? 60);
+          setAttemptsLeft(null);
+        } else {
+          setAttemptsLeft(typeof body.attemptsLeft === "number" ? body.attemptsLeft : null);
+        }
         setError(body.error ?? "unknown");
         setLoading(false);
         return;

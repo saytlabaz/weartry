@@ -32,8 +32,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "server_error" }, { status: 500 });
   }
   if (!pending || pending.code !== code) {
-    await recordFailedAttempt(email, "otp_verify");
-    return NextResponse.json({ error: "invalid_code" }, { status: 400 });
+    const attempt = await recordFailedAttempt(email, "otp_verify");
+    if (attempt.blocked) {
+      return NextResponse.json({ error: "blocked", minutesLeft: attempt.minutesLeft }, { status: 429 });
+    }
+    return NextResponse.json({ error: "invalid_code", attemptsLeft: attempt.attemptsLeft }, { status: 400 });
   }
   if (new Date(pending.expires) < new Date()) {
     return NextResponse.json({ error: "code_expired" }, { status: 400 });

@@ -9,34 +9,6 @@ function CardBadge({ children, label }: { children: ReactNode; label: string }) 
   );
 }
 
-export function GooglePayIcon() {
-  return (
-    <CardBadge label="Google Pay">
-      <text x="9" y="14" fontSize="9" fontWeight="700" fill="#5F6368">
-        <tspan fill="#4285F4">G</tspan>
-        <tspan fill="#EA4335">o</tspan>
-        <tspan fill="#FBBC05">o</tspan>
-        <tspan fill="#4285F4">g</tspan>
-        <tspan fill="#34A853">l</tspan>
-        <tspan fill="#EA4335">e</tspan>
-      </text>
-      <text x="27" y="14" textAnchor="end" fontSize="9" fontWeight="500" fill="#5F6368">
-        Pay
-      </text>
-    </CardBadge>
-  );
-}
-
-export function CardIcon() {
-  return (
-    <svg className="h-full w-auto" viewBox="0 0 32 20" aria-label="Card" role="img">
-      <rect x="0.5" y="0.5" width="31" height="19" rx="2.5" fill="white" stroke="currentColor" strokeOpacity="0.3" />
-      <rect x="0.5" y="5" width="31" height="3" fill="currentColor" fillOpacity="0.7" />
-      <rect x="4" y="13" width="8" height="2" rx="1" fill="currentColor" fillOpacity="0.4" />
-    </svg>
-  );
-}
-
 export function VisaIcon() {
   return (
     <CardBadge label="Visa">

@@ -9,7 +9,7 @@ import { useStore } from "@/lib/store-context";
 import { markets } from "@/i18n/markets";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
-import { ApplePayIcon, GooglePayIcon, CardIcon } from "@/components/layout/PaymentIcons";
+import Image from "next/image";
 
 type PaymentMethod = "apple" | "google" | "card";
 
@@ -21,6 +21,15 @@ interface CheckoutUser {
 const inputClass =
   "w-full min-h-11 rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none focus:border-neutral-400";
 const labelClass = "mb-1.5 block text-sm font-medium text-neutral-700";
+
+function Required() {
+  return (
+    <span className="text-red-500" aria-hidden="true">
+      {" "}
+      *
+    </span>
+  );
+}
 
 function SuccessCheck() {
   return (
@@ -151,6 +160,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                 <div className="sm:col-span-2">
                   <label htmlFor="checkout-name" className={labelClass}>
                     {t("fullNameLabel")}
+                    <Required />
                   </label>
                   <input
                     id="checkout-name"
@@ -164,6 +174,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                 <div>
                   <label htmlFor="checkout-email" className={labelClass}>
                     {t("emailLabel")}
+                    <Required />
                   </label>
                   <input
                     id="checkout-email"
@@ -177,6 +188,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                 <div>
                   <label htmlFor="checkout-phone" className={labelClass}>
                     {t("phoneLabel")}
+                    <Required />
                   </label>
                   <input
                     id="checkout-phone"
@@ -198,6 +210,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                 <div>
                   <label htmlFor="checkout-country" className={labelClass}>
                     {t("countryLabel")}
+                    <Required />
                   </label>
                   <select
                     id="checkout-country"
@@ -219,6 +232,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                 <div>
                   <label htmlFor="checkout-city" className={labelClass}>
                     {t("cityLabel")}
+                    <Required />
                   </label>
                   <input
                     id="checkout-city"
@@ -232,6 +246,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                 <div className="sm:col-span-2">
                   <label htmlFor="checkout-address1" className={labelClass}>
                     {t("addressLine1Label")}
+                    <Required />
                   </label>
                   <input
                     id="checkout-address1"
@@ -257,6 +272,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                 <div>
                   <label htmlFor="checkout-postal" className={labelClass}>
                     {t("postalCodeLabel")}
+                    <Required />
                   </label>
                   <input
                     id="checkout-postal"
@@ -277,9 +293,21 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
               <div className="mt-4 grid grid-cols-3 gap-3">
                 {(
                   [
-                    { key: "apple", icon: <ApplePayIcon />, label: t("paymentApplePay") },
-                    { key: "google", icon: <GooglePayIcon />, label: t("paymentGooglePay") },
-                    { key: "card", icon: <CardIcon />, label: t("paymentCard") },
+                    {
+                      key: "apple",
+                      icon: <Image src="/payment/apple-pay.webp" alt="Apple Pay" width={40} height={20} className="h-4 w-auto object-contain" />,
+                      label: t("paymentApplePay"),
+                    },
+                    {
+                      key: "google",
+                      icon: <Image src="/payment/google-pay.webp" alt="Google Pay" width={40} height={20} className="h-4 w-auto object-contain" />,
+                      label: t("paymentGooglePay"),
+                    },
+                    {
+                      key: "card",
+                      icon: <Image src="/payment/bank-card.png" alt="Card" width={20} height={20} className="h-5 w-auto object-contain" />,
+                      label: t("paymentCard"),
+                    },
                   ] as const
                 ).map((option) => (
                   <button
@@ -290,7 +318,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                       method === option.key ? "border-neutral-900 bg-muted/50" : "border-border hover:border-neutral-400"
                     }`}
                   >
-                    <span className="h-5">{option.icon}</span>
+                    <span className="flex h-5 items-center justify-center">{option.icon}</span>
                     <span className="text-xs font-medium">{option.label}</span>
                   </button>
                 ))}
@@ -310,12 +338,14 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                       <div className="sm:col-span-2">
                         <label htmlFor="checkout-card-name" className={labelClass}>
                           {t("cardNameLabel")}
+                          <Required />
                         </label>
                         <input id="checkout-card-name" name="cardName" type="text" required className={inputClass} />
                       </div>
                       <div className="sm:col-span-2">
                         <label htmlFor="checkout-card-number" className={labelClass}>
                           {t("cardNumberLabel")}
+                          <Required />
                         </label>
                         <input
                           id="checkout-card-number"
@@ -330,6 +360,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                       <div>
                         <label htmlFor="checkout-card-expiry" className={labelClass}>
                           {t("cardExpiryLabel")}
+                          <Required />
                         </label>
                         <input
                           id="checkout-card-expiry"
@@ -343,6 +374,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                       <div>
                         <label htmlFor="checkout-card-cvv" className={labelClass}>
                           {t("cardCvvLabel")}
+                          <Required />
                         </label>
                         <input
                           id="checkout-card-cvv"

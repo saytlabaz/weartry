@@ -14,7 +14,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "missing_fields" }, { status: 400 });
   }
 
-  const rateLimitKey = session.user.email ?? session.user.id;
+  // The user's id, not email, is the rate-limit key — email is mutable and
+  // this route's whole job is changing it, so keying on it here specifically
+  // would be self-defeating.
+  const rateLimitKey = session.user.id;
   const { blocked, minutesLeft } = await checkBlocked(rateLimitKey, "otp_verify");
   if (blocked) {
     return NextResponse.json({ error: "blocked", minutesLeft }, { status: 429 });
@@ -34,8 +37,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "server_error" }, { status: 500 });
   }
   if (!pending || pending.code !== code) {
-    await recordFailedAttempt(rateLimitKey, "otp_verify");
-    return NextResponse.json({ error: "invalid_code" }, { status: 400 });
+    const attempt = await recordFailedAttempt(rateLimitKey, "otp_verify");
+    if (attempt.blocked) {
+      return NextResponse.json({ error: "blocked", minutesLeft: attempt.minutesLeft }, { status: 429 });
+    }
+    return NextResponse.json({ error: "invalid_code", attemptsLeft: attempt.attemptsLeft }, { status: 400 });
   }
   if (new Date(pending.expires) < new Date()) {
     return NextResponse.json({ error: "code_expired" }, { status: 400 });

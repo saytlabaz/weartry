@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "server_error" }, { status: 500 });
   }
 
-  await sendOtpEmail(email, code, locale ?? "az");
+  await sendOtpEmail(email, code, locale ?? "az", "register");
 
   return NextResponse.json({ success: true });
 }

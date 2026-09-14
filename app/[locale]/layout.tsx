@@ -12,6 +12,7 @@ import CookieConsent from "@/components/layout/CookieConsent";
 import CartDrawer from "@/components/layout/CartDrawer";
 import PageTransition from "@/components/layout/PageTransition";
 import CustomCursor from "@/components/motion/CustomCursor";
+import HeroSplash from "@/components/home/HeroSplash";
 import { MarketProvider } from "@/lib/market-context";
 import { StoreProvider } from "@/lib/store-context";
 import "../globals.css";
@@ -84,6 +85,7 @@ export default async function LocaleLayout({
           <SessionProvider>
             <MarketProvider>
               <StoreProvider>
+                <HeroSplash />
                 <Header />
                 <main className="flex-1">
                   <PageTransition>{children}</PageTransition>

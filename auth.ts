@@ -17,6 +17,16 @@ class BlockedError extends CredentialsSignin {
   code = "blocked";
 }
 
+// Carries the remaining-attempts count in `code` (the only field Auth.js
+// forwards to the client for a thrown CredentialsSignin) so the login form
+// can show "N cəhd qaldı" instead of a flat "wrong password" every time.
+class InvalidCredentialsError extends CredentialsSignin {
+  constructor(attemptsLeft: number) {
+    super();
+    this.code = `invalid_credentials_${attemptsLeft}`;
+  }
+}
+
 // Config is built lazily (per request) rather than at module scope so that
 // SupabaseAdapter's createClient() call — which throws synchronously when
 // its URL/key are missing — only runs when a request actually needs auth,
@@ -52,14 +62,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth(() => ({
         const { data: user } = await supabaseNextAuth.from("users").select("*").eq("email", email).maybeSingle();
 
         if (!user || !user.password_hash) {
-          await recordFailedAttempt(email, "login_password");
-          return null;
+          const attempt = await recordFailedAttempt(email, "login_password");
+          if (attempt.blocked) throw new BlockedError();
+          throw new InvalidCredentialsError(attempt.attemptsLeft);
         }
 
         const valid = await verifyPassword(password, user.password_hash);
         if (!valid) {
-          await recordFailedAttempt(email, "login_password");
-          return null;
+          const attempt = await recordFailedAttempt(email, "login_password");
+          if (attempt.blocked) throw new BlockedError();
+          throw new InvalidCredentialsError(attempt.attemptsLeft);
         }
 
         await clearAttempts(email, "login_password");

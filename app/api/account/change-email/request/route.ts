@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseNextAuth } from "@/lib/supabase/admin";
 import { safeAuth } from "@/lib/auth/safe-auth";
+import { getCurrentEmail } from "@/lib/auth/current-user";
 import { generateOtpCode, sendOtpEmail } from "@/lib/auth/send-otp-email";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -11,12 +12,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
+  const currentEmail = await getCurrentEmail(session.user.id);
+
   const { newEmail: rawEmail, locale } = await req.json();
   const newEmail = typeof rawEmail === "string" ? rawEmail.trim().toLowerCase() : "";
   if (!EMAIL_RE.test(newEmail)) {
     return NextResponse.json({ error: "invalid_email" }, { status: 400 });
   }
-  if (newEmail === session.user.email?.toLowerCase()) {
+  if (newEmail === currentEmail?.toLowerCase()) {
     return NextResponse.json({ error: "same_email" }, { status: 400 });
   }
 
@@ -40,7 +43,7 @@ export async function POST(req: NextRequest) {
   await supabaseNextAuth.from("pending_changes").delete().eq("user_id", session.user.id).eq("change_type", "email");
   const { error: insertError } = await supabaseNextAuth.from("pending_changes").insert({
     user_id: session.user.id,
-    identifier: session.user.email ?? newEmail,
+    identifier: currentEmail ?? newEmail,
     change_type: "email",
     new_value: newEmail,
     code,
@@ -52,6 +55,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "server_error" }, { status: 500 });
   }
 
-  await sendOtpEmail(newEmail, code, locale ?? "az");
+  await sendOtpEmail(newEmail, code, locale ?? "az", "email_change");
   return NextResponse.json({ success: true });
 }

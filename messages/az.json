@@ -470,6 +470,7 @@
     "forgotPasswordLink": "Şifrəni unutdum?",
     "invalidCredentials": "Email və ya şifrə yanlışdır.",
     "blockedError": "Çox sayda səhv cəhd. {minutes} dəqiqə sonra yenidən cəhd edin.",
+    "attemptsLeftWarning": "{count} cəhd qaldı.",
     "weakPassword": "Şifrə ən azı 8 simvoldan ibarət olmalıdır.",
     "passwordMismatch": "Şifrələr uyğun gəlmir.",
     "otpSendCode": "Kod göndər",
@@ -625,6 +626,15 @@
     "changePasswordIntro": "Sizin olduğunuzu təsdiqləmək üçün email-inizə kod göndərəcəyik.",
     "addPasswordIntro": "Hesabınız Google ilə yaradılıb və hələ şifrəsi yoxdur. Şifrə təyin etmək üçün email-inizə kod göndərəcəyik.",
     "codeSentToYourEmail": "Email-inizə kod göndərdik.",
-    "startShoppingButton": "Alış-verişə başla"
+    "startShoppingButton": "Alış-verişə başla",
+    "dangerZoneHeading": "Hesabı Sil",
+    "dangerZoneDescription": "Hesabınızı və ona bağlı bütün məlumatları həmişəlik silin.",
+    "deleteAccountButton": "Hesabı Sil",
+    "deleteAccountModalTitle": "Hesabı Sil",
+    "deleteAccountWarning": "Bu, hesabınızı, sifarişlərinizi və istək siyahınızı həmişəlik siləcək. Geri qaytarılması mümkün deyil.",
+    "deleteAccountGoogleIntro": "Hesabınızın şifrəsi olmadığı üçün, silmədən əvvəl sizin olduğunuzu təsdiqləmək üçün email-inizə kod göndərəcəyik.",
+    "deleteAccountConfirmCheckbox": "Bunun geri qaytarıla bilməyəcəyini anlayıram.",
+    "deleting": "Silinir...",
+    "invalidPasswordError": "Şifrə yanlışdır."
   }
 }

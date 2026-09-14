@@ -69,6 +69,10 @@ export default function CustomCursor() {
       root.classList.remove("cursor-hidden");
     }
 
+    function handleWindowMouseOut(e: MouseEvent) {
+      if (!e.relatedTarget) handleLeave();
+    }
+
     function frame() {
       dot!.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0)`;
       ringX = lerp(ringX, pointerX, 0.2);
@@ -80,8 +84,14 @@ export default function CustomCursor() {
     document.addEventListener("mousemove", handleMouseMove, { passive: true });
     document.addEventListener("mouseover", handleMouseOver, { passive: true });
     document.addEventListener("mouseout", handleMouseOut, { passive: true });
-    document.documentElement.addEventListener("mouseleave", handleLeave, { passive: true });
-    document.documentElement.addEventListener("mouseenter", handleEnter, { passive: true });
+    // Bound to `window`, not `document.documentElement` — the latter is a
+    // real DOM node that page transitions mutate (large subtrees unmount
+    // and remount under the pointer), which can fire spurious mouseleave/
+    // mouseenter on it and leave the cursor stuck hidden. `window`'s
+    // leave/enter only fire when the pointer actually crosses the viewport
+    // edge, so it isn't affected by DOM churn during route changes.
+    window.addEventListener("mouseout", handleWindowMouseOut, { passive: true });
+    window.addEventListener("mouseover", handleEnter, { passive: true });
     window.addEventListener("blur", handleLeave);
 
     rafId = requestAnimationFrame(frame);
@@ -91,8 +101,8 @@ export default function CustomCursor() {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseover", handleMouseOver);
       document.removeEventListener("mouseout", handleMouseOut);
-      document.documentElement.removeEventListener("mouseleave", handleLeave);
-      document.documentElement.removeEventListener("mouseenter", handleEnter);
+      window.removeEventListener("mouseout", handleWindowMouseOut);
+      window.removeEventListener("mouseover", handleEnter);
       window.removeEventListener("blur", handleLeave);
       root.classList.remove("cursor-custom", "cursor-hot", "cursor-hidden");
     };

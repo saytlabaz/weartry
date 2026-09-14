@@ -21,7 +21,10 @@ export async function checkBlocked(
   return { blocked: false };
 }
 
-export async function recordFailedAttempt(identifier: string, attemptType: string): Promise<void> {
+export async function recordFailedAttempt(
+  identifier: string,
+  attemptType: string
+): Promise<{ blocked: boolean; attemptsLeft: number; minutesLeft?: number }> {
   const { data } = await supabaseNextAuth
     .from("auth_attempts")
     .select("*")
@@ -30,7 +33,8 @@ export async function recordFailedAttempt(identifier: string, attemptType: strin
     .maybeSingle();
 
   const newCount = (data?.failed_count ?? 0) + 1;
-  const blockedUntil = newCount >= MAX_ATTEMPTS ? new Date(Date.now() + BLOCK_DURATION_MS).toISOString() : null;
+  const nowBlocked = newCount >= MAX_ATTEMPTS;
+  const blockedUntil = nowBlocked ? new Date(Date.now() + BLOCK_DURATION_MS).toISOString() : null;
 
   await supabaseNextAuth.from("auth_attempts").upsert(
     {
@@ -42,6 +46,12 @@ export async function recordFailedAttempt(identifier: string, attemptType: strin
     },
     { onConflict: "identifier,attempt_type" }
   );
+
+  return {
+    blocked: nowBlocked,
+    attemptsLeft: Math.max(0, MAX_ATTEMPTS - newCount),
+    minutesLeft: nowBlocked ? Math.ceil(BLOCK_DURATION_MS / 60000) : undefined,
+  };
 }
 
 export async function clearAttempts(identifier: string, attemptType: string): Promise<void> {

@@ -470,6 +470,7 @@
     "forgotPasswordLink": "Forgot password?",
     "invalidCredentials": "Email or password is incorrect.",
     "blockedError": "Too many failed attempts. Try again in {minutes} minutes.",
+    "attemptsLeftWarning": "{count, plural, one {# attempt left.} other {# attempts left.}}",
     "weakPassword": "Password must be at least 8 characters.",
     "passwordMismatch": "Passwords don't match.",
     "otpSendCode": "Send code",
@@ -625,6 +626,15 @@
     "changePasswordIntro": "We'll send a verification code to your email to confirm it's you.",
     "addPasswordIntro": "Your account was created with Google and has no password yet. We'll send a code to your email to set one.",
     "codeSentToYourEmail": "We sent a code to your email.",
-    "startShoppingButton": "Start Shopping"
+    "startShoppingButton": "Start Shopping",
+    "dangerZoneHeading": "Delete Account",
+    "dangerZoneDescription": "Permanently delete your account and all associated data.",
+    "deleteAccountButton": "Delete Account",
+    "deleteAccountModalTitle": "Delete Account",
+    "deleteAccountWarning": "This will permanently delete your account, orders, and wishlist. This cannot be undone.",
+    "deleteAccountGoogleIntro": "Since your account has no password, we'll email you a code to confirm it's really you before deleting it.",
+    "deleteAccountConfirmCheckbox": "I understand this cannot be undone.",
+    "deleting": "Deleting...",
+    "invalidPasswordError": "Incorrect password."
   }
 }

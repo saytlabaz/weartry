@@ -30,6 +30,8 @@ export default function EmailChangeModal({
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [blockedMinutes, setBlockedMinutes] = useState<number | null>(null);
+  const [attemptsLeft, setAttemptsLeft] = useState<number | null>(null);
 
   function reset() {
     setStep("email");
@@ -49,8 +51,13 @@ export default function EmailChangeModal({
     if (code === "invalid_email") return tAuth("otpInvalidEmail");
     if (code === "same_email") return t("sameEmailError");
     if (code === "email_taken") return t("emailTakenError");
-    if (code === "invalid_code") return tAuth("otpInvalidCode");
+    if (code === "invalid_code") {
+      return attemptsLeft !== null
+        ? `${tAuth("otpInvalidCode")} ${tAuth("attemptsLeftWarning", { count: attemptsLeft })}`
+        : tAuth("otpInvalidCode");
+    }
     if (code === "code_expired") return tAuth("otpCodeExpired");
+    if (code === "blocked") return tAuth("blockedError", { minutes: blockedMinutes ?? 60 });
     return tAuth("otpGenericError");
   }
 
@@ -92,6 +99,12 @@ export default function EmailChangeModal({
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
+        if (body.error === "blocked") {
+          setBlockedMinutes(body.minutesLeft ?? 60);
+          setAttemptsLeft(null);
+        } else {
+          setAttemptsLeft(typeof body.attemptsLeft === "number" ? body.attemptsLeft : null);
+        }
         setError(body.error ?? "unknown");
         return;
       }
