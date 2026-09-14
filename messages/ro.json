@@ -392,6 +392,8 @@
     "email": "support@weartry.shop",
     "hoursLabel": "Support Hours",
     "hours": "Monday–Friday, 9:00–18:00 (GMT+4)",
+    "whatsappLabel": "Contact urgent",
+    "whatsappText": "Pentru probleme urgente, scrieți-ne pe WhatsApp",
     "formHeading": "Send us a message",
     "nameLabel": "Name",
     "namePlaceholder": "Your name",

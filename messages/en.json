@@ -392,6 +392,8 @@
     "email": "support@weartry.shop",
     "hoursLabel": "Support Hours",
     "hours": "24/7 — we're always here for you",
+    "whatsappLabel": "Urgent Contact",
+    "whatsappText": "For urgent matters, message us on WhatsApp",
     "formHeading": "Send us a message",
     "nameLabel": "Name",
     "namePlaceholder": "Your name",

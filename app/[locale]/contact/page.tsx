@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { MessageCircle } from "lucide-react";
 import { safeAuth } from "@/lib/auth/safe-auth";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import ContactForm from "@/components/contact/ContactForm";
+
+const WHATSAPP_NUMBER_DISPLAY = "+994 50 299 69 05";
+const WHATSAPP_LINK = "https://wa.me/994502996905";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Contact");
@@ -41,6 +45,20 @@ export default async function ContactPage() {
             <p className="mt-1 text-neutral-900">{t("hours")}</p>
           </div>
         </div>
+
+        <a
+          href={WHATSAPP_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-start gap-3 rounded-2xl border border-border p-5 transition-colors hover:border-[#25D366]/60 hover:bg-[#25D366]/5"
+        >
+          <MessageCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#25D366]" strokeWidth={1.6} />
+          <div>
+            <p className="text-sm font-medium text-neutral-500">{t("whatsappLabel")}</p>
+            <p className="mt-1 text-neutral-900">{t("whatsappText")}</p>
+            <p className="mt-1 text-sm text-neutral-600">{WHATSAPP_NUMBER_DISPLAY}</p>
+          </div>
+        </a>
       </div>
 
       <div className="mt-12">

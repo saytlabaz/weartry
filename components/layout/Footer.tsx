@@ -16,7 +16,7 @@ export default function Footer() {
       links: [
         { href: "/contact", label: t("helpContact") },
         { href: "/shipping-info", label: t("helpShipping") },
-        { href: "/#faq", label: t("helpFaq") },
+        { href: "/faq", label: t("helpFaq") },
       ],
     },
     {
