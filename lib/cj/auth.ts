@@ -28,6 +28,14 @@ async function requestNewToken(): Promise<{ token: string; refreshToken: string;
     throw new Error("CJ_API_EMAIL / CJ_API_KEY are not configured");
   }
 
+  // TEMPORARY — diagnosing a persistent "APIkey is wrong" error without
+  // ever putting the real secret in a log line or in Claude's own
+  // context: only a non-reversible length and the email's domain half.
+  // Remove once the CJ_API_EMAIL/CJ_API_KEY mismatch is found.
+  console.error(
+    `CJ auth debug: apiKey.length=${apiKey.length}, apiEmail=***@${apiEmail.split("@")[1] ?? "(no @ found)"}`
+  );
+
   const res = await fetch(`${CJ_API_BASE_URL}/v1/authentication/getAccessToken`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
