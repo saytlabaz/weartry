@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 interface BlurFadeUpProps {
   children: ReactNode;
@@ -66,6 +66,22 @@ export default function BlurFadeUp({
   const shouldReduceMotion = useReducedMotion();
   const resolvedOffset = immediate ? Math.min(offset, 28) : offset;
 
+  // Framer Motion renders server-side HTML using the *target* (`animate`)
+  // styles, not `initial` — confirmed by inspecting raw SSR output, which
+  // showed the final opacity:1/transform:none straight away. With
+  // `animate="visible"` true from the very first render, there's never an
+  // actual state change for Framer to animate *between*, so the reveal
+  // silently never plays on a fresh page load — it just appears fully
+  // formed. Flipping `animate` from "hidden" to "visible" only after a
+  // real mount (via this effect) gives it a genuine transition to run.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    // There's no way to detect "client has hydrated" without an effect —
+    // that's the one thing effects are for that render-time logic can't do.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (immediate) setMounted(true);
+  }, [immediate]);
+
   const variants: Variants = {
     hidden: shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: resolvedOffset, scale: immediate ? 1 : scale },
     visible: shouldReduceMotion
@@ -97,7 +113,7 @@ export default function BlurFadeUp({
 
   if (immediate) {
     return (
-      <MotionTag className={className} initial="hidden" animate="visible" variants={variants}>
+      <MotionTag className={className} initial="hidden" animate={mounted ? "visible" : "hidden"} variants={variants}>
         {children}
       </MotionTag>
     );

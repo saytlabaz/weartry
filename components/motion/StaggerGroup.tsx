@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 /**
  * Wraps a list of children (e.g. product cards) and staggers the
@@ -36,9 +36,21 @@ export function StaggerGroup({
     },
   };
 
+  // See BlurFadeUp for why this mount-gate exists: Framer renders SSR
+  // output using the `animate` target directly, so `animate="visible"`
+  // from the first render never actually transitions from anything and
+  // the reveal silently doesn't play on a fresh page load.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    // There's no way to detect "client has hydrated" without an effect —
+    // that's the one thing effects are for that render-time logic can't do.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (immediate) setMounted(true);
+  }, [immediate]);
+
   if (immediate) {
     return (
-      <motion.div className={className} initial="hidden" animate="visible" variants={container}>
+      <motion.div className={className} initial="hidden" animate={mounted ? "visible" : "hidden"} variants={container}>
         {children}
       </motion.div>
     );
