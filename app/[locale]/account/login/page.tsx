@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import AuthView from "@/components/account/AuthView";
 
@@ -8,5 +9,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function LoginPage() {
-  return <AuthView />;
+  return (
+    <Suspense fallback={null}>
+      <AuthView />
+    </Suspense>
+  );
 }

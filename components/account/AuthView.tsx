@@ -1,16 +1,19 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
+import { signIn } from "next-auth/react";
 import { Link } from "@/i18n/navigation";
 import { defaultLocale } from "@/i18n/locales";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
+import PasswordInput from "@/components/ui/PasswordInput";
 import GoogleButton from "./GoogleButton";
 
 type Mode = "login" | "register";
-type Step = "form" | "code";
+type RegisterStep = "form" | "code";
 
 function Divider({ label }: { label: string }) {
   return (
@@ -22,90 +25,117 @@ function Divider({ label }: { label: string }) {
   );
 }
 
+function CheckBadge() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="12" r="10" />
+      <path d="m8 12.5 2.5 2.5L16 9.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 const inputClass =
   "w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none focus:border-neutral-400";
 const labelClass = "mb-1.5 block text-sm font-medium text-neutral-700";
+const tapHover = { whileHover: { scale: 1.02 }, whileTap: { scale: 0.97 } };
 
 export default function AuthView() {
   const t = useTranslations("Auth");
   const locale = useLocale();
   const shouldReduceMotion = useReducedMotion();
+  const searchParams = useSearchParams();
+  const showResetSuccess = searchParams.get("resetSuccess") === "1";
+
   const [mode, setMode] = useState<Mode>("login");
-  const [step, setStep] = useState<Step>("form");
+  const [registerStep, setRegisterStep] = useState<RegisterStep>("form");
+  const [accountExists, setAccountExists] = useState(false);
   const [email, setEmail] = useState("");
-  const [fullName, setFullName] = useState("");
-  const [gender, setGender] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [blockedMinutes, setBlockedMinutes] = useState<number | null>(null);
+
+  function homeHref() {
+    return locale === defaultLocale ? "/" : `/${locale}`;
+  }
 
   function errorMessage(code: string | null) {
     if (!code) return null;
+    if (code === "invalid_credentials") return t("invalidCredentials");
+    if (code === "blocked") return t("blockedError", { minutes: blockedMinutes ?? 60 });
+    if (code === "weak_password") return t("weakPassword");
+    if (code === "password_mismatch") return t("passwordMismatch");
     if (code === "invalid_code") return t("otpInvalidCode");
     if (code === "code_expired") return t("otpCodeExpired");
-    if (code === "invalid_email") return t("otpInvalidEmail");
-    if (code === "no_account") return t("otpNoAccount");
-    if (code === "account_exists") return t("otpAccountExists");
-    // "server_error" and anything unrecognized both fall back to a generic
-    // message — the specifics are logged server-side (see otp/verify's
-    // console.error calls), not something the user needs to parse.
     return t("otpGenericError");
   }
 
-  /** Which tab the error implies the user should switch to, if any. */
-  function errorSwitchTarget(code: string | null): Mode | null {
-    if (code === "no_account") return "register";
-    if (code === "account_exists") return "login";
-    return null;
-  }
-
-  function renderError() {
-    if (!displayError) return null;
-    const target = errorSwitchTarget(error);
-    return (
-      <StaggerItem>
-        <p className="text-center text-sm text-red-600">
-          {displayError}
-          {target && (
-            <>
-              {" "}
-              <button
-                type="button"
-                onClick={() => switchMode(target)}
-                className="font-medium underline underline-offset-2"
-              >
-                {target === "register" ? t("switchToRegister") : t("switchToLogin")}
-              </button>
-            </>
-          )}
-        </p>
-      </StaggerItem>
-    );
-  }
-
-  async function handleRequestCode(e: FormEvent<HTMLFormElement>) {
+  async function handleLogin(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
     const data = new FormData(e.currentTarget);
     const emailValue = String(data.get("email") ?? "").trim();
-    if (mode === "register") {
-      setFullName(String(data.get("name") ?? "").trim());
-      setGender(String(data.get("gender") ?? ""));
-    }
+    const password = String(data.get("password") ?? "");
     setEmail(emailValue);
     setLoading(true);
     try {
-      const res = await fetch("/api/auth/otp/request", {
+      const res = await signIn("credentials", { email: emailValue, password, redirect: false });
+      if (res?.error) {
+        if (res.code === "blocked") {
+          setBlockedMinutes(60);
+          setError("blocked");
+        } else {
+          setError("invalid_credentials");
+        }
+        setLoading(false);
+        return;
+      }
+      window.location.href = homeHref();
+    } catch {
+      setError("unknown");
+      setLoading(false);
+    }
+  }
+
+  async function handleRegisterSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setError(null);
+    const data = new FormData(e.currentTarget);
+    const firstName = String(data.get("firstName") ?? "").trim();
+    const lastName = String(data.get("lastName") ?? "").trim();
+    const emailValue = String(data.get("email") ?? "").trim();
+    const password = String(data.get("password") ?? "");
+    const confirmPassword = String(data.get("confirmPassword") ?? "");
+
+    if (password.length < 8) {
+      setError("weak_password");
+      return;
+    }
+    if (password !== confirmPassword) {
+      setError("password_mismatch");
+      return;
+    }
+
+    setEmail(emailValue);
+    setRegisterPassword(password);
+    setLoading(true);
+    try {
+      const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: emailValue, locale, mode }),
+        body: JSON.stringify({ firstName, lastName, email: emailValue, password, locale }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        setError(body.error ?? "unknown");
+        if (body.error === "account_exists") {
+          setAccountExists(true);
+        } else {
+          setError(body.error ?? "unknown");
+        }
         return;
       }
-      setStep("code");
+      setRegisterStep("code");
     } catch {
       setError("unknown");
     } finally {
@@ -113,32 +143,33 @@ export default function AuthView() {
     }
   }
 
-  async function handleVerifyCode(e: FormEvent<HTMLFormElement>) {
+  async function handleVerifyRegisterCode(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
     setLoading(true);
     try {
-      const res = await fetch("/api/auth/otp/verify", {
+      const res = await fetch("/api/auth/register/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          code,
-          ...(mode === "register" ? { fullName, gender } : {}),
-        }),
+        body: JSON.stringify({ email, code }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
+        if (body.error === "blocked") setBlockedMinutes(body.minutesLeft ?? 60);
         setError(body.error ?? "unknown");
         setLoading(false);
         return;
       }
-      // A full page load (not client-side navigation) so the browser sends
-      // the just-set session cookie on the very next request — otherwise
-      // useSession()/Header can keep showing "logged out" until a manual
-      // reload, since router.refresh() only re-runs server components, not
-      // next-auth's client-side session cache.
-      window.location.href = locale === defaultLocale ? "/" : `/${locale}`;
+      // Hesab yaradıldı — indi eyni məlumatlarla avtomatik daxil ol.
+      const signInRes = await signIn("credentials", { email, password: registerPassword, redirect: false });
+      if (signInRes?.error) {
+        // Çox nadir hal: hesab yarandı, amma avtomatik giriş alınmadı — istifadəçi login-ə keçsin.
+        setMode("login");
+        setAccountExists(false);
+        setRegisterStep("form");
+        return;
+      }
+      window.location.href = homeHref();
     } catch {
       setError("unknown");
       setLoading(false);
@@ -147,15 +178,16 @@ export default function AuthView() {
 
   function switchMode(next: Mode) {
     setMode(next);
-    setStep("form");
+    setRegisterStep("form");
+    setAccountExists(false);
     setError(null);
     setCode("");
   }
 
-  function backToForm() {
-    setStep("form");
+  function goToLoginFromExists() {
+    setAccountExists(false);
+    setMode("login");
     setError(null);
-    setCode("");
   }
 
   const displayError = errorMessage(error);
@@ -163,15 +195,51 @@ export default function AuthView() {
   return (
     <div className="mx-auto max-w-md px-4 py-16 sm:px-6 lg:py-24">
       <BlurFadeUp as="h1" className="text-center text-3xl font-bold tracking-tight">
-        {mode === "login" ? t("loginTitle") : t("registerTitle")}
+        {accountExists ? t("accountExistsTitle") : mode === "login" ? t("loginTitle") : t("registerTitle")}
       </BlurFadeUp>
+
+      <AnimatePresence>
+        {showResetSuccess && mode === "login" && !accountExists && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, height: 0 }}
+            animate={{ opacity: 1, y: 0, height: "auto" }}
+            exit={{ opacity: 0, y: -8, height: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-6 overflow-hidden rounded-xl bg-green-50 px-4 py-3 text-center text-sm font-medium text-green-800"
+          >
+            {t("resetSuccessMessage")}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div className="mt-10 overflow-hidden rounded-xl border border-border bg-background p-6 sm:p-8">
         <AnimatePresence mode="wait" initial={false}>
-          {step === "code" ? (
+          {accountExists ? (
+            <motion.div
+              key="exists"
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
+              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+              exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-center gap-4 rounded-xl bg-green-50 p-6 text-center"
+            >
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-green-600">
+                <CheckBadge />
+              </div>
+              <p className="text-sm font-medium text-green-800">{t("accountExistsMessage")}</p>
+              <motion.button
+                type="button"
+                onClick={goToLoginFromExists}
+                {...tapHover}
+                className="w-full rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white"
+              >
+                {t("goToLoginButton")}
+              </motion.button>
+            </motion.div>
+          ) : mode === "register" && registerStep === "code" ? (
             <motion.form
-              key="code"
-              onSubmit={handleVerifyCode}
+              key="register-code"
+              onSubmit={handleVerifyRegisterCode}
               initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 12 }}
               animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
               exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -12 }}
@@ -179,17 +247,15 @@ export default function AuthView() {
             >
               <StaggerGroup className="space-y-5">
                 <StaggerItem>
-                  <p className="text-center text-sm text-neutral-500">
-                    {t("otpCodeSentTo", { email })}
-                  </p>
+                  <p className="text-center text-sm text-neutral-500">{t("otpCodeSentTo", { email })}</p>
                 </StaggerItem>
                 <StaggerItem>
                   <div>
-                    <label htmlFor="otp-code" className={labelClass}>
+                    <label htmlFor="register-otp-code" className={labelClass}>
                       {t("otpCodeLabel")}
                     </label>
                     <input
-                      id="otp-code"
+                      id="register-otp-code"
                       name="code"
                       type="text"
                       inputMode="numeric"
@@ -203,22 +269,27 @@ export default function AuthView() {
                     />
                   </div>
                 </StaggerItem>
-                {renderError()}
+                {displayError && (
+                  <StaggerItem>
+                    <p className="text-center text-sm text-red-600">{displayError}</p>
+                  </StaggerItem>
+                )}
                 <StaggerItem>
-                  <button
+                  <motion.button
                     type="submit"
                     disabled={loading}
+                    {...tapHover}
                     className="w-full rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white disabled:opacity-60"
                   >
                     {loading ? t("otpVerifying") : t("otpVerifyButton")}
-                  </button>
+                  </motion.button>
                 </StaggerItem>
                 <StaggerItem>
                   <p className="text-center text-sm text-neutral-500">
                     {t("otpResendText")}{" "}
                     <button
                       type="button"
-                      onClick={backToForm}
+                      onClick={() => setRegisterStep("form")}
                       className="font-medium text-foreground underline underline-offset-2"
                     >
                       {t("otpChangeEmail")}
@@ -230,7 +301,7 @@ export default function AuthView() {
           ) : mode === "login" ? (
             <motion.form
               key="login"
-              onSubmit={handleRequestCode}
+              onSubmit={handleLogin}
               initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -12 }}
               animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
               exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 12 }}
@@ -247,20 +318,48 @@ export default function AuthView() {
                       name="email"
                       type="email"
                       required
+                      defaultValue={email}
                       placeholder={t("emailPlaceholder")}
                       className={inputClass}
                     />
                   </div>
                 </StaggerItem>
-                {renderError()}
                 <StaggerItem>
-                  <button
+                  <PasswordInput
+                    id="login-password"
+                    name="password"
+                    label={t("passwordLabel")}
+                    placeholder={t("passwordPlaceholder")}
+                    required
+                    autoComplete="current-password"
+                    showLabel={t("showPassword")}
+                    hideLabel={t("hidePassword")}
+                  />
+                </StaggerItem>
+                <StaggerItem>
+                  <div className="text-right">
+                    <Link
+                      href="/account/forgot-password"
+                      className="text-sm font-medium text-neutral-500 underline underline-offset-2 hover:text-foreground"
+                    >
+                      {t("forgotPasswordLink")}
+                    </Link>
+                  </div>
+                </StaggerItem>
+                {displayError && (
+                  <StaggerItem>
+                    <p className="text-center text-sm text-red-600">{displayError}</p>
+                  </StaggerItem>
+                )}
+                <StaggerItem>
+                  <motion.button
                     type="submit"
                     disabled={loading}
+                    {...tapHover}
                     className="w-full rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white disabled:opacity-60"
                   >
-                    {loading ? t("otpSending") : t("otpSendCode")}
-                  </button>
+                    {loading ? t("loggingIn") : t("loginButton")}
+                  </motion.button>
                 </StaggerItem>
                 <StaggerItem>
                   <Divider label={t("orDivider")} />
@@ -285,7 +384,7 @@ export default function AuthView() {
           ) : (
             <motion.form
               key="register"
-              onSubmit={handleRequestCode}
+              onSubmit={handleRegisterSubmit}
               initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 12 }}
               animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
               exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -12 }}
@@ -293,18 +392,33 @@ export default function AuthView() {
             >
               <StaggerGroup className="space-y-5">
                 <StaggerItem>
-                  <div>
-                    <label htmlFor="register-name" className={labelClass}>
-                      {t("nameLabel")}
-                    </label>
-                    <input
-                      id="register-name"
-                      name="name"
-                      type="text"
-                      required
-                      placeholder={t("namePlaceholder")}
-                      className={inputClass}
-                    />
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label htmlFor="register-first-name" className={labelClass}>
+                        {t("firstNameLabel")}
+                      </label>
+                      <input
+                        id="register-first-name"
+                        name="firstName"
+                        type="text"
+                        required
+                        placeholder={t("firstNamePlaceholder")}
+                        className={inputClass}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="register-last-name" className={labelClass}>
+                        {t("lastNameLabel")}
+                      </label>
+                      <input
+                        id="register-last-name"
+                        name="lastName"
+                        type="text"
+                        required
+                        placeholder={t("lastNamePlaceholder")}
+                        className={inputClass}
+                      />
+                    </div>
                   </div>
                 </StaggerItem>
                 <StaggerItem>
@@ -317,25 +431,35 @@ export default function AuthView() {
                       name="email"
                       type="email"
                       required
+                      defaultValue={email}
                       placeholder={t("emailPlaceholder")}
                       className={inputClass}
                     />
                   </div>
                 </StaggerItem>
                 <StaggerItem>
-                  <div>
-                    <label htmlFor="register-gender" className={labelClass}>
-                      {t("genderLabel")}
-                    </label>
-                    <select id="register-gender" name="gender" defaultValue="" className={inputClass}>
-                      <option value="" disabled>
-                        {t("genderLabel")}
-                      </option>
-                      <option value="male">{t("genderMale")}</option>
-                      <option value="female">{t("genderFemale")}</option>
-                      <option value="prefer-not">{t("genderPreferNot")}</option>
-                    </select>
-                  </div>
+                  <PasswordInput
+                    id="register-password"
+                    name="password"
+                    label={t("passwordLabel")}
+                    placeholder={t("passwordPlaceholder")}
+                    required
+                    autoComplete="new-password"
+                    showLabel={t("showPassword")}
+                    hideLabel={t("hidePassword")}
+                  />
+                </StaggerItem>
+                <StaggerItem>
+                  <PasswordInput
+                    id="register-confirm-password"
+                    name="confirmPassword"
+                    label={t("confirmPasswordLabel")}
+                    placeholder={t("passwordPlaceholder")}
+                    required
+                    autoComplete="new-password"
+                    showLabel={t("showPassword")}
+                    hideLabel={t("hidePassword")}
+                  />
                 </StaggerItem>
                 <StaggerItem>
                   <label className="flex items-start gap-2.5 rounded-lg border border-neutral-900 bg-neutral-50 px-3 py-2.5">
@@ -362,15 +486,20 @@ export default function AuthView() {
                     </span>
                   </label>
                 </StaggerItem>
-                {renderError()}
+                {displayError && (
+                  <StaggerItem>
+                    <p className="text-center text-sm text-red-600">{displayError}</p>
+                  </StaggerItem>
+                )}
                 <StaggerItem>
-                  <button
+                  <motion.button
                     type="submit"
                     disabled={loading}
+                    {...tapHover}
                     className="w-full rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white disabled:opacity-60"
                   >
                     {loading ? t("otpSending") : t("registerButton")}
-                  </button>
+                  </motion.button>
                 </StaggerItem>
                 <StaggerItem>
                   <Divider label={t("orDivider")} />
