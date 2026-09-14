@@ -68,6 +68,18 @@ export async function getFreightQuote(params: {
   });
 
   const body = (await res.json()) as CjFreightResponse;
+
+  // TEMPORARY — every country is coming back empty for every product
+  // tested, which points at a systemic request problem rather than "this
+  // product has no route." Logs the raw CJ response for AT (first in the
+  // sweep) and US (last), to see the actual answer fast instead of
+  // guessing at it or waiting through all 29. Remove once confirmed.
+  if (params.endCountryCode === "AT" || params.endCountryCode === "US") {
+    console.error(
+      `CJ freight debug: request=${JSON.stringify({ vid: params.vid, quantity: params.quantity, startCountryCode: params.startCountryCode ?? "CN", endCountryCode: params.endCountryCode })}, raw response=${JSON.stringify(body)}`
+    );
+  }
+
   if (!res.ok || body.code !== 200 || !Array.isArray(body.data)) {
     throw new Error(`CJ freightCalculate failed (HTTP ${res.status}, CJ code ${body.code}): ${body.message ?? res.statusText}`);
   }
