@@ -80,12 +80,15 @@ function AccordionItem({ item, isOpen, onToggle }: { item: FaqItem; isOpen: bool
   );
 }
 
-export default function FaqPageView() {
+export default function FaqPageView({ categories: categoriesOverride }: { categories?: FaqCategory[] }) {
   const t = useTranslations("FaqPage");
   const [query, setQuery] = useState("");
   const [openKeys, setOpenKeys] = useState<Set<string>>(new Set());
 
-  const categories = t.raw("categories") as FaqCategory[];
+  // Admin-managed (DB-backed) categories take priority when passed in —
+  // currently only for the "az" locale (see app/[locale]/faq/page.tsx);
+  // every other locale keeps reading the static translation.
+  const categories = categoriesOverride ?? (t.raw("categories") as FaqCategory[]);
 
   const filteredCategories = useMemo(() => {
     const q = query.trim().toLowerCase();
