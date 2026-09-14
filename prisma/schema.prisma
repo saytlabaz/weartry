@@ -1,0 +1,220 @@
+// WearTry order management + CJ Dropshipping integration schema.
+//
+// Uses the Postgres database already provisioned for this project (the
+// same instance behind NEXT_PUBLIC_SUPABASE_URL / DATABASE_URL in Vercel —
+// Supabase's own Postgres, not a separate Vercel Postgres/Neon instance).
+// Reusing it avoids splitting app data across two databases; the
+// `next_auth` schema Supabase's NextAuth adapter owns is untouched — every
+// model below lives in the default `public` schema.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum ProductCategory {
+  MEN
+  WOMEN
+  KIDS
+}
+
+enum OrderStatus {
+  PENDING_PAYMENT
+  PAYMENT_RECEIVED
+  AWAITING_TRANSFER
+  TRANSFER_COMPLETE
+  SENT_TO_CJ
+  CJ_CONFIRMED
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+enum AdminNotificationType {
+  PAYMENT_PENDING_TRANSFER
+  CJ_ORDER_FAILED
+  LOW_STOCK
+  GENERAL
+}
+
+enum SiteContentType {
+  TEXT
+  IMAGE_URL
+}
+
+model Product {
+  id              String          @id @default(cuid())
+  name            String
+  slug            String          @unique
+  description     String
+  category        ProductCategory
+  price           Decimal         @db.Decimal(10, 2)
+  compareAtPrice  Decimal?        @db.Decimal(10, 2)
+  images          String[]
+  sizes           String[]
+  colors          String[]
+  /** Fallback/summary stock — ProductVariant tracks it per color+size combo. */
+  stock           Int             @default(0)
+  /** CJ Dropshipping's product id for this item, once sourced from CJ. */
+  cjProductId     String?
+  isActive        Boolean         @default(true)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  variants        ProductVariant[]
+
+  @@index([category])
+  @@index([isActive])
+}
+
+model ProductVariant {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  color     String
+  size      String
+  stock     Int     @default(0)
+  sku       String? @unique
+
+  @@unique([productId, color, size])
+}
+
+model Order {
+  id                 String      @id @default(cuid())
+  /** Human-readable, e.g. WT-2026-00001. */
+  orderNumber        String      @unique
+  customerName       String
+  customerEmail      String
+  customerPhone      String
+  shippingCountry    String
+  /** Free-text, stored in the format CJ's createOrder call expects. */
+  shippingProvince   String
+  shippingCity       String
+  shippingAddress    String
+  shippingPostalCode String
+  items              OrderItem[]
+  subtotal           Decimal     @db.Decimal(10, 2)
+  shippingCost       Decimal     @default(0) @db.Decimal(10, 2)
+  total              Decimal     @db.Decimal(10, 2)
+  currency           String      @default("USD")
+
+  status OrderStatus @default(PENDING_PAYMENT)
+
+  cjOrderId        String?
+  cjConsigneeId    String?
+  trackingNumber   String?
+  trackingUrl      String?
+  /** Skrill transaction id, once payment integration lands. */
+  paymentReference String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  statusHistory OrderStatusLog[]
+  notifications AdminNotification[]
+
+  @@index([status])
+  @@index([customerEmail])
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  /**
+   * Not a relation to Product on purpose: the current storefront catalog
+   * (lib/data.ts) is still static placeholder data, not Product rows, and
+   * even once products move into the DB an order must survive the
+   * referenced product being deleted later — productName/unitPrice below
+   * are the snapshot that makes that safe either way.
+   */
+  productId     String
+  productName   String
+  variantColor  String?
+  variantSize   String?
+  quantity      Int
+  unitPrice     Decimal @db.Decimal(10, 2)
+
+  @@index([orderId])
+}
+
+model OrderStatusLog {
+  id        String      @id @default(cuid())
+  orderId   String
+  order     Order       @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  status    OrderStatus
+  note      String?
+  createdAt DateTime    @default(now())
+
+  @@index([orderId])
+}
+
+/**
+ * Backs the /faq page's questions once an admin panel can manage them.
+ * `locale` keeps the site's existing 25-language support intact — the
+ * public /faq page still reads from next-intl's message files for now
+ * (this table has no admin UI yet to populate/edit it); wiring the page to
+ * read from here is follow-up work once that admin UI exists.
+ */
+model FaqItem {
+  id        String   @id @default(cuid())
+  locale    String   @default("en")
+  category  String
+  question  String
+  answer    String
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
+
+  @@index([locale, category])
+}
+
+/**
+ * Key-value store for homepage copy/images an admin could edit without a
+ * deploy. `locale` mirrors FaqItem's reasoning above. Not wired into any
+ * page yet — the admin UI to populate it doesn't exist until a later
+ * command, and every page currently reads its text from next-intl.
+ */
+model SiteContent {
+  id        String           @id @default(cuid())
+  key       String
+  locale    String           @default("en")
+  value     String
+  type      SiteContentType  @default(TEXT)
+  updatedAt DateTime         @updatedAt
+
+  @@unique([key, locale])
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model AdminNotification {
+  id        String                @id @default(cuid())
+  type      AdminNotificationType
+  title     String
+  message   String
+  orderId   String?
+  order     Order?                @relation(fields: [orderId], references: [id], onDelete: SetNull)
+  isRead    Boolean               @default(false)
+  createdAt DateTime              @default(now())
+
+  @@index([isRead])
+  @@index([orderId])
+}
+
+/** Caches CJ Dropshipping's access token so it isn't re-requested on every call — it's valid 180 days. */
+model CjApiToken {
+  id        String   @id @default(cuid())
+  token     String
+  refreshToken String?
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
