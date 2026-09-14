@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
+import FloatingBlobs from "@/components/motion/FloatingBlobs";
 
 export default function Categories() {
   const t = useTranslations("Sections.categories");
@@ -12,7 +13,8 @@ export default function Categories() {
   ];
 
   return (
-    <section id="categories" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section id="categories" className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <FloatingBlobs className="-z-10 opacity-60" />
       <BlurFadeUp as="h2" className="mb-10 text-3xl font-bold tracking-tight sm:text-4xl">
         {t("title")}
       </BlurFadeUp>

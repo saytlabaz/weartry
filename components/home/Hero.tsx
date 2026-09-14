@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
+import FloatingBlobs from "@/components/motion/FloatingBlobs";
 
 export default function Hero() {
   const t = useTranslations("Hero");
@@ -11,12 +12,13 @@ export default function Hero() {
     <section className="relative flex min-h-[640px] items-end overflow-hidden bg-gradient-to-br from-sky-200 via-sky-100 to-orange-100 sm:min-h-[720px]">
       {/* Placeholder hero backdrop — replace with campaign photography */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.5),transparent_60%)]" />
+      <FloatingBlobs />
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 pb-14 sm:px-6 lg:px-8">
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.44, 0, 0.56, 1] }}
           className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-700"
         >
           {t("eyebrow")}
@@ -24,18 +26,18 @@ export default function Hero() {
 
         <BlurFadeUp
           as="h1"
-          duration={1.1}
-          offset={30}
+          immediate
+          duration={0.7}
           className="max-w-2xl text-5xl font-bold leading-[1.05] tracking-tight text-neutral-900 sm:text-7xl"
         >
           {t("title")}
         </BlurFadeUp>
 
-        <BlurFadeUp delay={0.15} className="max-w-md text-base text-neutral-700 sm:text-lg">
+        <BlurFadeUp immediate delay={0.1} duration={0.7} className="max-w-md text-base text-neutral-700 sm:text-lg">
           {t("subtitle")}
         </BlurFadeUp>
 
-        <BlurFadeUp delay={0.3}>
+        <BlurFadeUp immediate delay={0.2} duration={0.7}>
           <a
             href="#new-arrivals"
             className="inline-flex items-center rounded-full bg-neutral-900 px-7 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
