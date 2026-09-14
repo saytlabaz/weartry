@@ -53,14 +53,6 @@ async function requestNewToken(): Promise<{ token: string; refreshToken: string;
   // produce a malformed, always-rejected value.
   const combinedApiKey = apiKey.includes("@api@") ? apiKey : `${apiEmail}@api@${apiKey}`;
 
-  // TEMPORARY — diagnosing a persistent "APIkey is wrong" error without
-  // ever putting the real secret in a log line or in Claude's own
-  // context: only a non-reversible length, whether it was already
-  // combined, and the email's domain half. Remove once resolved.
-  console.error(
-    `CJ auth debug: apiKey.length=${apiKey.length}, alreadyCombined=${apiKey.includes("@api@")}, apiEmail=***@${apiEmail.split("@")[1] ?? "(no @ found)"}`
-  );
-
   const res = await fetchWithTimeout(`${CJ_API_BASE_URL}/v1/authentication/getAccessToken`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -68,12 +60,6 @@ async function requestNewToken(): Promise<{ token: string; refreshToken: string;
   });
 
   const body = (await res.json()) as CjTokenResponse;
-
-  // TEMPORARY — CJ's raw response shape, so a format mismatch (e.g.
-  // token nested somewhere other than data.accessToken) is visible
-  // directly in the logs instead of surfacing as an undefined-property
-  // crash further down. Remove once a real success response is confirmed.
-  console.error(`CJ auth debug: raw response = ${JSON.stringify(body)}`);
 
   if (!res.ok || body.code !== 200 || !body.data) {
     // CJ almost always answers with HTTP 200 and puts the real outcome in
