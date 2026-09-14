@@ -49,7 +49,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
       return;
     }
     const controller = new AbortController();
-    fetch(`/api/cj/provinces?countryCode=${country}`, { signal: controller.signal })
+    fetch(`/api/checkout/provinces?countryCode=${country}`, { signal: controller.signal })
       .then((res) => (res.ok ? res.json() : { provinces: [] }))
       .then((body) => setProvinceOptions(body.provinces ?? []))
       .catch(() => setProvinceOptions([]));

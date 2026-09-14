@@ -3,6 +3,8 @@ import { revalidatePath } from "next/cache";
 import { requireAdmin } from "@/lib/admin/require-admin";
 import { prisma } from "@/lib/prisma";
 import { Prisma } from "@/lib/generated/prisma/client";
+import { sanitizeCjDescription } from "@/lib/cj/sanitizeDescription";
+import { reuploadCjImages } from "@/lib/cj/reuploadImages";
 
 interface ImportVariantInput {
   vid: string;
@@ -81,15 +83,17 @@ export async function POST(req: NextRequest) {
   const sizes = Array.from(new Set(variants.map((v) => v.size)));
   const totalStock = variants.reduce((sum, v) => sum + v.stock, 0);
 
+  const images = await reuploadCjImages(Array.isArray(body.images) ? body.images : []);
+
   try {
     const product = await prisma.product.create({
       data: {
         name: body.name.trim(),
         slug,
-        description: body.description ?? "",
+        description: sanitizeCjDescription(body.description ?? ""),
         category: body.category,
         price: new Prisma.Decimal(price.toFixed(2)),
-        images: Array.isArray(body.images) ? body.images : [],
+        images,
         sizes,
         colors,
         stock: totalStock,

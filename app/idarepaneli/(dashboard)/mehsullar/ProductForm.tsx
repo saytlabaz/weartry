@@ -42,7 +42,10 @@ export default function ProductForm({ initial }: { initial?: ProductFormValues }
   const [sizes, setSizes] = useState(initial?.sizes.join(", ") ?? "");
   const [colors, setColors] = useState(initial?.colors.join(", ") ?? "");
   const [stock, setStock] = useState(String(initial?.stock ?? "0"));
-  const [cjProductId, setCjProductId] = useState(initial?.cjProductId ?? "");
+  // Not editable from this manual form — CJ ids are only ever set by the
+  // CJ import flow (app/api/admin/cj/import); carried through unchanged
+  // here so editing a CJ-sourced product doesn't accidentally clear it.
+  const cjProductId = initial?.cjProductId ?? null;
   const [isActive, setIsActive] = useState(initial?.isActive ?? true);
   const [isFeatured, setIsFeatured] = useState(initial?.isFeatured ?? false);
   const [variants, setVariants] = useState<VariantInput[]>(initial?.variants ?? []);
@@ -65,7 +68,7 @@ export default function ProductForm({ initial }: { initial?: ProductFormValues }
       sizes: sizes.split(",").map((s) => s.trim()).filter(Boolean),
       colors: colors.split(",").map((c) => c.trim()).filter(Boolean),
       stock: Number(stock) || 0,
-      cjProductId: cjProductId || null,
+      cjProductId,
       isActive,
       isFeatured,
       variants: variants.filter((v) => v.color && v.size),
@@ -122,10 +125,6 @@ export default function ProductForm({ initial }: { initial?: ProductFormValues }
               <SelectItem value="KIDS">Uşaq</SelectItem>
             </SelectContent>
           </Select>
-        </div>
-        <div className="space-y-1.5">
-          <Label htmlFor="p-cj">CJ Məhsul ID (opsional)</Label>
-          <Input id="p-cj" value={cjProductId} onChange={(e) => setCjProductId(e.target.value)} />
         </div>
         <div className="space-y-1.5">
           <Label htmlFor="p-price">Qiymət ($)</Label>
