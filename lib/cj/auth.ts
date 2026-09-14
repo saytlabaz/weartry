@@ -39,7 +39,13 @@ async function requestNewToken(): Promise<{ token: string; refreshToken: string;
 
   const body = (await res.json()) as CjTokenResponse;
   if (!res.ok || body.code !== 200 || !body.data) {
-    throw new Error(`CJ getAccessToken failed: ${body.message ?? res.statusText}`);
+    // CJ almost always answers with HTTP 200 and puts the real outcome in
+    // the JSON body's own `code` — logging both that and the raw HTTP
+    // status makes "is this a network/HTTP problem or a CJ-side rejection"
+    // obvious from the Vercel log line alone, without needing to reproduce.
+    throw new Error(
+      `CJ getAccessToken failed (HTTP ${res.status}, CJ code ${body.code}): ${body.message ?? res.statusText}`
+    );
   }
 
   return {
