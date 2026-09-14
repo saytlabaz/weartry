@@ -58,6 +58,11 @@ alter table next_auth.accounts enable row level security;
 alter table next_auth.sessions enable row level security;
 alter table next_auth.verification_tokens enable row level security;
 
+drop policy if exists "Service role full access users" on next_auth.users;
+drop policy if exists "Service role full access accounts" on next_auth.accounts;
+drop policy if exists "Service role full access sessions" on next_auth.sessions;
+drop policy if exists "Service role full access verification_tokens" on next_auth.verification_tokens;
+
 create policy "Service role full access users" on next_auth.users for all using (true) with check (true);
 create policy "Service role full access accounts" on next_auth.accounts for all using (true) with check (true);
 create policy "Service role full access sessions" on next_auth.sessions for all using (true) with check (true);
@@ -91,5 +96,8 @@ alter table public.orders enable row level security;
 alter table public.wishlists enable row level security;
 
 -- Service role tam giriş (server-side)
+drop policy if exists "Service role full access orders" on public.orders;
+drop policy if exists "Service role full access wishlists" on public.wishlists;
+
 create policy "Service role full access orders" on public.orders for all using (true) with check (true);
 create policy "Service role full access wishlists" on public.wishlists for all using (true) with check (true);
