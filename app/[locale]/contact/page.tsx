@@ -19,7 +19,7 @@ export default async function ContactPage() {
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-      <BlurFadeUp as="h1" className="text-4xl font-bold tracking-tight">
+      <BlurFadeUp as="h1" immediate className="text-4xl font-bold tracking-tight">
         {t("title")}
       </BlurFadeUp>
       <p className="mt-4 text-neutral-600">{t("intro")}</p>

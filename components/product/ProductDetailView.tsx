@@ -45,7 +45,7 @@ export default function ProductDetailView({ product }: { product: Product }) {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
-      <BlurFadeUp>
+      <BlurFadeUp immediate>
         <Link href="/" className="text-sm text-neutral-500 underline underline-offset-4 hover:text-neutral-900">
           {t("back")}
         </Link>
@@ -53,11 +53,11 @@ export default function ProductDetailView({ product }: { product: Product }) {
 
       {/* a) Gallery + main info */}
       <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2">
-        <BlurFadeUp>
+        <BlurFadeUp immediate>
           <ProductGallery gradient={product.gradient} />
         </BlurFadeUp>
 
-        <StaggerGroup className="space-y-5">
+        <StaggerGroup className="space-y-5" immediate>
           <StaggerItem>
             {product.isNew && (
               <span className="inline-block rounded-full bg-neutral-900 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">

@@ -157,7 +157,7 @@ export default function PaymentPageView() {
         ← {t("backToShipping")}
       </Link>
 
-      <BlurFadeUp as="h1" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+      <BlurFadeUp as="h1" immediate className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
         {t("paymentHeading")}
       </BlurFadeUp>
       <BlurFadeUp delay={0.05} className="mt-2 flex items-center gap-1.5 text-sm text-neutral-500">

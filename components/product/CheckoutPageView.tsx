@@ -75,7 +75,7 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-      <BlurFadeUp as="h1" className="text-3xl font-bold tracking-tight sm:text-4xl">
+      <BlurFadeUp as="h1" immediate className="text-3xl font-bold tracking-tight sm:text-4xl">
         {t("title")}
       </BlurFadeUp>
       <BlurFadeUp delay={0.05} className="mt-2 text-sm text-neutral-500">
