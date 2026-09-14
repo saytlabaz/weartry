@@ -652,7 +652,7 @@
     "totalLabel": "Total",
     "placeOrderButton": "Place Order",
     "successHeading": "Order Placed!",
-    "successMessage": "Thank you — your order has been received. This is a demo checkout; no payment was actually processed and no order was really placed.",
+    "successMessage": "Kiitos — tilauksesi on vastaanotettu ja odottaa maksuvahvistusta. Lähetämme sähköpostia, kun se lähetetään.",
     "continueShopping": "Continue Shopping",
     "emptyCartMessage": "Your cart is empty — add something before checking out.",
     "subtotalLabel": "Subtotal",
@@ -661,7 +661,9 @@
     "backToShipping": "Back to shipping",
     "securePaymentNote": "Secure, encrypted payment",
     "addAnotherCardButton": "Add another card",
-    "placingOrder": "Placing order..."
+    "placingOrder": "Placing order...",
+    "orderNumberLabel": "Tilausnumero",
+    "checkoutError": "Tilausta tehdessä tapahtui virhe. Yritä uudelleen tai ota yhteyttä tukeen."
   },
   "Account": {
     "myAccount": "My Account",

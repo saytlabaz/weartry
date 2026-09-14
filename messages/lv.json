@@ -652,7 +652,7 @@
     "totalLabel": "Total",
     "placeOrderButton": "Place Order",
     "successHeading": "Order Placed!",
-    "successMessage": "Thank you — your order has been received. This is a demo checkout; no payment was actually processed and no order was really placed.",
+    "successMessage": "Paldies — jūsu pasūtījums saņemts un gaida maksājuma apstiprinājumu. Nosūtīsim e-pastu, kad tas būs nosūtīts.",
     "continueShopping": "Continue Shopping",
     "emptyCartMessage": "Your cart is empty — add something before checking out.",
     "subtotalLabel": "Subtotal",
@@ -661,7 +661,9 @@
     "backToShipping": "Back to shipping",
     "securePaymentNote": "Secure, encrypted payment",
     "addAnotherCardButton": "Add another card",
-    "placingOrder": "Placing order..."
+    "placingOrder": "Placing order...",
+    "orderNumberLabel": "Pasūtījuma numurs",
+    "checkoutError": "Veicot pasūtījumu, radās kļūda. Lūdzu, mēģiniet vēlreiz vai sazinieties ar atbalstu."
   },
   "Account": {
     "myAccount": "My Account",

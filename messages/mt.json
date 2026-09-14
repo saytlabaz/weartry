@@ -652,7 +652,7 @@
     "totalLabel": "Total",
     "placeOrderButton": "Place Order",
     "successHeading": "Order Placed!",
-    "successMessage": "Thank you — your order has been received. This is a demo checkout; no payment was actually processed and no order was really placed.",
+    "successMessage": "Grazzi — l-ordni tiegħek ġiet riċevuta u qed tistenna konferma tal-ħlas. Nibagħtulek email hekk kif tintbagħat.",
     "continueShopping": "Continue Shopping",
     "emptyCartMessage": "Your cart is empty — add something before checking out.",
     "subtotalLabel": "Subtotal",
@@ -661,7 +661,9 @@
     "backToShipping": "Back to shipping",
     "securePaymentNote": "Secure, encrypted payment",
     "addAnotherCardButton": "Add another card",
-    "placingOrder": "Placing order..."
+    "placingOrder": "Placing order...",
+    "orderNumberLabel": "Numru tal-Ordni",
+    "checkoutError": "Kien hemm problema biex tagħmel l-ordni tiegħek. Jekk jogħġbok erġa' pprova jew ikkuntattja l-appoġġ."
   },
   "Account": {
     "myAccount": "My Account",

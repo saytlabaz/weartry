@@ -652,7 +652,7 @@
     "totalLabel": "Total",
     "placeOrderButton": "Place Order",
     "successHeading": "Order Placed!",
-    "successMessage": "Thank you — your order has been received. This is a demo checkout; no payment was actually processed and no order was really placed.",
+    "successMessage": "Dziękujemy — Twoje zamówienie zostało otrzymane i czeka na potwierdzenie płatności. Wyślemy e-mail, gdy zostanie wysłane.",
     "continueShopping": "Continue Shopping",
     "emptyCartMessage": "Your cart is empty — add something before checking out.",
     "subtotalLabel": "Subtotal",
@@ -661,7 +661,9 @@
     "backToShipping": "Back to shipping",
     "securePaymentNote": "Secure, encrypted payment",
     "addAnotherCardButton": "Add another card",
-    "placingOrder": "Placing order..."
+    "placingOrder": "Placing order...",
+    "orderNumberLabel": "Numer zamówienia",
+    "checkoutError": "Wystąpił błąd podczas składania zamówienia. Spróbuj ponownie lub skontaktuj się z pomocą techniczną."
   },
   "Account": {
     "myAccount": "My Account",

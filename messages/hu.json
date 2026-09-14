@@ -652,7 +652,7 @@
     "totalLabel": "Total",
     "placeOrderButton": "Place Order",
     "successHeading": "Order Placed!",
-    "successMessage": "Thank you — your order has been received. This is a demo checkout; no payment was actually processed and no order was really placed.",
+    "successMessage": "Köszönjük — rendelését megkaptuk, és a fizetés megerősítésére vár. E-mailt küldünk, amint elküldjük.",
     "continueShopping": "Continue Shopping",
     "emptyCartMessage": "Your cart is empty — add something before checking out.",
     "subtotalLabel": "Subtotal",
@@ -661,7 +661,9 @@
     "backToShipping": "Back to shipping",
     "securePaymentNote": "Secure, encrypted payment",
     "addAnotherCardButton": "Add another card",
-    "placingOrder": "Placing order..."
+    "placingOrder": "Placing order...",
+    "orderNumberLabel": "Rendelési szám",
+    "checkoutError": "Hiba történt a rendelés leadásakor. Kérjük, próbálja újra, vagy vegye fel a kapcsolatot az ügyfélszolgálattal."
   },
   "Account": {
     "myAccount": "My Account",

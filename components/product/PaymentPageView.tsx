@@ -65,7 +65,9 @@ export default function PaymentPageView() {
   const [method, setMethod] = useState<PaymentMethod>("card");
   const [cardKey, setCardKey] = useState(0);
   const [placed, setPlaced] = useState(false);
+  const [orderNumber, setOrderNumber] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
   const items = cartItems
     .map((entry) => {
@@ -89,15 +91,15 @@ export default function PaymentPageView() {
   async function handlePlaceOrder(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!info) return;
-    const data = new FormData(e.currentTarget);
     setSubmitting(true);
+    setError(false);
     try {
-      await fetch("/api/checkout", {
+      const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: info.email,
-          items: items.map(({ product, quantity }) => ({ id: product.id, quantity, price: product.price })),
+          items: items.map(({ product, quantity }) => ({ id: product.id, quantity })),
           shippingAddress: {
             fullName: info.fullName,
             phone: info.phone,
@@ -108,18 +110,21 @@ export default function PaymentPageView() {
             addressLine2: info.addressLine2,
             postalCode: info.postalCode,
           },
-          paymentMethod: method,
-          cardName: data.get("cardName"),
-          subtotal,
-          shippingCost: shippingFee,
-          total,
         }),
       });
-    } finally {
-      setSubmitting(false);
+      if (!res.ok) {
+        setError(true);
+        return;
+      }
+      const body = await res.json();
+      setOrderNumber(body.orderNumber ?? null);
       setPlaced(true);
       clearCart();
       clearCheckoutInfo();
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
     }
   }
 
@@ -135,6 +140,11 @@ export default function PaymentPageView() {
         <BlurFadeUp delay={0.15} className="mt-3 text-sm leading-relaxed text-neutral-500">
           {t("successMessage")}
         </BlurFadeUp>
+        {orderNumber && (
+          <BlurFadeUp delay={0.18} className="mt-2 text-sm font-medium text-neutral-700">
+            {t("orderNumberLabel")}: {orderNumber}
+          </BlurFadeUp>
+        )}
         <BlurFadeUp delay={0.2} className="mt-8">
           <Link href="/" className="rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white">
             {t("continueShopping")}
@@ -310,6 +320,8 @@ export default function PaymentPageView() {
               <span>${total.toFixed(2)}</span>
             </div>
           </div>
+
+          {error && <p className="mt-4 text-sm text-red-600">{t("checkoutError")}</p>}
 
           <motion.button
             type="submit"

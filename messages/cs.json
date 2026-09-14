@@ -652,7 +652,7 @@
     "totalLabel": "Total",
     "placeOrderButton": "Place Order",
     "successHeading": "Order Placed!",
-    "successMessage": "Thank you — your order has been received. This is a demo checkout; no payment was actually processed and no order was really placed.",
+    "successMessage": "Děkujeme — vaše objednávka byla přijata a čeká na potvrzení platby. Jakmile bude odeslána, napíšeme vám e-mail.",
     "continueShopping": "Continue Shopping",
     "emptyCartMessage": "Your cart is empty — add something before checking out.",
     "subtotalLabel": "Subtotal",
@@ -661,7 +661,9 @@
     "backToShipping": "Back to shipping",
     "securePaymentNote": "Secure, encrypted payment",
     "addAnotherCardButton": "Add another card",
-    "placingOrder": "Placing order..."
+    "placingOrder": "Placing order...",
+    "orderNumberLabel": "Číslo objednávky",
+    "checkoutError": "Při zadávání objednávky došlo k chybě. Zkuste to znovu nebo kontaktujte podporu."
   },
   "Account": {
     "myAccount": "My Account",

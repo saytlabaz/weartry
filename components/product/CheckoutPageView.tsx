@@ -1,6 +1,6 @@
 "use client";
 
-import { type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
 import { findProductById } from "@/lib/data";
@@ -32,6 +32,29 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
   const t = useTranslations("Checkout");
   const router = useRouter();
   const { cartItems } = useStore();
+
+  const [country, setCountry] = useState("");
+  const [province, setProvince] = useState("");
+  const [provinceOptions, setProvinceOptions] = useState<string[]>([]);
+
+  function handleCountryChange(next: string) {
+    setCountry(next);
+    setProvince("");
+  }
+
+  useEffect(() => {
+    if (!country) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- syncing province options to the selected country is exactly what this effect is for
+      setProvinceOptions([]);
+      return;
+    }
+    const controller = new AbortController();
+    fetch(`/api/cj/provinces?countryCode=${country}`, { signal: controller.signal })
+      .then((res) => (res.ok ? res.json() : { provinces: [] }))
+      .then((body) => setProvinceOptions(body.provinces ?? []))
+      .catch(() => setProvinceOptions([]));
+    return () => controller.abort();
+  }, [country]);
 
   const items = cartItems
     .map((entry) => {
@@ -158,7 +181,8 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                     id="checkout-country"
                     name="country"
                     required
-                    defaultValue={""}
+                    value={country}
+                    onChange={(e) => handleCountryChange(e.target.value)}
                     className={inputClass}
                   >
                     <option value="" disabled>
@@ -188,14 +212,36 @@ export default function CheckoutPageView({ user }: { user: CheckoutUser | null }
                 <div>
                   <label htmlFor="checkout-province" className={labelClass}>
                     {t("provinceLabel")}
+                    {provinceOptions.length > 0 && <Required />}
                   </label>
-                  <input
-                    id="checkout-province"
-                    name="province"
-                    type="text"
-                    defaultValue={""}
-                    className={inputClass}
-                  />
+                  {provinceOptions.length > 0 ? (
+                    <select
+                      id="checkout-province"
+                      name="province"
+                      required
+                      value={province}
+                      onChange={(e) => setProvince(e.target.value)}
+                      className={inputClass}
+                    >
+                      <option value="" disabled>
+                        {t("provinceLabel")}
+                      </option>
+                      {provinceOptions.map((p) => (
+                        <option key={p} value={p}>
+                          {p}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <input
+                      id="checkout-province"
+                      name="province"
+                      type="text"
+                      value={province}
+                      onChange={(e) => setProvince(e.target.value)}
+                      className={inputClass}
+                    />
+                  )}
                 </div>
                 <div className="sm:col-span-2">
                   <label htmlFor="checkout-address1" className={labelClass}>

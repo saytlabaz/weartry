@@ -652,7 +652,7 @@
     "totalLabel": "Total",
     "placeOrderButton": "Place Order",
     "successHeading": "Order Placed!",
-    "successMessage": "Thank you — your order has been received. This is a demo checkout; no payment was actually processed and no order was really placed.",
+    "successMessage": "Go raibh maith agat — glacadh le d'ordú agus tá sé ag fanacht le deimhniú íocaíochta. Seolfaimid ríomhphost chugat nuair a sheoltar é.",
     "continueShopping": "Continue Shopping",
     "emptyCartMessage": "Your cart is empty — add something before checking out.",
     "subtotalLabel": "Subtotal",
@@ -661,7 +661,9 @@
     "backToShipping": "Back to shipping",
     "securePaymentNote": "Secure, encrypted payment",
     "addAnotherCardButton": "Add another card",
-    "placingOrder": "Placing order..."
+    "placingOrder": "Placing order...",
+    "orderNumberLabel": "Uimhir Ordaithe",
+    "checkoutError": "Tharla earráid agus d'ordú á chur. Bain triail eile as nó déan teagmháil leis an tacaíocht."
   },
   "Account": {
     "myAccount": "My Account",

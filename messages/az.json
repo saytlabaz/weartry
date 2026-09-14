@@ -652,7 +652,7 @@
     "totalLabel": "Cəmi",
     "placeOrderButton": "Sifarişi Tamamla",
     "successHeading": "Sifarişiniz Qəbul Edildi!",
-    "successMessage": "Təşəkkürlər — sifarişiniz qəbul edildi. Bu demo ödənişdir; heç bir real ödəniş həyata keçirilməyib və sifariş faktiki verilməyib.",
+    "successMessage": "Təşəkkürlər — sifarişiniz qəbul edildi və ödəniş təsdiqi gözlənilir. Yola çıxan kimi sizə email göndərəcəyik.",
     "continueShopping": "Alış-verişə Davam Et",
     "emptyCartMessage": "Səbətiniz boşdur — ödənişə keçmədən əvvəl bir şey əlavə edin.",
     "subtotalLabel": "Ara Cəm",
@@ -661,7 +661,9 @@
     "backToShipping": "Ünvana qayıt",
     "securePaymentNote": "Təhlükəsiz, şifrələnmiş ödəniş",
     "addAnotherCardButton": "Yeni kart əlavə et",
-    "placingOrder": "Sifariş göndərilir..."
+    "placingOrder": "Sifariş göndərilir...",
+    "orderNumberLabel": "Sifariş Nömrəsi",
+    "checkoutError": "Sifarişi vermək mümkün olmadı. Zəhmət olmasa yenidən cəhd edin və ya bizimlə əlaqə saxlayın."
   },
   "Account": {
     "myAccount": "Hesabım",
