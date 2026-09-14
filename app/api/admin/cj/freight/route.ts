@@ -6,7 +6,7 @@ import { getMaxShippingCost } from "@/lib/cj/getMaxShippingCost";
 // Vercel's default function timeout, but worth being explicit about.
 export const maxDuration = 60;
 
-/** POST /api/admin/cj/freight — sweeps every supported market for the highest 8-15 day CJ freight quote for one variant. Manual/on-demand only, never automatic. */
+/** POST /api/admin/cj/freight — sweeps every supported market for the highest 7-10 day CJ freight quote for one variant. Manual/on-demand only, never automatic. */
 export async function POST(req: NextRequest) {
   const authError = await requireAdmin(req);
   if (authError) return authError;

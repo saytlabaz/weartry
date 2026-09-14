@@ -13,23 +13,23 @@ export interface MaxShippingResult {
   countryName: string;
   methodName: string;
   aging: string;
-  /** False when no supported country had a method in the 8-15 day window, so `cost` is the highest quote CJ offers at all (still a real figure, just not necessarily 8-15 days). */
-  inWindow: boolean;
-  /** Countries CJ has no shipping method for at all, or that errored — surfaced so the admin isn't misled by a silently-partial result. */
+  /** Countries with no method in the target day window (excluded from the max entirely, not substituted with an express/out-of-window fallback), or that errored — surfaced so the admin isn't misled by a silently-partial result. */
   skipped: { countryCode: string; reason: string }[];
 }
 
 /**
  * Queries CJ's freight calculator for every supported market (i18n/markets.ts
  * — the 27 EU states + UK + US) one at a time, spaced out to stay under
- * CJ's rate limit, and returns the single most expensive quote across all
- * of them. Takes ~30-35s for the full 29-country sweep. Never throws for
- * "no exact 8-15 day match" — that's a legitimate, informative result
- * (see MaxShippingResult.inWindow), not a failure.
+ * CJ's rate limit, and returns the single most expensive quote across only
+ * the countries that had a method in the target window (see getFreight.ts
+ * for the exact day range). Takes ~30-35s for the full 29-country sweep.
+ * Throws only when literally no supported country has a matching method at
+ * all — that's a real "can't produce this reference number" case, not
+ * something to paper over with an unrelated express-shipping price.
  */
 export async function getMaxShippingCost(params: { vid: string; quantity?: number }): Promise<MaxShippingResult> {
   const quantity = params.quantity ?? 1;
-  let best: { cost: number; countryCode: string; methodName: string; aging: string; inWindow: boolean } | null = null;
+  let best: { cost: number; countryCode: string; methodName: string; aging: string } | null = null;
   const skipped: { countryCode: string; reason: string }[] = [];
 
   for (let i = 0; i < markets.length; i++) {
@@ -37,17 +37,9 @@ export async function getMaxShippingCost(params: { vid: string; quantity?: numbe
     try {
       const quote = await getFreightQuote({ vid: params.vid, endCountryCode: market.code, quantity });
       if (!quote) {
-        skipped.push({ countryCode: market.code, reason: "no_shipping_method" });
-      } else {
-        // Prefer any in-window result over any out-of-window one; within
-        // the same tier, prefer the higher price.
-        const better =
-          !best ||
-          (quote.inWindow && !best.inWindow) ||
-          (quote.inWindow === best.inWindow && quote.price > best.cost);
-        if (better) {
-          best = { cost: quote.price, countryCode: market.code, methodName: quote.methodName, aging: quote.aging, inWindow: quote.inWindow };
-        }
+        skipped.push({ countryCode: market.code, reason: "no_method_in_window" });
+      } else if (!best || quote.price > best.cost) {
+        best = { cost: quote.price, countryCode: market.code, methodName: quote.methodName, aging: quote.aging };
       }
     } catch (err) {
       skipped.push({ countryCode: market.code, reason: err instanceof Error ? err.message : "unknown_error" });
@@ -57,7 +49,7 @@ export async function getMaxShippingCost(params: { vid: string; quantity?: numbe
   }
 
   if (!best) {
-    throw new Error("CJ has no shipping method at all for any supported country for this variant");
+    throw new Error("CJ has no shipping method in the target day window for any supported country for this variant");
   }
 
   const countryName = markets.find((m) => m.code === best!.countryCode)?.name ?? best.countryCode;

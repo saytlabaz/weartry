@@ -423,10 +423,14 @@ export default function CjSearchView() {
                     </div>
 
                     <div className="flex items-start justify-between gap-3 text-sm">
-                      <span className="text-neutral-500">Ən yüksək çatdırılma (8-15 gün)</span>
+                      <span className="text-neutral-500">Ən yüksək çatdırılma (7-10 gün)</span>
                       {shipping ? (
                         <span className="text-right font-medium">
                           ${shipping.cost.toFixed(2)} — {shipping.countryName}
+                          <br />
+                          <span className="text-xs font-normal text-neutral-500">
+                            metod: {shipping.methodName} ({shipping.aging} gün)
+                          </span>
                         </span>
                       ) : (
                         <span className="text-neutral-400">Hesablanmayıb</span>
@@ -464,7 +468,7 @@ export default function CjSearchView() {
                     {shippingError && <p className="text-xs text-red-600">{shippingError}</p>}
                     {shipping && shipping.skipped.length > 0 && (
                       <p className="text-xs text-neutral-400">
-                        {shipping.skipped.length} ölkə üçün 8-15 gün aralığında metod tapılmadı.
+                        {shipping.skipped.length} ölkə üçün 7-10 gün aralığında metod tapılmadı (hesablamaya daxil edilmədi).
                       </p>
                     )}
                   </div>
