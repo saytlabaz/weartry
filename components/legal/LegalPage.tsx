@@ -3,7 +3,9 @@ import BlurFadeUp from "@/components/motion/BlurFadeUp";
 
 interface Section {
   heading: string;
-  body: string;
+  body?: string;
+  list?: string[];
+  closing?: string;
 }
 
 const FULLY_TRANSLATED_LOCALES = new Set(["en", "az"]);
@@ -39,7 +41,19 @@ export default function LegalPage({
         {sections.map((section) => (
           <section key={section.heading}>
             <h2 className="text-lg font-semibold">{section.heading}</h2>
-            <p className="mt-2 leading-relaxed text-neutral-600">{section.body}</p>
+            {section.body && (
+              <p className="mt-2 leading-relaxed text-neutral-600">{section.body}</p>
+            )}
+            {section.list && (
+              <ul className="mt-2 list-disc space-y-1 pl-5 leading-relaxed text-neutral-600">
+                {section.list.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            )}
+            {section.closing && (
+              <p className="mt-2 leading-relaxed text-neutral-600">{section.closing}</p>
+            )}
           </section>
         ))}
       </div>

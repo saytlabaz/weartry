@@ -133,131 +133,153 @@
     "lastUpdated": "Son yenilənmə: {date}",
     "privacy": {
       "title": "Məxfilik Siyasəti",
-      "intro": "Bu Məxfilik Siyasəti WearTry-ın (\"biz\", \"bizim\") saytımıza baş çəkdiyiniz və ya alış-veriş etdiyiniz zaman şəxsi məlumatlarınızı Avropa Birliyinin Ümumi Məlumatların Mühafizəsi Reqlamentinə (GDPR), Böyük Britaniya GDPR-a və müvafiq ABŞ ştat qanunlarına uyğun necə topladığını, istifadə etdiyini, paylaşdığını və qoruduğunu izah edir.",
+      "intro": "WearTry (\"biz\", \"bizim\") weartry.shop saytını idarə edir. Bu siyasət saytımıza baş çəkdiyiniz və ya sifariş verdiyiniz zaman hansı şəxsi məlumatları topladığımızı və onları necə istifadə etdiyimizi, saxladığımızı və qoruduğumuzu izah edir.",
       "sections": [
         {
-          "heading": "1. Biz Kimik",
-          "body": "WearTry Avropa Birliyi, Böyük Britaniya və ABŞ-dakı müştərilərə xidmət göstərən onlayn moda pərakəndə satıcısıdır. Məxfiliklə bağlı hər hansı sualınız üçün bizimlə support@weartry.shop ünvanında əlaqə saxlaya bilərsiniz."
+          "heading": "1. Topladığımız Məlumatlar",
+          "body": "Saytımıza baxarkən, sifariş verərkən və ya bizimlə əlaqə saxlayarkən aşağıdakıları toplaya bilərik:",
+          "list": [
+            "Ad, e-poçt ünvanı, telefon nömrəsi",
+            "Çatdırılma və hesab-faktura ünvanı",
+            "Sifariş tarixçəsi və seçimləriniz",
+            "Ödəniş təsdiq məlumatları (tam kart nömrənizi heç vaxt görmür və ya saxlamırıq — ödənişlər birbaşa ödəniş provayderimiz tərəfindən emal olunur)",
+            "Təhlükəsizlik və sayt performansı məqsədilə IP ünvanı və brauzer növü kimi əsas texniki məlumatlar"
+          ]
         },
         {
-          "heading": "2. Topladığımız Məlumatlar",
-          "body": "Sizin birbaşa təqdim etdiyiniz məlumatları (ad, e-poçt, çatdırılma və hesab-faktura ünvanı, telefon nömrəsi, ödəniş provayderimiz tərəfindən işlənən ödəniş məlumatları), avtomatik toplanan məlumatları (IP ünvanı, brauzer növü, cihaz məlumatı, baxılan səhifələr, kukilər) və üçüncü tərəflərdən alınan məlumatları (ödəniş prosessorları, çatdırılma tərəfdaşları, marketinq platformaları) toplayırıq."
+          "heading": "2. Məlumatlardan Necə İstifadə Edirik",
+          "body": "Topladığımız məlumatlardan aşağıdakı məqsədlər üçün istifadə edirik:",
+          "list": [
+            "Sifarişlərinizi emal etmək və yerinə yetirmək, o cümlədən çatdırılma və gömrük sənədləşməsi",
+            "Sifarişinizin statusu, çatdırılma yenilikləri və müştəri dəstəyi sorğuları ilə bağlı sizinlə əlaqə saxlamaq",
+            "Saytımızı və məhsul çeşidimizi təkmilləşdirmək",
+            "Yalnız razılıq verdiyiniz halda vaxtaşırı marketinq yenilikləri göndərmək — istənilən vaxt abunəlikdən çıxa bilərsiniz"
+          ]
         },
         {
-          "heading": "3. Məlumatlarınızdan Necə İstifadə Edirik",
-          "body": "Məlumatlarınızı sifarişləri emal etmək və çatdırmaq, müştəri dəstəyi göstərmək, alış-veriş təcrübənizi fərdiləşdirmək, razılıq verdiyiniz halda marketinq bildirişləri göndərmək, fırıldaqçılığın qarşısını almaq və qanuni öhdəlikləri yerinə yetirmək üçün istifadə edirik."
+          "heading": "3. Məlumatlarınızın Paylaşılması",
+          "body": "Sifariş məlumatlarını yalnız sifarişinizi çatdırmaq üçün zəruri olan üçüncü tərəflərlə paylaşırıq:",
+          "list": [
+            "Ödənişinizi təhlükəsiz şəkildə emal etmək üçün ödəniş provayderimiz",
+            "Sifarişinizi çatdırmaq və lazım olduqda gömrük rəsmiləşdirilməsini həyata keçirmək üçün anbar və çatdırılma tərəfdaşlarımız",
+            "Saytı idarə etməyimizə kömək edən xidmət provayderləri (məs. hosting, e-poçt)"
+          ],
+          "closing": "Şəxsi məlumatlarınızı üçüncü tərəflərə satmırıq."
         },
         {
-          "heading": "4. Emal Üçün Hüquqi Əsas (AB/BB İstifadəçiləri)",
-          "body": "Şəxsi məlumatları müqavilənin icrası (sifarişinizi yerinə yetirmək üçün), qanuni maraq (xidmətlərimizi təkmilləşdirmək və fırıldaqçılığın qarşısını almaq üçün), razılıq (marketinq bildirişləri və məcburi olmayan kukilər üçün) və qanuni öhdəlik (vergi və mühasibat qeydləri) əsasında emal edirik."
+          "heading": "4. Beynəlxalq Ötürmələr",
+          "body": "Beynəlxalq çatdırılma etdiyimiz və müxtəlif ölkələrdə yerləşən tərəfdaşlarla işlədiyimiz üçün məlumatlarınız yaşadığınız ölkədən kənarda ötürülə və emal oluna bilər. Onun təhlükəsiz şəkildə və bu siyasətə uyğun idarə olunması üçün ağlabatan tədbirlər görürük."
         },
         {
-          "heading": "5. Məlumatlarınızın Paylaşılması",
-          "body": "Məlumatları müvafiq məlumat emalı sazişləri əsasında ödəniş prosessorları, çatdırılma və logistika tərəfdaşları, İT və hosting provayderləri və marketinq alətləri ilə paylaşırıq. Şəxsi məlumatlarınızı satmırıq."
+          "heading": "5. Məlumatların Saxlanması",
+          "body": "Sifariş və hesab məlumatlarını sifarişləri yerinə yetirmək, hüquqi və vergi öhdəliklərinə əməl etmək və mübahisələri həll etmək üçün zəruri olduğu müddətdə saxlayırıq."
         },
         {
-          "heading": "6. Beynəlxalq Məlumat Transferləri",
-          "body": "Məlumatlar AB/BB/ABŞ hüdudlarından kənara ötürüldükdə, ekvivalent qoruma səviyyəsini təmin etmək üçün adekvatlıq qərarlarına və ya Standart Müqavilə Şərtlərinə əsaslanırıq."
+          "heading": "6. Hüquqlarınız",
+          "body": "İstənilən vaxt bizdən aşağıdakıları edə bilərsiniz:",
+          "list": [
+            "Sizinlə bağlı saxladığımız şəxsi məlumatlara giriş əldə etmək",
+            "Yanlış məlumatları düzəltmək",
+            "Hüquqi saxlama tələblərinə tabe olaraq məlumatlarınızı silmək",
+            "Marketinq kommunikasiyalarına razılığınızı geri götürmək"
+          ],
+          "closing": "Bu hüquqlardan hər hansı birini istifadə etmək üçün hello@weartry.shop ünvanı ilə bizimlə əlaqə saxlayın."
         },
         {
-          "heading": "7. Məlumatların Saxlanması",
-          "body": "Şəxsi məlumatları bu siyasətdə göstərilən məqsədləri, o cümlədən hüquqi, mühasibat və hesabat tələblərini yerinə yetirmək üçün lazım olan müddət ərzində saxlayırıq."
+          "heading": "7. Təhlükəsizlik",
+          "body": "Məlumatlarınızı qorumaq üçün şifrələnmiş checkout və təhlükəsiz məlumat saxlanması daxil olmaqla sənaye standartlarına uyğun tədbirlər tətbiq edirik. Heç bir onlayn xidmət 100% təhlükəsizliyi zəmanət verə bilməz, lakin biz məlumatlarınızı qorumaq üçün çalışırıq."
         },
         {
-          "heading": "8. Hüquqlarınız",
-          "body": "Yerləşdiyiniz yerdən asılı olaraq, məlumatlarınıza giriş, onları düzəltmək, silmək və ya köçürmək, emala etiraz etmək və ya onu məhdudlaşdırmaq və istənilən vaxt razılığı geri götürmək hüququnuz ola bilər. AB və BB sakinləri yerli məlumatların mühafizəsi orqanına şikayət edə bilər."
+          "heading": "8. Bu Siyasətdə Dəyişikliklər",
+          "body": "Bu siyasəti vaxtaşırı yeniləyə bilərik. Yuxarıdakı \"Son yenilənmə\" tarixi ən son dəyişikliyi əks etdirir."
         },
         {
-          "heading": "9. Kukilər",
-          "body": "Kuki Siyasətimizdə təsvir olunduğu kimi kukilərdən və oxşar texnologiyalardan istifadə edirik. Tərcihlərinizi istənilən vaxt kuki tənzimləmələri vasitəsilə idarə edə bilərsiniz."
-        },
-        {
-          "heading": "10. Uşaqların Məxfiliyi",
-          "body": "Uşaq kolleksiyamız yetkinlər tərəfindən satın alınması üçün nəzərdə tutulub. 16 yaşdan aşağı uşaqlardan bilərəkdən birbaşa şəxsi məlumat toplamırıq."
-        },
-        {
-          "heading": "11. Bu Siyasətdə Dəyişikliklər",
-          "body": "Bu Məxfilik Siyasətini vaxtaşırı yeniləyə bilərik. Əhəmiyyətli dəyişikliklər saytımız və ya e-poçt vasitəsilə bildiriləcək."
-        },
-        {
-          "heading": "12. Bizimlə Əlaqə",
-          "body": "Bu Məxfilik Siyasəti ilə bağlı hər hansı sualınız varsa və ya hüquqlarınızı həyata keçirmək istəyirsinizsə, support@weartry.shop ünvanında bizimlə əlaqə saxlayın."
+          "heading": "9. Bizimlə Əlaqə",
+          "body": "Bu siyasətlə bağlı suallarınızı hello@weartry.shop ünvanına göndərə bilərsiniz."
         }
       ]
     },
     "terms": {
       "title": "İstifadə Şərtləri",
-      "intro": "Bu İstifadə Şərtləri (\"Şərtlər\") WearTry saytına girişinizi və ondan istifadənizi, habelə sayt vasitəsilə edilən alışları tənzimləyir. Saytımızdan istifadə etməklə bu Şərtləri qəbul etmiş olursunuz.",
+      "intro": "Bu İstifadə Şərtləri weartry.shop saytından istifadənizi və onun vasitəsilə etdiyiniz hər hansı alışı tənzimləyir. Sifariş verməklə aşağıdakı şərtləri qəbul etmiş olursunuz.",
       "sections": [
         {
-          "heading": "1. Sifarişlər və Qəbul",
-          "body": "Bütün sifarişlər təsdiq və mövcudluqdan asılıdır. Fırıldaqçılıq şübhəsi və ya qiymət səhvləri daxil olmaqla, istənilən sifarişi rədd etmək və ya ləğv etmək hüququnu özümüzdə saxlayırıq."
+          "heading": "1. Haqqımızda",
+          "body": "WearTry kişi, qadın və uşaqlar üçün geyim satan, ABŞ, Birləşmiş Krallıq və Avropa Birliyi üzrə müştərilərə çatdırılma edən onlayn geyim pərakəndə satıcısıdır."
         },
         {
-          "heading": "2. Qiymətlər və Ödəniş",
-          "body": "Bütün qiymətlər seçdiyiniz regiona uyğun valyutada göstərilir və qanunla tələb olunduqda müvafiq ƏDV və ya satış vergisini əhatə edir. Ödəniş checkout zamanı təhlükəsiz şəkildə emal olunur."
+          "heading": "2. Sifarişlər və Qiymətlər",
+          "body": "Qiymətlər ABŞ dolları ilə göstərilir və checkout zamanı təsdiqlənir. Sifariş təsdiqlənməzdən əvvəl qiymət səhvlərini düzəltmək hüququnu özümüzdə saxlayırıq. Ödəniş uğurla emal olunduqdan sonra sifariş qəbul edilmiş sayılır; bu baş verdikdən sonra təsdiq e-poçtu göndəririk."
         },
         {
-          "heading": "3. Çatdırılma",
-          "body": "Avropa Birliyinin bütün üzv dövlətlərinə, Böyük Britaniyaya və ABŞ-a çatdırılma edirik. Çatdırılma müddəti və dəyəri təyinat yerinə görə dəyişir və checkout zamanı göstərilir."
+          "heading": "3. Ödənişlər",
+          "body": "Ödənişlər üçüncü tərəf ödəniş provayderimiz tərəfindən emal olunur. WearTry tam kart məlumatlarınızı saxlamır. Bütün əməliyyatlar ödəniş provayderimizin öz yoxlama və fırıldaqçılığın qarşısının alınması yoxlamalarına tabedir və yüksək riskli və ya fırıldaqçı kimi qeyd olunan istənilən sifarişi ləğv etmək və geri qaytarmaq hüququnu özümüzdə saxlayırıq."
         },
         {
-          "heading": "4. Qaytarma və Geri Ödəniş",
-          "body": "Qaytarma, dəyişdirmə və geri ödənişlə bağlı tam məlumat üçün Qaytarma Siyasətimizə baxın."
+          "heading": "4. Çatdırılma və Gömrük",
+          "body": "Beynəlxalq çatdırılma edirik. Çatdırılma müddətləri və tətbiq olunan gömrük rüsumları və ya vergilər təyinat yerinə görə dəyişir; ətraflı məlumat üçün Çatdırılma Məlumatı səhifəmizə baxın. Tələb olunduqda, rüsum və vergilər ya checkout zamanı yığılır, ya da sifarişin dəyərindən və təyinat yerindən asılı olaraq çatdırılma zamanı müştəri tərəfindən ödənilir."
         },
         {
-          "heading": "5. Əqli Mülkiyyət",
-          "body": "Bu saytdakı bütün məzmun, o cümlədən mətn, qrafika, loqolar və şəkillər WearTry-a və ya onun lisenziya verənlərinə məxsusdur və icazəsiz istifadə edilə bilməz."
+          "heading": "5. Qaytarma və Geri Ödəniş",
+          "body": "Qaytarma və geri ödənişlər Qaytarma və Geri Ödəniş Siyasətimizə uyğun həyata keçirilir, saytımızda mövcuddur."
         },
         {
-          "heading": "6. Məsuliyyətin Məhdudlaşdırılması",
-          "body": "Qanunla icazə verilən maksimum həddə qədər, WearTry saytdan istifadənizdən yaranan hər hansı dolayı, təsadüfi və ya nəticəvi zərərlərə görə məsuliyyət daşımır."
+          "heading": "6. Məhsul Məlumatı",
+          "body": "Məhsul rənglərini, materiallarını və ölçülərini dəqiq şəkildə göstərmək üçün ağlabatan səylər göstəririk. Ekran ayarları və ya istehsal partiyalarına görə kiçik fərqlər ola bilər."
         },
         {
-          "heading": "7. İstehlakçı Hüquqları",
-          "body": "Bu Şərtlərdəki heç bir müddəa AB, BB və ya ABŞ qanunvericiliyinə əsasən istehlakçı kimi qanuni hüquqlarınıza, o cümlədən müvafiq soyuma dövrü ərzində alışdan imtina hüququnuza təsir etmir."
+          "heading": "7. Məsuliyyətin Məhdudlaşdırılması",
+          "body": "Qanunla icazə verilən həddə, WearTry saytımızdan və ya məhsullarımızdan istifadə nəticəsində yaranan dolayı, təsadüfi və ya nəticəvi zərərlərə görə, sifarişin dəyərindən artıq məsuliyyət daşımır."
         },
         {
-          "heading": "8. Tətbiq Olunan Qanunvericilik",
-          "body": "Bu Şərtlər istehlakçıların qorunması məqsədilə yaşadığınız ölkədə tətbiq olunan qanunlarla tənzimlənir, məcburi yerli istehlakçı qanunlarına xələl gətirmədən."
+          "heading": "8. Bu Şərtlərdə Dəyişikliklər",
+          "body": "Bu şərtləri vaxtaşırı yeniləyə bilərik. Dəyişikliklər dərc edildikdən sonra saytımızdan istifadəyə davam etmək yenilənmiş şərtlərin qəbulu deməkdir."
         },
         {
-          "heading": "9. Bu Şərtlərdə Dəyişikliklər",
-          "body": "Bu Şərtləri istənilən vaxt yeniləyə bilərik. Dəyişikliklərdən sonra saytdan davamlı istifadə yenilənmiş Şərtlərin qəbulu deməkdir."
+          "heading": "9. Tətbiq Olunan Qanunvericilik",
+          "body": "Bu şərtlər WearTry-ın fəaliyyət göstərdiyi yerin qanunvericiliyinə tabedir, bu da yaşadığınız ölkədə malik ola biləcəyiniz istənilən qanuni istehlakçı hüquqlarına xələl gətirmir."
         },
         {
-          "heading": "10. Bizimlə Əlaqə",
-          "body": "Bu Şərtlərlə bağlı suallarınızı support@weartry.shop ünvanına göndərə bilərsiniz."
+          "heading": "10. Əlaqə",
+          "body": "Bu şərtlərlə bağlı suallarınızı hello@weartry.shop ünvanına göndərə bilərsiniz."
         }
       ]
     },
     "returns": {
       "title": "Qaytarma və Geri Ödəniş Siyasəti",
-      "intro": "Sifarişinizdən razı qalmağınızı istəyirik. Əgər nəsə düz deyilsə, məsələni necə həll etdiyimiz budur.",
+      "intro": "Sifariş etdiyiniz məhsulu sevməyinizi istəyirik. Bu siyasət WearTry-da qaytarma və geri ödənişlərin necə işlədiyini izah edir.",
       "sections": [
         {
-          "heading": "1. Hazırlanma və Çatdırılma Müddəti",
-          "body": "Sifarişlər adətən 1-3 iş günü ərzində hazırlanır; çatdırılma qlobal təchizat şəbəkəmizdən həyata keçirilir və ünvanınızdan asılı olaraq adətən 7-20 iş günü çəkir."
+          "heading": "1. Qaytarma Müddəti",
+          "body": "Məhsul geyilməmiş, yuyulmamış və etiketləri taxılı olaraq orijinal vəziyyətdə olduğu təqdirdə, çatdırılmadan sonra 30 gün ərzində qaytarma tələb edə bilərsiniz."
         },
         {
-          "heading": "2. Qaytarma Müddəti",
-          "body": "Çatdırılmadan sonra 30 gün ərzində geyilməmiş, istifadə olunmamış və orijinal qablaşdırmada olan məhsulları qaytara və ya dəyişə bilərsiniz. Fikir dəyişikliyi ilə bağlı qaytarmalarda geri göndərmə xərci alıcının üzərinə düşür."
+          "heading": "2. Qaytarmaya Necə Başlamaq Olar",
+          "body": "Sifariş nömrənizi və qaytarmaq istədiyiniz məhsulu qeyd edərək hello@weartry.shop ünvanına e-poçt göndərin. Növbəti addımları təsdiqləyəcək və qaytarma ünvanı təqdim edəcəyik."
         },
         {
-          "heading": "3. Problem Haqqında Bildiriş",
-          "body": "Məhsul qüsurlu, zədəli və ya səhv gəlibsə, çatdırılmadan sonra 14 gün ərzində bizimlə əlaqə saxlayın. Əksər hallarda etibarlı foto sübutu əsasında məhsulu geri göndərmədən əvəzləmə və ya tam geri ödəniş təmin edirik."
+          "heading": "3. Geri Ödənişlər",
+          "body": "Qaytarılan məhsulu aldıqdan və yoxladıqdan sonra, orijinal ödəniş üsulunuza 5–10 iş günü ərzində geri ödəniş edəcəyik. İlkin çatdırılma xərcləri geri qaytarılmır və məhsul zədəli, qüsurlu və ya səhv olmadığı təqdirdə, geri göndərmə xərcləri müştərinin öz məsuliyyətindədir."
         },
         {
-          "heading": "4. Qaytarmanı Necə Başlatmaq Olar",
-          "body": "Sifariş nömrənizi və (qüsurlu/səhv məhsullar üçün) problemin şəkillərini support@weartry.shop ünvanına göndərin."
+          "heading": "4. Zədəli, Qüsurlu və ya Səhv Məhsullar",
+          "body": "Sifarişiniz zədəli, qüsurlu və ya səhv gəlirsə, çatdırılmadan sonra 7 gün ərzində problemin şəkilləri ilə bizimlə əlaqə saxlayın. Sizə əlavə xərc olmadan əvəzedici məhsul və ya tam geri ödəniş, o cümlədən geri göndərmə xərcləri daxil olmaqla, təşkil edəcəyik."
         },
         {
-          "heading": "5. Baxış və Təsdiq",
-          "body": "Komandamız tələbinizi adətən 2-3 iş günü ərzində nəzərdən keçirir və növbəti addımı — qaytarma etiketi, dəyişdirmə və ya geri ödəniş — təsdiqləyir."
+          "heading": "5. Dəyişdirmə",
+          "body": "Hazırda birbaşa dəyişdirmə təklif etmirik. Fərqli ölçü və ya məhsul istəyirsinizsə, zəhmət olmasa orijinal sifarişinizi geri ödəniş üçün qaytarın və yeni sifariş verin."
         },
         {
-          "heading": "6. Geri Ödəniş və Dəyişdirmə",
-          "body": "Təsdiqlənmiş geri ödənişlər 5-10 iş günü ərzində ilkin ödəniş üsulunuza edilir; dəyişdirmələr stok mövcud olan kimi göndərilir."
+          "heading": "6. Gömrük və İdxal Rüsumları",
+          "body": "Çatdırılma zamanı ödənilən istənilən idxal rüsumu və ya vergilər yerli gömrük orqanınız tərəfindən yığılır və WearTry tərəfindən geri qaytarılmır."
+        },
+        {
+          "heading": "7. Qaytarıla Bilməyən Məhsullar",
+          "body": "Gigiyena səbəblərinə görə, final sale kimi qeyd olunan məhsullar və ya müvafiq hallarda daxili geyim, qüsurlu olmadığı təqdirdə qaytarıla bilməz."
+        },
+        {
+          "heading": "8. Əlaqə",
+          "body": "Qaytarma və ya geri ödəniş ilə bağlı suallarınızı hello@weartry.shop ünvanına göndərə bilərsiniz."
         }
       ]
     },
@@ -301,19 +323,41 @@
     "fallbackNotice": "Bu məzmun hazırda yalnız ingilis dilində mövcuddur.",
     "shipping": {
       "title": "Çatdırılma Məlumatı",
-      "intro": "Sifarişiniz göndəriləndə nə gözləməli olduğunuzu buradan öyrənə bilərsiniz.",
+      "intro": "WearTry ABŞ, Birləşmiş Krallıq və Avropa Birliyinə çatdırılma edir. Sifariş verdikdən sonra nə gözləməli olduğunuz budur.",
       "sections": [
         {
-          "heading": "1. Hazırlanma və Çatdırılma Müddəti",
-          "body": "Sifarişlər adətən 1-3 iş günü ərzində hazırlanıb göndərilir. Çatdırılma qlobal təchizat şəbəkəmiz vasitəsilə həyata keçirilir və ünvanınızdan asılı olaraq adətən 7-20 iş günü çəkir."
+          "heading": "1. Hazırlanma Müddəti",
+          "body": "Sifarişlər adətən 2–5 iş günü ərzində hazırlanır və göndərilir."
         },
         {
-          "heading": "2. Sifariş İzləmə",
-          "body": "Sifarişiniz göndərilən kimi e-poçtla izləmə linki alacaqsınız."
+          "heading": "2. Çatdırılma Müddətləri",
+          "list": [
+            "ABŞ: 8–15 iş günü",
+            "Birləşmiş Krallıq: 8–15 iş günü",
+            "Avropa Birliyi: 8–15 iş günü"
+          ],
+          "closing": "Çatdırılma müddətləri dəqiq ünvanınızdan və gömrük prosesindən asılı olaraq bir qədər dəyişə bilər."
         },
         {
-          "heading": "3. Beynəlxalq Çatdırılma və Gömrük",
-          "body": "Hazırda Avropa Birliyi, Böyük Britaniya və ABŞ-a çatdırırıq, zamanla yeni ünvanlar əlavə olunacaq. Beynəlxalq göndərişlərə gömrük rüsumu və ya idxal vergisi tətbiq oluna bilər — bu xərclər alıcının məsuliyyətindədir və çatdırılma zamanı ölkənizin gömrük qaydalarına uyğun tələb oluna bilər."
+          "heading": "3. Gömrük və İdxal Rüsumları",
+          "body": "Beynəlxalq sifarişlər ölkənizin gömrük orqanı tərəfindən müəyyən edilən idxal rüsumlarına və ya vergilərinə tabe ola bilər. Bu xərclər checkout zamanı göstərilən məhsul qiyməti və çatdırılma xərcindən ayrıdır.",
+          "list": [
+            "Ölkənizin aşağı dəyər həddindən (məsələn, AB-də €150 və ya BK-də £135) aşağı olan əksər sifarişlər üçün müvafiq vergilər checkout zamanı yığılır və çatdırılma zamanı əlavə ödəniş tələb olunmur.",
+            "Bu həddən yuxarı olan sifarişlər çatdırılmadan əvvəl gömrüyə əlavə ödəniş tələb edə bilər. Bu cür xərclər müştərinin məsuliyyətindədir və qiymətlərimizə daxil deyil."
+          ],
+          "closing": "Yüksək dəyərli məhsul sifariş edirsinizsə, yerli gömrük qaydalarınızı yoxlamağı tövsiyə edirik."
+        },
+        {
+          "heading": "4. Sifarişinizi İzləmək",
+          "body": "Sifarişiniz göndərildikdən sonra e-poçtla izləmə linki alacaqsınız. Bağlamanız gecikmiş görünürsə, izləmə səhifəsi bizimlə əlaqə saxlamazdan əvvəl cari statusunu yoxlamaq üçün adətən ən sürətli üsuldur."
+        },
+        {
+          "heading": "5. İtirilmiş və ya Gecikmiş Bağlamalar",
+          "body": "İzləmə məlumatınızda 10 iş günündən çox hərəkət yoxdursa, zəhmət olmasa hello@weartry.shop ünvanı ilə bizimlə əlaqə saxlayın, çatdırılma tərəfdaşımızla məsələni araşdıracağıq."
+        },
+        {
+          "heading": "6. Suallar",
+          "body": "Çatdırılma ilə bağlı hər hansı sual üçün hello@weartry.shop ünvanı ilə əlaqə saxlayın."
         }
       ]
     },

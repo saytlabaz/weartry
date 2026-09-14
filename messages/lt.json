@@ -133,131 +133,153 @@
     "lastUpdated": "Last updated: {date}",
     "privacy": {
       "title": "Privacy Policy",
-      "intro": "This Privacy Policy explains how WearTry (\"we\", \"us\", \"our\") collects, uses, shares and protects your personal data when you visit our website or make a purchase, in accordance with the EU General Data Protection Regulation (GDPR), the UK GDPR, and applicable US state privacy laws.",
+      "intro": "WearTry (\"we\", \"us\", \"our\") operates weartry.shop. This policy explains what personal information we collect when you visit our site or place an order, and how we use, store, and protect it.",
       "sections": [
         {
-          "heading": "1. Who We Are",
-          "body": "WearTry is an online fashion retailer serving customers across the European Union, the United Kingdom and the United States. For any privacy-related questions, you can contact us at support@weartry.shop."
+          "heading": "1. Information We Collect",
+          "body": "When you browse our site, place an order, or contact us, we may collect:",
+          "list": [
+            "Name, email address, phone number",
+            "Shipping and billing address",
+            "Order history and preferences",
+            "Payment confirmation details (we never see or store your full card number — payments are processed directly by our payment provider)",
+            "Basic technical data such as IP address and browser type, for security and site performance purposes"
+          ]
         },
         {
-          "heading": "2. Information We Collect",
-          "body": "We collect information you provide directly (name, email, shipping and billing address, phone number, payment details processed by our payment provider), information collected automatically (IP address, browser type, device information, pages visited, cookies), and information from third parties (payment processors, delivery partners, marketing platforms)."
+          "heading": "2. How We Use Your Information",
+          "body": "We use the information we collect to:",
+          "list": [
+            "Process and fulfil your orders, including shipping and customs documentation",
+            "Communicate with you about your order status, shipping updates, and customer support requests",
+            "Improve our website and product range",
+            "Send occasional marketing updates, only if you have opted in — you can unsubscribe at any time"
+          ]
         },
         {
-          "heading": "3. How We Use Your Information",
-          "body": "We use your data to process and deliver orders, provide customer support, personalise your shopping experience, send marketing communications where you have consented, prevent fraud, and comply with legal obligations."
+          "heading": "3. Sharing Your Information",
+          "body": "We share order information only with the third parties necessary to deliver your order:",
+          "list": [
+            "Our payment processor, to securely process your payment",
+            "Our fulfillment and shipping partners, to deliver your order and handle customs clearance where required",
+            "Service providers who help us operate the website (e.g. hosting, email)"
+          ],
+          "closing": "We do not sell your personal information to third parties."
         },
         {
-          "heading": "4. Legal Basis for Processing (EU/UK Users)",
-          "body": "We process personal data on the basis of contract performance (to fulfil your order), legitimate interest (to improve our services and prevent fraud), consent (for marketing communications and non-essential cookies), and legal obligation (tax and accounting records)."
+          "heading": "4. International Transfers",
+          "body": "As we ship internationally and work with partners based in different countries, your information may be transferred and processed outside your country of residence. We take reasonable steps to ensure it is handled securely and in line with this policy."
         },
         {
-          "heading": "5. Sharing Your Information",
-          "body": "We share data with payment processors, shipping and logistics partners, IT and hosting providers, and marketing tools, all under appropriate data processing agreements. We do not sell your personal data."
+          "heading": "5. Data Retention",
+          "body": "We retain order and account information for as long as necessary to fulfil orders, comply with legal and tax obligations, and resolve disputes."
         },
         {
-          "heading": "6. International Data Transfers",
-          "body": "Where data is transferred outside the EU/UK/US, we rely on adequacy decisions or Standard Contractual Clauses to ensure an equivalent level of protection."
+          "heading": "6. Your Rights",
+          "body": "You can ask us at any time to:",
+          "list": [
+            "Access the personal information we hold about you",
+            "Correct inaccurate information",
+            "Delete your information, subject to legal retention requirements",
+            "Withdraw consent to marketing communications"
+          ],
+          "closing": "To exercise any of these rights, contact us at hello@weartry.shop."
         },
         {
-          "heading": "7. Data Retention",
-          "body": "We retain personal data for as long as necessary to fulfil the purposes described in this policy, including legal, accounting and reporting requirements."
+          "heading": "7. Security",
+          "body": "We use industry-standard measures to protect your information, including encrypted checkout and secure data storage. No online service can guarantee 100% security, but we work to keep your data safe."
         },
         {
-          "heading": "8. Your Rights",
-          "body": "Depending on your location, you may have the right to access, correct, delete or port your data, object to or restrict processing, and withdraw consent at any time. EU and UK residents may also lodge a complaint with their local data protection authority."
+          "heading": "8. Changes to This Policy",
+          "body": "We may update this policy from time to time. The \"Last updated\" date at the top reflects the most recent revision."
         },
         {
-          "heading": "9. Cookies",
-          "body": "We use cookies and similar technologies as described in our Cookie Policy. You can manage your preferences at any time via our cookie settings."
-        },
-        {
-          "heading": "10. Children's Privacy",
-          "body": "Our kids' collection is intended for purchase by adults. We do not knowingly collect personal data directly from children under 16."
-        },
-        {
-          "heading": "11. Changes to This Policy",
-          "body": "We may update this Privacy Policy from time to time. Material changes will be notified via our website or by email."
-        },
-        {
-          "heading": "12. Contact Us",
-          "body": "For any questions about this Privacy Policy or to exercise your rights, please contact us at support@weartry.shop."
+          "heading": "9. Contact Us",
+          "body": "Questions about this policy can be sent to hello@weartry.shop."
         }
       ]
     },
     "terms": {
       "title": "Terms of Service",
-      "intro": "These Terms of Service (\"Terms\") govern your access to and use of the WearTry website and any purchases made through it. By using our website, you agree to these Terms.",
+      "intro": "These Terms of Service govern your use of weartry.shop and any purchase you make through it. By placing an order, you agree to the terms below.",
       "sections": [
         {
-          "heading": "1. Orders and Acceptance",
-          "body": "All orders are subject to acceptance and availability. We reserve the right to refuse or cancel any order at our discretion, including in cases of suspected fraud or pricing errors."
+          "heading": "1. About Us",
+          "body": "WearTry is an online clothing retailer selling apparel for men, women, and kids, shipping to customers across the United States, United Kingdom, and European Union."
         },
         {
-          "heading": "2. Pricing and Payment",
-          "body": "All prices are displayed in the currency relevant to your selected region and include applicable VAT or sales tax where required by law. Payment is processed securely at checkout."
+          "heading": "2. Orders and Pricing",
+          "body": "Prices are shown in US dollars and confirmed at checkout. We reserve the right to correct pricing errors before an order is confirmed. An order is accepted once payment has been successfully processed; we will send a confirmation email once this happens."
         },
         {
-          "heading": "3. Shipping",
-          "body": "We ship to all European Union member states, the United Kingdom and the United States. Delivery times and costs vary by destination and are shown at checkout."
+          "heading": "3. Payments",
+          "body": "Payments are processed by our third-party payment provider. WearTry does not store your full card details. All transactions are subject to our payment provider's own verification and fraud-prevention checks, and we reserve the right to cancel and refund any order flagged as high-risk or fraudulent."
         },
         {
-          "heading": "4. Returns and Refunds",
-          "body": "Please refer to our Return Policy for full details on returns, exchanges and refunds."
+          "heading": "4. Shipping and Customs",
+          "body": "We ship internationally. Delivery times and applicable customs duties or taxes vary by destination; see our Shipping Information page for details. Where required, duties and taxes are either collected at checkout or payable by the customer on delivery, depending on order value and destination."
         },
         {
-          "heading": "5. Intellectual Property",
-          "body": "All content on this website, including text, graphics, logos and images, is the property of WearTry or its licensors and may not be used without permission."
+          "heading": "5. Returns and Refunds",
+          "body": "Returns and refunds are handled under our Return & Refund Policy, available on our website."
         },
         {
-          "heading": "6. Limitation of Liability",
-          "body": "To the maximum extent permitted by law, WearTry shall not be liable for any indirect, incidental or consequential damages arising from your use of the website."
+          "heading": "6. Product Information",
+          "body": "We make reasonable efforts to display product colors, materials, and sizing accurately. Slight variations may occur due to screen settings or manufacturing batches."
         },
         {
-          "heading": "7. Consumer Rights",
-          "body": "Nothing in these Terms affects your statutory rights as a consumer under EU, UK or US law, including your right to withdraw from a purchase within the applicable cooling-off period."
+          "heading": "7. Limitation of Liability",
+          "body": "To the extent permitted by law, WearTry is not liable for indirect, incidental, or consequential damages arising from the use of our website or products, beyond the value of the order in question."
         },
         {
-          "heading": "8. Governing Law",
-          "body": "These Terms are governed by the laws applicable in your country of residence for consumer protection purposes, without prejudice to any mandatory local consumer protection laws."
+          "heading": "8. Changes to These Terms",
+          "body": "We may update these terms from time to time. Continued use of our site after changes are posted constitutes acceptance of the revised terms."
         },
         {
-          "heading": "9. Changes to These Terms",
-          "body": "We may revise these Terms at any time. Continued use of the website after changes constitutes acceptance of the revised Terms."
+          "heading": "9. Governing Law",
+          "body": "These terms are governed by the laws applicable to WearTry's place of business, without prejudice to any statutory consumer protection rights you may have in your own country of residence."
         },
         {
-          "heading": "10. Contact Us",
-          "body": "Questions about these Terms can be sent to support@weartry.shop."
+          "heading": "10. Contact",
+          "body": "Questions about these terms can be sent to hello@weartry.shop."
         }
       ]
     },
     "returns": {
       "title": "Return & Refund Policy",
-      "intro": "We want you to love what you ordered. If something isn't right, here's how we make it right.",
+      "intro": "We want you to love what you order. This policy explains how returns and refunds work at WearTry.",
       "sections": [
         {
-          "heading": "1. Shipping Times",
-          "body": "Most orders arrive within 7–20 business days after dispatch, depending on your destination."
+          "heading": "1. Return Window",
+          "body": "You may request a return within 30 days of delivery, provided the item is unworn, unwashed, and in its original condition with tags attached."
         },
         {
-          "heading": "2. Return Window",
-          "body": "You may request a return or exchange within 30 days of delivery, provided the item is unworn, unused and in its original packaging."
+          "heading": "2. How to Start a Return",
+          "body": "Email hello@weartry.shop with your order number and the item you'd like to return. We'll confirm the next steps and provide a return address."
         },
         {
-          "heading": "3. Reporting a Problem",
-          "body": "If your item arrives faulty, damaged or incorrect, contact us within 14 days of delivery to open a dispute."
+          "heading": "3. Refunds",
+          "body": "Once we receive and inspect the returned item, we'll issue a refund to your original payment method within 5–10 business days. Original shipping costs are non-refundable, and return shipping costs are the customer's responsibility unless the item was damaged, defective, or incorrect."
         },
         {
-          "heading": "4. How to Start a Return",
-          "body": "Email support@weartry.shop with your order number and, for faulty or incorrect items, photos of the issue."
+          "heading": "4. Damaged, Defective, or Incorrect Items",
+          "body": "If your order arrives damaged, defective, or incorrect, contact us within 7 days of delivery with photos of the issue. We'll arrange a replacement or full refund, including return shipping, at no extra cost to you."
         },
         {
-          "heading": "5. Review & Approval",
-          "body": "Our team reviews your request, typically within 2–3 business days, and confirms the next step — a return label, replacement, or refund."
+          "heading": "5. Exchanges",
+          "body": "We currently do not offer direct exchanges. If you'd like a different size or item, please return your original order for a refund and place a new order."
         },
         {
-          "heading": "6. Refunds & Replacements",
-          "body": "Approved refunds are issued to your original payment method within 5–10 business days; replacements ship as soon as stock allows."
+          "heading": "6. Customs and Import Duties",
+          "body": "Any import duties or taxes paid on delivery are collected by your local customs authority and are not refundable by WearTry."
+        },
+        {
+          "heading": "7. Non-Returnable Items",
+          "body": "For hygiene reasons, items marked as final sale, or intimate apparel where applicable, cannot be returned unless faulty."
+        },
+        {
+          "heading": "8. Contact",
+          "body": "Questions about a return or refund can be sent to hello@weartry.shop."
         }
       ]
     },
@@ -301,19 +323,41 @@
     "fallbackNotice": "Šis turinys šiuo metu pasiekiamas tik anglų kalba.",
     "shipping": {
       "title": "Shipping Information",
-      "intro": "Here's what to expect once your order ships.",
+      "intro": "WearTry ships to the United States, United Kingdom, and the European Union. Here's what to expect once you place an order.",
       "sections": [
         {
-          "heading": "1. Delivery Times",
-          "body": "Most orders arrive within 7–20 business days after dispatch, depending on your destination."
+          "heading": "1. Processing Time",
+          "body": "Orders are typically processed and dispatched within 2–5 business days."
         },
         {
-          "heading": "2. Order Tracking",
-          "body": "You'll receive a tracking link by email as soon as your order ships."
+          "heading": "2. Delivery Times",
+          "list": [
+            "United States: 8–15 business days",
+            "United Kingdom: 8–15 business days",
+            "European Union: 8–15 business days"
+          ],
+          "closing": "Delivery times may vary slightly depending on your exact location and customs processing."
         },
         {
-          "heading": "3. International Shipping",
-          "body": "We currently ship across the EU, UK and US, with more destinations added over time."
+          "heading": "3. Customs and Import Duties",
+          "body": "International orders may be subject to import duties or taxes set by your country's customs authority. These charges are separate from the item price and shipping cost shown at checkout.",
+          "list": [
+            "For most orders under your country's low-value threshold (for example, €150 in the EU or £135 in the UK), applicable taxes are collected at checkout and no further payment is required on delivery.",
+            "Orders above this threshold may require additional payment to customs before delivery. Any such charges are the responsibility of the customer and are not included in our prices."
+          ],
+          "closing": "We recommend checking your local customs regulations if you're ordering a higher-value item."
+        },
+        {
+          "heading": "4. Tracking Your Order",
+          "body": "You'll receive a tracking link by email once your order ships. If your package appears delayed, the tracking page is usually the fastest way to check its current status before contacting us."
+        },
+        {
+          "heading": "5. Lost or Delayed Packages",
+          "body": "If your tracking shows no movement for more than 10 business days, please contact us at hello@weartry.shop and we'll look into it with our shipping partner."
+        },
+        {
+          "heading": "6. Questions",
+          "body": "For anything shipping-related, reach out to hello@weartry.shop."
         }
       ]
     },
