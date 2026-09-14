@@ -60,23 +60,21 @@ export async function getFreightQuote(params: {
   const res = await cjFetch("/v1/logistic/freightCalculate", {
     method: "POST",
     body: JSON.stringify({
-      vid: params.vid,
-      quantity: params.quantity,
       startCountryCode: params.startCountryCode ?? "CN",
       endCountryCode: params.endCountryCode,
+      products: [{ vid: params.vid, quantity: params.quantity }],
     }),
   });
 
   const body = (await res.json()) as CjFreightResponse;
 
-  // TEMPORARY — every country is coming back empty for every product
-  // tested, which points at a systemic request problem rather than "this
-  // product has no route." Logs the raw CJ response for AT (first in the
-  // sweep) and US (last), to see the actual answer fast instead of
-  // guessing at it or waiting through all 29. Remove once confirmed.
+  // TEMPORARY — confirming the request-shape fix (CJ's own error was
+  // "products must be not null": the endpoint needs a `products` array,
+  // not flat top-level vid/quantity) actually produces real quotes.
+  // Remove once confirmed.
   if (params.endCountryCode === "AT" || params.endCountryCode === "US") {
     console.error(
-      `CJ freight debug: request=${JSON.stringify({ vid: params.vid, quantity: params.quantity, startCountryCode: params.startCountryCode ?? "CN", endCountryCode: params.endCountryCode })}, raw response=${JSON.stringify(body)}`
+      `CJ freight debug: request=${JSON.stringify({ startCountryCode: params.startCountryCode ?? "CN", endCountryCode: params.endCountryCode, products: [{ vid: params.vid, quantity: params.quantity }] })}, raw response=${JSON.stringify(body)}`
     );
   }
 
