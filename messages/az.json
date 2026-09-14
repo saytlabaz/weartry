@@ -137,7 +137,7 @@
       "sections": [
         {
           "heading": "1. Biz Kimik",
-          "body": "WearTry Avropa Birliyi, Böyük Britaniya və ABŞ-dakı müştərilərə xidmət göstərən onlayn moda pərakəndə satıcısıdır. Məxfiliklə bağlı hər hansı sualınız üçün bizimlə privacy@weartry.com ünvanında əlaqə saxlaya bilərsiniz."
+          "body": "WearTry Avropa Birliyi, Böyük Britaniya və ABŞ-dakı müştərilərə xidmət göstərən onlayn moda pərakəndə satıcısıdır. Məxfiliklə bağlı hər hansı sualınız üçün bizimlə support@weartry.shop ünvanında əlaqə saxlaya bilərsiniz."
         },
         {
           "heading": "2. Topladığımız Məlumatlar",
@@ -181,7 +181,7 @@
         },
         {
           "heading": "12. Bizimlə Əlaqə",
-          "body": "Bu Məxfilik Siyasəti ilə bağlı hər hansı sualınız varsa və ya hüquqlarınızı həyata keçirmək istəyirsinizsə, privacy@weartry.com ünvanında bizimlə əlaqə saxlayın."
+          "body": "Bu Məxfilik Siyasəti ilə bağlı hər hansı sualınız varsa və ya hüquqlarınızı həyata keçirmək istəyirsinizsə, support@weartry.shop ünvanında bizimlə əlaqə saxlayın."
         }
       ]
     },
@@ -227,7 +227,7 @@
         },
         {
           "heading": "10. Bizimlə Əlaqə",
-          "body": "Bu Şərtlərlə bağlı suallarınızı legal@weartry.com ünvanına göndərə bilərsiniz."
+          "body": "Bu Şərtlərlə bağlı suallarınızı support@weartry.shop ünvanına göndərə bilərsiniz."
         }
       ]
     },
@@ -249,7 +249,7 @@
         },
         {
           "heading": "4. Qaytarmanı Necə Başlatmaq Olar",
-          "body": "Sifariş nömrənizi və (qüsurlu/səhv məhsullar üçün) problemin şəkillərini returns@weartry.com ünvanına göndərin."
+          "body": "Sifariş nömrənizi və (qüsurlu/səhv məhsullar üçün) problemin şəkillərini support@weartry.shop ünvanına göndərin."
         },
         {
           "heading": "5. Baxış və Təsdiq",
@@ -338,7 +338,8 @@
           "body": "Sualınız var? Bizimlə Əlaqə səhifəsi vasitəsilə komandamıza yazın — 24/7 yanınızdayıq."
         }
       ]
-    }
+    },
+    "businessAddress": "WearTry — Baku, Azerbaijan"
   },
   "Contact": {
     "title": "Bizimlə Əlaqə",
@@ -544,7 +545,7 @@
   },
   "ProductFAQ": {
     "heading": "Bu Məhsul Haqqında Suallar",
-    "contactLine": "Hələ sualınız var? Bizimlə əlaqə: support@weartry.com",
+    "contactLine": "Hələ sualınız var? Bizimlə əlaqə: support@weartry.shop",
     "items": [
       {
         "question": "Hansı ölçünü sifariş verməliyəm?",

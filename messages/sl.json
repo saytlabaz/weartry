@@ -137,7 +137,7 @@
       "sections": [
         {
           "heading": "1. Who We Are",
-          "body": "WearTry is an online fashion retailer serving customers across the European Union, the United Kingdom and the United States. For any privacy-related questions, you can contact us at privacy@weartry.com."
+          "body": "WearTry is an online fashion retailer serving customers across the European Union, the United Kingdom and the United States. For any privacy-related questions, you can contact us at support@weartry.shop."
         },
         {
           "heading": "2. Information We Collect",
@@ -181,7 +181,7 @@
         },
         {
           "heading": "12. Contact Us",
-          "body": "For any questions about this Privacy Policy or to exercise your rights, please contact us at privacy@weartry.com."
+          "body": "For any questions about this Privacy Policy or to exercise your rights, please contact us at support@weartry.shop."
         }
       ]
     },
@@ -227,7 +227,7 @@
         },
         {
           "heading": "10. Contact Us",
-          "body": "Questions about these Terms can be sent to legal@weartry.com."
+          "body": "Questions about these Terms can be sent to support@weartry.shop."
         }
       ]
     },
@@ -249,7 +249,7 @@
         },
         {
           "heading": "4. How to Start a Return",
-          "body": "Email returns@weartry.com with your order number and, for faulty or incorrect items, photos of the issue."
+          "body": "Email support@weartry.shop with your order number and, for faulty or incorrect items, photos of the issue."
         },
         {
           "heading": "5. Review & Approval",
@@ -338,7 +338,8 @@
           "body": "Have a question? Reach our team any time through the Contact page — we're here 24/7."
         }
       ]
-    }
+    },
+    "businessAddress": "WearTry — Baku, Azerbaijan"
   },
   "Contact": {
     "title": "Contact Us",
@@ -544,7 +545,7 @@
   },
   "ProductFAQ": {
     "heading": "Questions About This Product",
-    "contactLine": "Still have questions? Contact us at support@weartry.com",
+    "contactLine": "Still have questions? Contact us at support@weartry.shop",
     "items": [
       {
         "question": "What size should I order?",

@@ -43,6 +43,10 @@ export default function LegalPage({
           </section>
         ))}
       </div>
+
+      <p className="mt-12 border-t border-border pt-6 text-sm text-neutral-500">
+        {tLegal("businessAddress")}
+      </p>
     </article>
   );
 }

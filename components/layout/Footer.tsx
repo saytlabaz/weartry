@@ -6,6 +6,8 @@ import { PAYMENT_ICONS } from "./PaymentIcons";
 
 export default function Footer() {
   const t = useTranslations("Footer");
+  const tLegal = useTranslations("Legal");
+  const tContact = useTranslations("Contact");
   const year = new Date().getFullYear();
 
   const columns = [
@@ -41,6 +43,8 @@ export default function Footer() {
               className="block h-14 w-auto md:h-20"
             />
             <p className="mt-3 text-sm text-neutral-500">{t("slogan")}</p>
+            <p className="mt-4 text-xs text-neutral-500">{tLegal("businessAddress")}</p>
+            <p className="mt-1 text-xs text-neutral-500">{tContact("email")}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-x-10 gap-y-6 sm:gap-x-14">
