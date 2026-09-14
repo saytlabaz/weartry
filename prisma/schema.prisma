@@ -63,12 +63,30 @@ model Product {
   /** CJ Dropshipping's product id for this item, once sourced from CJ. */
   cjProductId     String?
   isActive        Boolean         @default(true)
+  /** Shown in the homepage's "Featured Products" section when true. */
+  isFeatured      Boolean         @default(false)
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
   variants        ProductVariant[]
+  reviews         ProductReview[]
 
   @@index([category])
   @@index([isActive])
+  @@index([isFeatured])
+}
+
+model ProductReview {
+  id           String   @id @default(cuid())
+  productId    String
+  product      Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  customerName String
+  rating       Int
+  comment      String
+  isApproved   Boolean  @default(false)
+  createdAt    DateTime @default(now())
+
+  @@index([productId])
+  @@index([isApproved])
 }
 
 model ProductVariant {
@@ -154,11 +172,11 @@ model OrderStatusLog {
 }
 
 /**
- * Backs the /faq page's questions once an admin panel can manage them.
- * `locale` keeps the site's existing 25-language support intact — the
- * public /faq page still reads from next-intl's message files for now
- * (this table has no admin UI yet to populate/edit it); wiring the page to
- * read from here is follow-up work once that admin UI exists.
+ * Backs the /faq page's questions, admin-editable via /idarepaneli/faq.
+ * `locale` keeps the site's existing 25-language support intact, but the
+ * admin panel only manages the "az" rows (it has no locale switcher — see
+ * FaqPageView) — the public /faq page falls back to next-intl's message
+ * files for every other locale, so those 24 languages are unaffected.
  */
 model FaqItem {
   id        String   @id @default(cuid())
@@ -173,10 +191,11 @@ model FaqItem {
 }
 
 /**
- * Key-value store for homepage copy/images an admin could edit without a
- * deploy. `locale` mirrors FaqItem's reasoning above. Not wired into any
- * page yet — the admin UI to populate it doesn't exist until a later
- * command, and every page currently reads its text from next-intl.
+ * Key-value store for homepage/legal-page copy an admin can edit without a
+ * deploy, via /idarepaneli/sehifeler. `locale` mirrors FaqItem's reasoning
+ * — only "az" rows are admin-managed; every component reading from here
+ * falls back to its next-intl translation when no row exists for the
+ * current locale (untouched keys, or any non-"az" locale).
  */
 model SiteContent {
   id        String           @id @default(cuid())
@@ -194,6 +213,32 @@ model AdminUser {
   email        String   @unique
   passwordHash String
   createdAt    DateTime @default(now())
+}
+
+/** A header/footer navigation link, managed at /idarepaneli/menyu. */
+model NavItem {
+  id        String    @id @default(cuid())
+  label     String
+  url       String
+  /** Nullable — a top-level item when null, a submenu entry of `parentId` otherwise. */
+  parentId  String?
+  parent    NavItem?  @relation("NavItemChildren", fields: [parentId], references: [id], onDelete: Cascade)
+  children  NavItem[] @relation("NavItemChildren")
+  order     Int       @default(0)
+  isActive  Boolean   @default(true)
+
+  @@index([parentId])
+}
+
+/** A simple static content page (e.g. "About", "Campaigns"), rendered at /[locale]/[slug]. */
+model CustomPage {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  content   String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model AdminNotification {
