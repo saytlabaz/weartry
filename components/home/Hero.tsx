@@ -5,8 +5,19 @@ import { motion } from "framer-motion";
 import BlurFadeUp from "@/components/motion/BlurFadeUp";
 import FloatingBlobs from "@/components/motion/FloatingBlobs";
 
-export default function Hero() {
+interface HeroOverrides {
+  hero_eyebrow?: string;
+  hero_title?: string;
+  hero_subtitle?: string;
+  hero_cta?: string;
+}
+
+export default function Hero({ overrides }: { overrides?: HeroOverrides }) {
   const t = useTranslations("Hero");
+  const eyebrow = overrides?.hero_eyebrow || t("eyebrow");
+  const title = overrides?.hero_title || t("title");
+  const subtitle = overrides?.hero_subtitle || t("subtitle");
+  const cta = overrides?.hero_cta || t("cta");
 
   return (
     <section className="relative flex min-h-[640px] items-end overflow-hidden bg-gradient-to-br from-sky-200 via-sky-100 to-orange-100 sm:min-h-[720px]">
@@ -21,7 +32,7 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: [0.44, 0, 0.56, 1] }}
           className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-700"
         >
-          {t("eyebrow")}
+          {eyebrow}
         </motion.p>
 
         <BlurFadeUp
@@ -30,11 +41,11 @@ export default function Hero() {
           duration={0.7}
           className="max-w-2xl text-5xl font-bold leading-[1.05] tracking-tight text-neutral-900 sm:text-7xl"
         >
-          {t("title")}
+          {title}
         </BlurFadeUp>
 
         <BlurFadeUp immediate delay={0.1} duration={0.7} className="max-w-md text-base text-neutral-700 sm:text-lg">
-          {t("subtitle")}
+          {subtitle}
         </BlurFadeUp>
 
         <BlurFadeUp immediate delay={0.2} duration={0.7}>
@@ -42,7 +53,7 @@ export default function Hero() {
             href="#new-arrivals"
             className="inline-flex items-center rounded-full bg-neutral-900 px-7 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
           >
-            {t("cta")}
+            {cta}
           </a>
         </BlurFadeUp>
       </div>
