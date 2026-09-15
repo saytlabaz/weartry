@@ -205,7 +205,9 @@ export default function CjSearchView() {
             images: detail.images,
             variants: chosen.map((v) => ({ vid: v.vid, color: v.color, size: v.size, stock: v.stock })),
             maxShippingCost: shipping?.cost ?? null,
-            maxShippingCountry: shipping?.countryName ?? null,
+            // Send the ISO country code (e.g. "DE"), not the display name
+            // ("Germany") — cjMaxShippingCountry in the DB is a code column.
+            maxShippingCountry: shipping?.countryCode ?? null,
           }),
         });
         const body = await safeJson(res);
@@ -423,13 +425,13 @@ export default function CjSearchView() {
                     </div>
 
                     <div className="flex items-start justify-between gap-3 text-sm">
-                      <span className="text-neutral-500">Ən yüksək çatdırılma (7-10 gün)</span>
+                      <span className="text-neutral-500">Ən yüksək çatdırılma (≤15 gün)</span>
                       {shipping ? (
                         <span className="text-right font-medium">
                           ${shipping.cost.toFixed(2)} — {shipping.countryName}
                           <br />
                           <span className="text-xs font-normal text-neutral-500">
-                            metod: {shipping.methodName} ({shipping.aging} gün)
+                            metod: {shipping.methodName} ({shipping.aging})
                           </span>
                         </span>
                       ) : (
@@ -455,7 +457,7 @@ export default function CjSearchView() {
                       {shippingLoading ? (
                         <>
                           <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                          Hesablanır (~30 saniyə, 29 ölkə)...
+                          Hesablanır (~10 saniyə, 29 ölkə)...
                         </>
                       ) : (
                         <>
@@ -468,7 +470,7 @@ export default function CjSearchView() {
                     {shippingError && <p className="text-xs text-red-600">{shippingError}</p>}
                     {shipping && shipping.skipped.length > 0 && (
                       <p className="text-xs text-neutral-400">
-                        {shipping.skipped.length} ölkə üçün 7-10 gün aralığında metod tapılmadı (hesablamaya daxil edilmədi).
+                        {shipping.skipped.length} ölkə üçün ≤15 gün aralığında metod tapılmadı (hesablamaya daxil edilmədi).
                       </p>
                     )}
                   </div>

@@ -2,11 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/admin/require-admin";
 import { getMaxShippingCost } from "@/lib/cj/getMaxShippingCost";
 
-// The 29-country sweep takes ~30-35s at CJ's rate limit — well under
-// Vercel's default function timeout, but worth being explicit about.
+// Parallel chunked sweep over 29 markets takes ~8-10s — explicit maxDuration
+// so Vercel doesn't cut it at the default 10-15s limit.
 export const maxDuration = 60;
 
-/** POST /api/admin/cj/freight — sweeps every supported market for the highest 7-10 day CJ freight quote for one variant. Manual/on-demand only, never automatic. */
+/** POST /api/admin/cj/freight — runs the Max-of-Mins sweep over 29 markets (US, GB, 27 EU states), returning the highest standard (≤15 day, non-premium) freight quote. Manual/on-demand only; auto-runs at import time too. */
 export async function POST(req: NextRequest) {
   const authError = await requireAdmin(req);
   if (authError) return authError;
