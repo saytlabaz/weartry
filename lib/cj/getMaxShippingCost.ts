@@ -13,19 +13,29 @@ export interface MaxShippingResult {
   countryName: string;
   methodName: string;
   aging: string;
-  /** Countries with no method in the target day window (excluded from the max entirely, not substituted with an express/out-of-window fallback), or that errored — surfaced so the admin isn't misled by a silently-partial result. */
+  /**
+   * Countries with no standard method in the target day window (excluded
+   * entirely, not substituted with an express/out-of-window fallback), or
+   * that errored — surfaced so the admin isn't misled by a silently-partial
+   * result.
+   */
   skipped: { countryCode: string; reason: string }[];
 }
 
 /**
  * Queries CJ's freight calculator for every supported market (i18n/markets.ts
  * — the 27 EU states + UK + US) one at a time, spaced out to stay under
- * CJ's rate limit, and returns the single most expensive quote across only
- * the countries that had a method in the target window (see getFreight.ts
- * for the exact day range). Takes ~30-35s for the full 29-country sweep.
+ * CJ's rate limit, and returns the single cheapest standard (non-premium)
+ * quote across all countries that had a method in the target window
+ * (see getFreight.ts for the exact day range and the premium-carrier
+ * exclusion logic). Takes ~30-35s for the full 29-country sweep.
  * Throws only when literally no supported country has a matching method at
  * all — that's a real "can't produce this reference number" case, not
  * something to paper over with an unrelated express-shipping price.
+ *
+ * The function is intentionally kept as `getMaxShippingCost` (and the
+ * result type as `MaxShippingResult`) so that all existing call-sites and
+ * the DB column (`cjMaxShippingCost`) continue to compile without changes.
  */
 export async function getMaxShippingCost(params: { vid: string; quantity?: number }): Promise<MaxShippingResult> {
   const quantity = params.quantity ?? 1;
@@ -38,7 +48,8 @@ export async function getMaxShippingCost(params: { vid: string; quantity?: numbe
       const quote = await getFreightQuote({ vid: params.vid, endCountryCode: market.code, quantity });
       if (!quote) {
         skipped.push({ countryCode: market.code, reason: "no_method_in_window" });
-      } else if (!best || quote.price > best.cost) {
+      } else if (!best || quote.price < best.cost) {
+        // Track the cheapest quote seen so far (was: most expensive).
         best = { cost: quote.price, countryCode: market.code, methodName: quote.methodName, aging: quote.aging };
       }
     } catch (err) {

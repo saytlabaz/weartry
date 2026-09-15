@@ -43,15 +43,27 @@ export interface FreightQuote {
 }
 
 /**
+ * Premium carrier keywords that are excluded from selection unless they
+ * are the only option available in the target day window. Matching is
+ * case-insensitive against logisticName.
+ */
+const PREMIUM_CARRIERS = ["dhl", "fedex", "ups", "ems"];
+
+/** Returns true when the method name belongs to a premium/express carrier. */
+function isPremiumCarrier(name: string): boolean {
+  const lower = name.toLowerCase();
+  return PREMIUM_CARRIERS.some((kw) => lower.includes(kw));
+}
+
+/**
  * Calls CJ's freight calculator (POST /v1/logistic/freightCalculate) for
- * one destination country and returns the most expensive method whose
- * quoted shipping time falls in the WINDOW_MIN_DAYS-WINDOW_MAX_DAYS
- * window. Returns null when CJ has no method in that window for this
- * country — that country is then excluded entirely from the max-shipping
- * calculation, never substituted with an out-of-window (e.g. express)
- * method. An earlier version fell back to the priciest method regardless
- * of timeframe when nothing matched, which let $30-80 express/freight
- * options masquerade as the reference "standard shipping" cost.
+ * one destination country and returns the cheapest standard (non-premium)
+ * method whose quoted shipping time falls in the WINDOW_MIN_DAYS-WINDOW_MAX_DAYS
+ * window. Premium carriers (DHL, FedEx, UPS, EMS) are excluded unless
+ * they are the only options in the window. Returns null when CJ has no
+ * method in that window for this country — that country is then excluded
+ * entirely from the calculation, never substituted with an out-of-window
+ * (e.g. express) method.
  */
 export async function getFreightQuote(params: {
   vid: string;
@@ -91,11 +103,19 @@ export async function getFreightQuote(params: {
 
   if (inWindow.length === 0) return null;
 
-  const most = inWindow.reduce((a, b) => (b.method.logisticPrice > a.method.logisticPrice ? b : a));
+  // Prefer standard (non-premium) carriers; fall back to premium-only pool
+  // if no standard option is available in the window.
+  const standard = inWindow.filter((m) => !isPremiumCarrier(m.method.logisticName));
+  const pool = standard.length > 0 ? standard : inWindow;
+
+  // Pick the cheapest method from the selected pool (ascending by price).
+  const cheapest = pool.reduce((a, b) =>
+    b.method.logisticPrice < a.method.logisticPrice ? b : a
+  );
 
   return {
-    price: most.method.logisticPrice,
-    methodName: most.method.logisticName,
-    aging: most.method.logisticAging,
+    price: cheapest.method.logisticPrice,
+    methodName: cheapest.method.logisticName,
+    aging: cheapest.method.logisticAging,
   };
 }
