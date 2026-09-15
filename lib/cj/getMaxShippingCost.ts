@@ -70,48 +70,54 @@ export async function getMaxShippingCost(params: { vid: string; quantity?: numbe
   // Filter the global markets list down to exactly the 29 target countries.
   const targetMarkets = markets.filter((m) => TARGET_COUNTRY_CODES.has(m.code));
 
-  // Addım B accumulator — tracks the highest per-country minimum seen so far.
-  let best: { cost: number; countryCode: string; methodName: string; aging: string } | null = null;
-  const skipped: { countryCode: string; reason: string }[] = [];
-
-  // CJ's rate limit is strictly 1 request per second. We must process
-  // sequentially to avoid 429 Too Many Requests errors.
-  for (let i = 0; i < targetMarkets.length; i++) {
-    const market = targetMarkets[i];
+  // CJ's rate limit is strictly 1 request per second. We must pace
+  // our requests to avoid 429 Too Many Requests errors. Instead of
+  // sequential `await` (which adds API latency to the delay and exceeds
+  // Vercel's 60s limit), we dispatch one request every 1100ms.
+  const promises = targetMarkets.map(async (market, i) => {
+    // Stagger the start time of each request
+    if (i > 0) {
+      await sleep(i * 1100);
+    }
 
     try {
       // Addım A: cheapest eligible method for this country.
       const quote = await getFreightQuote({ vid: params.vid, endCountryCode: market.code, quantity });
-      
-      if (!quote) {
-        skipped.push({ countryCode: market.code, reason: "no_eligible_method" });
-      } else {
-        // Guard: price must be a finite positive number.
-        const price = Number(quote.price);
-        if (isNaN(price) || !isFinite(price) || price <= 0) {
-          skipped.push({ countryCode: market.code, reason: "invalid_price" });
-        } else if (!best || price > best.cost) {
-          // Addım B: keep the highest of the per-country minimums.
-          best = {
-            cost: Number(price.toFixed(2)),
-            countryCode: market.code,
-            methodName: quote.methodName,
-            aging: quote.aging,
-          };
-        }
-      }
+      return { market, quote, error: null };
     } catch (err) {
       // Graceful degradation — log and carry on.
       console.error(
         `CJ freight error for ${market.code}:`,
         err instanceof Error ? err.message : err
       );
-      skipped.push({ countryCode: market.code, reason: err instanceof Error ? err.message : "unknown_error" });
+      return { market, quote: null, error: err instanceof Error ? err.message : "unknown_error" };
     }
+  });
 
-    // Wait 1.1s between each request to strictly respect the 1 QPS limit.
-    if (i < targetMarkets.length - 1) {
-      await sleep(1100);
+  const results = await Promise.all(promises);
+
+  let best: { cost: number; countryCode: string; methodName: string; aging: string } | null = null;
+  const skipped: { countryCode: string; reason: string }[] = [];
+
+  for (const { market, quote, error } of results) {
+    if (error !== null) {
+      skipped.push({ countryCode: market.code, reason: error });
+    } else if (!quote) {
+      skipped.push({ countryCode: market.code, reason: "no_eligible_method" });
+    } else {
+      // Guard: price must be a finite positive number.
+      const price = Number(quote.price);
+      if (isNaN(price) || !isFinite(price) || price <= 0) {
+        skipped.push({ countryCode: market.code, reason: "invalid_price" });
+      } else if (!best || price > best.cost) {
+        // Addım B: keep the highest of the per-country minimums.
+        best = {
+          cost: Number(price.toFixed(2)),
+          countryCode: market.code,
+          methodName: quote.methodName,
+          aging: quote.aging,
+        };
+      }
     }
   }
 
