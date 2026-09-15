@@ -15,31 +15,8 @@ const TARGET_COUNTRY_CODES = new Set([
   "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE",
 ]);
 
-/**
- * How many countries are queried in parallel within each chunk.
- * CJ's documented rate limit is ~5 req/s; using 5 keeps us safely
- * within that while cutting total wall-clock time by ~5×.
- */
-const CHUNK_SIZE = 5;
-
-/**
- * Delay between chunks (not between individual requests inside a chunk,
- * since those run in parallel). 1 s gap lets CJ's token bucket refill
- * before the next burst of 5 simultaneous requests.
- */
-const BETWEEN_CHUNKS_MS = 1000;
-
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-/** Splits an array into sequential sub-arrays of at most `size` elements. */
-function chunk<T>(arr: T[], size: number): T[][] {
-  const chunks: T[][] = [];
-  for (let i = 0; i < arr.length; i += size) {
-    chunks.push(arr.slice(i, i + size));
-  }
-  return chunks;
 }
 
 export interface MaxShippingResult {
@@ -76,9 +53,9 @@ export interface MaxShippingResult {
  * (prisma/schema.prisma), eliminating price fluctuation between page loads.
  *
  * Performance:
- *   Countries are processed in parallel chunks of CHUNK_SIZE (5) with a
- *   BETWEEN_CHUNKS_MS (1 s) gap between chunks (~8-10 s total for 29
- *   countries, well within Vercel's maxDuration = 60 s on the API route).
+ *   Countries are processed sequentially with a 1.1s delay between them
+ *   (~32s total for 29 countries) to strictly respect CJ's 1 QPS rate limit.
+ *   This is well within Vercel's maxDuration = 60s on the API route.
  *
  * Resilience:
  *   Per-country try/catch: a single CJ timeout never aborts the full sweep;
@@ -97,34 +74,16 @@ export async function getMaxShippingCost(params: { vid: string; quantity?: numbe
   let best: { cost: number; countryCode: string; methodName: string; aging: string } | null = null;
   const skipped: { countryCode: string; reason: string }[] = [];
 
-  const marketChunks = chunk(targetMarkets, CHUNK_SIZE);
+  // CJ's rate limit is strictly 1 request per second. We must process
+  // sequentially to avoid 429 Too Many Requests errors.
+  for (let i = 0; i < targetMarkets.length; i++) {
+    const market = targetMarkets[i];
 
-  for (let ci = 0; ci < marketChunks.length; ci++) {
-    const currentChunk = marketChunks[ci];
-
-    // Fire all requests in this chunk simultaneously.
-    const chunkResults = await Promise.all(
-      currentChunk.map(async (market) => {
-        try {
-          // Addım A: cheapest eligible method for this country.
-          const quote = await getFreightQuote({ vid: params.vid, endCountryCode: market.code, quantity });
-          return { market, quote, error: null };
-        } catch (err) {
-          // Graceful degradation — log and carry on.
-          console.error(
-            `CJ freight error for ${market.code}:`,
-            err instanceof Error ? err.message : err
-          );
-          return { market, quote: null, error: err instanceof Error ? err.message : "unknown_error" };
-        }
-      })
-    );
-
-    // Merge this chunk's results into the global accumulators.
-    for (const { market, quote, error } of chunkResults) {
-      if (error !== null) {
-        skipped.push({ countryCode: market.code, reason: error });
-      } else if (!quote) {
+    try {
+      // Addım A: cheapest eligible method for this country.
+      const quote = await getFreightQuote({ vid: params.vid, endCountryCode: market.code, quantity });
+      
+      if (!quote) {
         skipped.push({ countryCode: market.code, reason: "no_eligible_method" });
       } else {
         // Guard: price must be a finite positive number.
@@ -141,10 +100,19 @@ export async function getMaxShippingCost(params: { vid: string; quantity?: numbe
           };
         }
       }
+    } catch (err) {
+      // Graceful degradation — log and carry on.
+      console.error(
+        `CJ freight error for ${market.code}:`,
+        err instanceof Error ? err.message : err
+      );
+      skipped.push({ countryCode: market.code, reason: err instanceof Error ? err.message : "unknown_error" });
     }
 
-    // Wait between chunks to stay within CJ's rate limit (skip after last chunk).
-    if (ci < marketChunks.length - 1) await sleep(BETWEEN_CHUNKS_MS);
+    // Wait 1.1s between each request to strictly respect the 1 QPS limit.
+    if (i < targetMarkets.length - 1) {
+      await sleep(1100);
+    }
   }
 
   if (!best) {

@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/admin/require-admin";
 import { getMaxShippingCost } from "@/lib/cj/getMaxShippingCost";
 
-// Parallel chunked sweep over 29 markets takes ~8-10s — explicit maxDuration
-// so Vercel doesn't cut it at the default 10-15s limit.
+// Sequential sweep over 29 markets takes ~32s (1.1s delay between each to respect 1 QPS limit) —
+// explicit maxDuration so Vercel doesn't cut it at the default 10-15s limit.
 export const maxDuration = 60;
 
 /** POST /api/admin/cj/freight — runs the Max-of-Mins sweep over 29 markets (US, GB, 27 EU states), returning the highest standard (≤15 day, non-premium) freight quote. Manual/on-demand only; auto-runs at import time too. */

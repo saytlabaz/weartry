@@ -457,7 +457,7 @@ export default function CjSearchView() {
                       {shippingLoading ? (
                         <>
                           <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                          Hesablanır (~10 saniyə, 29 ölkə)...
+                          Hesablanır (~35 saniyə, 29 ölkə)...
                         </>
                       ) : (
                         <>
