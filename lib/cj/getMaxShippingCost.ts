@@ -122,9 +122,22 @@ export async function getMaxShippingCost(params: { vid: string; quantity?: numbe
         skipped.push({ countryCode: market.code, reason: error });
       } else if (!quote) {
         skipped.push({ countryCode: market.code, reason: "no_method_in_window" });
-      } else if (!best || quote.price > best.cost) {
-        // Addım B: keep the highest of the per-country minimums.
-        best = { cost: quote.price, countryCode: market.code, methodName: quote.methodName, aging: quote.aging };
+      } else {
+        // Guard: price must be a finite number (computeTotalPrice in getFreight.ts
+        // already returns a rounded float, but double-check here so NaN can never
+        // corrupt the accumulator through any future code path).
+        const price = Number(quote.price);
+        if (isNaN(price) || !isFinite(price)) {
+          skipped.push({ countryCode: market.code, reason: "invalid_price_nan" });
+        } else if (!best || price > best.cost) {
+          // Addım B: keep the highest of the per-country minimums.
+          best = {
+            cost: Number(price.toFixed(2)),
+            countryCode: market.code,
+            methodName: quote.methodName,
+            aging: quote.aging,
+          };
+        }
       }
     }
 

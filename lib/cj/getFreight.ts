@@ -1,16 +1,36 @@
 import { cjFetch } from "./auth";
 
 const WINDOW_MIN_DAYS = 7;
-const WINDOW_MAX_DAYS = 10;
+const WINDOW_MAX_DAYS = 15;
 
+/**
+ * Raw shape of one freight method returned by CJ's freightCalculate endpoint.
+ * All numeric fields arrive as numbers *or* numeric strings depending on the
+ * CJ API version — parseFloat() is used defensively on every field below.
+ */
 interface CjFreightMethod {
-  logisticPrice: number;
-  logisticPriceCn?: number;
+  /** Base freight price charged by the carrier (USD). */
+  logisticPrice: number | string;
+  /** Same price expressed in CNY — not used for comparisons. */
+  logisticPriceCn?: number | string;
+  /** Free-text delivery time estimate, e.g. "8-15 days". */
   logisticAging: string;
+  /** Human-readable carrier / service name, e.g. "CJPacket Ordinary". */
   logisticName: string;
-  taxesFee?: number;
-  clearanceOperationFee?: number;
-  totalPostageFee?: number;
+  /**
+   * Import/customs handling fee added on top of the base freight price.
+   * Present on some methods (especially EU destinations), absent on others.
+   */
+  taxesFee?: number | string;
+  /** Additional customs clearance handling fee, where applicable. */
+  clearanceOperationFee?: number | string;
+  /**
+   * Pre-summed total from CJ that may include all surcharges.
+   * We compute our own total from individual fields rather than trusting
+   * this field, because it is not always present and may be 0 even when
+   * the component fees are non-zero.
+   */
+  totalPostageFee?: number | string;
 }
 
 interface CjFreightResponse {
@@ -36,6 +56,31 @@ function isWithinWindow(range: [number, number], windowMin: number, windowMax: n
   return min <= windowMax && max >= windowMin;
 }
 
+/**
+ * Computes the all-in price for a CJ freight method.
+ *
+ * CJ's freightCalculate response may split the cost into:
+ *   logisticPrice          — base carrier freight charge
+ *   taxesFee               — import/customs fee (EU destinations etc.)
+ *   clearanceOperationFee  — customs handling surcharge
+ *
+ * We sum all three (defaulting missing/null/non-numeric fields to 0) so
+ * that comparisons and the final stored value reflect what CJ will actually
+ * invoice, not just the base freight rate.
+ *
+ * Every field is run through parseFloat() to guard against the API
+ * occasionally returning numeric strings instead of numbers.
+ */
+function computeTotalPrice(m: CjFreightMethod): number {
+  const base = parseFloat(String(m.logisticPrice)) || 0;
+  const taxes = parseFloat(String(m.taxesFee ?? 0)) || 0;
+  const clearance = parseFloat(String(m.clearanceOperationFee ?? 0)) || 0;
+  const total = base + taxes + clearance;
+  // Round to 2 decimal places, then convert back to a number so downstream
+  // comparisons stay in the numeric domain (never NaN, never a string).
+  return Number(total.toFixed(2));
+}
+
 export interface FreightQuote {
   price: number;
   methodName: string;
@@ -58,12 +103,13 @@ function isPremiumCarrier(name: string): boolean {
 /**
  * Calls CJ's freight calculator (POST /v1/logistic/freightCalculate) for
  * one destination country and returns the cheapest standard (non-premium)
- * method whose quoted shipping time falls in the WINDOW_MIN_DAYS-WINDOW_MAX_DAYS
- * window. Premium carriers (DHL, FedEx, UPS, EMS) are excluded unless
- * they are the only options in the window. Returns null when CJ has no
- * method in that window for this country — that country is then excluded
- * entirely from the calculation, never substituted with an out-of-window
- * (e.g. express) method.
+ * method whose quoted shipping time falls in the WINDOW_MIN_DAYS–WINDOW_MAX_DAYS
+ * window. The returned `price` is the all-in cost (base + taxes + clearance
+ * fee) rounded to 2 decimal places.
+ *
+ * Premium carriers (DHL, FedEx, UPS, EMS) are excluded unless they are the
+ * only options in the window. Returns null when CJ has no method in that
+ * window for this country.
  */
 export async function getFreightQuote(params: {
   vid: string;
@@ -82,23 +128,26 @@ export async function getFreightQuote(params: {
 
   const body = (await res.json()) as CjFreightResponse;
 
-  // TEMPORARY — verifying the 7-10 day window + no-fallback fix live
-  // against a concrete example (Germany) before removing this.
+  // TEMPORARY — verifying price parsing live against a concrete example (DE).
   if (params.endCountryCode === "DE") {
     console.error(`CJ freight debug (DE): raw response=${JSON.stringify(body)}`);
   }
 
   if (!res.ok || body.code !== 200 || !Array.isArray(body.data)) {
-    throw new Error(`CJ freightCalculate failed (HTTP ${res.status}, CJ code ${body.code}): ${body.message ?? res.statusText}`);
+    throw new Error(
+      `CJ freightCalculate failed (HTTP ${res.status}, CJ code ${body.code}): ${body.message ?? res.statusText}`
+    );
   }
 
   if (body.data.length === 0) return null;
 
   const inWindow = body.data
-    .map((m) => ({ method: m, range: parseAgingDays(m.logisticAging) }))
+    .map((m) => ({ method: m, range: parseAgingDays(m.logisticAging), total: computeTotalPrice(m) }))
     .filter(
-      (m): m is { method: CjFreightMethod; range: [number, number] } =>
-        m.range !== null && isWithinWindow(m.range, WINDOW_MIN_DAYS, WINDOW_MAX_DAYS)
+      (m): m is { method: CjFreightMethod; range: [number, number]; total: number } =>
+        m.range !== null &&
+        isWithinWindow(m.range, WINDOW_MIN_DAYS, WINDOW_MAX_DAYS) &&
+        !isNaN(m.total)
     );
 
   if (inWindow.length === 0) return null;
@@ -108,13 +157,11 @@ export async function getFreightQuote(params: {
   const standard = inWindow.filter((m) => !isPremiumCarrier(m.method.logisticName));
   const pool = standard.length > 0 ? standard : inWindow;
 
-  // Pick the cheapest method from the selected pool (ascending by price).
-  const cheapest = pool.reduce((a, b) =>
-    b.method.logisticPrice < a.method.logisticPrice ? b : a
-  );
+  // Pick the cheapest all-in method from the selected pool.
+  const cheapest = pool.reduce((a, b) => (b.total < a.total ? b : a));
 
   return {
-    price: cheapest.method.logisticPrice,
+    price: cheapest.total,
     methodName: cheapest.method.logisticName,
     aging: cheapest.method.logisticAging,
   };
