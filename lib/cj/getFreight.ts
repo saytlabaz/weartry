@@ -1,7 +1,7 @@
 import { cjFetch } from "./auth";
 
-const WINDOW_MIN_DAYS = 7;
-const WINDOW_MAX_DAYS = 15;
+/** Only methods whose maximum delivery day is at or below this value are accepted. */
+const MAX_DELIVERY_DAYS = 15;
 
 /**
  * Raw shape of one freight method returned by CJ's freightCalculate endpoint.
@@ -50,10 +50,13 @@ function parseAgingDays(aging: string): [number, number] | null {
   return [Number(match[1]), Number(match[2])];
 }
 
-/** True when a [min, max] shipping-time range falls inside the target day window (any overlap counts). */
-function isWithinWindow(range: [number, number], windowMin: number, windowMax: number): boolean {
-  const [min, max] = range;
-  return min <= windowMax && max >= windowMin;
+/**
+ * Returns true when the maximum day of the delivery range is ≤ maxDays.
+ * This enforces the strict "≤ 15 gün" rule: a method advertised as
+ * "8-20 days" is excluded even though its minimum is within range.
+ */
+function isWithinMaxDays(range: [number, number], maxDays: number): boolean {
+  return range[1] <= maxDays;
 }
 
 /**
@@ -89,8 +92,7 @@ export interface FreightQuote {
 
 /**
  * Premium carrier keywords that are excluded from selection unless they
- * are the only option available in the target day window. Matching is
- * case-insensitive against logisticName.
+ * are the only option within the day limit. Matching is case-insensitive.
  */
 const PREMIUM_CARRIERS = ["dhl", "fedex", "ups", "ems"];
 
@@ -103,13 +105,13 @@ function isPremiumCarrier(name: string): boolean {
 /**
  * Calls CJ's freight calculator (POST /v1/logistic/freightCalculate) for
  * one destination country and returns the cheapest standard (non-premium)
- * method whose quoted shipping time falls in the WINDOW_MIN_DAYS–WINDOW_MAX_DAYS
- * window. The returned `price` is the all-in cost (base + taxes + clearance
- * fee) rounded to 2 decimal places.
+ * method whose maximum quoted delivery day is ≤ MAX_DELIVERY_DAYS (15).
+ * The returned `price` is the all-in cost (base + taxesFee +
+ * clearanceOperationFee) rounded to 2 decimal places.
  *
  * Premium carriers (DHL, FedEx, UPS, EMS) are excluded unless they are the
- * only options in the window. Returns null when CJ has no method in that
- * window for this country.
+ * only options that satisfy the day limit. Returns null when CJ has no
+ * eligible method for this country.
  */
 export async function getFreightQuote(params: {
   vid: string;
@@ -141,23 +143,25 @@ export async function getFreightQuote(params: {
 
   if (body.data.length === 0) return null;
 
-  const inWindow = body.data
+  const eligible = body.data
     .map((m) => ({ method: m, range: parseAgingDays(m.logisticAging), total: computeTotalPrice(m) }))
     .filter(
       (m): m is { method: CjFreightMethod; range: [number, number]; total: number } =>
+        // range must parse, max delivery day must be ≤ 15, and total must be a valid positive number
         m.range !== null &&
-        isWithinWindow(m.range, WINDOW_MIN_DAYS, WINDOW_MAX_DAYS) &&
-        !isNaN(m.total)
+        isWithinMaxDays(m.range, MAX_DELIVERY_DAYS) &&
+        !isNaN(m.total) &&
+        m.total > 0
     );
 
-  if (inWindow.length === 0) return null;
+  if (eligible.length === 0) return null;
 
   // Prefer standard (non-premium) carriers; fall back to premium-only pool
-  // if no standard option is available in the window.
-  const standard = inWindow.filter((m) => !isPremiumCarrier(m.method.logisticName));
-  const pool = standard.length > 0 ? standard : inWindow;
+  // if no standard option is available within the day limit.
+  const standard = eligible.filter((m) => !isPremiumCarrier(m.method.logisticName));
+  const pool = standard.length > 0 ? standard : eligible;
 
-  // Pick the cheapest all-in method from the selected pool.
+  // Addım A: pick the cheapest all-in method from the selected pool (per-country minimum).
   const cheapest = pool.reduce((a, b) => (b.total < a.total ? b : a));
 
   return {

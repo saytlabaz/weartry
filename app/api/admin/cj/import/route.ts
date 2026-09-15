@@ -5,6 +5,12 @@ import { prisma } from "@/lib/prisma";
 import { Prisma } from "@/lib/generated/prisma/client";
 import { sanitizeCjDescription } from "@/lib/cj/sanitizeDescription";
 import { reuploadCjImages } from "@/lib/cj/reuploadImages";
+import { getMaxShippingCost } from "@/lib/cj/getMaxShippingCost";
+
+// The import flow now includes the ~10s Max-of-Mins shipping sweep
+// (29 countries × parallel chunks) — declare maxDuration so Vercel
+// doesn't cut it off at the default 10-15 s limit.
+export const maxDuration = 60;
 
 interface ImportVariantInput {
   vid: string;
@@ -88,6 +94,33 @@ export async function POST(req: NextRequest) {
 
   const images = await reuploadCjImages(Array.isArray(body.images) ? body.images : []);
 
+  // ─── 1-dəfəlik Çatdırılma Qiyməti Hesablanması ──────────────────────────
+  // Əgər admin artıq "Çatdırılma Qiymətini Hesabla" düyməsini sıxıbsa,
+  // gələn dəyəri istifadə edirik. Sıxmayıbsa — birinci variantın vid-ini
+  // götürüb Max-of-Mins alqoritmini burada 1 dəfə işlədirik və nəticəni
+  // bazaya yazırıq. Beləcə qiymət hər səhifə açılanda dəyişmir.
+  let finalShippingCost: number | null = body.maxShippingCost ?? null;
+  let finalShippingCountry: string | null = body.maxShippingCountry ?? null;
+
+  if (finalShippingCost == null) {
+    const firstVid = body.variants.find((v) => v.vid)?.vid;
+    if (firstVid) {
+      try {
+        const shippingResult = await getMaxShippingCost({ vid: firstVid, quantity: 1 });
+        finalShippingCost = shippingResult.cost;
+        finalShippingCountry = shippingResult.countryCode;
+        console.log(
+          `[import] Auto-calculated shipping: $${finalShippingCost} via ${shippingResult.methodName} (${finalShippingCountry})`
+        );
+      } catch (shippingErr) {
+        // Çatdırılma hesablaması uğursuz olsa da məhsul yaradılır —
+        // admin sonradan admin panelindən hesablatdıra bilər.
+        console.error("[import] Auto shipping cost calculation failed:", shippingErr);
+      }
+    }
+  }
+  // ────────────────────────────────────────────────────────────────────────
+
   try {
     const product = await prisma.product.create({
       data: {
@@ -102,8 +135,8 @@ export async function POST(req: NextRequest) {
         stock: totalStock,
         cjProductId: body.cjProductId,
         cjMaxShippingCost:
-          body.maxShippingCost != null ? new Prisma.Decimal(body.maxShippingCost.toFixed(2)) : null,
-        cjMaxShippingCountry: body.maxShippingCountry ?? null,
+          finalShippingCost != null ? new Prisma.Decimal(finalShippingCost.toFixed(2)) : null,
+        cjMaxShippingCountry: finalShippingCountry ?? null,
         isActive: true,
         isFeatured: false,
         variants: { create: variants },
