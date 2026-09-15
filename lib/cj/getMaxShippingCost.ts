@@ -23,44 +23,60 @@ export interface MaxShippingResult {
 }
 
 /**
- * Queries CJ's freight calculator for every supported market (i18n/markets.ts
- * — the 27 EU states + UK + US) one at a time, spaced out to stay under
- * CJ's rate limit, and returns the single cheapest standard (non-premium)
- * quote across all countries that had a method in the target window
- * (see getFreight.ts for the exact day range and the premium-carrier
- * exclusion logic). Takes ~30-35s for the full 29-country sweep.
- * Throws only when literally no supported country has a matching method at
- * all — that's a real "can't produce this reference number" case, not
- * something to paper over with an unrelated express-shipping price.
+ * "Max of Mins" algorithm — returns the worst-case standard shipping cost
+ * across all target markets (27 EU states + UK + US from i18n/markets.ts).
  *
- * The function is intentionally kept as `getMaxShippingCost` (and the
- * result type as `MaxShippingResult`) so that all existing call-sites and
- * the DB column (`cjMaxShippingCost`) continue to compile without changes.
+ * For each target country (Addım A):
+ *   - getFreightQuote() calls CJ's freight calculator and returns the
+ *     CHEAPEST non-premium method whose delivery window falls within the
+ *     acceptable range (premium carriers such as DHL, FedEx, UPS, EMS are
+ *     excluded unless they are the only option). This is the per-country
+ *     minimum.
+ *
+ * Across all countries (Addım B):
+ *   - We take the MAXIMUM of those per-country minimums. This gives the
+ *     single price that would cover standard shipping to every supported
+ *     market, without being inflated by express carrier quotes.
+ *
+ * The result is stored in `cjMaxShippingCost` / `cjMaxShippingCountry`
+ * on the Product row (see prisma/schema.prisma) — a pricing reference only;
+ * nothing reads it to directly charge customers.
+ *
+ * Function name and return type are kept unchanged so all existing
+ * call-sites and the DB column continue to compile without modification.
  */
 export async function getMaxShippingCost(params: { vid: string; quantity?: number }): Promise<MaxShippingResult> {
   const quantity = params.quantity ?? 1;
+
+  // Target markets: all EU members + GB + US — derived from the existing
+  // euMember flag in i18n/markets.ts; no new configuration needed.
+  const targetMarkets = markets.filter((m) => m.euMember || m.code === "GB" || m.code === "US");
+
+  // best = the highest per-country minimum seen so far (Addım B accumulator).
   let best: { cost: number; countryCode: string; methodName: string; aging: string } | null = null;
   const skipped: { countryCode: string; reason: string }[] = [];
 
-  for (let i = 0; i < markets.length; i++) {
-    const market = markets[i];
+  for (let i = 0; i < targetMarkets.length; i++) {
+    const market = targetMarkets[i];
     try {
+      // Addım A: getFreightQuote already returns the cheapest non-premium
+      // method in the acceptable day window for this country.
       const quote = await getFreightQuote({ vid: params.vid, endCountryCode: market.code, quantity });
       if (!quote) {
         skipped.push({ countryCode: market.code, reason: "no_method_in_window" });
-      } else if (!best || quote.price < best.cost) {
-        // Track the cheapest quote seen so far (was: most expensive).
+      } else if (!best || quote.price > best.cost) {
+        // Addım B: keep the highest of the per-country minimums.
         best = { cost: quote.price, countryCode: market.code, methodName: quote.methodName, aging: quote.aging };
       }
     } catch (err) {
       skipped.push({ countryCode: market.code, reason: err instanceof Error ? err.message : "unknown_error" });
     }
 
-    if (i < markets.length - 1) await sleep(CJ_RATE_LIMIT_SPACING_MS);
+    if (i < targetMarkets.length - 1) await sleep(CJ_RATE_LIMIT_SPACING_MS);
   }
 
   if (!best) {
-    throw new Error("CJ has no shipping method in the target day window for any supported country for this variant");
+    throw new Error("CJ has no standard shipping method in the target day window for any supported market (EU + GB + US)");
   }
 
   const countryName = markets.find((m) => m.code === best!.countryCode)?.name ?? best.countryCode;
